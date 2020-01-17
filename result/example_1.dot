@@ -1,0 +1,1114 @@
+digraph G {
+fontname = "Bitstream Vera Sans"
+fontsize = 8
+node [ 
+fontname = "Bitstream Vera Sans"
+fontsize = 8
+shape = "record"
+]
+edge [ 
+fontname = "Bitstream Vera Sans"
+fontsize = 8
+]
+
+
+R18:The OPENCOSS platform shall create the evidence repository of an assurance project from its evidence characterization model.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence [ label = "{evidence : \l}"]
+OPENCOSS_platform -> evidence  [arrowhead = "none", label = " create  "]
+LP
+
+
+R33:The OPENCOSS platform shall provide users with the ability to specify evidence traceability links between evidence-items of an assurance project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R69:The OPENCOSS platform shall show the actions required in an assurance project as a result of evidence evaluation.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+action [ label = "{action : \l}"]
+OPENCOSS_platform -> action  [arrowhead = "none", label = " show  "]
+LP
+
+
+R103:When an evidence-item of an assurance project contains information imported from an external tool, and the information in the external tool is modified, the OPENCOSS platform shall indicate such a modification by colouring the evidence-item in red.
+external_tool [ label = "{external tool : \l}"]
+tool [ label = "{tool : \l}"]
+external_tool -> tool  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+modification [ label = "{modification : \l}"]
+OPENCOSS_platform -> modification  [arrowhead = "none", label = " indicate  "]
+LP
+information [ label = "{information |+ modified : \l}"]
+D4
+evidence-item [ label = "{evidence-item : \l}"]
+information [ label = "{information : \l}"]
+evidence-item -> information  [arrowhead = "none", label = " contains  "]
+LP
+
+
+R74:When an evidence-item is changed in an assurance project, the OPENCOSS platform shall indicate the evidence-items of the assurance project affected by the change.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence-item [ label = "{evidence-item : \l}"]
+OPENCOSS_platform -> evidence-item  [arrowhead = "none", label = " indicate  "]
+LP
+evidence-item [ label = "{evidence-item |+ When changed : \l}"]
+D4
+
+
+R57:The OPENCOSS platform shall provide users with the ability to define criteria for evaluation of evidence-items of an assurance project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R68:The OPENCOSS platform shall record if the status of an action required in an assurance project as a result of evidence evaluation is "pending" or "addressed".
+OPENCOSS_platform [ label = "{OPENCOSS platform |+ record : \l}"]
+D4
+status [ label = "{status |+ pending : \l}"]
+D4
+
+
+R70:The OPENCOSS platform shall provide users with the ability to indicate if an action required in an assurance project as a result of evidence evaluation has been addressed.
+action [ label = "{action |+ addressed : \l}"]
+D4
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R71:When the status of an action required in an assurance project as a result of evidence evaluation is "pending", the OPENCOSS platform shall colour such an action in red.
+status [ label = "{status |+ When pending : \l}"]
+D4
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+action [ label = "{action : \l}"]
+OPENCOSS_platform -> action  [arrowhead = "none", label = " colour  "]
+LP
+
+
+R4:The OPENCOSS platform shall store the characteristics of the evidence-items of an assurance project according to the CCL.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+characteristic [ label = "{characteristic : \l}"]
+OPENCOSS_platform -> characteristic  [arrowhead = "none", label = " store  "]
+LP
+
+
+R10:The OPENCOSS platform shall provide users with the ability to associate evidence-items of an assurance project with an artefact that has been used in another project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R16:The OPENCOSS platform shall provide users with the ability to copy evidence-items to an assurance project that previously have been stored in another assurance project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R25:The OPENCOSS platform shall provide users with the ability to drop intermediate nodes in the tree-view for display of the evidence-items of an assurance project.
+intermediate_node [ label = "{intermediate node : \l}"]
+node [ label = "{node : \l}"]
+intermediate_node -> node  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R75:When an evidence-item is modified in an assurance project, the OPENCOSS platform shall indicate the evidence traceability links of the assurance project affected by the modification.
+evidence-item [ label = "{evidence-item |+ When modified : \l}"]
+D4
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+traceability_link [ label = "{traceability link : \l}"]
+OPENCOSS_platform -> traceability_link  [arrowhead = "none", label = " indicate  "]
+LP
+
+
+R80:The OPENCOSS platform shall provide users with the ability to indicate the evidence traceability links associated to actions required in the body of evidence of an assurance project as a result of an evidence-item change.
+traceability_link [ label = "{traceability link |+ associated : \l}"]
+D4
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+evidence-item_change [ label = "{evidence-item change : \l}"]
+change [ label = "{change : \l}"]
+evidence-item_change -> change  [arrowhead = "empty"]
+D3
+
+
+R96:The OPENCOSS shall be able to import evidence for an assurance project from SAEM models.
+OPENCOSS [ label = "{OPENCOSS : \l}"]
+evidence [ label = "{evidence : \l}"]
+OPENCOSS -> evidence  [arrowhead = "none", label = " able to import  "]
+LP
+
+
+R50:When showing evidence traceability by means of tables, the OPENCOSS platform shall require that the users indicate the evidence types to include in the table.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence_type [ label = "{evidence type : \l}"]
+OPENCOSS_platform -> evidence_type  [arrowhead = "none", label = " require that the users indicate  "]
+LP
+
+
+R51:The OPENCOSS platform will include a column in a table for traceability visualization for each evidence type to include in the table indicated by users.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+column [ label = "{column : \l}"]
+OPENCOSS_platform -> column  [arrowhead = "none", label = " include  "]
+LP
+
+
+R95:The OPENCOSS platform shall be able to export evidence traceability links of an assurance project to external tools.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence_traceability_link [ label = "{evidence traceability link : \l}"]
+OPENCOSS_platform -> evidence_traceability_link  [arrowhead = "none", label = " able to export  "]
+LP
+external_tool [ label = "{external tool : \l}"]
+tool [ label = "{tool : \l}"]
+external_tool -> tool  [arrowhead = "empty"]
+D3
+
+
+R105:When an evidence traceability link of an assurance project contains information imported from an external tool, and the information in the OPENCOSS platform is modified, the OPENCOSS platform shall detect such a modification and update the information in the external tool accordingly.
+evidence_traceability_link [ label = "{evidence traceability link : \l}"]
+information [ label = "{information : \l}"]
+evidence_traceability_link -> information  [arrowhead = "none", label = " contains  "]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+modification [ label = "{modification : \l}"]
+OPENCOSS_platform -> modification  [arrowhead = "none", label = " detect  "]
+LP
+external_tool [ label = "{external tool : \l}"]
+tool [ label = "{tool : \l}"]
+external_tool -> tool  [arrowhead = "empty"]
+D3
+information [ label = "{information |+ modified : \l}"]
+D4
+
+
+R64:The OPENCOSS platform shall provide users with the ability to specify actions required in the body of evidence of an assurance project as a result of evidence evaluation.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R89:The OPENCOSS platform shall provide users with the ability to import evidence-items for an assurance project from artefacts in an external tool.
+external_tool [ label = "{external tool : \l}"]
+tool [ label = "{tool : \l}"]
+external_tool -> tool  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R29:When an evidence characterization model has been selected for an assurance project, the evidence-items of the project are associated to evidence types, and the evidence types have been used for definition of intermediate nodes of the tree-view for display of the evidence-items of the project, the OPENCOSS platform shall automatically include the evidence-items of the project in the tree-view nodes of their associated evidence types.
+evidence_characterization_model [ label = "{evidence characterization model |+ When selected : \l}"]
+D4
+intermediate_node [ label = "{intermediate node : \l}"]
+node [ label = "{node : \l}"]
+intermediate_node -> node  [arrowhead = "empty"]
+D3
+tree-view_node [ label = "{tree-view node : \l}"]
+node [ label = "{node : \l}"]
+tree-view_node -> node  [arrowhead = "empty"]
+D3
+evidence_type [ label = "{evidence type |+ used : \l}"]
+D4
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence-item [ label = "{evidence-item : \l}"]
+OPENCOSS_platform -> evidence-item  [arrowhead = "none", label = " include  "]
+LP
+evidence-item [ label = "{evidence-item |+ associated : \l}"]
+D4
+
+
+R72:When all the evidence-items to provide in an assurance project has been provided according to the evidence characterization model of the project, the OPENCOSS platform shall indicate that the body of evidence of an assurance project can be regarded as complete.
+OPENCOSS_platform [ label = "{OPENCOSS platform |+ indicate that the body of evidence of an assurance project can be regarded : \l}"]
+D4
+evidence-item [ label = "{evidence-item |+ When provided : \l}"]
+D4
+
+
+R13:When an evidence-item is dropped from an assurance project, the OPENCOSS platform shall drop all the evidence information (types and characteristics) related to the evidence-item from the project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence_information [ label = "{evidence information : \l}"]
+OPENCOSS_platform -> evidence_information  [arrowhead = "none", label = " drop  "]
+LP
+evidence-item [ label = "{evidence-item |+ When dropped : \l}"]
+D4
+
+
+R82:The OPENCOSS platform shall provide users with the ability to send emails containing information about actions to perform in an assurance project as a result of evidence-item changes.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R91:The OPENCOSS platform shall be able to automatically indicate the tool that stores the artefact associated to an evidence-item of an assurance project imported from external tool.
+external_tool [ label = "{external tool : \l}"]
+tool [ label = "{tool : \l}"]
+external_tool -> tool  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+tool [ label = "{tool : \l}"]
+OPENCOSS_platform -> tool  [arrowhead = "none", label = " able to automatically indicate  "]
+LP
+that [ label = "{that : \l}"]
+artefact [ label = "{artefact : \l}"]
+that -> artefact  [arrowhead = "none", label = " stores  "]
+LP
+
+
+R41:When an evidence characterization model has been selected for an assurance project and specifying evidence traceability links for an evidence-item of the project, the OPENCOSS platform shall show possible evidence-items with which evidence traceability links might be specified according to the model.
+evidence_characterization_model [ label = "{evidence characterization model |+ When selected : \l}"]
+D4
+evidence_traceability_link [ label = "{evidence traceability link |+ specified : \l}"]
+D4
+possible_evidence-item [ label = "{possible evidence-item : \l}"]
+evidence-item [ label = "{evidence-item : \l}"]
+possible_evidence-item -> evidence-item  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+possible_evidence-item [ label = "{possible evidence-item : \l}"]
+OPENCOSS_platform -> possible_evidence-item  [arrowhead = "none", label = " show  "]
+LP
+
+
+R85:The OPENCOSS platform shall provide users with the ability to indicate if an action required in an assurance project as a result of the change of an evidence-item has been addressed.
+action [ label = "{action |+ addressed : \l}"]
+D4
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R36:The OPENCOSS platform shall provide users with the ability to reuse in an assurance project evidence traceability link types defined in another project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R93:The OPENCOSS platform shall be able to automatically associate an artefact to an evidence traceability link of an assurance project imported from an external tool.
+external_tool [ label = "{external tool : \l}"]
+tool [ label = "{tool : \l}"]
+external_tool -> tool  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+artefact [ label = "{artefact : \l}"]
+OPENCOSS_platform -> artefact  [arrowhead = "none", label = " able to automatically associate  "]
+LP
+
+
+R60:The OPENCOSS platform shall provide users with the ability to define evaluation categories for evaluation criteria of evidence-items of an assurance project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R59:The OPENCOSS platform shall provide users with the ability to evaluate evidence-items of an assurance project according to evaluation criteria defined in other projects.
+other_project [ label = "{other project : \l}"]
+project [ label = "{project : \l}"]
+other_project -> project  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R19:The OPENCOSS platform shall provide users with the ability to indicate whether the specification of characteristics for an evidence-item of an assurance project is regarded as complete.
+specification [ label = "{specification |+ indicate whether the specification of characteristics for an evidence-item of an assurance project is regarded : \l}"]
+D4
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R77:When a user has indicated a possible change in an evidence-item of an assurance project, the OPENCOSS platform shall indicate the evidence-items of the assurance project that would be affected by the change.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence-item [ label = "{evidence-item : \l}"]
+OPENCOSS_platform -> evidence-item  [arrowhead = "none", label = " indicate  "]
+LP
+user [ label = "{user : \l}"]
+possible_change [ label = "{possible change : \l}"]
+user -> possible_change  [arrowhead = "none", label = " indicated  "]
+LP
+possible_change [ label = "{possible change : \l}"]
+change [ label = "{change : \l}"]
+possible_change -> change  [arrowhead = "empty"]
+D3
+
+
+R106:When an evidence traceability link of an assurance project contains information imported from an external tool, and the information in the OPENCOSS platform is modified, the OPENCOSS platform shall indicate such a modification.
+evidence_traceability_link [ label = "{evidence traceability link : \l}"]
+information [ label = "{information : \l}"]
+evidence_traceability_link -> information  [arrowhead = "none", label = " contains  "]
+LP
+external_tool [ label = "{external tool : \l}"]
+tool [ label = "{tool : \l}"]
+external_tool -> tool  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+modification [ label = "{modification : \l}"]
+OPENCOSS_platform -> modification  [arrowhead = "none", label = " indicate  "]
+LP
+information [ label = "{information |+ modified : \l}"]
+D4
+
+
+R22:The OPENCOSS platform shall show the set of evidence-items of an assurance projects by means of a tree-view.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+set [ label = "{set : \l}"]
+OPENCOSS_platform -> set  [arrowhead = "none", label = " show  "]
+LP
+
+
+R63:The OPENCOSS platform shall provide users with the ability to modify the evaluation of the evidence-items of an assurance project, tracking the history of the changes.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R99:When an evidence-item of an assurance project contains information imported from an external tool, and the information in the OPENCOSS platform is modified, the OPENCOSS platform shall detect such a modification and update the information in the external tool accordingly.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+modification [ label = "{modification : \l}"]
+OPENCOSS_platform -> modification  [arrowhead = "none", label = " detect  "]
+LP
+external_tool [ label = "{external tool : \l}"]
+tool [ label = "{tool : \l}"]
+external_tool -> tool  [arrowhead = "empty"]
+D3
+information [ label = "{information |+ modified : \l}"]
+D4
+evidence-item [ label = "{evidence-item : \l}"]
+information [ label = "{information : \l}"]
+evidence-item -> information  [arrowhead = "none", label = " contains  "]
+LP
+
+
+R17:The OPENCOSS platform shall store the time and date of the actions performed to the evidence-items of an assurance project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+time_and_date [ label = "{time and date : \l}"]
+OPENCOSS_platform -> time_and_date  [arrowhead = "none", label = " store  "]
+LP
+
+
+R92:The OPENCOSS platform shall provide users with the ability to import evidence traceability links for an assurance project from an external tool.
+external_tool [ label = "{external tool : \l}"]
+tool [ label = "{tool : \l}"]
+external_tool -> tool  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R15:The OPENCOSS platform shall provide users with the ability to modify the information of the evidence-items of an assurance project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R98:When an evidence-item of an assurance project contains information imported from an external tool artefact, and the information in the external tool is modified, the OPENCOSS platform shall detect such a modification and update the evidence-item accordingly.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+modification [ label = "{modification : \l}"]
+OPENCOSS_platform -> modification  [arrowhead = "none", label = " detect  "]
+LP
+external_tool_artefact [ label = "{external tool artefact : \l}"]
+tool_artefact [ label = "{tool artefact : \l}"]
+external_tool_artefact -> tool_artefact  [arrowhead = "empty"]
+D3
+external_tool [ label = "{external tool : \l}"]
+tool [ label = "{tool : \l}"]
+external_tool -> tool  [arrowhead = "empty"]
+D3
+information [ label = "{information |+ modified : \l}"]
+D4
+evidence-item [ label = "{evidence-item : \l}"]
+information [ label = "{information : \l}"]
+evidence-item -> information  [arrowhead = "none", label = " contains  "]
+LP
+
+
+R58:The OPENCOSS platform shall provide users with the ability to modify criteria for evaluation of evidence-items of an assurance project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R32:The OPENCOSS platform shall provide users with the ability to indicate the information to be included in the reports about the body of evidence of an assurance project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R30:The OPENCOSS platform shall be able to generate reports about the body of evidence of an assurance project in the form of HTML files.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+report [ label = "{report : \l}"]
+OPENCOSS_platform -> report  [arrowhead = "none", label = " able to generate  "]
+LP
+
+
+R87:When an evidence-item of an assurance project has been affected by evidence-item changes, the OPENCOSS platform shall colour such an evidence-item in red.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence-item [ label = "{evidence-item : \l}"]
+OPENCOSS_platform -> evidence-item  [arrowhead = "none", label = " colour  "]
+LP
+evidence-item [ label = "{evidence-item |+ When affected : \l}"]
+D4
+
+
+R1:The OPENCOSS platform shall provide the users with the ability to indicate the evidence-items that will have to be provided for an assurance project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+that [ label = "{that |+ have to be provided : \l}"]
+D4
+
+
+R52:The OPENCOSS platform shall provide users with the ability to specify evidence traceability links in traceability tables.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R86:When the status of an action required in an assurance project as a result of evidence-item changes is "pending", the OPENCOSS platform shall colour such an action in red.
+status [ label = "{status |+ When pending : \l}"]
+D4
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+action [ label = "{action : \l}"]
+OPENCOSS_platform -> action  [arrowhead = "none", label = " colour  "]
+LP
+
+
+R81:The OPENCOSS platform shall suggests actions to perform after modification of an evidence-item of an assurance project is approved.
+OPENCOSS_platform [ label = "{OPENCOSS platform |+ suggests actions to perform after modification of an evidence-item of an assurance project is approved : \l}"]
+D4
+
+
+R46:When using matrices to show evidence traceability links between the evidence-items of an assurance project, the OPENCOSS platform shall provide users with the ability to select the source and the target evidence types of the evidence traceability links used for another matrix.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence_type [ label = "{evidence type : \l}"]
+OPENCOSS_platform -> evidence_type  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R73:When the body of evidence of an assurance project is regarded as complete, all the evidence traceability links of the project are correct, there are no pending actions in the project, and the information imported from external tools in the project is synchronized, the OPENCOSS platform shall indicate that the body of evidence of an assurance project can be regarded as adequate.
+evidence [ label = "{evidence |+ correct, there are : \l}"]
+D4
+OPENCOSS_platform [ label = "{OPENCOSS platform |+ indicate that the body of evidence of an assurance project can be regarded : \l}"]
+D4
+body [ label = "{body |+ When regarded : \l}"]
+D4
+external_tool [ label = "{external tool : \l}"]
+tool [ label = "{tool : \l}"]
+external_tool -> tool  [arrowhead = "empty"]
+D3
+information [ label = "{information |+ synchronized : \l}"]
+D4
+
+
+R88:When an evidence traceability link of an assurance project has been affected by evidence-item changes, the OPENCOSS platform shall colour such a link in red.
+evidence_traceability_link [ label = "{evidence traceability link |+ When affected : \l}"]
+D4
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+link [ label = "{link : \l}"]
+OPENCOSS_platform -> link  [arrowhead = "none", label = " colour  "]
+LP
+
+
+R42:The OPENCOSS platform shall provide users with the ability to drop evidence traceability links of an assurance project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R35:The OPENCOSS platform shall provide users with the ability to define evidence traceability link types for an assurance project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R66:The OPENCOSS platform shall provide users with the ability to indicate the evidence-items associated to actions required in the body of evidence of an assurance project as a result of an evidence evaluation.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R56:When an evidence-item of an assurance project is related to other evidence-items of the project by means of evidence traceability links, the OPENCOSS platform shall inform the user that the evaluation of the evidence-item might depend on the evaluation of the others.
+evidence-item [ label = "{evidence-item |+ When related : \l}"]
+D4
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " inform the user that the evaluation of the evidence-item might depend  "]
+LP
+other_evidence-item [ label = "{other evidence-item : \l}"]
+evidence-item [ label = "{evidence-item : \l}"]
+other_evidence-item -> evidence-item  [arrowhead = "empty"]
+D3
+
+
+R67:When an evidence-item of an assurance project has been associated to actions to perform as a result of evidence evaluation, the OPENCOSS platform shall colour such an evidence-item in red.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence-item [ label = "{evidence-item : \l}"]
+OPENCOSS_platform -> evidence-item  [arrowhead = "none", label = " colour  "]
+LP
+evidence-item [ label = "{evidence-item |+ When associated : \l}"]
+D4
+
+
+R97:The OPENCOSS platform shall be able to export the evidence of an assurance project in the form of a SAEM models.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence [ label = "{evidence : \l}"]
+OPENCOSS_platform -> evidence  [arrowhead = "none", label = " able to export  "]
+LP
+
+
+R108:When an evidence traceability link of an assurance project contains information imported from an external tool, and the information in the OPENCOSS platform is modified, the OPENCOSS platform shall indicate such a modification by colouring the evidence traceability link in red.
+evidence_traceability_link [ label = "{evidence traceability link : \l}"]
+information [ label = "{information : \l}"]
+evidence_traceability_link -> information  [arrowhead = "none", label = " contains  "]
+LP
+external_tool [ label = "{external tool : \l}"]
+tool [ label = "{tool : \l}"]
+external_tool -> tool  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+modification [ label = "{modification : \l}"]
+OPENCOSS_platform -> modification  [arrowhead = "none", label = " indicate  "]
+LP
+information [ label = "{information |+ modified : \l}"]
+D4
+
+
+R5:The OPENCOSS platform shall provide users with the ability to indicate the evidence type of the current evidence-items of an assurance project.
+current_evidence-item [ label = "{current evidence-item : \l}"]
+evidence-item [ label = "{evidence-item : \l}"]
+current_evidence-item -> evidence-item  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R7:The OPENCOSS platform shall provide users with the ability to indicate the artefact to which evidence-items of an assurance project is associated.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+evidence-item [ label = "{evidence-item |+ associated : \l}"]
+D4
+
+
+R102:When an evidence-item of an assurance project contains information imported from an external tool, and the information in the OPENCOSS platform is modified, the OPENCOSS platform shall indicate such a modification by colouring the evidence-item in red.
+external_tool [ label = "{external tool : \l}"]
+tool [ label = "{tool : \l}"]
+external_tool -> tool  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+modification [ label = "{modification : \l}"]
+OPENCOSS_platform -> modification  [arrowhead = "none", label = " indicate  "]
+LP
+information [ label = "{information |+ modified : \l}"]
+D4
+evidence-item [ label = "{evidence-item : \l}"]
+information [ label = "{information : \l}"]
+evidence-item -> information  [arrowhead = "none", label = " contains  "]
+LP
+
+
+R107:When an evidence traceability link of an assurance project contains information imported from an external tool, and the information in the external tool is modified, the OPENCOSS platform shall indicate such a modification.
+evidence_traceability_link [ label = "{evidence traceability link : \l}"]
+information [ label = "{information : \l}"]
+evidence_traceability_link -> information  [arrowhead = "none", label = " contains  "]
+LP
+external_tool [ label = "{external tool : \l}"]
+tool [ label = "{tool : \l}"]
+external_tool -> tool  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+modification [ label = "{modification : \l}"]
+OPENCOSS_platform -> modification  [arrowhead = "none", label = " indicate  "]
+LP
+information [ label = "{information |+ modified : \l}"]
+D4
+
+
+R27:When an evidence characterization model has been selected for an assurance project, the OPENCOSS platform shall propose intermediate nodes for the tree-view for display of the evidence-items of the project according to the evidence characterization model.
+evidence_characterization_model [ label = "{evidence characterization model |+ When selected : \l}"]
+D4
+intermediate_node [ label = "{intermediate node : \l}"]
+node [ label = "{node : \l}"]
+intermediate_node -> node  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+intermediate_node [ label = "{intermediate node : \l}"]
+OPENCOSS_platform -> intermediate_node  [arrowhead = "none", label = " propose  "]
+LP
+
+
+R21:When the specification of characteristics for an evidence-item of an assurance project is not regarded as complete, the OPENCOSS platform shall colour the evidence-item in yellow.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence-item [ label = "{evidence-item : \l}"]
+OPENCOSS_platform -> evidence-item  [arrowhead = "none", label = " colour  "]
+LP
+specification [ label = "{specification |+ When regarded : \l}"]
+D4
+
+
+R45:When an evidence characterization model has been selected for an assurance project, the OPENCOSS platform shall indicate the required missing links according to the model.
+evidence_characterization_model [ label = "{evidence characterization model |+ When selected : \l}"]
+D4
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+required_missing_link [ label = "{required missing link : \l}"]
+OPENCOSS_platform -> required_missing_link  [arrowhead = "none", label = " indicate  "]
+LP
+
+
+R39:When an evidence characterization model has been selected for an assurance project and specifying an evidence traceability link for an evidence-item of the project, the OPENCOSS platform shall indicate if the evidence traceability link is correct according to the model.
+evidence_characterization_model [ label = "{evidence characterization model |+ When selected : \l}"]
+D4
+OPENCOSS_platform [ label = "{OPENCOSS platform |+ indicate : \l}"]
+D4
+evidence_traceability_link [ label = "{evidence traceability link |+ correct : \l}"]
+D4
+
+
+R49:The OPENCOSS platform shall provide users with the ability to define tables to show traceability between the evidence-items of an assurance project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R55:The OPENCOSS platform shall provide users with the ability to specify the rationale behind the evaluation of an evidence-item of an assurance project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R65:The OPENCOSS platform shall provide users with the ability to send emails containing information about actions to perform in an assurance project as a result of evidence evaluation.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R14:When an evidence-item is dropped from an assurance project and its associated artefact is not associated with other evidence-items, the OPENCOSS platform shall drop the artefact from the project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+artefact [ label = "{artefact : \l}"]
+OPENCOSS_platform -> artefact  [arrowhead = "none", label = " drop  "]
+LP
+associated_artefact [ label = "{associated artefact |+ associated : \l}"]
+D4
+other_evidence-item [ label = "{other evidence-item : \l}"]
+evidence-item [ label = "{evidence-item : \l}"]
+other_evidence-item -> evidence-item  [arrowhead = "empty"]
+D3
+evidence-item [ label = "{evidence-item |+ When dropped : \l}"]
+D4
+
+
+R83:The OPENCOSS platform shall record if the status of an action required in an assurance project as a result of the change of an evidence-item is "pending" or "addressed".
+OPENCOSS_platform [ label = "{OPENCOSS platform |+ record : \l}"]
+D4
+status [ label = "{status |+ pending : \l}"]
+D4
+
+
+R47:The OPENCOSS platform shall provide users with the ability to specify evidence traceability links in traceability matrices.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R76:When an evidence-item is changed in an assurance project and other evidence-items are affected, the OPENCOSS platform shall require confirmation of the changes from the user.
+other_evidence-item [ label = "{other evidence-item |+ affected : \l}"]
+D4
+evidence-item [ label = "{evidence-item |+ When changed : \l}"]
+D4
+other_evidence-item [ label = "{other evidence-item : \l}"]
+evidence-item [ label = "{evidence-item : \l}"]
+other_evidence-item -> evidence-item  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+confirmation [ label = "{confirmation : \l}"]
+OPENCOSS_platform -> confirmation  [arrowhead = "none", label = " require  "]
+LP
+
+
+R94:The OPENCOSS platform shall be able to automatically indicate the tool that stores the artefact associated to an evidence traceability link of an assurance project imported from an external tool.
+external_tool [ label = "{external tool : \l}"]
+tool [ label = "{tool : \l}"]
+external_tool -> tool  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+tool [ label = "{tool : \l}"]
+OPENCOSS_platform -> tool  [arrowhead = "none", label = " able to automatically indicate  "]
+LP
+that [ label = "{that : \l}"]
+artefact [ label = "{artefact : \l}"]
+that -> artefact  [arrowhead = "none", label = " stores  "]
+LP
+
+
+R40:When an evidence traceability link of an assurance project is not correct according to the evidence characterization model selected for the project, the OPENCOSS platform shall colour such a link in red.
+evidence_traceability_link [ label = "{evidence traceability link |+ When correct : \l}"]
+D4
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+link [ label = "{link : \l}"]
+OPENCOSS_platform -> link  [arrowhead = "none", label = " colour  "]
+LP
+
+
+R61:The OPENCOSS platform shall provide users with the ability to modify the evaluation categories defined for evaluation criteria of evidence-items of an assurance project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R20:When the specification of characteristics for an evidence-item of an assurance project is regarded as complete, the OPENCOSS platform shall colour the evidence-item in green.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence-item [ label = "{evidence-item : \l}"]
+OPENCOSS_platform -> evidence-item  [arrowhead = "none", label = " colour  "]
+LP
+specification [ label = "{specification |+ When regarded : \l}"]
+D4
+
+
+R34:The OPENCOSS platform shall store the information of the evidence traceability links of an assurance project according to the CCL.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+traceability_link [ label = "{traceability link : \l}"]
+OPENCOSS_platform -> traceability_link  [arrowhead = "none", label = " store  "]
+LP
+
+
+R84:The OPENCOSS platform shall show the actions required in an assurance project as a result of evidence-item changes.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+action [ label = "{action : \l}"]
+OPENCOSS_platform -> action  [arrowhead = "none", label = " show  "]
+LP
+
+
+R78:The OPENCOSS platform shall provide users with the ability to specify actions required in the body of evidence of an assurance project as a result of an evidence-item change.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+evidence-item_change [ label = "{evidence-item change : \l}"]
+change [ label = "{change : \l}"]
+evidence-item_change -> change  [arrowhead = "empty"]
+D3
+
+
+R38:The OPENCOSS platform shall show the evidence-items of an assurance project that are the target of evidence traceability links for which a given evidence-item is the source.
+given_evidence-item [ label = "{given evidence-item |+ source : \l}"]
+D4
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence-item [ label = "{evidence-item : \l}"]
+OPENCOSS_platform -> evidence-item  [arrowhead = "none", label = " show  "]
+LP
+
+
+R37:The OPENCOSS platform shall show the evidence-items of an assurance project that are the source of evidence traceability links for which a given evidence-item is the target.
+given_evidence-item [ label = "{given evidence-item |+ target : \l}"]
+D4
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence-item [ label = "{evidence-item : \l}"]
+OPENCOSS_platform -> evidence-item  [arrowhead = "none", label = " show  "]
+LP
+
+
+R100:When an evidence-item of an assurance project contains information imported from an external tool, and the information in the OPENCOSS platform is modified, the OPENCOSS platform shall indicate such a modification.
+external_tool [ label = "{external tool : \l}"]
+tool [ label = "{tool : \l}"]
+external_tool -> tool  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+modification [ label = "{modification : \l}"]
+OPENCOSS_platform -> modification  [arrowhead = "none", label = " indicate  "]
+LP
+information [ label = "{information |+ modified : \l}"]
+D4
+evidence-item [ label = "{evidence-item : \l}"]
+information [ label = "{information : \l}"]
+evidence-item -> information  [arrowhead = "none", label = " contains  "]
+LP
+
+
+R11:The OPENCOSS platform shall provide users with the ability to drop evidence-items of an assurance project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R3:The OPENCOSS platform shall provide users with the ability to select an existing evidence characterization model for an assurance project.
+existing_evidence_characterization_model [ label = "{existing evidence characterization model : \l}"]
+evidence_characterization_model [ label = "{evidence characterization model : \l}"]
+existing_evidence_characterization_model -> evidence_characterization_model  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R104:When an evidence traceability link of an assurance project contains information imported from an external tool, and the information in the external tool is modified, the OPENCOSS platform shall detect such a modification and update the evidence traceability link accordingly.
+evidence_traceability_link [ label = "{evidence traceability link : \l}"]
+information [ label = "{information : \l}"]
+evidence_traceability_link -> information  [arrowhead = "none", label = " contains  "]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+modification [ label = "{modification : \l}"]
+OPENCOSS_platform -> modification  [arrowhead = "none", label = " detect  "]
+LP
+external_tool [ label = "{external tool : \l}"]
+tool [ label = "{tool : \l}"]
+external_tool -> tool  [arrowhead = "empty"]
+D3
+information [ label = "{information |+ modified : \l}"]
+D4
+
+
+R54:The OPENCOSS platform shall provide users with the ability to evaluate the evidence-items of an assurance project according to evaluation criteria defined in the CCL.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R79:The OPENCOSS platform shall provide users with the ability to indicate the evidence-items associated to actions required in the body of evidence of an assurance project as a result of an evidence-item change.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+evidence-item_change [ label = "{evidence-item change : \l}"]
+change [ label = "{change : \l}"]
+evidence-item_change -> change  [arrowhead = "empty"]
+D3
+
+
+R24:The OPENCOSS platform shall provide users with the ability to modify the intermediate nodes in the tree-view for display of the evidence-items of an assurance project.
+intermediate_node [ label = "{intermediate node : \l}"]
+node [ label = "{node : \l}"]
+intermediate_node -> node  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R43:When a user aims to drop an evidence traceability link of an assurance project, the OPENCOSS platform shall require confirmation of the action from the user.
+user [ label = "{user : \l}"]
+evidence_traceability_link [ label = "{evidence traceability link : \l}"]
+user -> evidence_traceability_link  [arrowhead = "none", label = " aims to drop  "]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+confirmation [ label = "{confirmation : \l}"]
+OPENCOSS_platform -> confirmation  [arrowhead = "none", label = " require  "]
+LP
+
+
+R12:When a USER wants to drop an evidence-item from an assurance project, the OPENCOSS platform shall request confirmation from the user for this action and subsequent related actions.
+USER [ label = "{USER : \l}"]
+evidence-item [ label = "{evidence-item : \l}"]
+USER -> evidence-item  [arrowhead = "none", label = " wants to drop  "]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+confirmation [ label = "{confirmation : \l}"]
+OPENCOSS_platform -> confirmation  [arrowhead = "none", label = " request  "]
+LP
+subsequent_related_action [ label = "{subsequent related action : \l}"]
+action [ label = "{action : \l}"]
+subsequent_related_action -> action  [arrowhead = "empty"]
+D3
+
+
+R48:The OPENCOSS platform shall be able to show the chains of evidence to which an evidence-item of an assurance project belongs by means of models.
+evidence-item [ label = "{evidence-item |+ evidence to which an evidence-item of an assurance project belongs : \l}"]
+D4
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+chain [ label = "{chain : \l}"]
+OPENCOSS_platform -> chain  [arrowhead = "none", label = " able to show  "]
+LP
+
+
+R2:The OPENCOSS platform shall provide the users with the ability to indicate the evidence types of the evidence-items, to be provided for an assurance project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R8:The OPENCOSS platform shall store the CCL-information of the artefact to which an evidence-item of an assurance project is associated.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+CCL-information [ label = "{CCL-information : \l}"]
+OPENCOSS_platform -> CCL-information  [arrowhead = "none", label = " store  "]
+LP
+evidence-item [ label = "{evidence-item |+ associated : \l}"]
+D4
+
+
+R90:The OPENCOSS platform shall be able to automatically associate an artefact in an external tool to an evidence-item of an assurance project imported from the external tool.
+external_tool [ label = "{external tool : \l}"]
+tool [ label = "{tool : \l}"]
+external_tool -> tool  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+artefact [ label = "{artefact : \l}"]
+OPENCOSS_platform -> artefact  [arrowhead = "none", label = " able to automatically associate  "]
+LP
+
+
+R9:The OPENCOSS platform shall provide users with the ability to modify the information about the artefact to which an evidence-item of an assurance project is associated.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+evidence-item [ label = "{evidence-item |+ associated : \l}"]
+D4
+
+
+R6:The OPENCOSS platform shall provide users with the ability to use in an assurance project, evidence types that have been defined in another project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R31:The OPENCOSS platform shall be able to generate reports about the body of evidence of an assurance project by means of documents in PDF-RTF-MS Word formats.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+report [ label = "{report : \l}"]
+OPENCOSS_platform -> report  [arrowhead = "none", label = " able to generate  "]
+LP
+
+
+R23:The OPENCOSS platform shall provide users with the ability to define intermediate nodes in the tree-view for display of the evidence-items of an assurance project.
+intermediate_node [ label = "{intermediate node : \l}"]
+node [ label = "{node : \l}"]
+intermediate_node -> node  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R101:When an evidence-item of an assurance project contains information imported from an external tool, and the information in the external tool is modified, the OPENCOSS platform shall indicate such a modification.
+external_tool [ label = "{external tool : \l}"]
+tool [ label = "{tool : \l}"]
+external_tool -> tool  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+modification [ label = "{modification : \l}"]
+OPENCOSS_platform -> modification  [arrowhead = "none", label = " indicate  "]
+LP
+information [ label = "{information |+ modified : \l}"]
+D4
+evidence-item [ label = "{evidence-item : \l}"]
+information [ label = "{information : \l}"]
+evidence-item -> information  [arrowhead = "none", label = " contains  "]
+LP
+
+
+R28:The OPENCOSS platform shall provide users with the ability to include the evidence-items of an assurance project in the structure of the tree-view for display of the evidence-items of the project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R53:When using tables to show evidence traceability in an assurance project, the OPENCOSS platform shall provide users with the ability to select the evidence types used for another table.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R109:When an evidence traceability link of an assurance project contains information imported from an external tool, and the information in the external tool is modified, the OPENCOSS platform shall indicate such a modification by colouring the evidence traceability link in red.
+evidence_traceability_link [ label = "{evidence traceability link : \l}"]
+information [ label = "{information : \l}"]
+evidence_traceability_link -> information  [arrowhead = "none", label = " contains  "]
+LP
+external_tool [ label = "{external tool : \l}"]
+tool [ label = "{tool : \l}"]
+external_tool -> tool  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+modification [ label = "{modification : \l}"]
+OPENCOSS_platform -> modification  [arrowhead = "none", label = " indicate  "]
+LP
+information [ label = "{information |+ modified : \l}"]
+D4
+
+
+R26:The OPENCOSS platform shall provide users with the ability to associate evidence types to the intermediate nodes of the tree-view for display of the evidence-items of an assurance project.
+associate_evidence_type [ label = "{associate evidence type : \l}"]
+evidence_type [ label = "{evidence type : \l}"]
+associate_evidence_type -> evidence_type  [arrowhead = "empty"]
+D3
+intermediate_node [ label = "{intermediate node : \l}"]
+node [ label = "{node : \l}"]
+intermediate_node -> node  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+R44:When an evidence-item of an assurance project is the source or the target of an evidence traceability link, and the item is dropped from the project, the OPENCOSS platform shall drop the evidence traceability link from the project too.
+evidence-item [ label = "{evidence-item |+ When source : \l}"]
+D4
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence_traceability_link [ label = "{evidence traceability link : \l}"]
+OPENCOSS_platform -> evidence_traceability_link  [arrowhead = "none", label = " drop  "]
+LP
+item [ label = "{item |+ dropped : \l}"]
+D4
+
+
+R62:The OPENCOSS platform shall provide users with the ability to evaluate evidence-items of an assurance project with evaluation categories for evaluation criteria defined in other projects.
+other_project [ label = "{other project : \l}"]
+project [ label = "{project : \l}"]
+other_project -> project  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = " provide  "]
+LP
+
+
+}
