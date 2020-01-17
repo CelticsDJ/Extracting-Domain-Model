@@ -113,9 +113,14 @@ public class Relation_Rules {
 					int Subject_Id = Utilities.getMapped_NP(annotatedDoc, rel.getTargetId());
 					updatedFeatures.put("Agent", Subject_Id);
 				}
-				else if(rel.getType().contains("prep_"))
+				else if(rel.getType().contains("prep_")) // not used
 				{
 					updatedFeatures.put(rel.getType(), rel.getTargetId());					
+					makeVP_PPChains(annotatedDoc, VP, rel);
+				}
+				else if(rel.getType().equals("nmod"))
+				{
+					updatedFeatures.put(rel.getType(), rel.getTargetId());
 					makeVP_PPChains(annotatedDoc, VP, rel);
 				}
 				else if(isAdvMod)
@@ -136,15 +141,12 @@ public class Relation_Rules {
 			
 			updatedFeatures.put("Num_Objects" , num_Objects);
 			updatedFeatures.put("str" , VPStr);
-			//updatedFeatures.put("root", VPStr.replace(relVerb, VP_features.get("root").toString())); //Updated this to add adverb to the root
-			updatedFeatures.put("root", VPStr);
+			updatedFeatures.put("root", VPStr.replace(relVerb, VP_features.get("root").toString())); //Updated this to add adverb to the root
 			annotatedDoc.getAnnotations().add(Utils.start(VP), Utils.end(VP), "Relations", updatedFeatures);			
 		}
 	}
 
-
-	// Something wrong
-	private static void makeVP_PPChains(Document annotatedDoc, Annotation VP, DependencyRelation rel)
+	/*private static void makeVP_PPChains(Document annotatedDoc, Annotation VP, DependencyRelation rel)
 	{
 		AnnotationSet inputAS = annotatedDoc.getAnnotations();
 		
@@ -177,6 +179,47 @@ public class Relation_Rules {
 		features.put("target_Type", "Parse_NP");
 		features.put("target_String", target);
 		features.put("relation_Type", rel.getType());					
+		features.put("kind", "VP_NP");
+		features.put("cardinality", target_cl.getCardinality());
+		if(!(VP1.equals("provide")))
+		{
+			Utilities.addAnnotation(annotatedDoc, VP, inputAS.get(target_cl.getID()), features, "Chain_1");
+		}
+	}*/
+
+	private static void makeVP_PPChains(Document annotatedDoc, Annotation VP, DependencyRelation rel)
+	{
+		AnnotationSet inputAS = annotatedDoc.getAnnotations();
+
+		FeatureMap features = Factory.newFeatureMap();
+		String VP1 = VP.getFeatures().get("string").toString();
+
+		Annotation targ = annotatedDoc.getAnnotations().get(rel.getTargetId());
+		String relation = "";
+		for(DependencyRelation dep : (List<DependencyRelation>)targ.getFeatures().get("dependencies")) {
+			if(dep.getType().equals("case")) {
+				relation = annotatedDoc.getAnnotations().get(dep.getTargetId()).getFeatures().get("string").toString();
+				break;
+			}
+		}
+
+		Concept_Class target_cl;
+		String target;
+
+		target_cl = Utilities.getMapped_NPPrunedString(annotatedDoc, rel.getTargetId());
+		target = target_cl.getName();
+
+		features.put("string", VP1 + " " + relation + " " + target);
+		//features.put("string", VP1 + " " + relation + " " + inputAS.get(rel.getTargetId()).getFeatures().get("text"));
+		features.put("source_ID", VP.getId());
+		features.put("source_Type", "VP");
+		features.put("source_String", VP1);
+
+		features.put("target_ID", target_cl.getID());
+		features.put("target_Type", "Parse_NP");
+		features.put("target_String", target);
+		//features.put("relation_Type", rel.getType());
+		features.put("relation_Type", relation);
 		features.put("kind", "VP_NP");
 		features.put("cardinality", target_cl.getCardinality());
 		if(!(VP1.equals("provide")))
