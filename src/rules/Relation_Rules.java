@@ -17,6 +17,8 @@ import data.Concept_Class;
 import data.GlobalVariables;
 import utils.Utilities;
 
+import static utils.Utilities.getRelationType;
+
 public class Relation_Rules {
 	
 	static HashMap<Integer, String> VPsMap = new HashMap<Integer, String>();
@@ -194,14 +196,7 @@ public class Relation_Rules {
 		FeatureMap features = Factory.newFeatureMap();
 		String VP1 = VP.getFeatures().get("string").toString();
 
-		Annotation targ = annotatedDoc.getAnnotations().get(rel.getTargetId());
-		String relation = "";
-		for(DependencyRelation dep : (List<DependencyRelation>)targ.getFeatures().get("dependencies")) {
-			if(dep.getType().equals("case")) {
-				relation = annotatedDoc.getAnnotations().get(dep.getTargetId()).getFeatures().get("string").toString();
-				break;
-			}
-		}
+		String relation = getRelationType(annotatedDoc, rel);
 
 		Concept_Class target_cl;
 		String target;

@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import gate.annotation.AnnotationSetImpl;
+import gate.stanford.DependencyRelation;
 import org.apache.commons.lang3.math.NumberUtils;
 
 import gate.Annotation;
@@ -218,6 +219,19 @@ public class Utilities {
 			}
 		}
 		return "1";
+	}
+
+	public static String getRelationType(Document doc, DependencyRelation rel) {
+
+		Annotation targ = doc.getAnnotations().get(rel.getTargetId());
+		for(DependencyRelation dep : (List<DependencyRelation>)targ.getFeatures().get("dependencies")) {
+
+			if(dep.getType().equals("case")) {
+				return doc.getAnnotations().get(dep.getTargetId()).getFeatures().get("string").toString();
+			}
+		}
+
+		return "";
 	}
 
 	/*private static Annotation convertNNId(Document doc, Annotation a) {

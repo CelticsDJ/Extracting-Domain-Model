@@ -20,6 +20,8 @@ import data.Concept_Class;
 import data.GlobalVariables;
 import utils.Utilities;
 
+import static utils.Utilities.getRelationType;
+
 public class Classes_Rules {
 	
 	public static HashSet<String> set_Concepts = new HashSet<String>();
@@ -51,7 +53,7 @@ public class Classes_Rules {
 				}
 			}
 		}*/
-		String [] acceptable_dependencies = {"rcmod", "prep"};
+		String [] acceptable_dependencies = {"rcmod", "prep", "nmod"};
 		
 		/*
 		 * Traverse through all the Parse_NPs 
@@ -81,6 +83,12 @@ public class Classes_Rules {
 					{
 						if(Arrays.stream(acceptable_dependencies).parallel().anyMatch(rel.getType()::contains)) //Java 8 stream API
 						{
+
+							//暂时不处理nmod:poss
+							if(rel.getType().equals("nmod:poss")) {
+								continue;
+							}
+
 							updatedFeatures.put("FD_" + rel.getType(), Utilities.getMapped_NP(annotatedDoc, rel.getTargetId())); //Mark forward dependencies
 							buildChains(rel, NP);
 						}						
@@ -150,7 +158,7 @@ public class Classes_Rules {
 	 */
 	private static void buildChains(DependencyRelation rel, Annotation NP)
 	{
-		if(rel.getType().contains("prep"))
+		/*if(rel.getType().contains("prep"))
 		{
 				FeatureMap features = Factory.newFeatureMap();
 				Concept_Class NP1 = Utilities.getMapped_NPPrunedString(annotatedDoc, NP.getId());					
@@ -167,10 +175,6 @@ public class Classes_Rules {
 					target_cl = Utilities.getMapped_NPPrunedString(annotatedDoc, rel.getTargetId());
 					target = target_cl.getName();
 				}
-				/*
-				target_cl = Utilities.getNextNPinSentence(annotatedDoc, rel.getTargetId());
-				target = target_cl.getName();
-				 */
 
 				if(NP1.getID() == target_cl.getID()) {
 					return;
@@ -194,7 +198,42 @@ public class Classes_Rules {
 				}
 
 				Utilities.addAnnotation(annotatedDoc, NP, inputAS.get(target_cl.getID()), features, "Chain_1");
+		}*/
+		FeatureMap features = Factory.newFeatureMap();
+		Concept_Class NP1 = Utilities.getMapped_NPPrunedString(annotatedDoc, NP.getId());
+
+		Concept_Class target_cl;
+		String target;
+
+		target_cl = Utilities.getMapped_NPPrunedString(annotatedDoc, rel.getTargetId());
+		target = target_cl.getName();
+
+		String relation = getRelationType(annotatedDoc, rel);
+
+
+		if(NP1.getID() == target_cl.getID()) {
+			return;
 		}
+
+
+		features.put("source_ID", NP1.getID());
+		features.put("source_Type", "Parse_NP");
+		features.put("source_String", NP1.getName());
+
+		features.put("target_ID", target_cl.getID());
+		features.put("target_Type", "Parse_NP");
+		features.put("target_String", target);
+		//features.put("relation_Type", rel.getType());
+		features.put("relation_Type", relation);
+		features.put("kind", "NP_NP");
+
+		features.put("cardinality", NP1.getCardinality());
+
+		if(NP1.getName().equals(target)) {
+			System.out.println(target + " " + rel.getType() + " " + target);
+		}
+
+		Utilities.addAnnotation(annotatedDoc, NP, inputAS.get(target_cl.getID()), features, "Chain_1");
 											
 	}
 }
