@@ -22,10 +22,10 @@ public class DeriveAnnotations {
 
     public static void DeriveAnnotations() {
 
-        init();
+        //init();
 
         //Relation_Verb
-        for (Annotation a : VBs) {
+        //for (Annotation a : VBs) {
 
             //Annotation a : VPs
 
@@ -61,6 +61,7 @@ public class DeriveAnnotations {
 
             //Annotation a : VBs
 
+        /*
             FeatureMap featureMap = a.getFeatures();
 
             //derive prep_*
@@ -73,9 +74,10 @@ public class DeriveAnnotations {
             annotations.add(a.getStartNode(), a.getEndNode(), "Relation_Verb", a.getFeatures());
 
         }
+        */
 
         //Parse_NP(Atomic) -dependencies, pruned_string, pruned_structure, validNN, firstToken, isPlural
-        for (Annotation a : NPs) {
+        /*for (Annotation a : NPs) {
 
             if (!isAtomicNP(a)) continue;
 
@@ -123,10 +125,13 @@ public class DeriveAnnotations {
             annotations.add(a.getStartNode(), a.getEndNode(), "Parse_NP", featureMap);
 
         }
+        */
 
         //Dep-advmod
 
         //VP_PP
+
+        //Derive nsubj
 
     }
 

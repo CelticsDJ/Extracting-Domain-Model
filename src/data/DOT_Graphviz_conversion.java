@@ -32,58 +32,53 @@ public class DOT_Graphviz_conversion {
 
         sb.append("\n\n");
 
-        for(Requirement_Relations req_relations: ExtractRelations_includingChains.hashmap_requirmenets_Relations)
-        {
-        	if(req_relations.relations == null)
-        	{
-        		continue;
-        	}
-        	sb.append(req_relations.Req_Id + ':' + req_relations.Req_txt + '\n');
-        	Iterator it = req_relations.relations.iterator();
-        	while(it.hasNext())
-        	{
-        		Object obj = it.next();
-        		if(obj.getClass().toString().contains("Concept_Relation"))
-        		{
-        			Concept_Relation rel = (Concept_Relation) obj;
-        			if(rel.getRelationType().equals(RelationType.ATTRIBUTE))
-            		{        				
-            			sb.append(rel.getSource().name.replace(" ", "_") + " [ label = \"{" + rel.getSource().name + " |+ " + rel.getTarget().name + " : \\l}\"]" + System.lineSeparator());
-            		}
-            		else{
-            			sb.append(rel.getSource().name.replace(" ", "_") + " [ label = \"{" + rel.getSource().name + " : \\l}\"]" + System.lineSeparator());
-            			sb.append(rel.getTarget().name.replace(" ", "_") + " [ label = \"{" + rel.getTarget().name + " : \\l}\"]" + System.lineSeparator());
-            			if (rel.getRelationType().equals(RelationType.AGGREGATION))
-                		{
-            				sb.append(rel.getSource().name.replace(" ", "_") + " -> " + rel.getTarget().name.replace(" ", "_"));
-            				sb.append("  [arrowhead = \"odiamond\"]" + System.lineSeparator());
-                		}
-                		else if(rel.getRelationType().equals(RelationType.GENERALIZATION))
-                		{
-                			sb.append(rel.getSource().name.replace(" ", "_") + " -> " + rel.getTarget().name.replace(" ", "_"));
-                			sb.append("  [arrowhead = \"empty\"]" + System.lineSeparator());
-                		}
-            		}//END ELSE
-					sb.append(rel.rule);
-        		}
-        		else {
-					Association_Relation rel = (Association_Relation) obj;
-					sb.append(rel.getSource().name.replace(" ", "_") + " [ label = \"{" + rel.getSource().name + " : \\l}\"]" + System.lineSeparator());
-					sb.append(rel.getTarget().name.replace(" ", "_") + " [ label = \"{" + rel.getTarget().name + " : \\l}\"]" + System.lineSeparator());
-					sb.append(rel.getSource().name.replace(" ", "_") + " -> " + rel.getTarget().name.replace(" ", "_"));
-					sb.append("  [arrowhead = \"none\", label = \"" + rel.getRelationName() + "\"]" + System.lineSeparator());
-					sb.append(rel.rule);
+        Integer req_id = 1;
+        while(req_id <= ExtractRelations_includingChains.hashmap_requirmenets_Relations.size()) {
+
+			for (Requirement_Relations req_relations : ExtractRelations_includingChains.hashmap_requirmenets_Relations) {
+				if (req_relations.relations == null || !req_relations.Req_Id.equals("R" + req_id.toString())) {
+					continue;
 				}
-        		sb.append('\n');
-        	}
-        	sb.append("\n\n");
+				req_id++;
+				sb.append(req_relations.Req_Id + ':' + req_relations.Req_txt + '\n');
+				Iterator it = req_relations.relations.iterator();
+				while (it.hasNext()) {
+					Object obj = it.next();
+					if (obj.getClass().toString().contains("Concept_Relation")) {
+						Concept_Relation rel = (Concept_Relation) obj;
+						if (rel.getRelationType().equals(RelationType.ATTRIBUTE)) {
+							sb.append(rel.getSource().name.replace(" ", "_") + " [ label = \"{" + rel.getSource().name + " |+ " + rel.getTarget().name + " : \\l}\"]" + System.lineSeparator());
+						} else {
+							sb.append(rel.getSource().name.replace(" ", "_") + " [ label = \"{" + rel.getSource().name + " : \\l}\"]" + System.lineSeparator());
+							sb.append(rel.getTarget().name.replace(" ", "_") + " [ label = \"{" + rel.getTarget().name + " : \\l}\"]" + System.lineSeparator());
+							if (rel.getRelationType().equals(RelationType.AGGREGATION)) {
+								sb.append(rel.getSource().name.replace(" ", "_") + " -> " + rel.getTarget().name.replace(" ", "_"));
+								sb.append("  [arrowhead = \"odiamond\"]" + System.lineSeparator());
+							} else if (rel.getRelationType().equals(RelationType.GENERALIZATION)) {
+								sb.append(rel.getSource().name.replace(" ", "_") + " -> " + rel.getTarget().name.replace(" ", "_"));
+								sb.append("  [arrowhead = \"empty\"]" + System.lineSeparator());
+							}
+						}//END ELSE
+						sb.append(rel.rule);
+					} else {
+						Association_Relation rel = (Association_Relation) obj;
+						sb.append(rel.getSource().name.replace(" ", "_") + " [ label = \"{" + rel.getSource().name + " : \\l}\"]" + System.lineSeparator());
+						sb.append(rel.getTarget().name.replace(" ", "_") + " [ label = \"{" + rel.getTarget().name + " : \\l}\"]" + System.lineSeparator());
+						sb.append(rel.getSource().name.replace(" ", "_") + " -> " + rel.getTarget().name.replace(" ", "_"));
+						sb.append("  [arrowhead = \"none\", label = \"" + rel.getRelationName() + "\"]" + System.lineSeparator());
+						sb.append(rel.rule);
+					}
+					sb.append('\n');
+				}
+				sb.append("\n\n");
         	/*
         	for(Concept_Relation rel: relations.relations)
         	{
         		//Add Nodes -- Format CONCEPT_ID [ label = "{CONCEPT_NAME |+ ATTRIBUTE : \l}"]
         		
         	}//END FOR */
-        }//END FOR
+			}//END FOR
+		}
        
         sb.append("}");
         writeTextFile(fileName, sb.toString());

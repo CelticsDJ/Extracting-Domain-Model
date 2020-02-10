@@ -33,8 +33,8 @@ public class Relation_Rules {
 	public static void extractRelations() throws InvalidOffsetException
 	{
 		Document annotatedDoc = GlobalVariables.annotated_doc;
-		AnnotationSet tmp = annotatedDoc.getAnnotations();
-		AnnotationSet VPs = annotatedDoc.getAnnotations().get("Relation_Verb");
+		AnnotationSet Relation_Verb = annotatedDoc.getAnnotations().get("Relation_Verb");
+		List<Annotation> VPs = Utils.inDocumentOrder(Relation_Verb);
 		/*ArraySet<Annotation> VPs = new ArraySet<>();// = annotatedDoc.getAnnotations().get("SyntaxTreeNode");
 
 		/*for (Annotation a : VPs) {
@@ -217,10 +217,14 @@ public class Relation_Rules {
 		features.put("relation_Type", relation);
 		features.put("kind", "VP_NP");
 		features.put("cardinality", target_cl.getCardinality());
+		/*
 		if(!(VP1.equals("provide")))
 		{
 			Utilities.addAnnotation(annotatedDoc, VP, inputAS.get(target_cl.getID()), features, "Chain_1");
 		}
+		 */
+		Utilities.addAnnotation(annotatedDoc, VP, inputAS.get(target_cl.getID()), features, "Chain_1");
+
 	}
 
 //	

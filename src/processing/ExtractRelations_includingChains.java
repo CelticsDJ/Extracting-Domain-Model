@@ -125,10 +125,6 @@ public class ExtractRelations_includingChains {
 	
 	private static void createRelationCombinations(MetaRelation rel)
 	{
-		if(rel.getRelationChains().size() > 1 && rel.getSubjects().size() > 0 && rel.getObjects().size() > 0) {
-			System.out.println("*****");
-		}
-
 		for(StringQuadruple rel_chain: rel.getRelationChains())
 		{
 
