@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e0f1cae0-0125-44d0-b210-061836e67475" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/result/example_1.dot" beforeDir="false" afterPath="$PROJECT_DIR$/result/example_1.dot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/processing/Chaining.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/processing/Chaining.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -27,8 +26,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="134" column="179" lean-forward="true" selection-start-line="134" selection-start-column="179" selection-end-line="134" selection-end-column="179" />
+            <state relative-caret-position="170">
+              <caret line="134" column="297" selection-start-line="134" selection-start-column="297" selection-end-line="134" selection-end-column="297" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -39,7 +38,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/processing/Chaining.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
+            <state relative-caret-position="4305">
               <caret line="287" selection-start-line="287" selection-end-line="287" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -418,7 +417,7 @@
       <workItem from="1581310995082" duration="1459000" />
       <workItem from="1581313769969" duration="4268000" />
       <workItem from="1581398404512" duration="791000" />
-      <workItem from="1581568901671" duration="6776000" />
+      <workItem from="1581568901671" duration="6990000" />
     </task>
     <servers />
   </component>
@@ -434,7 +433,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167718000" />
+    <option name="totallyTimeSpent" value="167932000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -845,7 +844,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/processing/Chaining.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
+        <state relative-caret-position="4305">
           <caret line="287" selection-start-line="287" selection-end-line="287" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -855,8 +854,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="134" column="179" lean-forward="true" selection-start-line="134" selection-start-column="179" selection-end-line="134" selection-end-column="179" />
+        <state relative-caret-position="170">
+          <caret line="134" column="297" selection-start-line="134" selection-start-column="297" selection-end-line="134" selection-end-column="297" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

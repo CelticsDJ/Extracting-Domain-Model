@@ -132,7 +132,7 @@ public class ExtractRelations_includingChains {
 			{
 				for(StringQuadruple obj_chain: rel.getObjects())
 				{
-					Association_Relation association = Utilities.formRelations(subj_chain.getC(), obj_chain.getC(), subj_chain.getD(), obj_chain.getD(), subj_chain.getB() + " " + rel_chain.getB() + " " + obj_chain.getB() + " " + rel_chain.getA() + " " + rel_chain.getC(), isXcomp, "LP");
+					Association_Relation association = Utilities.formRelations(subj_chain.getC(), obj_chain.getC(), subj_chain.getD(), obj_chain.getD(), (subj_chain.getB() + " " + rel_chain.getB() + " " + obj_chain.getB() + " " + rel_chain.getA() + " " + rel_chain.getC()).replace("  "," ").trim(), isXcomp, "LP");
 					addRelation(association);
 				}
 			}
