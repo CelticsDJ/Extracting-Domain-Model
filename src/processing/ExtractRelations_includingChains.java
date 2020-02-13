@@ -100,7 +100,7 @@ public class ExtractRelations_includingChains {
 				else if(num_Objects ==1)
 				{
 					List<StringQuadruple> object_quads = Chaining.getObjectChains(doc, inputAS.get(object_Id));
-					meta_relation.setObjects(object_quads);
+ 					meta_relation.setObjects(object_quads);
 				}
 				else if(num_Objects > 1)
 				{

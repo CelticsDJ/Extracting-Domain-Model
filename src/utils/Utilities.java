@@ -93,13 +93,21 @@ public class Utilities {
 		}
 		return new Concept_Class(gate.Utils.stringFor(doc, doc.getAnnotations().get(token_id)), token_id, "1");
 	}
-	
+
+	//bug : 有时会得到输入的source为输出chain的target
 	public static List<Annotation> isChainSource(Document doc, int annot_ID)
 	{
 		AnnotationSet inputAS = doc.getAnnotations();
 		Annotation possibleSrc = inputAS.get(annot_ID);
-		AnnotationSet chains = Utils.getOverlappingAnnotations(inputAS, possibleSrc, "Chain_1");
-		List<Annotation> list_chains = Utils.inDocumentOrder(chains);
+		List<Annotation> Chain_1 = inputAS.get("Chain_1").inDocumentOrder();
+		List<Annotation> list_chains = new ArrayList<>();
+		for(Annotation a : Chain_1) {
+			if (a.getFeatures().get("source_ID").equals(possibleSrc.getId())) {
+				list_chains.add(a);
+			}
+		}
+		//AnnotationSet chains = Utils.getOverlappingAnnotations(inputAS, possibleSrc, "Chain_1");
+		//List<Annotation> list_chains = Utils.inDocumentOrder(chains);
 		List<Annotation> return_chains = new ArrayList<Annotation>();
 		for(Annotation chain: list_chains)
 		{
