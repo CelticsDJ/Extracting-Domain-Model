@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e0f1cae0-0125-44d0-b210-061836e67475" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/example_1.dot" beforeDir="false" afterPath="$PROJECT_DIR$/result/example_1.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/processing/Chaining.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/processing/Chaining.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Utilities.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,8 +27,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="102" selection-start-line="102" selection-end-line="102" />
+            <state relative-caret-position="211">
+              <caret line="134" column="179" lean-forward="true" selection-start-line="134" selection-start-column="179" selection-end-line="134" selection-end-column="179" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -40,8 +39,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/processing/Chaining.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="783">
-              <caret line="204" selection-start-line="204" selection-end-line="204" />
+            <state relative-caret-position="350">
+              <caret line="287" selection-start-line="287" selection-end-line="287" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -76,8 +75,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utils/Utilities.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="119" selection-start-line="119" selection-end-line="119" />
+            <state relative-caret-position="161">
+              <caret line="155" column="139" selection-start-line="155" selection-start-column="136" selection-end-line="155" selection-end-column="139" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -206,7 +205,6 @@
         <option value="$PROJECT_DIR$/src/experimentation/TestCode.java" />
         <option value="$PROJECT_DIR$/src/data/Association_Relation.java" />
         <option value="$PROJECT_DIR$/src/test/test_isAtomicNP.java" />
-        <option value="$PROJECT_DIR$/src/processing/Chaining.java" />
         <option value="$USER_HOME$/Downloads/01 Model Extraction Binary/DoTagChunks.jape" />
         <option value="$PROJECT_DIR$/src/DependencyRelation/DependencyRelation.java" />
         <option value="$PROJECT_DIR$/src/gate/DependencyRelation/DependencyRelation.java" />
@@ -215,9 +213,10 @@
         <option value="$PROJECT_DIR$/src/data/DOT_Graphviz_conversion.java" />
         <option value="$PROJECT_DIR$/src/rules/Relation_Rules.java" />
         <option value="$PROJECT_DIR$/src/rules/Classes_Rules.java" />
-        <option value="$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java" />
         <option value="$PROJECT_DIR$/src/Main/Model_Extraction_Main.java" />
         <option value="$PROJECT_DIR$/src/utils/Utilities.java" />
+        <option value="$PROJECT_DIR$/src/processing/Chaining.java" />
+        <option value="$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java" />
       </list>
     </option>
   </component>
@@ -419,7 +418,7 @@
       <workItem from="1581310995082" duration="1459000" />
       <workItem from="1581313769969" duration="4268000" />
       <workItem from="1581398404512" duration="791000" />
-      <workItem from="1581568901671" duration="2986000" />
+      <workItem from="1581568901671" duration="6776000" />
     </task>
     <servers />
   </component>
@@ -435,7 +434,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163928000" />
+    <option name="totallyTimeSpent" value="167718000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -455,17 +454,17 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" sideWeight="0.50076103" side_tool="true" weight="0.24969475" />
       <window_info id="Image Layers" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.49923897" visible="true" weight="0.2045177" />
+      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.49923897" visible="true" weight="0.2045177" />
       <window_info id="Structure" order="6" sideWeight="0.50076103" side_tool="true" weight="0.24969475" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="1" />
       <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.4981685" weight="0.32959184" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.53357756" side_tool="true" visible="true" weight="0.3653061" />
+      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.53418803" side_tool="true" visible="true" weight="0.3653061" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" sideWeight="0.486569" weight="0.32959184" />
-      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.46642247" visible="true" weight="0.3653061" />
-      <window_info anchor="bottom" id="Debug" order="8" sideWeight="0.6910867" weight="0.45714286" />
+      <window_info active="true" anchor="bottom" id="Run" order="7" sideWeight="0.46581197" visible="true" weight="0.3653061" />
+      <window_info anchor="bottom" id="Debug" order="8" sideWeight="0.7319902" weight="0.45714286" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.48107448" weight="0.32959184" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
@@ -509,34 +508,10 @@
           <option name="timeStamp" value="307" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/processing/Chaining.java</url>
-          <line>198</line>
+          <url>file://$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java</url>
+          <line>135</line>
           <properties />
-          <option name="timeStamp" value="332" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/processing/Chaining.java</url>
-          <line>204</line>
-          <properties />
-          <option name="timeStamp" value="338" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/processing/Chaining.java</url>
-          <line>166</line>
-          <properties />
-          <option name="timeStamp" value="340" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/processing/Chaining.java</url>
-          <line>169</line>
-          <properties />
-          <option name="timeStamp" value="341" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/processing/Chaining.java</url>
-          <line>175</line>
-          <properties />
-          <option name="timeStamp" value="343" />
+          <option name="timeStamp" value="355" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -828,16 +803,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/rules/Relation_Rules.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3026">
-          <caret line="218" column="64" selection-start-line="218" selection-start-column="64" selection-end-line="218" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/Model_Extraction_Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
@@ -858,10 +823,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/processing/Chaining.java">
+    <entry file="file://$PROJECT_DIR$/src/rules/Relation_Rules.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="783">
-          <caret line="204" selection-start-line="204" selection-end-line="204" />
+        <state relative-caret-position="3026">
+          <caret line="218" column="64" selection-start-line="218" selection-start-column="64" selection-end-line="218" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -870,8 +835,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/Utilities.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="119" selection-start-line="119" selection-end-line="119" />
+        <state relative-caret-position="161">
+          <caret line="155" column="139" selection-start-line="155" selection-start-column="136" selection-end-line="155" selection-end-column="139" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/processing/Chaining.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="287" selection-start-line="287" selection-end-line="287" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -880,8 +855,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="102" selection-start-line="102" selection-end-line="102" />
+        <state relative-caret-position="211">
+          <caret line="134" column="179" lean-forward="true" selection-start-line="134" selection-start-column="179" selection-end-line="134" selection-end-column="179" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -166,6 +166,11 @@ public class Chaining {
 					
 					if(prev_PP.equals("")) //First chain
 					{
+						/*
+							Tuple
+							A : chain without final_concept
+							B : final_concept
+						 */
 						StringTuple tuple = Utilities.getRelation_Target(chain + "###" + final_concept);
 						return_list.add(new StringQuadruple(altered, tuple.getA(), tuple.getB(), cardinality));	
 						base_old = source;
