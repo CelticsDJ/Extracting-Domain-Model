@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e0f1cae0-0125-44d0-b210-061836e67475" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/result/example_1.dot" beforeDir="false" afterPath="$PROJECT_DIR$/result/example_1.dot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/rules/Classes_Rules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rules/Classes_Rules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Model_Extraction_Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Model_Extraction_Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/rules/Relation_Rules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rules/Relation_Rules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Utilities.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="135" column="45" lean-forward="true" selection-start-line="135" selection-start-column="45" selection-end-line="135" selection-end-column="45" />
+            <state relative-caret-position="161">
+              <caret line="135" selection-start-line="135" selection-end-line="135" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -39,7 +40,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/processing/Chaining.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4305">
+            <state relative-caret-position="4110">
               <caret line="287" selection-start-line="287" selection-end-line="287" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -51,20 +52,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/rules/Relation_Rules.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="202" lean-forward="true" selection-start-line="202" selection-end-line="202" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/rules/Classes_Rules.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="210" column="98" lean-forward="true" selection-start-line="210" selection-start-column="98" selection-end-line="210" selection-end-column="98" />
+            <state relative-caret-position="243">
+              <caret line="206" column="14" selection-start-line="206" selection-start-column="14" selection-end-line="206" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -73,10 +62,23 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/rules/Classes_Rules.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="228" selection-start-line="228" selection-end-line="228" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#4780#6032#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utils/Utilities.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="155" column="139" selection-start-line="155" selection-start-column="136" selection-end-line="155" selection-end-column="139" />
+            <state relative-caret-position="330">
+              <caret line="259" column="45" selection-start-line="259" selection-start-column="45" selection-end-line="259" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -87,8 +89,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main/Model_Extraction_Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="125" column="83" selection-start-line="125" selection-start-column="83" selection-end-line="125" selection-end-column="83" />
+            <state relative-caret-position="-535">
+              <caret line="55" column="10" selection-start-line="55" selection-start-column="10" selection-end-line="55" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -119,7 +121,6 @@
       <find>JJ</find>
       <find>mod</find>
       <find>Subject</find>
-      <find>B1</find>
       <find>rcmod</find>
       <find>verb</find>
       <find>nmod</find>
@@ -137,6 +138,7 @@
       <find>inDocumentOrder</find>
       <find>quad</find>
       <find>Extracting Domain Model</find>
+      <find>B1</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -184,12 +186,12 @@
         <option value="$PROJECT_DIR$/src/gate/stanford/DependencyRelation.java" />
         <option value="$PROJECT_DIR$/src/utils/DeriveAnnotations.java" />
         <option value="$PROJECT_DIR$/src/data/DOT_Graphviz_conversion.java" />
-        <option value="$PROJECT_DIR$/src/Main/Model_Extraction_Main.java" />
-        <option value="$PROJECT_DIR$/src/utils/Utilities.java" />
         <option value="$PROJECT_DIR$/src/processing/Chaining.java" />
         <option value="$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java" />
-        <option value="$PROJECT_DIR$/src/rules/Relation_Rules.java" />
         <option value="$PROJECT_DIR$/src/rules/Classes_Rules.java" />
+        <option value="$PROJECT_DIR$/src/utils/Utilities.java" />
+        <option value="$PROJECT_DIR$/src/rules/Relation_Rules.java" />
+        <option value="$PROJECT_DIR$/src/Main/Model_Extraction_Main.java" />
       </list>
     </option>
   </component>
@@ -204,6 +206,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -238,8 +242,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -392,6 +394,7 @@
       <workItem from="1581313769969" duration="4268000" />
       <workItem from="1581398404512" duration="791000" />
       <workItem from="1581568901671" duration="7443000" />
+      <workItem from="1581655881006" duration="3742000" />
     </task>
     <servers />
   </component>
@@ -407,7 +410,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168385000" />
+    <option name="totallyTimeSpent" value="172127000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -420,26 +423,25 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" sideWeight="0.50076103" side_tool="true" weight="0.24969475" />
       <window_info id="Image Layers" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.49923897" visible="true" weight="0.2045177" />
+      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.49923897" visible="true" weight="0.20695971" />
       <window_info id="Structure" order="6" sideWeight="0.50076103" side_tool="true" weight="0.24969475" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="1" />
       <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.4981685" weight="0.32959184" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.53418803" side_tool="true" visible="true" weight="0.3653061" />
+      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.27106228" side_tool="true" visible="true" weight="0.45714286" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" sideWeight="0.486569" weight="0.32959184" />
-      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.46581197" weight="0.3653061" />
-      <window_info anchor="bottom" id="Debug" order="8" sideWeight="0.7319902" weight="0.45714286" />
+      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.46275946" weight="0.3653061" />
+      <window_info active="true" anchor="bottom" id="Debug" order="8" sideWeight="0.72893775" visible="true" weight="0.45714286" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.48107448" weight="0.32959184" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.47863248" weight="0.32959184" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="12" weight="0.32959184" />
       <window_info anchor="bottom" id="Spring" order="13" />
@@ -475,16 +477,16 @@
           <option name="timeStamp" value="158" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/rules/Classes_Rules.java</url>
-          <line>196</line>
-          <properties />
-          <option name="timeStamp" value="307" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java</url>
           <line>135</line>
           <properties />
           <option name="timeStamp" value="355" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/utils/Utilities.java</url>
+          <line>255</line>
+          <properties />
+          <option name="timeStamp" value="357" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -776,10 +778,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/Model_Extraction_Main.java">
+    <entry file="file://$PROJECT_DIR$/src/processing/Chaining.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="125" column="83" selection-start-line="125" selection-start-column="83" selection-end-line="125" selection-end-column="83" />
+        <state relative-caret-position="4110">
+          <caret line="287" selection-start-line="287" selection-end-line="287" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -788,28 +790,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/Utilities.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="155" column="139" selection-start-line="155" selection-start-column="136" selection-end-line="155" selection-end-column="139" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/processing/Chaining.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4305">
-          <caret line="287" selection-start-line="287" selection-end-line="287" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="135" column="45" lean-forward="true" selection-start-line="135" selection-start-column="45" selection-end-line="135" selection-end-column="45" />
+        <state relative-caret-position="330">
+          <caret line="259" column="45" selection-start-line="259" selection-start-column="45" selection-end-line="259" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -818,8 +800,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/rules/Relation_Rules.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="202" lean-forward="true" selection-start-line="202" selection-end-line="202" />
+        <state relative-caret-position="243">
+          <caret line="206" column="14" selection-start-line="206" selection-start-column="14" selection-end-line="206" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -828,8 +810,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/rules/Classes_Rules.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="210" column="98" lean-forward="true" selection-start-line="210" selection-start-column="98" selection-end-line="210" selection-end-column="98" />
+        <state relative-caret-position="350">
+          <caret line="228" selection-start-line="228" selection-end-line="228" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4780#6032#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/Model_Extraction_Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-535">
+          <caret line="55" column="10" selection-start-line="55" selection-start-column="10" selection-end-line="55" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="135" selection-start-line="135" selection-end-line="135" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

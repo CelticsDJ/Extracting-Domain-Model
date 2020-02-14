@@ -242,6 +242,34 @@ public class Utilities {
 		return "";
 	}
 
+	public static Concept_Class getRealTarget(Document doc, int token_id) {
+		if(token_id == 0)
+			return new Concept_Class("", 0, "");
+
+		AnnotationSet tokens = doc.getAnnotations().get("Token");
+
+		int return_id = token_id - 2;
+
+		while(return_id >= 0) {
+
+			Annotation tmp = tokens.get(return_id);
+			List<DependencyRelation> dependencies = (List<DependencyRelation>)tmp.getFeatures().get("dependencies");
+
+			if (dependencies != null) {
+				for(DependencyRelation dr : dependencies) {
+					//应该是equals.(VP_id) 暂时不好改
+					if(dr.getType().equals("acl:relcl") && dr.getTargetId().equals(token_id)) {
+						break;
+					}
+				}
+			}
+
+			return_id -= 2;
+		}
+
+		return new Concept_Class(gate.Utils.stringFor(doc, doc.getAnnotations().get(return_id)), return_id, "1");
+	}
+
 	/*private static Annotation convertNNId(Document doc, Annotation a) {
 
 		AnnotationSet annotations = doc.getAnnotations();

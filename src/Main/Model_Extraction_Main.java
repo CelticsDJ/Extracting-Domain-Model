@@ -51,17 +51,9 @@ public class Model_Extraction_Main {
 		File file = new File("/Applications/GATE_Developer_8.6/");
 		Gate.setGateHome(file);
 		Gate.setSiteConfigFile(new File(file.getPath() + "/gate.xml"));
-		
-		//URL docURL_1 = new URL("file:///Users/dujianuo/Desktop/domain model/Extracting Domain Model/requirements.txt");
 
-		//URL docURL_1 = new URL("file:///Users/dujianuo/Desktop/domain model/Extracting Domain Model/AnnotationReq");
 		URL docURL_1 = new URL("file:///Users/dujianuo/Desktop/domain model/Extracting Domain Model/resources/All_Annotations_OpenCossReqs.xml");
-		//URL docURL_1 = new URL("file:///Users/dujianuo/Desktop/OpenCossReqs.xml");
-		//URL docURL_1 = new URL("file:///Users/dujianuo/downloads/req/requirements.csv");
-
-		//URL docURL_1 = new URL("file:///Users/chetan.arora/Dropbox/PhD Folder/Useful_Code/Model Extraction Files/Doc/GSTSIMReqs.txt");
-		//URL docURL_1 = new URL("file:///Users/chetan.arora/Dropbox/PhD Folder/Useful_Code/Model Extraction Files/Doc/Single_Req.txt");
-		//URL docURL_2 = new URL("file:///Users/chetan.arora/Dropbox/PhD Folder/Useful_Code/Model Extraction Files/Doc/OpenCossReqs.txt");
+		//URL docURL_1 = new URL("file:///Users/dujianuo/Desktop/domain model/Extracting Domain Model/resources/Partial_Annotations_OpenCossReqs.xml");
 		
 		//prepare the GATE library
 		Gate.init();
@@ -124,6 +116,8 @@ public class Model_Extraction_Main {
 		String results = JSONConversion.converttoJSON();
 		
 		DOT_Graphviz_conversion.writeDOTFile("/Users/dujianuo/Desktop/domain model/Extracting Domain Model/result/example_1.dot");
+		//DOT_Graphviz_conversion.writeDOTFile("/Users/dujianuo/Desktop/domain model/Extracting Domain Model/result/example_2.dot");
+
 		System.out.println("*******************  RESULTS *************");
 		System.out.println(results);
 	}
