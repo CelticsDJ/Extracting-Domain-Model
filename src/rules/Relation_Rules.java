@@ -196,7 +196,7 @@ public class Relation_Rules {
 		FeatureMap features = Factory.newFeatureMap();
 		String VP1 = VP.getFeatures().get("string").toString();
 
-		String relation = getRelationType(annotatedDoc, rel);
+		String relation = getRelationType(annotatedDoc, rel).replace("according", "according to");
 
 		Concept_Class target_cl;
 		String target;

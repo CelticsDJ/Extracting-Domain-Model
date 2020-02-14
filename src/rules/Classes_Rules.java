@@ -208,7 +208,7 @@ public class Classes_Rules {
 		target_cl = Utilities.getMapped_NPPrunedString(annotatedDoc, rel.getTargetId());
 		target = target_cl.getName();
 
-		String relation = getRelationType(annotatedDoc, rel);
+		String relation = getRelationType(annotatedDoc, rel).replace("according", "according to");
 
 
 		if(NP1.getID() == target_cl.getID()) {
