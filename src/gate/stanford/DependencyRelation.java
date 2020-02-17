@@ -22,7 +22,7 @@ public class DependencyRelation implements Serializable {
         this.targetId = targetId;
     }
 
-    public DependencyRelation(String dep) {
+    /*public DependencyRelation(String dep) {
         int start = 0, end = 0;
         for (int i = 0; i < dep.length(); i++) {
             if (dep.charAt(i) == '(') {
@@ -35,7 +35,7 @@ public class DependencyRelation implements Serializable {
         String type = dep.substring(0, start), target = dep.substring(start+1, end);
         this.type = type;
         this.targetId = DeriveAnnotations.convertId(Integer.parseInt(target));
-    }
+    }*/
 
     /**
      * Return the dependency tag (type).

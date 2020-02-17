@@ -32,7 +32,7 @@ public class Model_Extraction_Main {
 
 			GlobalVariables.setAnnotatedDoc(annoted_Doc);
 
-			//DeriveAnnotations.DeriveAnnotations();
+			DeriveAnnotations.DeriveAnnotations();
 
 			extractInfoFromAnnotatedDoc();
 

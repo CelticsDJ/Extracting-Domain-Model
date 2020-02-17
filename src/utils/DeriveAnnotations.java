@@ -1,10 +1,11 @@
 package utils;
 
 import data.GlobalVariables;
-import gate.Annotation;
-import gate.AnnotationSet;
-import gate.FeatureMap;
+import gate.*;
+import gate.stanford.DependencyRelation;
+import org.bouncycastle.jcajce.provider.drbg.DRBG;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -12,17 +13,115 @@ import java.util.regex.Pattern;
 public class DeriveAnnotations {
 
     private static AnnotationSet annotations;
-    private static ArrayList<Annotation> tokens = new ArrayList<>();
-    private static ArrayList<Annotation> STNs = new ArrayList<>();
-    private static ArrayList<Annotation> VBs = new ArrayList<>();
-    private static ArrayList<Annotation> NPs = new ArrayList<>();
-    private static ArrayList<Annotation> NNs = new ArrayList<>();
-    private static ArrayList<Annotation> VPs = new ArrayList<>();
+    private static List<Annotation> tokens = new ArrayList<>();
+    //private static ArrayList<Annotation> STNs = new ArrayList<>();
+    //private static ArrayList<Annotation> VBs = new ArrayList<>();
+    private static List<Annotation> NPs = new ArrayList<>();
+    //private static ArrayList<Annotation> NNs = new ArrayList<>();
+    //private static ArrayList<Annotation> VPs = new ArrayList<>();
     //private static ArrayList<Annotation> STN_NNs = new ArrayList<>();
+    private  static List<Annotation> Parse_NPs = new ArrayList<>();
 
     public static void DeriveAnnotations() {
 
-        //init();
+        init();
+
+        //Derive Parse_NP
+        tokens = annotations.get("Token").inDocumentOrder();
+        NPs = annotations.get("NP").inDocumentOrder();
+        Parse_NPs = annotations.get("Parse_NP").inDocumentOrder();
+
+        for(Annotation NP : NPs) {
+            //已有，不处理
+            if(NP.getId() != Utilities.getMapped_NP(GlobalVariables.annotated_doc, NP.getId())){
+                System.out.println(NP.getStartNode().getOffset() + " " + NP.getEndNode().getOffset());
+                continue;
+            }
+
+            //没有，或者覆盖原先
+            else {
+                List<Integer> consists = Utilities.getTokenID(GlobalVariables.annotated_doc, NP.getId());
+
+                String firstToken = annotations.get(consists.get(0)).getFeatures().get("string").toString();
+
+                if(firstToken.toLowerCase().equals("which") || firstToken.toLowerCase().equals("that")) {
+                    continue;
+                }
+
+                else {
+                    FeatureMap featureMap = Factory.newFeatureMap();
+
+                    Node start = annotations.get(consists.get(0)).getStartNode();
+                    Node end = annotations.get(consists.get(consists.size()-1)).getEndNode();
+
+                    List<DependencyRelation> dependencies = new ArrayList<>();
+                    for (Integer id : consists) {
+                        List<DependencyRelation> tmp = (List<DependencyRelation>) annotations.get(id).getFeatures().get("dependencies");
+                        if(tmp != null) {
+                            for (DependencyRelation dep : tmp) {
+                                dependencies.add(dep);
+                            }
+                        }
+                    }
+
+                    // Stop words removal(fake)
+                    String pruned_string = "";
+                    String root = "";
+                    for(Integer id : consists) {
+                        String tmp = annotations.get(id).getFeatures().get("string").toString();
+                        String tmp_root = annotations.get(id).getFeatures().get("root").toString();
+                        if(!tmp.toLowerCase().equals("the") && !tmp.toLowerCase().equals("any")) {
+                            pruned_string = pruned_string.concat(tmp + " ");
+                        }
+                        root = root.concat(tmp_root + " ");
+                    }
+                    /*if (pruned_string.startsWith("The") || pruned_string.startsWith("the") || pruned_string.startsWith("Any") || pruned_string.startsWith("any")) {
+                        pruned_string = pruned_string.substring(4);
+                    }*/
+
+                    String structure = "";
+                    String pruned_structure = "";
+                    for (Integer id : consists) {
+                        String category = annotations.get(id).getFeatures().get("category").toString();
+                        if(!category.equals("DT") && !category.equals("PDT")) {
+                            pruned_structure = pruned_structure.concat(category);
+                            pruned_structure = pruned_structure.concat("-");
+                        }
+                        structure = structure.concat(category);
+                        structure = structure.concat("-");
+                    }
+
+                    String isPlural = "false";
+                    for (Integer id : consists) {
+                        String category = annotations.get(id).getFeatures().get("category").toString();
+                        if (category.equals("NNS") || category.equals("NNPS") || category.equals("NPS")) {
+                            isPlural = "true";
+                            break;
+                        }
+                    }
+
+                    featureMap.put("dependencies", dependencies);
+                    featureMap.put("firstToken", firstToken);
+                    featureMap.put("isPlural", isPlural);
+                    featureMap.put("pruned_string", pruned_string);
+                    featureMap.put("pruned_structure", pruned_structure);
+                    featureMap.put("root", root);
+                    featureMap.put("structure", structure);
+                    featureMap.put("validNN", "true"); //not check
+
+                    List<Integer> Overlapping_NPs = Utilities.getOverlappingNPs(GlobalVariables.annotated_doc, NP.getId());
+                    if(Overlapping_NPs.size() != 0) {
+                        for(Integer id : Overlapping_NPs) {
+                            Annotation a = annotations.get(id);
+                            annotations.remove(a);
+                        }
+                    }
+
+                    annotations.add(start, end, "Parse_NP", featureMap);
+
+                }
+            }
+        }
 
         //Relation_Verb
         //for (Annotation a : VBs) {
@@ -139,7 +238,7 @@ public class DeriveAnnotations {
 
         //Get default Annotation
         annotations = GlobalVariables.annotated_doc.getAnnotations();
-
+        /*
         //Get Tokens
         for (Annotation a : annotations) {
             if (a.getType().equals("Token")) {
@@ -167,12 +266,12 @@ public class DeriveAnnotations {
                     featureMap.put("dependencies", a.getFeatures().get("dependencies"));
                 }
 
-                /*if(a.getFeatures().get("stem") == null) {
+                if(a.getFeatures().get("stem") == null) {
                     //continue;
                 }
                 else {
                     featureMap.put("stem", a.getFeatures().get("stem"));
-                }*/
+                }
 
                 STN_VB.setFeatures(featureMap);
                 VBs.add(STN_VB);
@@ -218,8 +317,7 @@ public class DeriveAnnotations {
                 if (isAtomic) {
                     VPs.add(a);
                 }
-            }
-        }
+            }*/
 
         //Get NNs from SyntaxTreeNodes
         /*for(Annotation a : STNs) {
@@ -227,6 +325,7 @@ public class DeriveAnnotations {
                 STN_NNs.add(a);
             }
         }*/
+
     }
 
     private static boolean isreceivedDep(Annotation a) {
@@ -244,7 +343,7 @@ public class DeriveAnnotations {
     }
 
     //Tokens id to SyntaxTreeNodes id
-    public static Integer convertId(Integer id) {
+    /*public static Integer convertId(Integer id) {
 
         Annotation a = annotations.get(id);
 
@@ -256,7 +355,7 @@ public class DeriveAnnotations {
 
         return id;
 
-    }
+    }*/
 
     /*private static Annotation convertNNId(Annotation a) {
 

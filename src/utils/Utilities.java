@@ -1,8 +1,6 @@
 package utils;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 import gate.annotation.AnnotationSetImpl;
 import gate.stanford.DependencyRelation;
@@ -19,7 +17,7 @@ import data.Association_Relation;
 
 public class Utilities {
 
-	//Get atomic NPs
+	//Get NP_id
 	public static int getMapped_NP(Document doc, int token_id)
 	{
 		/*AnnotationSet annotations = doc.getAnnotations();
@@ -268,6 +266,38 @@ public class Utilities {
 		}
 
 		return new Concept_Class(gate.Utils.stringFor(doc, doc.getAnnotations().get(return_id)), return_id, "1");
+	}
+
+	public static List<Integer> getTokenID(Document doc, int NP_id)
+	{
+		Annotation NP = doc.getAnnotations().get(NP_id);
+
+		AnnotationSet tokens = gate.Utils.getOverlappingAnnotations(doc.getAnnotations(), NP, "Token");
+		//NPs = gate.Utils.getCoveringAnnotations(NPs, token, "SyntaxTreeNode");
+
+		List<Integer> return_list = new ArrayList<>();
+		for(Annotation a : tokens) {
+			return_list.add(a.getId());
+		}
+
+		Collections.sort(return_list);
+
+		return return_list;
+	}
+
+	public static List<Integer> getOverlappingNPs(Document doc, int NP_id) {
+		Annotation NP = doc.getAnnotations().get(NP_id);
+
+		AnnotationSet Parse_NPs = gate.Utils.getOverlappingAnnotations(doc.getAnnotations(), NP, "Parse_NP");
+
+		List<Integer> return_list = new ArrayList<>();
+		for(Annotation a : Parse_NPs) {
+			return_list.add(a.getId());
+		}
+
+		Collections.sort(return_list);
+
+		return return_list;
 	}
 
 	/*private static Annotation convertNNId(Document doc, Annotation a) {

@@ -252,7 +252,7 @@ public class Chaining {
 							{
 								if(iobj_quad.getA().equals("true"))
 								{						
-									return_list.add(new StringQuadruple(PP, (verbStr + " " + iobj_quad.getB()).trim(), iobj_quad.getC(), iobj_quad.getD()));
+									return_list.add(new StringQuadruple(/*PP*/"", (verbStr + " " + iobj_quad.getB()).trim(), iobj_quad.getC(), iobj_quad.getD()));
 								}
 								else
 								{
