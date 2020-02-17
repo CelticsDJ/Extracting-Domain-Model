@@ -204,7 +204,7 @@ public class Relation_Rules {
 		target_cl = Utilities.getMapped_NPPrunedString(annotatedDoc, rel.getTargetId());
 
 		if(target_cl.getName().equals("that") || target_cl.getName().equals("which")) {
-			//target_cl = Utilities.getRealTarget(annotatedDoc, rel.getTargetId());
+			target_cl = Utilities.getRealTarget(annotatedDoc, VP, rel.getTargetId());
 		}
 
 		target = target_cl.getName();

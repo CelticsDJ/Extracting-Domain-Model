@@ -34,7 +34,7 @@ public class DeriveAnnotations {
         for(Annotation NP : NPs) {
             //已有，不处理
             if(NP.getId() != Utilities.getMapped_NP(GlobalVariables.annotated_doc, NP.getId())){
-                System.out.println(NP.getStartNode().getOffset() + " " + NP.getEndNode().getOffset());
+                //System.out.println(NP.getStartNode().getOffset() + " " + NP.getEndNode().getOffset());
                 continue;
             }
 

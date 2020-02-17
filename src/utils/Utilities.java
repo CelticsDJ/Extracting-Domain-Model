@@ -240,32 +240,60 @@ public class Utilities {
 		return "";
 	}
 
-	public static Concept_Class getRealTarget(Document doc, int token_id) {
+	public static Concept_Class getRealTarget(Document doc, Annotation VP, int token_id) {
 		if(token_id == 0)
 			return new Concept_Class("", 0, "");
 
 		AnnotationSet tokens = doc.getAnnotations().get("Token");
+
+		AnnotationSet VBs = gate.Utils.getOverlappingAnnotations(tokens, VP);
+
+
+		Integer VB_id = 0;
+		if(VBs.size() == 0) {
+			return new Concept_Class(gate.Utils.stringFor(doc, doc.getAnnotations().get(token_id)), token_id, "1");
+		}
+		else {
+			for(Annotation VB : VBs) {
+				//没有dependencies的会报错
+				List<DependencyRelation> dependencies = (List<DependencyRelation>) VB.getFeatures().get("dependencies");
+				if(dependencies != null) {
+					for (DependencyRelation dep : dependencies) {
+						if (dep.getType().equals("nmod")) {
+							VB_id = VB.getId();
+						}
+					}
+				}
+			}
+		}
+
 
 		int return_id = token_id - 2;
 
 		while(return_id >= 0) {
 
 			Annotation tmp = tokens.get(return_id);
+			//没有dependencies的会报错
+			/*
 			List<DependencyRelation> dependencies = (List<DependencyRelation>)tmp.getFeatures().get("dependencies");
 
 			if (dependencies != null) {
 				for(DependencyRelation dr : dependencies) {
 					//应该是equals.(VP_id) 暂时不好改
-					if(dr.getType().equals("acl:relcl") && dr.getTargetId().equals(token_id)) {
-						break;
+					if(dr.getType().equals("acl:relcl") && dr.getTargetId().equals(VB_id)) {
+						return new Concept_Class(gate.Utils.stringFor(doc, doc.getAnnotations().get(return_id)), return_id, "1");
 					}
 				}
+			}
+			*/
+			if(tmp.getFeatures().get("category").toString().startsWith("NN")) {
+				return new Concept_Class(gate.Utils.stringFor(doc, doc.getAnnotations().get(return_id)), return_id, "1");
 			}
 
 			return_id -= 2;
 		}
 
-		return new Concept_Class(gate.Utils.stringFor(doc, doc.getAnnotations().get(return_id)), return_id, "1");
+		return new Concept_Class(gate.Utils.stringFor(doc, doc.getAnnotations().get(token_id)), token_id, "1");
 	}
 
 	public static List<Integer> getTokenID(Document doc, int NP_id)
