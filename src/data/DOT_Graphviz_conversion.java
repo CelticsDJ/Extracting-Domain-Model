@@ -36,11 +36,14 @@ public class DOT_Graphviz_conversion {
         while(req_id <= ExtractRelations_includingChains.hashmap_requirmenets_Relations.size()) {
 
 			for (Requirement_Relations req_relations : ExtractRelations_includingChains.hashmap_requirmenets_Relations) {
-				if (req_relations.relations == null || !req_relations.Req_Id.equals("R" + req_id.toString())) {
+				if (!req_relations.Req_Id.equals("R" + req_id.toString())) {
 					continue;
 				}
 				req_id++;
 				sb.append(req_relations.Req_Id + ':' + req_relations.Req_txt + '\n');
+				if(req_relations.relations == null) {
+					continue;
+				}
 				Iterator it = req_relations.relations.iterator();
 				while (it.hasNext()) {
 					Object obj = it.next();

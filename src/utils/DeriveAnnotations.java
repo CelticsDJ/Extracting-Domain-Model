@@ -7,6 +7,7 @@ import org.bouncycastle.jcajce.provider.drbg.DRBG;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -121,6 +122,10 @@ public class DeriveAnnotations {
 
                 }
             }
+        }
+
+        for(Annotation token : tokens) {
+
         }
 
         //Relation_Verb

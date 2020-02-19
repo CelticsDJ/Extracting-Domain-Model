@@ -268,13 +268,17 @@ public class Utilities {
 		}
 
 
-		int return_id = token_id - 2;
+		int return_id = token_id;
 
 		while(return_id >= 0) {
 
 			Annotation tmp = tokens.get(return_id);
+
+			if(tmp == null) {
+				break;
+			}
+
 			//没有dependencies的会报错
-			/*
 			List<DependencyRelation> dependencies = (List<DependencyRelation>)tmp.getFeatures().get("dependencies");
 
 			if (dependencies != null) {
@@ -285,10 +289,10 @@ public class Utilities {
 					}
 				}
 			}
-			*/
-			if(tmp.getFeatures().get("category").toString().startsWith("NN")) {
+
+			/*if(tmp.getFeatures().get("category").toString().startsWith("NN")) {
 				return new Concept_Class(gate.Utils.stringFor(doc, doc.getAnnotations().get(return_id)), return_id, "1");
-			}
+			}*/
 
 			return_id -= 2;
 		}

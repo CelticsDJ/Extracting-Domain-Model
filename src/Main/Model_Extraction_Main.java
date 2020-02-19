@@ -36,7 +36,6 @@ public class Model_Extraction_Main {
 
 			extractInfoFromAnnotatedDoc();
 
-			//extractAtomicNPs();
 		}
 	}
 	
@@ -52,8 +51,8 @@ public class Model_Extraction_Main {
 		Gate.setGateHome(file);
 		Gate.setSiteConfigFile(new File(file.getPath() + "/gate.xml"));
 
-		URL docURL_1 = new URL("file:///Users/dujianuo/Desktop/domain model/Extracting Domain Model/resources/All_Annotations_OpenCossReqs.xml");
-		//URL docURL_1 = new URL("file:///Users/dujianuo/Desktop/domain model/Extracting Domain Model/resources/Partial_Annotations_OpenCossReqs.xml");
+		//URL docURL_1 = new URL("file:///Users/dujianuo/Desktop/domain model/Extracting Domain Model/resources/All_Annotations_OpenCossReqs.xml");
+		URL docURL_1 = new URL("file:///Users/dujianuo/Desktop/domain model/Extracting Domain Model/resources/Partial_Annotations_OpenCossReqs.xml");
 		
 		//prepare the GATE library
 		Gate.init();
@@ -75,9 +74,9 @@ public class Model_Extraction_Main {
 		
 	    //URL docURL = NP_Pipeline.class.getResource("/resources/SES_M&C_Reqs_final.txt");
 		
-		FeatureMap params1 = Factory.newFeatureMap();
-		params1.put(SimpleDocument.DOCUMENT_URL_PARAMETER_NAME, docURL_1);
-		params1.put(Document.DOCUMENT_ENCODING_PARAMETER_NAME, "UTF-8");
+		//FeatureMap params1 = Factory.newFeatureMap();
+		//params1.put(SimpleDocument.DOCUMENT_URL_PARAMETER_NAME, docURL_1);
+		//params1.put(Document.DOCUMENT_ENCODING_PARAMETER_NAME, "UTF-8");
 		
 		//FeatureMap featMap = Factory.newFeatureMap();
 		//featMap.put("date", new Date());
@@ -115,8 +114,8 @@ public class Model_Extraction_Main {
 		
 		String results = JSONConversion.converttoJSON();
 		
-		DOT_Graphviz_conversion.writeDOTFile("/Users/dujianuo/Desktop/domain model/Extracting Domain Model/result/example_1.dot");
-		//DOT_Graphviz_conversion.writeDOTFile("/Users/dujianuo/Desktop/domain model/Extracting Domain Model/result/example_2.dot");
+		//DOT_Graphviz_conversion.writeDOTFile("/Users/dujianuo/Desktop/domain model/Extracting Domain Model/result/example_1.dot");
+		DOT_Graphviz_conversion.writeDOTFile("/Users/dujianuo/Desktop/domain model/Extracting Domain Model/result/example_2.dot");
 
 		System.out.println("*******************  RESULTS *************");
 		System.out.println(results);

@@ -132,7 +132,7 @@ public class ExtractRelations_includingChains {
 			{
 				for(StringQuadruple obj_chain: rel.getObjects())
 				{
-					Association_Relation association = Utilities.formRelations(subj_chain.getC(), obj_chain.getC(), subj_chain.getD(), obj_chain.getD(), (subj_chain.getB() + " " + rel_chain.getB() + " " + obj_chain.getB() + " " + rel_chain.getA() + " " + rel_chain.getC()).replace("  "," ").trim(), isXcomp, "LP");
+					Association_Relation association = Utilities.formRelations(subj_chain.getC(), obj_chain.getC(), subj_chain.getD(), obj_chain.getD(), (subj_chain.getB() + " " + rel_chain.getB() + " " + obj_chain.getB() + " " + rel_chain.getA() + " " + rel_chain.getC()).replace("  "," ").replace("  "," ").replace("  "," ").trim(), isXcomp, "LP");
 					addRelation(association);
 				}
 			}
@@ -157,7 +157,8 @@ public class ExtractRelations_includingChains {
 						addRelation(rel);						
 						relationsCount++;
 					}
-					else if(quads.size() <= 1) //Only add attribute when there is no other choice, i.e., there is no other chain to the verb
+					//else if(quads.size() <= 1) //Only add attribute when there is no other choice, i.e., there is no other chain to the verb
+					if(isAdvMod)
 					{
 						Concept_Relation rel = new Concept_Relation(new Concept_Class(subject_quad.getC()), new Concept_Class(rel_root), RelationType.ATTRIBUTE, "D4");
 						addRelation(rel);
@@ -186,7 +187,8 @@ public class ExtractRelations_includingChains {
 						addRelation(rel);
 						relationsCount++;
 					}
-					else if(quads.size() <= 1) //Only add attribute when there is no other choice, i.e., there is no other chain to the verb 
+					//else if(quads.size() <= 1) //Only add attribute when there is no other choice, i.e., there is no other chain to the verb
+					if(isAdvMod)
 					{
 						Concept_Relation rel = new Concept_Relation(new Concept_Class(subj), new Concept_Class(rel_root), RelationType.ATTRIBUTE, "D4");
 						addRelation(rel);
@@ -510,7 +512,7 @@ public class ExtractRelations_includingChains {
 			{
 				String NP1 = Utilities.getMapped_NPPrunedString(doc, list_NPs.get(0).getId()).getName();
 				String NP2 = Utilities.getMapped_NPPrunedString(doc, list_NPs.get(1).getId()).getName();
-				System.out.println(System.lineSeparator() +annot_name + " : " +  NP2 + " --> has --> " + NP1);				
+				System.out.println(System.lineSeparator() +annot_name + " : " +  NP2 + " --> has --> " + NP1);
 				relationsCount++;
 			}
 		}
@@ -555,7 +557,7 @@ public class ExtractRelations_includingChains {
 			String NP2 = Utilities.getMapped_NPPrunedString(doc, NP2annot.getId()).getName();
 			
 			System.out.println(System.lineSeparator() +"NP of NP:  " +  NP1 + " --> of --> " + NP2);
-			Concept_Relation rel = new Concept_Relation(new Concept_Class(NP1), new Concept_Class(NP2), RelationType.AGGREGATION, "D5"); 
+			Concept_Relation rel = new Concept_Relation(new Concept_Class(NP1), new Concept_Class(NP2), RelationType.AGGREGATION, "D5");
 
 			addRelation(rel);
 			relationsCount++;

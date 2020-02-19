@@ -7,12 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import gate.Annotation;
-import gate.AnnotationSet;
-import gate.Document;
-import gate.Factory;
-import gate.FeatureMap;
-import gate.Utils;
+import gate.*;
 //import gate.stanford.DependencyRelation;
 import gate.util.InvalidOffsetException;
 import gate.stanford.DependencyRelation;
@@ -53,7 +48,7 @@ public class Classes_Rules {
 				}
 			}
 		}*/
-		String [] acceptable_dependencies = {"rcmod", "prep", "nmod"};
+		String [] acceptable_dependencies = {"rcmod", "prep", "nmod", "acl"};
 		
 		/*
 		 * Traverse through all the Parse_NPs 
@@ -205,10 +200,37 @@ public class Classes_Rules {
 		Concept_Class target_cl;
 		String target;
 
-		target_cl = Utilities.getMapped_NPPrunedString(annotatedDoc, rel.getTargetId());
+		Integer target_id = rel.getTargetId();
+		String relation = "";
+
+		if(rel.getType().equals("acl")) {
+
+			Annotation VB = annotatedDoc.getAnnotations().get(target_id);
+
+			relation = relation.concat(VB.getFeatures().get("string").toString());
+
+			List<DependencyRelation> dependencies = (List<DependencyRelation>)VB.getFeatures().get("dependencies");
+
+			for(DependencyRelation dep : dependencies) {
+
+				if(dep.getType().equals("dobj")) {
+					target_id = dep.getTargetId();
+				}
+
+				if(dep.getType().equals("case") || dep.getType().equals("mark")) {
+					relation = annotatedDoc.getAnnotations().get(dep.getTargetId()).getFeatures().get("string").toString().concat(" ").concat(relation);
+				}
+			}
+		}
+
+		else {
+			relation = getRelationType(annotatedDoc, rel).replace("according", "according to");
+		}
+
+		target_cl = Utilities.getMapped_NPPrunedString(annotatedDoc, target_id);
 		target = target_cl.getName();
 
-		String relation = getRelationType(annotatedDoc, rel).replace("according", "according to");
+
 
 
 		if(NP1.getID() == target_cl.getID()) {
@@ -234,6 +256,20 @@ public class Classes_Rules {
 		}
 
 		Utilities.addAnnotation(annotatedDoc, NP, inputAS.get(target_cl.getID()), features, "Chain_1");
+
+		if(relation.equals("of")) {
+			Annotation NP_1 = annotatedDoc.getAnnotations().get(NP.getId());
+			Annotation NP_2 = annotatedDoc.getAnnotations().get(target_id);
+
+			Node start = NP_1.getStartNode();
+			Node end = NP_2.getEndNode();
+
+			FeatureMap featureMap = Factory.newFeatureMap();
+			featureMap.put("NP1_id", NP_1.getId());
+			featureMap.put("NP2_id", NP_2.getId());
+
+			annotatedDoc.getAnnotations().add(start, end, "NP_of_NP", featureMap);
+		}
 											
 	}
 }
