@@ -80,7 +80,7 @@ public class Classes_Rules {
 						{
 
 							//暂时不处理nmod:poss
-							if(rel.getType().equals("nmod:poss")) {
+							if(rel.getType().equals("nmod:poss") || rel.getType().equals("acl:relcl")) {
 								continue;
 							}
 

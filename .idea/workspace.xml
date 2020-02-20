@@ -3,20 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e0f1cae0-0125-44d0-b210-061836e67475" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/Main/Model_Extraction_Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/Main/Model_Extraction_Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/data/DOT_Graphviz_conversion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/data/DOT_Graphviz_conversion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/processing/ExtractRelations_includingChains.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/processing/ExtractRelations_includingChains.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/rules/Classes_Rules.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/rules/Classes_Rules.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/utils/DeriveAnnotations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/utils/DeriveAnnotations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/utils/Utilities.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/utils/Utilities.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/example_1.dot" beforeDir="false" afterPath="$PROJECT_DIR$/result/example_1.dot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/example_2.dot" beforeDir="false" afterPath="$PROJECT_DIR$/result/example_2.dot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Model_Extraction_Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Model_Extraction_Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/DOT_Graphviz_conversion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/DOT_Graphviz_conversion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/processing/Chaining.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/processing/Chaining.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/rules/Classes_Rules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rules/Classes_Rules.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/DeriveAnnotations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/DeriveAnnotations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Utilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/StringQuadruple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/StringQuadruple.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,11 +27,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="122" column="9" selection-start-line="122" selection-start-column="9" selection-end-line="122" selection-end-column="9" />
+            <state relative-caret-position="294">
+              <caret line="127" selection-start-line="127" selection-end-line="127" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/processing/Chaining.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="99">
+              <caret line="267" column="25" lean-forward="true" selection-start-line="267" selection-start-column="25" selection-end-line="267" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -49,13 +52,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/processing/Chaining.java">
+        <entry file="file://$PROJECT_DIR$/src/utils/StringQuadruple.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4110">
-              <caret line="287" selection-start-line="287" selection-end-line="287" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="-8">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -63,8 +63,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/rules/Relation_Rules.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2835">
-              <caret line="206" selection-start-line="206" selection-end-line="206" />
+            <state relative-caret-position="501">
+              <caret line="230" selection-start-line="230" selection-end-line="230" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -75,8 +75,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/rules/Classes_Rules.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3825">
-              <caret line="270" column="82" selection-start-line="270" selection-start-column="82" selection-end-line="270" selection-end-column="82" />
+            <state relative-caret-position="312">
+              <caret line="257" selection-start-line="257" selection-end-line="257" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -87,8 +87,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utils/Utilities.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3960">
-              <caret line="277" column="22" selection-start-line="277" selection-start-column="22" selection-end-line="277" selection-end-column="22" />
+            <state relative-caret-position="256">
+              <caret line="232" column="104" lean-forward="true" selection-start-line="232" selection-start-column="104" selection-end-line="232" selection-end-column="104" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -99,7 +99,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utils/DeriveAnnotations.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1770">
+            <state relative-caret-position="545">
               <caret line="127" selection-start-line="127" selection-end-line="127" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -127,7 +127,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/data/DOT_Graphviz_conversion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
+            <state relative-caret-position="53">
               <caret line="31" selection-start-line="31" selection-end-line="31" />
             </state>
           </provider>
@@ -178,6 +178,7 @@
     <replaceStrings>
       <replace />
       <replace>Extracting Domain Model</replace>
+      <replace>0</replace>
     </replaceStrings>
     <dirStrings>
       <dir>/Applications/GATE_Developer_8.1/bin/gate.jar</dir>
@@ -201,7 +202,6 @@
         <option value="$PROJECT_DIR$/src/data/MetaRelation.java" />
         <option value="$PROJECT_DIR$/src/experimentation/LoadGateResources.java" />
         <option value="$PROJECT_DIR$/src/experimentation/Experimentation.java" />
-        <option value="$PROJECT_DIR$/src/utils/StringQuadruple.java" />
         <option value="$PROJECT_DIR$/src/utils/StringTriple.java" />
         <option value="$PROJECT_DIR$/src/utils/StringTuple.java" />
         <option value="$PROJECT_DIR$/src/utils/Utils_DuplicateCheck.java" />
@@ -218,7 +218,6 @@
         <option value="$USER_HOME$/Downloads/01 Model Extraction Binary/DoTagChunks.jape" />
         <option value="$PROJECT_DIR$/src/DependencyRelation/DependencyRelation.java" />
         <option value="$PROJECT_DIR$/src/gate/DependencyRelation/DependencyRelation.java" />
-        <option value="$PROJECT_DIR$/src/processing/Chaining.java" />
         <option value="$PROJECT_DIR$/src/gate/stanford/DependencyRelation.java" />
         <option value="$PROJECT_DIR$/src/rules/Relation_Rules.java" />
         <option value="$PROJECT_DIR$/src/Main/Model_Extraction_Main.java" />
@@ -226,14 +225,15 @@
         <option value="$PROJECT_DIR$/src/utils/DeriveAnnotations.java" />
         <option value="$PROJECT_DIR$/src/utils/Utilities.java" />
         <option value="$PROJECT_DIR$/src/rules/Classes_Rules.java" />
+        <option value="$PROJECT_DIR$/src/utils/StringQuadruple.java" />
         <option value="$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java" />
+        <option value="$PROJECT_DIR$/src/processing/Chaining.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="y" value="23" />
     <option name="width" value="1680" />
-    <option name="height" value="961" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -241,8 +241,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -283,6 +281,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -438,7 +438,8 @@
       <workItem from="1581655881006" duration="6579000" />
       <workItem from="1581915977685" duration="12834000" />
       <workItem from="1581998993837" duration="7755000" />
-      <workItem from="1582094179327" duration="140000" />
+      <workItem from="1582094179327" duration="241000" />
+      <workItem from="1582176606803" duration="8563000" />
     </task>
     <servers />
   </component>
@@ -454,7 +455,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="195693000" />
+    <option name="totallyTimeSpent" value="204357000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -474,19 +475,19 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" sideWeight="0.50076103" side_tool="true" weight="0.24969475" />
       <window_info id="Image Layers" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.49923897" visible="true" weight="0.21428572" />
+      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.49923897" visible="true" weight="0.21672772" />
       <window_info id="Structure" order="6" sideWeight="0.50076103" side_tool="true" weight="0.24969475" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="1" />
       <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.4981685" weight="0.32959184" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.5445666" side_tool="true" visible="true" weight="0.3653061" />
+      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.2796093" side_tool="true" visible="true" weight="0.45714286" />
       <window_info anchor="bottom" id="Message" order="5" />
-      <window_info anchor="bottom" id="Find" order="6" sideWeight="0.485348" weight="0.32959184" />
-      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.45543346" weight="0.3653061" />
-      <window_info anchor="bottom" id="Debug" order="8" sideWeight="0.7234432" weight="0.45714286" />
+      <window_info anchor="bottom" id="Find" order="6" sideWeight="0.4847375" weight="0.32959184" />
+      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.45299146" weight="0.3653061" />
+      <window_info active="true" anchor="bottom" id="Debug" order="8" sideWeight="0.72039074" visible="true" weight="0.45714286" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.47130647" weight="0.32959184" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.47069597" weight="0.32959184" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="12" weight="0.32959184" />
       <window_info anchor="bottom" id="Spring" order="13" />
@@ -659,13 +660,6 @@
       </provider>
     </entry>
     <entry file="jar:///Applications/GATE_Developer_8.1/bin/gate.jar!/gate/Factory.class" />
-    <entry file="file://$PROJECT_DIR$/src/utils/StringQuadruple.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Applications/GATE_Developer_8.1/bin/gate.jar!/gate/annotation/AnnotationSetImpl.class" />
     <entry file="file://$PROJECT_DIR$/src/experimentation/LoadGateResources.java" />
     <entry file="file://$PROJECT_DIR$/src/data/Concept_Relation.java">
@@ -682,19 +676,6 @@
           <folding>
             <element signature="e#560#561#0" expanded="true" />
             <element signature="e#582#583#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/MetaRelation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
-          <folding>
-            <element signature="e#623#624#0" expanded="true" />
-            <element signature="e#664#665#0" expanded="true" />
-            <element signature="e#737#738#0" expanded="true" />
-            <element signature="e#781#782#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -848,20 +829,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java">
+    <entry file="file://$PROJECT_DIR$/src/Main/Model_Extraction_Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="122" column="9" selection-start-line="122" selection-start-column="9" selection-end-line="122" selection-end-column="9" />
+        <state relative-caret-position="1455">
+          <caret line="117" column="40" selection-start-line="117" selection-start-column="32" selection-end-line="117" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/processing/Chaining.java">
+    <entry file="file://$PROJECT_DIR$/src/data/MetaRelation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4110">
-          <caret line="287" selection-start-line="287" selection-end-line="287" />
+        <state relative-caret-position="60">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="e#623#624#0" expanded="true" />
+            <element signature="e#664#665#0" expanded="true" />
+            <element signature="e#737#738#0" expanded="true" />
+            <element signature="e#781#782#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data/DOT_Graphviz_conversion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="53">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/Utilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="232" column="104" lean-forward="true" selection-start-line="232" selection-start-column="104" selection-end-line="232" selection-end-column="104" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -870,28 +871,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/rules/Relation_Rules.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2835">
-          <caret line="206" selection-start-line="206" selection-end-line="206" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/rules/Classes_Rules.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3825">
-          <caret line="270" column="82" selection-start-line="270" selection-start-column="82" selection-end-line="270" selection-end-column="82" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/Utilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3960">
-          <caret line="277" column="22" selection-start-line="277" selection-start-column="22" selection-end-line="277" selection-end-column="22" />
+        <state relative-caret-position="501">
+          <caret line="230" selection-start-line="230" selection-end-line="230" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -900,7 +881,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/DeriveAnnotations.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1770">
+        <state relative-caret-position="545">
           <caret line="127" selection-start-line="127" selection-end-line="127" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -912,20 +893,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/Model_Extraction_Main.java">
+    <entry file="file://$PROJECT_DIR$/src/rules/Classes_Rules.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1455">
-          <caret line="117" column="40" selection-start-line="117" selection-start-column="32" selection-end-line="117" selection-end-column="44" />
+        <state relative-caret-position="312">
+          <caret line="257" selection-start-line="257" selection-end-line="257" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/DOT_Graphviz_conversion.java">
+    <entry file="file://$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
+        <state relative-caret-position="294">
+          <caret line="127" selection-start-line="127" selection-end-line="127" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/StringQuadruple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/processing/Chaining.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="267" column="25" lean-forward="true" selection-start-line="267" selection-start-column="25" selection-end-line="267" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

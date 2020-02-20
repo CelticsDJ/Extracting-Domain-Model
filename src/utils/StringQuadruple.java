@@ -2,12 +2,14 @@ package utils;
 
 public class StringQuadruple {
     private String a, b, c, d;
+    private int depth;
 
-    public StringQuadruple (String a, String b, String c, String d) {
+    public StringQuadruple (String a, String b, String c, String d, int depth) {
       this.a = a;
       this.b = b;
       this.c = c;
       this.d = d;
+      this.depth = depth;
     }
 
     public String getA() {
@@ -25,6 +27,8 @@ public class StringQuadruple {
     public String getD() {
         return d;
       }
+
+    public int getDepth() {return depth;}
 
     public void setA(String a) {
       this.a = a;

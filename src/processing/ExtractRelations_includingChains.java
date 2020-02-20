@@ -85,11 +85,11 @@ public class ExtractRelations_includingChains {
 				init(relation);
 				
 				MetaRelation meta_relation = new MetaRelation(relation.getId());
-				List<StringQuadruple> relation_quads = Chaining.traverseVP_Chains(doc, relation);
+				List<StringQuadruple> relation_quads = Chaining.traverseVP_Chains(doc, relation, 0);
 				meta_relation.setRelationChain(relation_quads);
 				if(subject_Id != 0)
 				{
-					List<StringQuadruple> subject_quads = Chaining.getSubjectChains(doc, inputAS.get(subject_Id));
+					List<StringQuadruple> subject_quads = Chaining.getSubjectChains(doc, inputAS.get(subject_Id), 0);
 					meta_relation.setSubjects(subject_quads);
 				}
 				
@@ -99,7 +99,7 @@ public class ExtractRelations_includingChains {
 				}
 				else if(num_Objects ==1)
 				{
-					List<StringQuadruple> object_quads = Chaining.getObjectChains(doc, inputAS.get(object_Id));
+					List<StringQuadruple> object_quads = Chaining.getObjectChains(doc, inputAS.get(object_Id), 0);
  					meta_relation.setObjects(object_quads);
 				}
 				else if(num_Objects > 1)
@@ -107,7 +107,7 @@ public class ExtractRelations_includingChains {
 					for(int i = 1; i<=num_Objects; i++)
 					{							
 						int obj_Id = rel_features.get("D_Object_" + i) == null? 0:  (int) rel_features.get("D_Object_" + i);
-						List<StringQuadruple> object_quads = Chaining.getObjectChains(doc, inputAS.get(obj_Id));
+						List<StringQuadruple> object_quads = Chaining.getObjectChains(doc, inputAS.get(obj_Id), 0);
 						meta_relation.setObjects(object_quads);
 					}
 				}
@@ -148,7 +148,7 @@ public class ExtractRelations_includingChains {
 			
 			if(subject_Id != 0)
 			{						
-				List<StringQuadruple> subject_quads = Chaining.getSubjectChains(doc, inputAS.get(subject_Id));
+				List<StringQuadruple> subject_quads = Chaining.getSubjectChains(doc, inputAS.get(subject_Id), 0);
 				for(StringQuadruple subject_quad: subject_quads)
 				{
 					if(!iobj.equals(""))
@@ -167,7 +167,7 @@ public class ExtractRelations_includingChains {
 			}
 			else if(subjectpass_Id != 0)
 			{
-				List<StringQuadruple> subject_quads = Chaining.getSubjectChains(doc, inputAS.get(subjectpass_Id));
+				List<StringQuadruple> subject_quads = Chaining.getSubjectChains(doc, inputAS.get(subjectpass_Id), 0);
 				for(StringQuadruple subject_quad: subject_quads){
 					String subj = subject_quad.getC();
 					if(agent_Id!= 0)
@@ -313,7 +313,7 @@ public class ExtractRelations_includingChains {
 	 * Output List of triples
 	 * 1 Quadruple = (is altered, relation chain, object, cardinality)
 	 */
-	private static List<StringQuadruple> traverseNP_Chains(Annotation Source_Annot)
+	private static List<StringQuadruple> traverseNP_Chains(Annotation Source_Annot, int depth)
 	{		
 		Concept_Class object = Utilities.getMapped_NPPrunedString(doc, Source_Annot.getId()); //Get class of the source annotation
 		String source = object.getName(); //Source string 
@@ -331,7 +331,7 @@ public class ExtractRelations_includingChains {
 		 */
 		if(list_chains.size() == 0)
 		{
-			return_list.add(new StringQuadruple("false", "", "", "1"));
+			//return_list.add(new StringQuadruple("false", "", "", "1"));
 			return return_list;
 		}		
 		/*
@@ -349,7 +349,7 @@ public class ExtractRelations_includingChains {
 			String base_old = "";
 			String base_new = "";
 			
-			return_list.add(new StringQuadruple(altered, "", source, cardinality));
+			return_list.add(new StringQuadruple(altered, "", source, cardinality, depth));
 			
 			for(Annotation chain_NP: list_chains)
 			{
@@ -362,20 +362,20 @@ public class ExtractRelations_includingChains {
 					
 					
 					concepts.add(chainFeatures.get("target_String").toString().toLowerCase());
-					//cardinality = chainFeatures.get("cardinality").toString();
+					cardinality = chainFeatures.get("cardinality").toString();
 					altered = "true";
 					
 					if(prev_PP.equals("")) //First chain
 					{
 						StringTuple tuple = Utilities.getRelation_Target(chain + "###" + final_concept);
-						return_list.add(new StringQuadruple(altered, tuple.getA(), tuple.getB(), cardinality));	
+						return_list.add(new StringQuadruple(altered, tuple.getA(), tuple.getB(), cardinality, depth));
 						base_old = source;
 						base_new = chain;
 					}					
 					else if(prev_PP.equals(PP)) //Chain with same prepositions, e.g., "confirmation from the user FOR (this action) and (subsequent related actions)"
 					{												
 						StringTuple tuple = Utilities.getRelation_Target(chain + "###" + final_concept);
-						return_list.add(new StringQuadruple(altered, base_old + " " + PP, final_concept, cardinality));
+						return_list.add(new StringQuadruple(altered, base_old + " " + PP, final_concept, cardinality, depth));
 						base_new = base_old + " " + PP + " " + chainFeatures.get("target_String").toString();
 					}
 					else //Chain with different continuous prepositions, e.g., "confirmation FROM the user FOR this action"
@@ -383,15 +383,15 @@ public class ExtractRelations_includingChains {
 						base_old = base_new;
 						base_new = base_new + " " + PP + " " + chainFeatures.get("target_String").toString();
 						final_concept = chainFeatures.get("target_String").toString();
-						return_list.add(new StringQuadruple(altered, base_new.replace(final_concept, ""), final_concept, cardinality));
+						return_list.add(new StringQuadruple(altered, base_new.replace(final_concept, ""), final_concept, cardinality, depth));
 					}
 					prev_PP = PP;
 					
-					for(StringQuadruple quad: traverseNP_Chains(inputAS.get(Integer.parseInt(chainFeatures.get("target_ID").toString())))) //RECURSION
+					for(StringQuadruple quad: traverseNP_Chains(inputAS.get(Integer.parseInt(chainFeatures.get("target_ID").toString())), depth+1)) //RECURSION
 					{
 						if(quad.getA() == "true")
 							{								
-								return_list.add(new StringQuadruple(altered, source + " " + PP + " " + quad.getB(), quad.getC(), quad.getD()));
+								return_list.add(new StringQuadruple(altered, source + " " + PP + " " + quad.getB(), quad.getC(), quad.getD(), quad.getDepth()));
 							}
 					}				
 				}		

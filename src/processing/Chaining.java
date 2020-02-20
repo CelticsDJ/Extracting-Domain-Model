@@ -1,6 +1,8 @@
 package processing;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import gate.Annotation;
@@ -24,7 +26,7 @@ public class Chaining {
 	 * (false, "", Simulator, 1)
 	 * (true, "for Satellite", Simulator, 1)
 	 */
-	public static List<StringQuadruple> getSubjectChains(Document doc, Annotation subjAnnot)
+	public static List<StringQuadruple> getSubjectChains(Document doc, Annotation subjAnnot, int depth)
 	{
 		Concept_Class subjectClass = Utilities.getMapped_NPPrunedString(doc, subjAnnot.getId()); //Get class of the source annotation
 		String subj_Str = subjectClass.getName().trim();
@@ -34,7 +36,7 @@ public class Chaining {
 		List<Annotation> list_chains = Utilities.isChainSource(doc, subjAnnot.getId()); //List of all the chains with Source_Annot as source
 		String chain = "";
 		List<StringQuadruple> return_list = new ArrayList<StringQuadruple>();  //Return List
-		return_list.add(new StringQuadruple("false", "", subj_Str, subj_Cardinality));
+		return_list.add(new StringQuadruple("false", "", subj_Str, subj_Cardinality, depth));
 		
 		/*
 		 * Processing
@@ -62,6 +64,7 @@ public class Chaining {
 			
 			for(Annotation chain_NP: list_chains)
 			{
+				depth++;
 				FeatureMap chainFeatures = chain_NP.getFeatures();
 				if(chainFeatures.get("kind").toString().equals("NP_NP") && chainFeatures.get("string").toString().contains(subj_Str))
 				{
@@ -71,20 +74,20 @@ public class Chaining {
 					
 					if(prev_PP.equals("")) //First chain
 					{
-						return_list.add(new StringQuadruple(altered, chain.trim(), subj_Str, subj_Cardinality));
+						return_list.add(new StringQuadruple(altered, chain.trim(), subj_Str, subj_Cardinality, depth));
 						base_old = "";
 						base_new = chain;
 					}
 					else if(prev_PP.equals(PP))
 					{
 						chain = PP + " " + chainFeatures.get("target_String").toString();
-						return_list.add(new StringQuadruple(altered, (base_old + " " + chain).trim(), subj_Str, subj_Cardinality));
+						return_list.add(new StringQuadruple(altered, (base_old + " " + chain).trim(), subj_Str, subj_Cardinality, depth));
 						base_new = base_old + " " + chain;
 					}
 					else //Chain with different continuous prepositions, e.g., "confirmation FROM the user FOR this action"
 					{
 						chain = PP + " " + chainFeatures.get("target_String").toString();
-						return_list.add(new StringQuadruple(altered, (base_new + " " + chain).trim(), subj_Str, subj_Cardinality));
+						return_list.add(new StringQuadruple(altered, (base_new + " " + chain).trim(), subj_Str, subj_Cardinality, depth));
 						base_old = base_new;
 						base_new = base_new + " " + chain;
 					}
@@ -95,11 +98,11 @@ public class Chaining {
 						return return_list;
 					}
 					
-					for(StringQuadruple quad: getSubjectChains(doc, doc.getAnnotations().get(Integer.parseInt(chainFeatures.get("target_ID").toString())))) //RECURSION
+					for(StringQuadruple quad: getSubjectChains(doc, doc.getAnnotations().get(Integer.parseInt(chainFeatures.get("target_ID").toString())), depth+1)) //RECURSION
 					{
 						if(quad.getA() == "true")
 							{								
-								return_list.add(new StringQuadruple(altered, (base_new + " " + quad.getB()).trim(), subj_Str, subj_Cardinality));
+								return_list.add(new StringQuadruple(altered, (base_new + " " + quad.getB()).trim(), subj_Str, subj_Cardinality, depth));
 							}
 					}						
 				}
@@ -114,7 +117,7 @@ public class Chaining {
 	 * Output List of triples
 	 * 1 Quadruple = (is altered, relation chain, object, cardinality)
 	 */
-	public static List<StringQuadruple> getObjectChains(Document doc, Annotation Source_Annot)
+	public static List<StringQuadruple> getObjectChains(Document doc, Annotation Source_Annot, int depth)
 	{		
 		Concept_Class object = Utilities.getMapped_NPPrunedString(doc, Source_Annot.getId()); //Get class of the source annotation
 		String source = object.getName().trim(); //Source string 
@@ -125,7 +128,7 @@ public class Chaining {
 		String chain = "";
 		String final_concept = "";
 		List<StringQuadruple> return_list = new ArrayList<StringQuadruple>();  //Return List
-		return_list.add(new StringQuadruple(altered, "", source, cardinality));
+		return_list.add(new StringQuadruple(altered, "", source, cardinality, depth++));
 		
 		/*
 		 * Return blank chain string if there is no chain from this source
@@ -172,13 +175,13 @@ public class Chaining {
 							B : final_concept
 						 */
 						StringTuple tuple = Utilities.getRelation_Target(chain + "###" + final_concept);
-						return_list.add(new StringQuadruple(altered, tuple.getA(), tuple.getB(), cardinality));	
+						return_list.add(new StringQuadruple(altered, tuple.getA(), tuple.getB(), cardinality, depth++));
 						base_old = source;
 						base_new = chain;
 					}					
 					else if(prev_PP.equals(PP)) //Chain with same prepositions, e.g., "confirmation from the user FOR (this action) and (subsequent related actions)"
 					{												
-						return_list.add(new StringQuadruple(altered, base_old + " " + PP, final_concept, cardinality));
+						return_list.add(new StringQuadruple(altered, base_old + " " + PP, final_concept, cardinality, depth++));
 						base_new = (base_old + " " + PP + " " + chainFeatures.get("target_String").toString()).trim();
 					}
 					else //Chain with different continuous prepositions, e.g., "confirmation FROM the user FOR this action"
@@ -189,7 +192,7 @@ public class Chaining {
 						if(source.equals(final_concept)) {
 							return return_list;
 						}
-						return_list.add(new StringQuadruple(altered, base_new.replace(final_concept, ""), final_concept, cardinality));
+						return_list.add(new StringQuadruple(altered, base_new.replace(final_concept, ""), final_concept, cardinality, depth++));
 					}
 					prev_PP = PP;
 
@@ -197,16 +200,17 @@ public class Chaining {
 						return return_list;
 					}
 
-					for(StringQuadruple quad: getObjectChains(doc, doc.getAnnotations().get(Integer.parseInt(chainFeatures.get("target_ID").toString())))) //RECURSION
+					for(StringQuadruple quad: getObjectChains(doc, doc.getAnnotations().get(Integer.parseInt(chainFeatures.get("target_ID").toString())), depth+1)) //RECURSION
 					{
 						if(quad.getA() == "true")
 							{								
-								return_list.add(new StringQuadruple(altered, (source + " " + PP + " " + quad.getB()).trim(), quad.getC(), quad.getD()));
+								return_list.add(new StringQuadruple(altered, (source + " " + PP + " " + quad.getB()).trim(), quad.getC(), quad.getD(), depth++));
 							}
 					}				
 				}		
 			}
 		}
+
 		return (List<StringQuadruple>) Utils_DuplicateCheck.removeDuplicates(return_list);
 	}
 	
@@ -215,16 +219,15 @@ public class Chaining {
 	 * Output : List of triples
 	 * 1 Quadruple: (PP, relation chain, iobj, iobj cardinality)
 	 */
-	public static List<StringQuadruple> traverseVP_Chains(Document doc, Annotation relation)
+	public static List<StringQuadruple> traverseVP_Chains(Document doc, Annotation relation, int depth)
 	{
-		AnnotationSet tmp = doc.getAnnotations().get("Chain_1");
 		AnnotationSet chains_VP = gate.Utils.getOverlappingAnnotations(doc.getAnnotations(), relation, "Chain_1");
 		String verb = Utils.cleanStringFor(doc, relation);
 		List<Annotation> list_Chains = Utils.inDocumentOrder(chains_VP);
 		List<StringQuadruple> return_list = new ArrayList<StringQuadruple>();
 		String verbStr = relation.getFeatures().get("str").toString();
 		
-		return_list.add(new StringQuadruple("", verb, "", "0"));
+		return_list.add(new StringQuadruple("", verb, "", "0", depth++));
 		
 		if(list_Chains.size() == 0)
 		{			
@@ -237,7 +240,7 @@ public class Chaining {
 			String base_new = "";
 			
 				for(Annotation chain_VP: list_Chains)
-				{				
+				{
 					FeatureMap chainFeatures = chain_VP.getFeatures();
 					if(chainFeatures.get("kind").toString().equals("VP_NP") && chainFeatures.get("source_String").toString().equals(verb))
 					{
@@ -247,17 +250,18 @@ public class Chaining {
 						if(prev_PP.equals(""))//First chain
 						{
 							Annotation iobj_annot = doc.getAnnotations().get(Utilities.getMapped_NP(doc, Integer.parseInt(chainFeatures.get("target_ID").toString())));
-							List<StringQuadruple> iobj_quads = getObjectChains(doc, iobj_annot);
+							List<StringQuadruple> iobj_quads = getObjectChains(doc, iobj_annot, 0);
+							Collections.sort(iobj_quads, Comparator.comparing(StringQuadruple::getDepth));
 							for(StringQuadruple iobj_quad: iobj_quads)
 							{
 								if(iobj_quad.getA().equals("true"))
 								{						
-									return_list.add(new StringQuadruple(/*PP*/"", (verbStr + " " + iobj_quad.getB()).trim(), iobj_quad.getC(), iobj_quad.getD()));
+									return_list.add(new StringQuadruple(/*PP*/"", (verbStr + " " + iobj_quad.getB()).trim(), iobj_quad.getC(), iobj_quad.getD(), depth++));
 								}
 								else
 								{
 									Concept_Class iObject = Utilities.getMapped_NPPrunedString(doc, iobj_annot.getId());
-									return_list.add(new StringQuadruple(PP, verbStr, iObject.getName(), iObject.getCardinality()));
+									return_list.add(new StringQuadruple(PP, verbStr, iObject.getName(), iObject.getCardinality(), depth++));
 								}
 							}			
 							base_new = verbStr + " " + PP + " " +  iobj;
@@ -265,17 +269,17 @@ public class Chaining {
 						else
 						{
 							Annotation iobj_annot = doc.getAnnotations().get(Utilities.getMapped_NP(doc, Integer.parseInt(chainFeatures.get("target_ID").toString())));
-							List<StringQuadruple> iobj_quads = getObjectChains(doc, iobj_annot);
+							List<StringQuadruple> iobj_quads = getObjectChains(doc, iobj_annot, 0);
 							for(StringQuadruple iobj_quad: iobj_quads)
 							{
 								if(iobj_quad.getA().equals("true"))
 								{						
-									return_list.add(new StringQuadruple("", (base_new + " " + PP + " " + iobj_quad.getB()).trim(), iobj_quad.getC(), iobj_quad.getD()));
+									return_list.add(new StringQuadruple("", (base_new + " " + PP + " " + iobj_quad.getB()).trim(), iobj_quad.getC(), iobj_quad.getD(), depth++));
 								}
 								else
 								{
 									Concept_Class iObject = Utilities.getMapped_NPPrunedString(doc, iobj_annot.getId());
-									return_list.add(new StringQuadruple(PP, base_new, iObject.getName(), iObject.getCardinality()));
+									return_list.add(new StringQuadruple(PP, base_new, iObject.getName(), iObject.getCardinality(), depth++));
 								}
 							}			
 							base_new = base_new + " " + PP + " " +  iobj;

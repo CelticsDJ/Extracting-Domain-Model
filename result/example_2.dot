@@ -55,17 +55,9 @@ evidence_item [ label = "{evidence item : \l}"]
 assurance_project [ label = "{assurance project : \l}"]
 evidence_item -> assurance_project  [arrowhead = "odiamond"]
 D5
-evidence_item [ label = "{evidence item : \l}"]
-associated [ label = "{associated : \l}"]
-evidence_item -> associated  [arrowhead = "none", label = "associate  artefact"]
-B1
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 artefact [ label = "{artefact : \l}"]
 OPENCOSS_platform -> artefact  [arrowhead = "none", label = "store CCL-information of"]
-LP
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-associated [ label = "{associated : \l}"]
-OPENCOSS_platform -> associated  [arrowhead = "none", label = "store CCL-information of artefact"]
 LP
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 CCL-information [ label = "{CCL-information : \l}"]
@@ -86,10 +78,6 @@ evidence_item [ label = "{evidence item : \l}"]
 assurance_project [ label = "{assurance project : \l}"]
 evidence_item -> assurance_project  [arrowhead = "odiamond"]
 D5
-evidence_item [ label = "{evidence item : \l}"]
-associated [ label = "{associated : \l}"]
-evidence_item -> associated  [arrowhead = "none", label = "associate  artefact"]
-B1
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 user [ label = "{user : \l}"]
 OPENCOSS_platform -> user  [arrowhead = "none", label = "provide with ability"]
@@ -108,10 +96,6 @@ evidence_item -> artefact  [arrowhead = "none", label = "associate to"]
 B1
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 user [ label = "{user : \l}"]
-OPENCOSS_platform -> user  [arrowhead = "none", label = "provide ability to modify information about artefact associated"]
-LP
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-user [ label = "{user : \l}"]
 OPENCOSS_platform -> user  [arrowhead = "none", label = "provide ability to modify information about artefact"]
 LP
 
@@ -120,10 +104,6 @@ R5:The OPENCOSS platform shall provide users with the ability to associate evide
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 user [ label = "{user : \l}"]
 OPENCOSS_platform -> user  [arrowhead = "none", label = "provide ability to associate evidence item"]
-LP
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-user [ label = "{user : \l}"]
-OPENCOSS_platform -> user  [arrowhead = "none", label = "provide ability to associate evidence item of assurance project with artefact used"]
 LP
 associate_evidence_item [ label = "{associate evidence item : \l}"]
 evidence_item [ label = "{evidence item : \l}"]
@@ -153,20 +133,20 @@ LP
 
 R6:When a USER wants to drop an evidence item from an assurance project, the OPENCOSS platform shall request confirmation from the user for this action and subsequent related actions.
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "request confirmation from"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+action [ label = "{action : \l}"]
+OPENCOSS_platform -> action  [arrowhead = "none", label = "request confirmation from user for"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 confirmation [ label = "{confirmation : \l}"]
 OPENCOSS_platform -> confirmation  [arrowhead = "none", label = "request"]
 LP
 USER [ label = "{USER : \l}"]
 evidence_item [ label = "{evidence item : \l}"]
 USER -> evidence_item  [arrowhead = "none", label = "wants to drop"]
-LP
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-user [ label = "{user : \l}"]
-OPENCOSS_platform -> user  [arrowhead = "none", label = "request confirmation for action from"]
-LP
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-action [ label = "{action : \l}"]
-OPENCOSS_platform -> action  [arrowhead = "none", label = "request confirmation for"]
 LP
 subsequent_related_action [ label = "{subsequent related action : \l}"]
 action [ label = "{action : \l}"]
@@ -905,10 +885,6 @@ LP
 user [ label = "{user : \l}"]
 evidence_item [ label = "{evidence item : \l}"]
 user -> evidence_item  [arrowhead = "none", label = "indicated possible change in"]
-LP
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-affected [ label = "{affected : \l}"]
-OPENCOSS_platform -> affected  [arrowhead = "none", label = "indicate evidence item of assurance project"]
 LP
 possible_change [ label = "{possible change : \l}"]
 change [ label = "{change : \l}"]
