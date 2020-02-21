@@ -71,7 +71,7 @@ public class DeriveAnnotations {
                     for(Integer id : consists) {
                         String tmp = annotations.get(id).getFeatures().get("string").toString();
                         String tmp_root = annotations.get(id).getFeatures().get("root").toString();
-                        if(!tmp.toLowerCase().equals("the") && !tmp.toLowerCase().equals("any")) {
+                        if(!tmp.toLowerCase().equals("the") && !tmp.toLowerCase().equals("any") && !tmp.toLowerCase().equals("s") && !tmp.toLowerCase().equals("'s")) {
                             pruned_string = pruned_string.concat(tmp + " ");
                         }
                         root = root.concat(tmp_root + " ");

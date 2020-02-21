@@ -25,17 +25,27 @@ import utils.DeriveAnnotations;
 public class Model_Extraction_Main {
 	
 	public static void main(String [] args) throws Exception
-	{				
-		Corpus corpus = init();
-		for(Document annoted_Doc : corpus)
-		{
+	{
+		//Set GATE home to right location
+		File file = new File("/Applications/GATE_Developer_8.6/");
 
-			GlobalVariables.setAnnotatedDoc(annoted_Doc);
+		Gate.setGateHome(file);
+		Gate.setSiteConfigFile(new File(file.getPath() + "/gate.xml"));
 
-			DeriveAnnotations.DeriveAnnotations();
+		//prepare the GATE library
+		Gate.init();
 
-			extractInfoFromAnnotatedDoc();
+		for ( int i = 1; i <= 3; ++i) {
+			Corpus corpus = init(i);
+			for (Document annoted_Doc : corpus) {
 
+				GlobalVariables.setAnnotatedDoc(annoted_Doc);
+
+				DeriveAnnotations.DeriveAnnotations();
+
+				extractInfoFromAnnotatedDoc(i);
+
+			}
 		}
 	}
 	
@@ -44,18 +54,26 @@ public class Model_Extraction_Main {
 	 * on the document (defined within this method)
 	 * It returns the annotated document
 	 */
-	private static Corpus init() throws Exception
+	private static Corpus init(int i) throws Exception
 	{
-		//Set GATE home to right location 
-		File file = new File("/Applications/GATE_Developer_8.6/");
-		Gate.setGateHome(file);
-		Gate.setSiteConfigFile(new File(file.getPath() + "/gate.xml"));
+		Corpus corpus = (Corpus) Factory.createResource("gate.corpora.CorpusImpl");
+		corpus.setName("Test_Corpus");
 
-		//URL docURL_1 = new URL("file:///Users/dujianuo/Desktop/domain model/Extracting Domain Model/resources/All_Annotations_OpenCossReqs.xml");
-		URL docURL_1 = new URL("file:///Users/dujianuo/Desktop/domain model/Extracting Domain Model/resources/Partial_Annotations_OpenCossReqs.xml");
-		
-		//prepare the GATE library
-		Gate.init();
+		URL docURL_1 = new URL("file:///Users/dujianuo/Desktop/domain model/Extracting Domain Model/resources/All_Annotations_OpenCossReqs.xml");;
+
+		if(i == 1) {
+			docURL_1 = new URL("file:///Users/dujianuo/Desktop/domain model/Extracting Domain Model/resources/Partial_Annotations_OpenCossReqs.xml");
+		}
+		else if(i == 2) {
+			docURL_1 = new URL("file:///Users/dujianuo/Desktop/domain model/Extracting Domain Model/resources/Two Tanks Requirements.xml");
+		}
+		else if(i == 3) {
+			docURL_1 = new URL("file:///Users/dujianuo/Desktop/domain model/Extracting Domain Model/resources/ATM_Example.xml");
+		}
+		Document doc_1 = Factory.newDocument(docURL_1, "UTF-8");
+		doc_1.setName("OpenCossReqs");
+
+
 		
 		//Show the GATE developer window
 		/*SwingUtilities.invokeAndWait(new Runnable() { public void run() {
@@ -68,27 +86,7 @@ public class Model_Extraction_Main {
 		//Gate.getCreoleRegister().registerDirectories(new File(gate.Gate.getPluginsHome(), "OpenNLP").toURI().toURL());
 		//Gate.getCreoleRegister().registerDirectories(new File(gate.Gate.getPluginsHome(), "Stanford_CoreNLP").toURI().toURL());
 		//Gate.getCreoleRegister().registerDirectories(new File(gate.Gate.getPluginsHome(), "Tools").toURI().toURL());
-				
-		Corpus corpus = (Corpus) Factory.createResource("gate.corpora.CorpusImpl");
-		corpus.setName("Test_Corpus");
-		
-	    //URL docURL = NP_Pipeline.class.getResource("/resources/SES_M&C_Reqs_final.txt");
-		
-		//FeatureMap params1 = Factory.newFeatureMap();
-		//params1.put(SimpleDocument.DOCUMENT_URL_PARAMETER_NAME, docURL_1);
-		//params1.put(Document.DOCUMENT_ENCODING_PARAMETER_NAME, "UTF-8");
-		
-		//FeatureMap featMap = Factory.newFeatureMap();
-		//featMap.put("date", new Date());
-		
-		Document doc_1 = Factory.newDocument(docURL_1, "UTF-8");
-		//Document doc = (Document) Factory.createResource("gate.corpora.DocumentImpl", params1, featMap, "document");
-		doc_1.setName("OpenCossReqs");
-		//Document doc_2 = Factory.newDocument(docURL_2, "UTF-8");
-		//Document doc = (Document) Factory.createResource("gate.corpora.DocumentImpl", params1, featMap, "document");
-		//doc_2.setName("Mix_Doc");
-	    		
-	    //corpus.add(document);
+
 	    corpus.add(doc_1);
 	    //corpus.add(doc_2);
 			    			
@@ -102,7 +100,7 @@ public class Model_Extraction_Main {
 		return corpus;
 	}
 	
-	private static void extractInfoFromAnnotatedDoc() throws InvalidOffsetException, SecurityException, IOException
+	private static void extractInfoFromAnnotatedDoc(int i) throws InvalidOffsetException, SecurityException, IOException
 	{				
 		Relation_Rules.extractRelations();
 		
@@ -115,7 +113,15 @@ public class Model_Extraction_Main {
 		String results = JSONConversion.converttoJSON();
 		
 		//DOT_Graphviz_conversion.writeDOTFile("/Users/dujianuo/Desktop/domain model/Extracting Domain Model/result/example_1.dot");
-		DOT_Graphviz_conversion.writeDOTFile("/Users/dujianuo/Desktop/domain model/Extracting Domain Model/result/example_2.dot");
+		if(i == 1) {
+			DOT_Graphviz_conversion.writeDOTFile("/Users/dujianuo/Desktop/domain model/Extracting Domain Model/result/Partial_Annotations_OpenCossReqs.dot");
+		}
+		else if (i == 2) {
+			DOT_Graphviz_conversion.writeDOTFile("/Users/dujianuo/Desktop/domain model/Extracting Domain Model/result/Two Tanks Requirements.dot");
+		}
+		else if (i == 3) {
+			DOT_Graphviz_conversion.writeDOTFile("/Users/dujianuo/Desktop/domain model/Extracting Domain Model/result/ATM_Example.dot");
+		}
 
 		System.out.println("*******************  RESULTS *************");
 		System.out.println(results);

@@ -1,0 +1,2334 @@
+digraph G {
+fontname = "Bitstream Vera Sans"
+fontsize = 8
+node [ 
+fontname = "Bitstream Vera Sans"
+fontsize = 8
+shape = "record"
+]
+edge [ 
+fontname = "Bitstream Vera Sans"
+fontsize = 8
+]
+
+
+R1:The OPENCOSS platform shall provide the users with the ability to indicate the evidence types of the evidence items, to be provided for an assurance project.
+evidence_type [ label = "{evidence type : \l}"]
+evidence_item [ label = "{evidence item : \l}"]
+evidence_type -> evidence_item  [arrowhead = "odiamond"]
+D5
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+ability_ [ label = "{ability  : \l}"]
+OPENCOSS_platform -> ability_  [arrowhead = "none", label = "provide user with"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
+LP
+
+
+R2:The OPENCOSS platform shall provide users with the ability to select an existing evidence characterization model for an assurance project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+OPENCOSS_platform -> assurance_project  [arrowhead = "none", label = "provide user with ability to select existing evidence characterization model for"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+ability_ [ label = "{ability  : \l}"]
+OPENCOSS_platform -> ability_  [arrowhead = "none", label = "provide user with"]
+LP
+existing_evidence_characterization_model [ label = "{existing evidence characterization model : \l}"]
+evidence_characterization_model [ label = "{evidence characterization model : \l}"]
+existing_evidence_characterization_model -> evidence_characterization_model  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+existing_evidence_characterization_model [ label = "{existing evidence characterization model : \l}"]
+OPENCOSS_platform -> existing_evidence_characterization_model  [arrowhead = "none", label = "provide user with ability to select"]
+LP
+
+
+R3:The OPENCOSS platform shall store the CCL-information of the artefact to which an evidence item of an assurance project is associated.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+artefact [ label = "{artefact : \l}"]
+OPENCOSS_platform -> artefact  [arrowhead = "none", label = "store CCL-information of"]
+LP
+evidence_item [ label = "{evidence item : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+evidence_item -> assurance_project  [arrowhead = "odiamond"]
+D5
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+CCL-information [ label = "{CCL-information : \l}"]
+OPENCOSS_platform -> CCL-information  [arrowhead = "none", label = "store"]
+LP
+evidence_item [ label = "{evidence item : \l}"]
+artefact [ label = "{artefact : \l}"]
+evidence_item -> artefact  [arrowhead = "none", label = "associate to"]
+B1
+CCL-information [ label = "{CCL-information : \l}"]
+artefact [ label = "{artefact : \l}"]
+CCL-information -> artefact  [arrowhead = "odiamond"]
+D5
+
+
+R4:The OPENCOSS platform shall provide users with the ability to modify the information about the artefact to which an evidence item of an assurance project is associated.
+evidence_item [ label = "{evidence item : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+evidence_item -> assurance_project  [arrowhead = "odiamond"]
+D5
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+ability_ [ label = "{ability  : \l}"]
+OPENCOSS_platform -> ability_  [arrowhead = "none", label = "provide user with"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+information [ label = "{information : \l}"]
+OPENCOSS_platform -> information  [arrowhead = "none", label = "provide user with ability to modify"]
+LP
+evidence_item [ label = "{evidence item : \l}"]
+artefact [ label = "{artefact : \l}"]
+evidence_item -> artefact  [arrowhead = "none", label = "associate to"]
+B1
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+artefact [ label = "{artefact : \l}"]
+OPENCOSS_platform -> artefact  [arrowhead = "none", label = "provide user with ability to modify information about"]
+LP
+
+
+R5:The OPENCOSS platform shall provide users with the ability to associate evidence items of an assurance project with an artefact that has been used in another project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+OPENCOSS_platform -> assurance_project  [arrowhead = "none", label = "provide user with ability to associate evidence item of"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+ability [ label = "{ability : \l}"]
+OPENCOSS_platform -> ability  [arrowhead = "none", label = "provide user with"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+associate_evidence_item [ label = "{associate evidence item : \l}"]
+OPENCOSS_platform -> associate_evidence_item  [arrowhead = "none", label = "provide user with ability to"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
+LP
+associate_evidence_item [ label = "{associate evidence item : \l}"]
+evidence_item [ label = "{evidence item : \l}"]
+associate_evidence_item -> evidence_item  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+artefact [ label = "{artefact : \l}"]
+OPENCOSS_platform -> artefact  [arrowhead = "none", label = "provide user with ability to associate evidence item of assurance project with"]
+LP
+associate_evidence_item [ label = "{associate evidence item : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+associate_evidence_item -> assurance_project  [arrowhead = "odiamond"]
+D5
+
+
+R6:When a USER wants to drop an evidence item from an assurance project, the OPENCOSS platform shall request confirmation from the user for this action and subsequent related actions.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "request confirmation from"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+confirmation [ label = "{confirmation : \l}"]
+OPENCOSS_platform -> confirmation  [arrowhead = "none", label = "request"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+action [ label = "{action : \l}"]
+OPENCOSS_platform -> action  [arrowhead = "none", label = "request confirmation from user for"]
+LP
+USER [ label = "{USER : \l}"]
+evidence_item [ label = "{evidence item : \l}"]
+USER -> evidence_item  [arrowhead = "none", label = "wants to drop"]
+LP
+subsequent_related_action [ label = "{subsequent related action : \l}"]
+action [ label = "{action : \l}"]
+subsequent_related_action -> action  [arrowhead = "empty"]
+D3
+
+
+R7:The OPENCOSS platform shall provide users with the ability to modify the information of the evidence items of an assurance project.
+evidence_item [ label = "{evidence item : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+evidence_item -> assurance_project  [arrowhead = "odiamond"]
+D5
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+ability_ [ label = "{ability  : \l}"]
+OPENCOSS_platform -> ability_  [arrowhead = "none", label = "provide user with"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+OPENCOSS_platform -> assurance_project  [arrowhead = "none", label = "provide user with ability to modify information of evidence item of"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+information [ label = "{information : \l}"]
+OPENCOSS_platform -> information  [arrowhead = "none", label = "provide user with ability to modify"]
+LP
+information [ label = "{information : \l}"]
+evidence_item [ label = "{evidence item : \l}"]
+information -> evidence_item  [arrowhead = "odiamond"]
+D5
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence_item [ label = "{evidence item : \l}"]
+OPENCOSS_platform -> evidence_item  [arrowhead = "none", label = "provide user with ability to modify information of"]
+LP
+
+
+R8:The OPENCOSS platform shall provide users with the ability to copy evidence items to an assurance project that previously have been stored in another assurance project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence_item [ label = "{evidence item : \l}"]
+OPENCOSS_platform -> evidence_item  [arrowhead = "none", label = "provide user with ability to copy"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+ability_ [ label = "{ability  : \l}"]
+OPENCOSS_platform -> ability_  [arrowhead = "none", label = "provide user with"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
+LP
+
+
+R9:The OPENCOSS platform shall store the time and date of the actions performed to the evidence items of an assurance project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence_items [ label = "{evidence items : \l}"]
+OPENCOSS_platform -> evidence_items  [arrowhead = "none", label = "store time and date of action performed"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+action [ label = "{action : \l}"]
+OPENCOSS_platform -> action  [arrowhead = "none", label = "store time and date of"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+OPENCOSS_platform -> assurance_project  [arrowhead = "none", label = "store time and date of action performed evidence items of"]
+LP
+evidence_items_ [ label = "{evidence items  : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+evidence_items_ -> assurance_project  [arrowhead = "odiamond"]
+D5
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+time_and_date [ label = "{time and date : \l}"]
+OPENCOSS_platform -> time_and_date  [arrowhead = "none", label = "store"]
+LP
+time_and_date [ label = "{time and date : \l}"]
+action [ label = "{action : \l}"]
+time_and_date -> action  [arrowhead = "odiamond"]
+D5
+
+
+R10:The OPENCOSS platform shall create the evidence repository of an assurance project from its evidence characterization model.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+OPENCOSS_platform -> assurance_project  [arrowhead = "none", label = "create evidence repository of"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence_characterization_model [ label = "{evidence characterization model : \l}"]
+OPENCOSS_platform -> evidence_characterization_model  [arrowhead = "none", label = "create evidence repository of assurance project from"]
+LP
+its [ label = "{its : \l}"]
+model [ label = "{model : \l}"]
+its -> model  [arrowhead = "odiamond"]
+D5
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence_repository [ label = "{evidence repository : \l}"]
+OPENCOSS_platform -> evidence_repository  [arrowhead = "none", label = "create"]
+LP
+evidence_repository_ [ label = "{evidence repository  : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+evidence_repository_ -> assurance_project  [arrowhead = "odiamond"]
+D5
+
+
+R11:The OPENCOSS platform shall provide users with the ability to modify the intermediate nodes in the tree view for display of the evidence items of an assurance project.
+evidence_item [ label = "{evidence item : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+evidence_item -> assurance_project  [arrowhead = "odiamond"]
+D5
+display [ label = "{display : \l}"]
+evidence_item [ label = "{evidence item : \l}"]
+display -> evidence_item  [arrowhead = "odiamond"]
+D5
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+ability_ [ label = "{ability  : \l}"]
+OPENCOSS_platform -> ability_  [arrowhead = "none", label = "provide user with"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+intermediate_node [ label = "{intermediate node : \l}"]
+OPENCOSS_platform -> intermediate_node  [arrowhead = "none", label = "provide user with ability to modify"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
+LP
+intermediate_node [ label = "{intermediate node : \l}"]
+node [ label = "{node : \l}"]
+intermediate_node -> node  [arrowhead = "empty"]
+D3
+
+
+R12:The OPENCOSS platform shall provide users with the ability to associate evidence types to the intermediate nodes of the tree view for display of the evidence items of an assurance project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+ability [ label = "{ability : \l}"]
+OPENCOSS_platform -> ability  [arrowhead = "none", label = "provide to associate evidence type to intermediate node of user with tree view"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+ability [ label = "{ability : \l}"]
+OPENCOSS_platform -> ability  [arrowhead = "none", label = "provide to associate evidence type to intermediate node of tree view for display of evidence item of user with assurance project"]
+LP
+evidence_item [ label = "{evidence item : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+evidence_item -> assurance_project  [arrowhead = "odiamond"]
+D5
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+ability [ label = "{ability : \l}"]
+OPENCOSS_platform -> ability  [arrowhead = "none", label = "provide to associate evidence type to intermediate node of tree view for user with display"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+ability [ label = "{ability : \l}"]
+OPENCOSS_platform -> ability  [arrowhead = "none", label = "provide user with"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide to associate evidence type"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide to associate evidence type to intermediate node of tree view for display"]
+LP
+intermediate_node [ label = "{intermediate node : \l}"]
+node [ label = "{node : \l}"]
+intermediate_node -> node  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+ability [ label = "{ability : \l}"]
+OPENCOSS_platform -> ability  [arrowhead = "none", label = "provide to associate evidence type to user with intermediate node"]
+LP
+intermediate_node [ label = "{intermediate node : \l}"]
+tree_view [ label = "{tree view : \l}"]
+intermediate_node -> tree_view  [arrowhead = "odiamond"]
+D5
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide to associate evidence type to intermediate node"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide to associate evidence type to intermediate node of tree view for display of evidence item of assurance project"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide to associate evidence type to intermediate node of tree view"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+ability [ label = "{ability : \l}"]
+OPENCOSS_platform -> ability  [arrowhead = "none", label = "provide to associate evidence type to intermediate node of tree view for display of user with evidence item"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+ability [ label = "{ability : \l}"]
+OPENCOSS_platform -> ability  [arrowhead = "none", label = "provide user with to associate evidence type"]
+LP
+display [ label = "{display : \l}"]
+evidence_item [ label = "{evidence item : \l}"]
+display -> evidence_item  [arrowhead = "odiamond"]
+D5
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
+LP
+associate_evidence_type [ label = "{associate evidence type : \l}"]
+evidence_type [ label = "{evidence type : \l}"]
+associate_evidence_type -> evidence_type  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide to associate evidence type to intermediate node of tree view for display of evidence item"]
+LP
+
+
+R13:When an evidence characterization model has been selected for an assurance project, the OPENCOSS platform shall propose intermediate nodes for the tree view for display of the evidence items of the project according to the evidence characterization model.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+display [ label = "{display : \l}"]
+OPENCOSS_platform -> display  [arrowhead = "none", label = "propose intermediate node for"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence_item [ label = "{evidence item : \l}"]
+OPENCOSS_platform -> evidence_item  [arrowhead = "none", label = "propose intermediate node for tree view for display of"]
+LP
+evidence_characterization_model [ label = "{evidence characterization model |+ When select : \l}"]
+D4
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+intermediate_node [ label = "{intermediate node : \l}"]
+OPENCOSS_platform -> intermediate_node  [arrowhead = "none", label = "propose"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+tree_view [ label = "{tree view : \l}"]
+OPENCOSS_platform -> tree_view  [arrowhead = "none", label = "propose intermediate node for"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+project [ label = "{project : \l}"]
+OPENCOSS_platform -> project  [arrowhead = "none", label = "propose intermediate node for tree view for display of evidence item of"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence_characterization_model [ label = "{evidence characterization model : \l}"]
+OPENCOSS_platform -> evidence_characterization_model  [arrowhead = "none", label = "propose intermediate node according to"]
+LP
+display [ label = "{display : \l}"]
+evidence_item [ label = "{evidence item : \l}"]
+display -> evidence_item  [arrowhead = "odiamond"]
+D5
+evidence_characterization_model [ label = "{evidence characterization model : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+evidence_characterization_model -> assurance_project  [arrowhead = "none", label = "When select for"]
+B1
+intermediate_node [ label = "{intermediate node : \l}"]
+node [ label = "{node : \l}"]
+intermediate_node -> node  [arrowhead = "empty"]
+D3
+evidence_item [ label = "{evidence item : \l}"]
+project [ label = "{project : \l}"]
+evidence_item -> project  [arrowhead = "odiamond"]
+D5
+
+
+R14:When an evidence characterization model has been selected for an assurance project, the evidence items of the project are associated to evidence types, and the evidence types have been used for definition of intermediate nodes of the tree view for display of the evidence items of the project, the OPENCOSS platform shall automatically include the evidence items of the project in the tree view nodes of their associated evidence types.
+evidence_item [ label = "{evidence item : \l}"]
+evidence_type [ label = "{evidence type : \l}"]
+evidence_item -> evidence_type  [arrowhead = "none", label = "associate to"]
+B1
+evidence_type [ label = "{evidence type : \l}"]
+display [ label = "{display : \l}"]
+evidence_type -> display  [arrowhead = "none", label = "use for"]
+B1
+evidence_characterization_model [ label = "{evidence characterization model |+ When select : \l}"]
+D4
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+associated_evidence_type [ label = "{associated evidence type : \l}"]
+OPENCOSS_platform -> associated_evidence_type  [arrowhead = "none", label = "include evidence item of project in tree view node of"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+tree_view_node [ label = "{tree view node : \l}"]
+OPENCOSS_platform -> tree_view_node  [arrowhead = "none", label = "include evidence item of project in"]
+LP
+evidence_characterization_model [ label = "{evidence characterization model : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+evidence_characterization_model -> assurance_project  [arrowhead = "none", label = "When select for"]
+B1
+evidence_type [ label = "{evidence type : \l}"]
+tree_view [ label = "{tree view : \l}"]
+evidence_type -> tree_view  [arrowhead = "none", label = "use  for definition of intermediate node of"]
+B1
+intermediate_node [ label = "{intermediate node : \l}"]
+node [ label = "{node : \l}"]
+intermediate_node -> node  [arrowhead = "empty"]
+D3
+evidence_item [ label = "{evidence item : \l}"]
+project [ label = "{project : \l}"]
+evidence_item -> project  [arrowhead = "odiamond"]
+D5
+intermediate_node [ label = "{intermediate node : \l}"]
+tree_view [ label = "{tree view : \l}"]
+intermediate_node -> tree_view  [arrowhead = "odiamond"]
+D5
+evidence_type [ label = "{evidence type : \l}"]
+definition [ label = "{definition : \l}"]
+evidence_type -> definition  [arrowhead = "none", label = "use for"]
+B1
+evidence_type [ label = "{evidence type : \l}"]
+project [ label = "{project : \l}"]
+evidence_type -> project  [arrowhead = "none", label = "use  for definition for display of evidence item of"]
+B1
+tree_view_node [ label = "{tree view node : \l}"]
+associated_evidence_type [ label = "{associated evidence type : \l}"]
+tree_view_node -> associated_evidence_type  [arrowhead = "odiamond"]
+D5
+evidence_type [ label = "{evidence type : \l}"]
+evidence_item [ label = "{evidence item : \l}"]
+evidence_type -> evidence_item  [arrowhead = "none", label = "use  for definition for display of"]
+B1
+display [ label = "{display : \l}"]
+evidence_item [ label = "{evidence item : \l}"]
+display -> evidence_item  [arrowhead = "odiamond"]
+D5
+definition [ label = "{definition : \l}"]
+intermediate_node [ label = "{intermediate node : \l}"]
+definition -> intermediate_node  [arrowhead = "odiamond"]
+D5
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence_item [ label = "{evidence item : \l}"]
+OPENCOSS_platform -> evidence_item  [arrowhead = "none", label = "include"]
+LP
+their [ label = "{their : \l}"]
+types [ label = "{types : \l}"]
+their -> types  [arrowhead = "odiamond"]
+D5
+evidence_type [ label = "{evidence type : \l}"]
+intermediate_node [ label = "{intermediate node : \l}"]
+evidence_type -> intermediate_node  [arrowhead = "none", label = "use  for definition of"]
+B1
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+project [ label = "{project : \l}"]
+OPENCOSS_platform -> project  [arrowhead = "none", label = "include evidence item of"]
+LP
+
+
+R15:The OPENCOSS platform shall provide users with the ability to indicate the information to be included in the reports about the body of evidence of an assurance project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+information [ label = "{information : \l}"]
+OPENCOSS_platform -> information  [arrowhead = "none", label = "provide user with ability to indicate"]
+LP
+body [ label = "{body : \l}"]
+evidence [ label = "{evidence : \l}"]
+body -> evidence  [arrowhead = "odiamond"]
+D5
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+ability_ [ label = "{ability  : \l}"]
+OPENCOSS_platform -> ability_  [arrowhead = "none", label = "provide user with"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
+LP
+evidence [ label = "{evidence : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+evidence -> assurance_project  [arrowhead = "odiamond"]
+D5
+
+
+R16:The OPENCOSS platform shall provide users with the ability to define evidence traceability link types for an assurance project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+ability_ [ label = "{ability  : \l}"]
+OPENCOSS_platform -> ability_  [arrowhead = "none", label = "provide user with"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence_traceability_link_type [ label = "{evidence traceability link type : \l}"]
+OPENCOSS_platform -> evidence_traceability_link_type  [arrowhead = "none", label = "provide user with ability to define"]
+LP
+
+
+R17:The OPENCOSS platform shall provide users with the ability to drop evidence traceability links of an assurance project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence_traceability_link [ label = "{evidence traceability link : \l}"]
+OPENCOSS_platform -> evidence_traceability_link  [arrowhead = "none", label = "provide user with ability to drop"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+OPENCOSS_platform -> assurance_project  [arrowhead = "none", label = "provide user with ability to drop evidence traceability link of"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+ability_ [ label = "{ability  : \l}"]
+OPENCOSS_platform -> ability_  [arrowhead = "none", label = "provide user with"]
+LP
+evidence_traceability_link [ label = "{evidence traceability link : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+evidence_traceability_link -> assurance_project  [arrowhead = "odiamond"]
+D5
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
+LP
+
+
+R18:When a user aims to drop an evidence traceability link of an assurance project, the OPENCOSS platform shall require confirmation of the action from the user.
+user [ label = "{user : \l}"]
+evidence_traceability_link [ label = "{evidence traceability link : \l}"]
+user -> evidence_traceability_link  [arrowhead = "none", label = "aims to drop"]
+LP
+confirmation [ label = "{confirmation : \l}"]
+action [ label = "{action : \l}"]
+confirmation -> action  [arrowhead = "odiamond"]
+D5
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+action [ label = "{action : \l}"]
+OPENCOSS_platform -> action  [arrowhead = "none", label = "require confirmation of"]
+LP
+evidence_traceability_link [ label = "{evidence traceability link : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+evidence_traceability_link -> assurance_project  [arrowhead = "odiamond"]
+D5
+user [ label = "{user : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+user -> assurance_project  [arrowhead = "none", label = "aims to drop evidence traceability link of"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+confirmation [ label = "{confirmation : \l}"]
+OPENCOSS_platform -> confirmation  [arrowhead = "none", label = "require"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "require confirmation of action from"]
+LP
+
+
+R19:The OPENCOSS platform shall be able to show the chains of evidence to which an evidence item of an assurance project belongs by means of models.
+evidence_item [ label = "{evidence item : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+evidence_item -> assurance_project  [arrowhead = "odiamond"]
+D5
+chain [ label = "{chain : \l}"]
+evidence_ [ label = "{evidence  : \l}"]
+chain -> evidence_  [arrowhead = "odiamond"]
+D5
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence [ label = "{evidence : \l}"]
+OPENCOSS_platform -> evidence  [arrowhead = "none", label = "able to show chain of"]
+LP
+means [ label = "{means : \l}"]
+model [ label = "{model : \l}"]
+means -> model  [arrowhead = "odiamond"]
+D5
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+chain [ label = "{chain : \l}"]
+OPENCOSS_platform -> chain  [arrowhead = "none", label = "able to show"]
+LP
+
+
+R20:The OPENCOSS platform will include a column in a table for traceability visualization for each evidence type to include in the table indicated by users.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+traceability_visualization [ label = "{traceability visualization : \l}"]
+OPENCOSS_platform -> traceability_visualization  [arrowhead = "none", label = "include for evidence type to column in table for include"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+table [ label = "{table : \l}"]
+OPENCOSS_platform -> table  [arrowhead = "none", label = "include column in for evidence type"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+table [ label = "{table : \l}"]
+OPENCOSS_platform -> table  [arrowhead = "none", label = "include for evidence type to column in include"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+traceability_visualization [ label = "{traceability visualization : \l}"]
+OPENCOSS_platform -> traceability_visualization  [arrowhead = "none", label = "include column in table for"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+column [ label = "{column : \l}"]
+OPENCOSS_platform -> column  [arrowhead = "none", label = "include for evidence type"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+table [ label = "{table : \l}"]
+OPENCOSS_platform -> table  [arrowhead = "none", label = "include column in"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+column [ label = "{column : \l}"]
+OPENCOSS_platform -> column  [arrowhead = "none", label = "include for evidence type to include"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+column [ label = "{column : \l}"]
+OPENCOSS_platform -> column  [arrowhead = "none", label = "include"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+traceability_visualization [ label = "{traceability visualization : \l}"]
+OPENCOSS_platform -> traceability_visualization  [arrowhead = "none", label = "include column in table for for evidence type"]
+LP
+
+
+R21:The OPENCOSS platform shall provide users with the ability to specify the rationale behind the evaluation of an evidence item of an assurance project.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence_item [ label = "{evidence item : \l}"]
+OPENCOSS_platform -> evidence_item  [arrowhead = "none", label = "provide user with ability to specify rationale behind evaluation of"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+OPENCOSS_platform -> assurance_project  [arrowhead = "none", label = "provide user with ability to specify rationale behind evaluation of evidence item of"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evaluation [ label = "{evaluation : \l}"]
+OPENCOSS_platform -> evaluation  [arrowhead = "none", label = "provide user with ability to specify rationale behind"]
+LP
+evidence_item [ label = "{evidence item : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+evidence_item -> assurance_project  [arrowhead = "odiamond"]
+D5
+evaluation [ label = "{evaluation : \l}"]
+evidence_item [ label = "{evidence item : \l}"]
+evaluation -> evidence_item  [arrowhead = "odiamond"]
+D5
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+ability_ [ label = "{ability  : \l}"]
+OPENCOSS_platform -> ability_  [arrowhead = "none", label = "provide user with"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+rationale [ label = "{rationale : \l}"]
+OPENCOSS_platform -> rationale  [arrowhead = "none", label = "provide user with ability to specify"]
+LP
+
+
+R22:The OPENCOSS platform shall provide users with the ability to define criteria for evaluation of evidence items of an assurance project.
+evidence_item [ label = "{evidence item : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+evidence_item -> assurance_project  [arrowhead = "odiamond"]
+D5
+evaluation [ label = "{evaluation : \l}"]
+evidence_item [ label = "{evidence item : \l}"]
+evaluation -> evidence_item  [arrowhead = "odiamond"]
+D5
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+ability_ [ label = "{ability  : \l}"]
+OPENCOSS_platform -> ability_  [arrowhead = "none", label = "provide user with"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence_item [ label = "{evidence item : \l}"]
+OPENCOSS_platform -> evidence_item  [arrowhead = "none", label = "provide user with ability to define criterion for evaluation of"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+criterion [ label = "{criterion : \l}"]
+OPENCOSS_platform -> criterion  [arrowhead = "none", label = "provide user with ability to define"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+OPENCOSS_platform -> assurance_project  [arrowhead = "none", label = "provide user with ability to define criterion for evaluation of evidence item of"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evaluation [ label = "{evaluation : \l}"]
+OPENCOSS_platform -> evaluation  [arrowhead = "none", label = "provide user with ability to define criterion for"]
+LP
+
+
+R23:The OPENCOSS platform shall provide users with the ability to evaluate evidence items of an assurance project according to evaluation criteria defined in other projects.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+defined [ label = "{defined : \l}"]
+OPENCOSS_platform -> defined  [arrowhead = "none", label = "provide user with ability according to evaluation criterion"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence_item [ label = "{evidence item : \l}"]
+OPENCOSS_platform -> evidence_item  [arrowhead = "none", label = "provide user with ability to evaluate"]
+LP
+evidence_item [ label = "{evidence item : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+evidence_item -> assurance_project  [arrowhead = "odiamond"]
+D5
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+ability_ [ label = "{ability  : \l}"]
+OPENCOSS_platform -> ability_  [arrowhead = "none", label = "provide user with"]
+LP
+other_project [ label = "{other project : \l}"]
+project [ label = "{project : \l}"]
+other_project -> project  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+OPENCOSS_platform -> assurance_project  [arrowhead = "none", label = "provide user with ability to evaluate evidence item of"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evaluation_criterion [ label = "{evaluation criterion : \l}"]
+OPENCOSS_platform -> evaluation_criterion  [arrowhead = "none", label = "provide user according to"]
+LP
+
+
+R24:The OPENCOSS platform shall provide users with the ability to evaluate evidence items of an assurance project with evaluation categories for evaluation criteria defined in other projects.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence_item [ label = "{evidence item : \l}"]
+OPENCOSS_platform -> evidence_item  [arrowhead = "none", label = "provide user with ability to evaluate"]
+LP
+evidence_item [ label = "{evidence item : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+evidence_item -> assurance_project  [arrowhead = "odiamond"]
+D5
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+ability_ [ label = "{ability  : \l}"]
+OPENCOSS_platform -> ability_  [arrowhead = "none", label = "provide user with"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+defined [ label = "{defined : \l}"]
+OPENCOSS_platform -> defined  [arrowhead = "none", label = "provide user with ability to evaluate evidence item of assurance project with evaluation category for evaluation criterion"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evaluation_category [ label = "{evaluation category : \l}"]
+OPENCOSS_platform -> evaluation_category  [arrowhead = "none", label = "provide user with ability to evaluate evidence item of assurance project with"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evaluation_criterion [ label = "{evaluation criterion : \l}"]
+OPENCOSS_platform -> evaluation_criterion  [arrowhead = "none", label = "provide user with ability to evaluate evidence item of assurance project with evaluation category for"]
+LP
+other_project [ label = "{other project : \l}"]
+project [ label = "{project : \l}"]
+other_project -> project  [arrowhead = "empty"]
+D3
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+OPENCOSS_platform -> assurance_project  [arrowhead = "none", label = "provide user with ability to evaluate evidence item of"]
+LP
+
+
+R25:The OPENCOSS platform shall provide users with the ability to specify actions required in the body of evidence of an assurance project as a result of evidence evaluation.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+action [ label = "{action : \l}"]
+OPENCOSS_platform -> action  [arrowhead = "none", label = "provide user with ability to specify"]
+LP
+body [ label = "{body : \l}"]
+evidence [ label = "{evidence : \l}"]
+body -> evidence  [arrowhead = "odiamond"]
+D5
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+ability_ [ label = "{ability  : \l}"]
+OPENCOSS_platform -> ability_  [arrowhead = "none", label = "provide user with"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence_evaluation [ label = "{evidence evaluation : \l}"]
+OPENCOSS_platform -> evidence_evaluation  [arrowhead = "none", label = "provide user with ability as result of"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+required [ label = "{required : \l}"]
+OPENCOSS_platform -> required  [arrowhead = "none", label = "provide user with ability to specify action"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+result [ label = "{result : \l}"]
+OPENCOSS_platform -> result  [arrowhead = "none", label = "provide user as"]
+LP
+evidence [ label = "{evidence : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+evidence -> assurance_project  [arrowhead = "odiamond"]
+D5
+result [ label = "{result : \l}"]
+evidence_evaluation [ label = "{evidence evaluation : \l}"]
+result -> evidence_evaluation  [arrowhead = "odiamond"]
+D5
+
+
+R26:When an evidence item of an assurance project has been associated to actions to perform as a result of evidence evaluation, the OPENCOSS platform shall colour such an evidence item in red.
+evidence_item [ label = "{evidence item |+ When associate : \l}"]
+D4
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence_item [ label = "{evidence item : \l}"]
+OPENCOSS_platform -> evidence_item  [arrowhead = "none", label = "colour"]
+LP
+evidence_item [ label = "{evidence item : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+evidence_item -> assurance_project  [arrowhead = "odiamond"]
+D5
+evidence_item [ label = "{evidence item : \l}"]
+perform [ label = "{perform : \l}"]
+evidence_item -> perform  [arrowhead = "none", label = "When associate  to action to"]
+B1
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+red [ label = "{red : \l}"]
+OPENCOSS_platform -> red  [arrowhead = "none", label = "colour evidence item in"]
+LP
+evidence_item [ label = "{evidence item : \l}"]
+action [ label = "{action : \l}"]
+evidence_item -> action  [arrowhead = "none", label = "When associate to"]
+B1
+result [ label = "{result : \l}"]
+evidence_evaluation [ label = "{evidence evaluation : \l}"]
+result -> evidence_evaluation  [arrowhead = "odiamond"]
+D5
+
+
+R27:When the status of an action required in an assurance project as a result of evidence evaluation is "pending", the OPENCOSS platform shall colour such an action in red.
+status [ label = "{status : \l}"]
+action [ label = "{action : \l}"]
+status -> action  [arrowhead = "odiamond"]
+D5
+status [ label = "{status |+ When pend : \l}"]
+D4
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+red [ label = "{red : \l}"]
+OPENCOSS_platform -> red  [arrowhead = "none", label = "colour action in"]
+LP
+result [ label = "{result : \l}"]
+evidence_evaluation [ label = "{evidence evaluation : \l}"]
+result -> evidence_evaluation  [arrowhead = "odiamond"]
+D5
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+action [ label = "{action : \l}"]
+OPENCOSS_platform -> action  [arrowhead = "none", label = "colour"]
+LP
+
+
+R28:When a user has indicated a possible change in an evidence item of an assurance project, the OPENCOSS platform shall indicate the evidence items of the assurance project that would be affected by the change.
+user [ label = "{user : \l}"]
+possible_change [ label = "{possible change : \l}"]
+user -> possible_change  [arrowhead = "none", label = "indicated"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+OPENCOSS_platform -> assurance_project  [arrowhead = "none", label = "indicate evidence item of"]
+LP
+evidence_item [ label = "{evidence item : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+evidence_item -> assurance_project  [arrowhead = "odiamond"]
+D5
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence_item [ label = "{evidence item : \l}"]
+OPENCOSS_platform -> evidence_item  [arrowhead = "none", label = "indicate"]
+LP
+user [ label = "{user : \l}"]
+evidence_item [ label = "{evidence item : \l}"]
+user -> evidence_item  [arrowhead = "none", label = "indicated possible change in"]
+LP
+user [ label = "{user : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+user -> assurance_project  [arrowhead = "none", label = "indicated possible change in evidence item of"]
+LP
+possible_change [ label = "{possible change : \l}"]
+change [ label = "{change : \l}"]
+possible_change -> change  [arrowhead = "empty"]
+D3
+
+
+R29:The OPENCOSS platform shall provide users with the ability to specify actions required in the body of evidence of an assurance project as a result of an evidence item change.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence_item_change [ label = "{evidence item change : \l}"]
+OPENCOSS_platform -> evidence_item_change  [arrowhead = "none", label = "provide user with ability as result of"]
+LP
+result [ label = "{result : \l}"]
+evidence_item_change [ label = "{evidence item change : \l}"]
+result -> evidence_item_change  [arrowhead = "odiamond"]
+D5
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+action [ label = "{action : \l}"]
+OPENCOSS_platform -> action  [arrowhead = "none", label = "provide user with ability to specify"]
+LP
+body [ label = "{body : \l}"]
+evidence [ label = "{evidence : \l}"]
+body -> evidence  [arrowhead = "odiamond"]
+D5
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+ability_ [ label = "{ability  : \l}"]
+OPENCOSS_platform -> ability_  [arrowhead = "none", label = "provide user with"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+required [ label = "{required : \l}"]
+OPENCOSS_platform -> required  [arrowhead = "none", label = "provide user with ability to specify action"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+result [ label = "{result : \l}"]
+OPENCOSS_platform -> result  [arrowhead = "none", label = "provide user as"]
+LP
+evidence [ label = "{evidence : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+evidence -> assurance_project  [arrowhead = "odiamond"]
+D5
+
+
+R30:The OPENCOSS platform shall record if the status of an action required in an assurance project as a result of the change of an evidence item is "pending" or "addressed".
+status [ label = "{status : \l}"]
+action [ label = "{action : \l}"]
+status -> action  [arrowhead = "odiamond"]
+D5
+result [ label = "{result : \l}"]
+change [ label = "{change : \l}"]
+result -> change  [arrowhead = "odiamond"]
+D5
+change [ label = "{change : \l}"]
+evidence_item [ label = "{evidence item : \l}"]
+change -> evidence_item  [arrowhead = "odiamond"]
+D5
+
+
+R31:When an evidence traceability link of an assurance project has been affected by evidence item changes, the OPENCOSS platform shall colour such a link in red.
+evidence_traceability_link [ label = "{evidence traceability link : \l}"]
+evidence_item_change [ label = "{evidence item change : \l}"]
+evidence_traceability_link -> evidence_item_change  [arrowhead = "none", label = "When affect by"]
+B1
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+red [ label = "{red : \l}"]
+OPENCOSS_platform -> red  [arrowhead = "none", label = "colour link in"]
+LP
+evidence_traceability_link [ label = "{evidence traceability link : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+evidence_traceability_link -> assurance_project  [arrowhead = "odiamond"]
+D5
+evidence_traceability_link [ label = "{evidence traceability link |+ When affect : \l}"]
+D4
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+link [ label = "{link : \l}"]
+OPENCOSS_platform -> link  [arrowhead = "none", label = "colour"]
+LP
+
+
+R32:The OPENCOSS platform shall provide users with the ability to import evidence items for an assurance project from artefacts in an external tool.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence_item [ label = "{evidence item : \l}"]
+OPENCOSS_platform -> evidence_item  [arrowhead = "none", label = "provide user with ability to import"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+ability_ [ label = "{ability  : \l}"]
+OPENCOSS_platform -> ability_  [arrowhead = "none", label = "provide user with"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
+LP
+external_tool [ label = "{external tool : \l}"]
+tool [ label = "{tool : \l}"]
+external_tool -> tool  [arrowhead = "empty"]
+D3
+
+
+R33:The OPENCOSS platform shall be able to automatically associate an artefact in an external tool to an evidence item of an assurance project imported from the external too.
+evidence_item [ label = "{evidence item : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+evidence_item -> assurance_project  [arrowhead = "odiamond"]
+D5
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+artefact [ label = "{artefact : \l}"]
+OPENCOSS_platform -> artefact  [arrowhead = "none", label = "able to automatically associate"]
+LP
+external_tool [ label = "{external tool : \l}"]
+tool [ label = "{tool : \l}"]
+external_tool -> tool  [arrowhead = "empty"]
+D3
+
+
+R34:Tank 1 shall not overflow.
+R35:Tank 2 shall not overflow.
+R36:The initial liquid height Tank 1 shall be known to the control system.
+Tank_1 [ label = "{Tank 1 : \l}"]
+control_system [ label = "{control system : \l}"]
+Tank_1 -> control_system  [arrowhead = "none", label = "know to"]
+B1
+
+
+R37:The initial liquid height Tank 2 shall be known to the control system.
+Tank_2 [ label = "{Tank 2 : \l}"]
+control_system [ label = "{control system : \l}"]
+Tank_2 -> control_system  [arrowhead = "none", label = "know to"]
+B1
+
+
+R38:The height of the tank 1 liquid shall not be over the tank 1 high safety level for more than the specified time.
+height [ label = "{height : \l}"]
+tank_1_liquid [ label = "{tank 1 liquid : \l}"]
+height -> tank_1_liquid  [arrowhead = "odiamond"]
+D5
+height [ label = "{height : \l}"]
+specified_time [ label = "{specified time : \l}"]
+height -> specified_time  [arrowhead = "none", label = " level "]
+LP
+height [ label = "{height : \l}"]
+more [ label = "{more : \l}"]
+height -> more  [arrowhead = "none", label = " level for"]
+LP
+height [ label = "{height : \l}"]
+more [ label = "{more : \l}"]
+height -> more  [arrowhead = "none", label = "of tank 1 liquid level for"]
+LP
+height [ label = "{height : \l}"]
+specified_time [ label = "{specified time : \l}"]
+height -> specified_time  [arrowhead = "none", label = "of tank 1 liquid level "]
+LP
+tank_1_high_safety_level [ label = "{tank 1 high safety level : \l}"]
+tank_1_high_safety_level [ label = "{tank 1 high safety level : \l}"]
+tank_1_high_safety_level -> tank_1_high_safety_level  [arrowhead = "empty"]
+D3
+
+
+R39:This specified time is dependent on the flowrate per timestep.
+specified_time [ label = "{specified time : \l}"]
+timestep [ label = "{timestep : \l}"]
+specified_time -> timestep  [arrowhead = "none", label = " dependent "]
+LP
+specified_time [ label = "{specified time : \l}"]
+time [ label = "{time : \l}"]
+specified_time -> time  [arrowhead = "empty"]
+D3
+specified_time [ label = "{specified time : \l}"]
+flowrate [ label = "{flowrate : \l}"]
+specified_time -> flowrate  [arrowhead = "none", label = " dependent on"]
+LP
+
+
+R40:The height of the tank 1 liquid shall not be lower than the tank 1 low safety level (once it has already crossed it) for more than the specified time.
+height [ label = "{height : \l}"]
+tank_1_liquid [ label = "{tank 1 liquid : \l}"]
+height -> tank_1_liquid  [arrowhead = "odiamond"]
+D5
+it [ label = "{it : \l}"]
+it [ label = "{it : \l}"]
+it -> it  [arrowhead = "none", label = "crossed"]
+LP
+tank_1_low_safety_level_(_ [ label = "{tank 1 low safety level (  : \l}"]
+tank_1_low_safety_level_(_ [ label = "{tank 1 low safety level (  : \l}"]
+tank_1_low_safety_level_(_ -> tank_1_low_safety_level_(_  [arrowhead = "empty"]
+D3
+
+
+R41:This specified time is dependent on the flowrate per timestep.
+specified_time [ label = "{specified time : \l}"]
+timestep [ label = "{timestep : \l}"]
+specified_time -> timestep  [arrowhead = "none", label = " dependent "]
+LP
+specified_time [ label = "{specified time : \l}"]
+time [ label = "{time : \l}"]
+specified_time -> time  [arrowhead = "empty"]
+D3
+specified_time [ label = "{specified time : \l}"]
+flowrate [ label = "{flowrate : \l}"]
+specified_time -> flowrate  [arrowhead = "none", label = " dependent on"]
+LP
+
+
+R42:The height of the tank 2 liquid shall not be over the tank 2 high safety level for more than the specified time.
+height [ label = "{height : \l}"]
+specified_time [ label = "{specified time : \l}"]
+height -> specified_time  [arrowhead = "none", label = " level "]
+LP
+height [ label = "{height : \l}"]
+more [ label = "{more : \l}"]
+height -> more  [arrowhead = "none", label = " level for"]
+LP
+height [ label = "{height : \l}"]
+tank_2_liquid [ label = "{tank 2 liquid : \l}"]
+height -> tank_2_liquid  [arrowhead = "odiamond"]
+D5
+height [ label = "{height : \l}"]
+more [ label = "{more : \l}"]
+height -> more  [arrowhead = "none", label = "of tank 2 liquid level for"]
+LP
+tank_2_high_safety_level [ label = "{tank 2 high safety level : \l}"]
+tank_2_high_safety_level [ label = "{tank 2 high safety level : \l}"]
+tank_2_high_safety_level -> tank_2_high_safety_level  [arrowhead = "empty"]
+D3
+height [ label = "{height : \l}"]
+specified_time [ label = "{specified time : \l}"]
+height -> specified_time  [arrowhead = "none", label = "of tank 2 liquid level "]
+LP
+
+
+R43:This specified time is dependent on the flowrate per timestep.
+specified_time [ label = "{specified time : \l}"]
+timestep [ label = "{timestep : \l}"]
+specified_time -> timestep  [arrowhead = "none", label = " dependent "]
+LP
+specified_time [ label = "{specified time : \l}"]
+time [ label = "{time : \l}"]
+specified_time -> time  [arrowhead = "empty"]
+D3
+specified_time [ label = "{specified time : \l}"]
+flowrate [ label = "{flowrate : \l}"]
+specified_time -> flowrate  [arrowhead = "none", label = " dependent on"]
+LP
+
+
+R44:The height of the tank 2 liquid shall not be lower than the tank 2 low safety level (once it has already crossed it) for more than the specified time.
+more_ [ label = "{more  : \l}"]
+more_ [ label = "{more  : \l}"]
+more_ -> more_  [arrowhead = "empty"]
+D3
+height [ label = "{height : \l}"]
+tank_2_liquid [ label = "{tank 2 liquid : \l}"]
+height -> tank_2_liquid  [arrowhead = "odiamond"]
+D5
+tank_2_low_safety_level_(_ [ label = "{tank 2 low safety level (  : \l}"]
+tank_2_low_safety_level_(_ [ label = "{tank 2 low safety level (  : \l}"]
+tank_2_low_safety_level_(_ -> tank_2_low_safety_level_(_  [arrowhead = "empty"]
+D3
+it [ label = "{it : \l}"]
+it [ label = "{it : \l}"]
+it -> it  [arrowhead = "none", label = "crossed"]
+LP
+
+
+R45:This specified time is dependent on the flowrate per timestep.
+specified_time [ label = "{specified time : \l}"]
+timestep [ label = "{timestep : \l}"]
+specified_time -> timestep  [arrowhead = "none", label = " dependent "]
+LP
+specified_time [ label = "{specified time : \l}"]
+time [ label = "{time : \l}"]
+specified_time -> time  [arrowhead = "empty"]
+D3
+specified_time [ label = "{specified time : \l}"]
+flowrate [ label = "{flowrate : \l}"]
+specified_time -> flowrate  [arrowhead = "none", label = " dependent on"]
+LP
+
+
+R46:The tank 1 HIGH sensor is physically placed at a greater height (above) the tank 1 LOW sensor.
+tank_1_HIGH_sensor [ label = "{tank 1 HIGH sensor |+ physically place : \l}"]
+D4
+a_greater_height_(_ [ label = "{a greater height (  : \l}"]
+greater_height_(_ [ label = "{greater height (  : \l}"]
+a_greater_height_(_ -> greater_height_(_  [arrowhead = "empty"]
+D3
+tank_1_HIGH_sensor [ label = "{tank 1 HIGH sensor : \l}"]
+a_greater_height_(_ [ label = "{a greater height (  : \l}"]
+tank_1_HIGH_sensor -> a_greater_height_(_  [arrowhead = "none", label = "physically place at"]
+B1
+
+
+R47:The tank 2 HIGH sensor is physically placed at a greater height (above) the tank 2 MID sensor.
+tank_2_HIGH_sensor [ label = "{tank 2 HIGH sensor : \l}"]
+a_greater_height_(_ [ label = "{a greater height (  : \l}"]
+tank_2_HIGH_sensor -> a_greater_height_(_  [arrowhead = "none", label = "physically place at"]
+B1
+a_greater_height_(_ [ label = "{a greater height (  : \l}"]
+greater_height_(_ [ label = "{greater height (  : \l}"]
+a_greater_height_(_ -> greater_height_(_  [arrowhead = "empty"]
+D3
+tank_2_HIGH_sensor [ label = "{tank 2 HIGH sensor |+ physically place : \l}"]
+D4
+
+
+R48:The tank 2 MID sensor is physically placed at a greater height (above) the tank 2 LOW sensor.
+tank_2_MID_sensor [ label = "{tank 2 MID sensor |+ physically place : \l}"]
+D4
+a_greater_height_(_ [ label = "{a greater height (  : \l}"]
+greater_height_(_ [ label = "{greater height (  : \l}"]
+a_greater_height_(_ -> greater_height_(_  [arrowhead = "empty"]
+D3
+tank_2_MID_sensor [ label = "{tank 2 MID sensor : \l}"]
+a_greater_height_(_ [ label = "{a greater height (  : \l}"]
+tank_2_MID_sensor -> a_greater_height_(_  [arrowhead = "none", label = "physically place at"]
+B1
+
+
+R49:The sensor outputs shall initially be false.
+sensor_output [ label = "{sensor output |+ initially false : \l}"]
+D4
+
+
+R50:If the tank 1 liquid height is greater than or equal to the sensor height of the tank 1 HIGH liquid sensor then the sensor should return an active (TRUE) state to the system.
+sensor_height [ label = "{sensor height : \l}"]
+tank_1_HIGH_liquid_sensor [ label = "{tank 1 HIGH liquid sensor : \l}"]
+sensor_height -> tank_1_HIGH_liquid_sensor  [arrowhead = "odiamond"]
+D5
+sensor [ label = "{sensor : \l}"]
+system [ label = "{system : \l}"]
+sensor -> system  [arrowhead = "none", label = "return an active ( TRUE ) state to"]
+LP
+an_active_(_TRUE_)_state_ [ label = "{an active ( TRUE ) state  : \l}"]
+)_state_ [ label = "{) state  : \l}"]
+an_active_(_TRUE_)_state_ -> )_state_  [arrowhead = "empty"]
+D3
+tank_1_HIGH_liquid_sensor [ label = "{tank 1 HIGH liquid sensor : \l}"]
+tank_1_high_liquid_sensor [ label = "{tank 1 high liquid sensor : \l}"]
+tank_1_HIGH_liquid_sensor -> tank_1_high_liquid_sensor  [arrowhead = "empty"]
+D3
+sensor [ label = "{sensor : \l}"]
+an_active_(_TRUE_)_state [ label = "{an active ( TRUE ) state : \l}"]
+sensor -> an_active_(_TRUE_)_state  [arrowhead = "none", label = "return"]
+LP
+
+
+R51:If the tank 1 liquid height is below (less than) the placement height of the tank 1 HIGH liquid sensor then the sensor should return a (FALSE) state to the system.
+a_(_FALSE_)_state_ [ label = "{a ( FALSE ) state  : \l}"]
+)_state_ [ label = "{) state  : \l}"]
+a_(_FALSE_)_state_ -> )_state_  [arrowhead = "empty"]
+D3
+sensor [ label = "{sensor : \l}"]
+a_(_FALSE_)_state [ label = "{a ( FALSE ) state : \l}"]
+sensor -> a_(_FALSE_)_state  [arrowhead = "none", label = "return"]
+LP
+sensor [ label = "{sensor : \l}"]
+system [ label = "{system : \l}"]
+sensor -> system  [arrowhead = "none", label = "return a ( FALSE ) state to"]
+LP
+tank_1_liquid_height [ label = "{tank 1 liquid height : \l}"]
+tank_1_HIGH_liquid_sensor [ label = "{tank 1 HIGH liquid sensor : \l}"]
+tank_1_liquid_height -> tank_1_HIGH_liquid_sensor  [arrowhead = "none", label = " height of"]
+LP
+placement_height [ label = "{placement height : \l}"]
+tank_1_HIGH_liquid_sensor [ label = "{tank 1 HIGH liquid sensor : \l}"]
+placement_height -> tank_1_HIGH_liquid_sensor  [arrowhead = "odiamond"]
+D5
+tank_1_HIGH_liquid_sensor [ label = "{tank 1 HIGH liquid sensor : \l}"]
+tank_1_high_liquid_sensor [ label = "{tank 1 high liquid sensor : \l}"]
+tank_1_HIGH_liquid_sensor -> tank_1_high_liquid_sensor  [arrowhead = "empty"]
+D3
+
+
+R52:If the tank 1 liquid height is greater than or equal to the placement height of the tank 1 LOW liquid sensor then the sensor should return an active (TRUE) state to the system.
+sensor [ label = "{sensor : \l}"]
+system [ label = "{system : \l}"]
+sensor -> system  [arrowhead = "none", label = "return an active ( TRUE ) state to"]
+LP
+tank_1_LOW_liquid_sensor [ label = "{tank 1 LOW liquid sensor : \l}"]
+tank_1_low_liquid_sensor [ label = "{tank 1 low liquid sensor : \l}"]
+tank_1_LOW_liquid_sensor -> tank_1_low_liquid_sensor  [arrowhead = "empty"]
+D3
+an_active_(_TRUE_)_state_ [ label = "{an active ( TRUE ) state  : \l}"]
+)_state_ [ label = "{) state  : \l}"]
+an_active_(_TRUE_)_state_ -> )_state_  [arrowhead = "empty"]
+D3
+placement_height [ label = "{placement height : \l}"]
+tank_1_LOW_liquid_sensor [ label = "{tank 1 LOW liquid sensor : \l}"]
+placement_height -> tank_1_LOW_liquid_sensor  [arrowhead = "odiamond"]
+D5
+sensor [ label = "{sensor : \l}"]
+an_active_(_TRUE_)_state [ label = "{an active ( TRUE ) state : \l}"]
+sensor -> an_active_(_TRUE_)_state  [arrowhead = "none", label = "return"]
+LP
+
+
+R53:If the tank 1 liquid height is below (less than) the placement height of the tank 1 LOW liquid sensor then the sensor should return a (FALSE) state to the system.
+a_(_FALSE_)_state_ [ label = "{a ( FALSE ) state  : \l}"]
+)_state_ [ label = "{) state  : \l}"]
+a_(_FALSE_)_state_ -> )_state_  [arrowhead = "empty"]
+D3
+sensor [ label = "{sensor : \l}"]
+a_(_FALSE_)_state [ label = "{a ( FALSE ) state : \l}"]
+sensor -> a_(_FALSE_)_state  [arrowhead = "none", label = "return"]
+LP
+tank_1_liquid_height [ label = "{tank 1 liquid height : \l}"]
+tank_1_LOW_liquid_sensor [ label = "{tank 1 LOW liquid sensor : \l}"]
+tank_1_liquid_height -> tank_1_LOW_liquid_sensor  [arrowhead = "none", label = " height of"]
+LP
+sensor [ label = "{sensor : \l}"]
+system [ label = "{system : \l}"]
+sensor -> system  [arrowhead = "none", label = "return a ( FALSE ) state to"]
+LP
+tank_1_LOW_liquid_sensor [ label = "{tank 1 LOW liquid sensor : \l}"]
+tank_1_low_liquid_sensor [ label = "{tank 1 low liquid sensor : \l}"]
+tank_1_LOW_liquid_sensor -> tank_1_low_liquid_sensor  [arrowhead = "empty"]
+D3
+placement_height [ label = "{placement height : \l}"]
+tank_1_LOW_liquid_sensor [ label = "{tank 1 LOW liquid sensor : \l}"]
+placement_height -> tank_1_LOW_liquid_sensor  [arrowhead = "odiamond"]
+D5
+
+
+R54:If the tank 2 liquid height is greater than or equal to the placement height of the tank 2 HIGH liquid sensor then the sensor should return an active (TRUE) state to the system.
+sensor [ label = "{sensor : \l}"]
+system [ label = "{system : \l}"]
+sensor -> system  [arrowhead = "none", label = "return an active ( TRUE ) state to"]
+LP
+tank_2_liquid_height [ label = "{tank 2 liquid height : \l}"]
+tank_2_liquid_height [ label = "{tank 2 liquid height : \l}"]
+tank_2_liquid_height -> tank_2_liquid_height  [arrowhead = "empty"]
+D3
+an_active_(_TRUE_)_state_ [ label = "{an active ( TRUE ) state  : \l}"]
+)_state_ [ label = "{) state  : \l}"]
+an_active_(_TRUE_)_state_ -> )_state_  [arrowhead = "empty"]
+D3
+sensor [ label = "{sensor : \l}"]
+an_active_(_TRUE_)_state [ label = "{an active ( TRUE ) state : \l}"]
+sensor -> an_active_(_TRUE_)_state  [arrowhead = "none", label = "return"]
+LP
+placement_height [ label = "{placement height : \l}"]
+tank_2_HIGH_liquid_sensor [ label = "{tank 2 HIGH liquid sensor : \l}"]
+placement_height -> tank_2_HIGH_liquid_sensor  [arrowhead = "odiamond"]
+D5
+tank_2_HIGH_liquid_sensor [ label = "{tank 2 HIGH liquid sensor : \l}"]
+tank_2_high_liquid_sensor [ label = "{tank 2 high liquid sensor : \l}"]
+tank_2_HIGH_liquid_sensor -> tank_2_high_liquid_sensor  [arrowhead = "empty"]
+D3
+
+
+R55:If the tank 2 liquid height is below (less than) the placement height of the tank 2 HIGH liquid sensor then the sensor should return a (FALSE) state to the system.
+a_(_FALSE_)_state_ [ label = "{a ( FALSE ) state  : \l}"]
+)_state_ [ label = "{) state  : \l}"]
+a_(_FALSE_)_state_ -> )_state_  [arrowhead = "empty"]
+D3
+sensor [ label = "{sensor : \l}"]
+a_(_FALSE_)_state [ label = "{a ( FALSE ) state : \l}"]
+sensor -> a_(_FALSE_)_state  [arrowhead = "none", label = "return"]
+LP
+sensor [ label = "{sensor : \l}"]
+system [ label = "{system : \l}"]
+sensor -> system  [arrowhead = "none", label = "return a ( FALSE ) state to"]
+LP
+tank_2_liquid_height [ label = "{tank 2 liquid height : \l}"]
+tank_2_liquid_height [ label = "{tank 2 liquid height : \l}"]
+tank_2_liquid_height -> tank_2_liquid_height  [arrowhead = "empty"]
+D3
+tank_2_liquid_height [ label = "{tank 2 liquid height : \l}"]
+tank_2_HIGH_liquid_sensor [ label = "{tank 2 HIGH liquid sensor : \l}"]
+tank_2_liquid_height -> tank_2_HIGH_liquid_sensor  [arrowhead = "none", label = " height of"]
+LP
+placement_height [ label = "{placement height : \l}"]
+tank_2_HIGH_liquid_sensor [ label = "{tank 2 HIGH liquid sensor : \l}"]
+placement_height -> tank_2_HIGH_liquid_sensor  [arrowhead = "odiamond"]
+D5
+tank_2_HIGH_liquid_sensor [ label = "{tank 2 HIGH liquid sensor : \l}"]
+tank_2_high_liquid_sensor [ label = "{tank 2 high liquid sensor : \l}"]
+tank_2_HIGH_liquid_sensor -> tank_2_high_liquid_sensor  [arrowhead = "empty"]
+D3
+
+
+R56:If the tank 2 liquid height is greater than or equal to the placement height of the tank 2 MID liquid sensor then the sensor should return an active (TRUE) state to the system.
+placement_height [ label = "{placement height : \l}"]
+tank_2_MID_liquid_sensor [ label = "{tank 2 MID liquid sensor : \l}"]
+placement_height -> tank_2_MID_liquid_sensor  [arrowhead = "odiamond"]
+D5
+tank_2_liquid_height [ label = "{tank 2 liquid height : \l}"]
+tank_2_liquid_height [ label = "{tank 2 liquid height : \l}"]
+tank_2_liquid_height -> tank_2_liquid_height  [arrowhead = "empty"]
+D3
+active_(_TRUE_)_state [ label = "{active ( TRUE ) state : \l}"]
+state [ label = "{state : \l}"]
+active_(_TRUE_)_state -> state  [arrowhead = "empty"]
+D3
+tank_2_MID_liquid_sensor [ label = "{tank 2 MID liquid sensor : \l}"]
+tank_2_mid_liquid_sensor [ label = "{tank 2 mid liquid sensor : \l}"]
+tank_2_MID_liquid_sensor -> tank_2_mid_liquid_sensor  [arrowhead = "empty"]
+D3
+sensor [ label = "{sensor : \l}"]
+system [ label = "{system : \l}"]
+sensor -> system  [arrowhead = "none", label = "return active ( TRUE ) state to"]
+LP
+sensor [ label = "{sensor : \l}"]
+active_(_TRUE_)_state [ label = "{active ( TRUE ) state : \l}"]
+sensor -> active_(_TRUE_)_state  [arrowhead = "none", label = "return"]
+LP
+
+
+R57:If the tank 2 liquid height is below (less than) the placement height of the tank 2 MID liquid sensor then the sensor should return a (FALSE) state to the system.
+a_(_FALSE_)_state_ [ label = "{a ( FALSE ) state  : \l}"]
+)_state_ [ label = "{) state  : \l}"]
+a_(_FALSE_)_state_ -> )_state_  [arrowhead = "empty"]
+D3
+sensor [ label = "{sensor : \l}"]
+a_(_FALSE_)_state [ label = "{a ( FALSE ) state : \l}"]
+sensor -> a_(_FALSE_)_state  [arrowhead = "none", label = "return"]
+LP
+placement_height [ label = "{placement height : \l}"]
+tank_2_MID_liquid_sensor [ label = "{tank 2 MID liquid sensor : \l}"]
+placement_height -> tank_2_MID_liquid_sensor  [arrowhead = "odiamond"]
+D5
+sensor [ label = "{sensor : \l}"]
+system [ label = "{system : \l}"]
+sensor -> system  [arrowhead = "none", label = "return a ( FALSE ) state to"]
+LP
+tank_2_liquid_height [ label = "{tank 2 liquid height : \l}"]
+tank_2_liquid_height [ label = "{tank 2 liquid height : \l}"]
+tank_2_liquid_height -> tank_2_liquid_height  [arrowhead = "empty"]
+D3
+tank_2_MID_liquid_sensor [ label = "{tank 2 MID liquid sensor : \l}"]
+tank_2_mid_liquid_sensor [ label = "{tank 2 mid liquid sensor : \l}"]
+tank_2_MID_liquid_sensor -> tank_2_mid_liquid_sensor  [arrowhead = "empty"]
+D3
+tank_2_liquid_height [ label = "{tank 2 liquid height : \l}"]
+tank_2_MID_liquid_sensor [ label = "{tank 2 MID liquid sensor : \l}"]
+tank_2_liquid_height -> tank_2_MID_liquid_sensor  [arrowhead = "none", label = " height of"]
+LP
+
+
+R58:If the tank 2 liquid height is greater than or equal to the placement height of the tank 2 LOW liquid sensor then the sensor should return an active (TRUE) state to the system.
+tank_2_LOW_liquid_sensor [ label = "{tank 2 LOW liquid sensor : \l}"]
+tank_2_low_liquid_sensor [ label = "{tank 2 low liquid sensor : \l}"]
+tank_2_LOW_liquid_sensor -> tank_2_low_liquid_sensor  [arrowhead = "empty"]
+D3
+sensor [ label = "{sensor : \l}"]
+system [ label = "{system : \l}"]
+sensor -> system  [arrowhead = "none", label = "return an active ( TRUE ) state to"]
+LP
+tank_2_liquid_height [ label = "{tank 2 liquid height : \l}"]
+tank_2_liquid_height [ label = "{tank 2 liquid height : \l}"]
+tank_2_liquid_height -> tank_2_liquid_height  [arrowhead = "empty"]
+D3
+placement_height [ label = "{placement height : \l}"]
+tank_2_LOW_liquid_sensor [ label = "{tank 2 LOW liquid sensor : \l}"]
+placement_height -> tank_2_LOW_liquid_sensor  [arrowhead = "odiamond"]
+D5
+an_active_(_TRUE_)_state_ [ label = "{an active ( TRUE ) state  : \l}"]
+)_state_ [ label = "{) state  : \l}"]
+an_active_(_TRUE_)_state_ -> )_state_  [arrowhead = "empty"]
+D3
+sensor [ label = "{sensor : \l}"]
+an_active_(_TRUE_)_state [ label = "{an active ( TRUE ) state : \l}"]
+sensor -> an_active_(_TRUE_)_state  [arrowhead = "none", label = "return"]
+LP
+
+
+R59:If the tank 2 liquid height is below (less than) the placement height of the tank 2 LOW liquid sensor then the sensor should return a (FALSE) state to the system.
+tank_2_liquid_height [ label = "{tank 2 liquid height : \l}"]
+tank_2_LOW_liquid_sensor [ label = "{tank 2 LOW liquid sensor : \l}"]
+tank_2_liquid_height -> tank_2_LOW_liquid_sensor  [arrowhead = "none", label = " height of"]
+LP
+tank_2_LOW_liquid_sensor [ label = "{tank 2 LOW liquid sensor : \l}"]
+tank_2_low_liquid_sensor [ label = "{tank 2 low liquid sensor : \l}"]
+tank_2_LOW_liquid_sensor -> tank_2_low_liquid_sensor  [arrowhead = "empty"]
+D3
+a_(_FALSE_)_state_ [ label = "{a ( FALSE ) state  : \l}"]
+)_state_ [ label = "{) state  : \l}"]
+a_(_FALSE_)_state_ -> )_state_  [arrowhead = "empty"]
+D3
+sensor [ label = "{sensor : \l}"]
+a_(_FALSE_)_state [ label = "{a ( FALSE ) state : \l}"]
+sensor -> a_(_FALSE_)_state  [arrowhead = "none", label = "return"]
+LP
+sensor [ label = "{sensor : \l}"]
+system [ label = "{system : \l}"]
+sensor -> system  [arrowhead = "none", label = "return a ( FALSE ) state to"]
+LP
+tank_2_liquid_height [ label = "{tank 2 liquid height : \l}"]
+tank_2_liquid_height [ label = "{tank 2 liquid height : \l}"]
+tank_2_liquid_height -> tank_2_liquid_height  [arrowhead = "empty"]
+D3
+placement_height [ label = "{placement height : \l}"]
+tank_2_LOW_liquid_sensor [ label = "{tank 2 LOW liquid sensor : \l}"]
+placement_height -> tank_2_LOW_liquid_sensor  [arrowhead = "odiamond"]
+D5
+
+
+R60:The tank 1 is initially empty or below the low tank 1 liquid height sensor.
+tank_1 [ label = "{tank 1 |+ initially sensor : \l}"]
+D4
+empty_or_below_the_low_tank_1_liquid_height_sensor [ label = "{empty or below the low tank 1 liquid height sensor : \l}"]
+tank_1_liquid_height_sensor [ label = "{tank 1 liquid height sensor : \l}"]
+empty_or_below_the_low_tank_1_liquid_height_sensor -> tank_1_liquid_height_sensor  [arrowhead = "empty"]
+D3
+
+
+R61:If the tank is not empty the liquid height must be known to the system.
+liquid_height [ label = "{liquid height : \l}"]
+system [ label = "{system : \l}"]
+liquid_height -> system  [arrowhead = "none", label = "know to"]
+B1
+liquid_height [ label = "{liquid height : \l}"]
+height [ label = "{height : \l}"]
+liquid_height -> height  [arrowhead = "empty"]
+D3
+
+
+R62:The tank 1 change in liquid volume for each timestep is limited by the maximum inflow and outflow for each timestep.
+liquid_volume [ label = "{liquid volume : \l}"]
+volume [ label = "{volume : \l}"]
+liquid_volume -> volume  [arrowhead = "empty"]
+D3
+tank_1_change [ label = "{tank 1 change : \l}"]
+timestep [ label = "{timestep : \l}"]
+tank_1_change -> timestep  [arrowhead = "none", label = "limit  by maximum inflow and outflow for"]
+B1
+tank_1_change [ label = "{tank 1 change : \l}"]
+maximum_inflow_and_outflow [ label = "{maximum inflow and outflow : \l}"]
+tank_1_change -> maximum_inflow_and_outflow  [arrowhead = "none", label = "limit by"]
+B1
+
+
+R63:The tank 1 resulting liquid height for each timestep is dependent on the liquid height in the previous timestep plus the additional liquid height defined by the net flow rate from the state of the pump and the valve and the cross-sectional area of tank 1.
+tank_1_resulting_liquid_height [ label = "{tank 1 resulting liquid height : \l}"]
+previous_timestep [ label = "{previous timestep : \l}"]
+tank_1_resulting_liquid_height -> previous_timestep  [arrowhead = "none", label = " dependent "]
+LP
+tank_1_resulting_liquid_height [ label = "{tank 1 resulting liquid height : \l}"]
+additional_liquid_height [ label = "{additional liquid height : \l}"]
+tank_1_resulting_liquid_height -> additional_liquid_height  [arrowhead = "none", label = "for timestep dependent "]
+LP
+cross-sectional_area [ label = "{cross-sectional area : \l}"]
+area [ label = "{area : \l}"]
+cross-sectional_area -> area  [arrowhead = "empty"]
+D3
+tank_1_resulting_liquid_height [ label = "{tank 1 resulting liquid height : \l}"]
+liquid_height [ label = "{liquid height : \l}"]
+tank_1_resulting_liquid_height -> liquid_height  [arrowhead = "none", label = " dependent on"]
+LP
+tank_1_resulting_liquid_height [ label = "{tank 1 resulting liquid height : \l}"]
+defined [ label = "{defined : \l}"]
+tank_1_resulting_liquid_height -> defined  [arrowhead = "none", label = " dependent "]
+LP
+previous_timestep [ label = "{previous timestep : \l}"]
+timestep [ label = "{timestep : \l}"]
+previous_timestep -> timestep  [arrowhead = "empty"]
+D3
+tank_1_resulting_liquid_height [ label = "{tank 1 resulting liquid height : \l}"]
+previous_timestep [ label = "{previous timestep : \l}"]
+tank_1_resulting_liquid_height -> previous_timestep  [arrowhead = "none", label = "for timestep dependent "]
+LP
+tank_1_resulting_liquid_height [ label = "{tank 1 resulting liquid height : \l}"]
+tank_1_resulting_liquid_height [ label = "{tank 1 resulting liquid height : \l}"]
+tank_1_resulting_liquid_height -> tank_1_resulting_liquid_height  [arrowhead = "empty"]
+D3
+tank_1_resulting_liquid_height [ label = "{tank 1 resulting liquid height : \l}"]
+liquid_height [ label = "{liquid height : \l}"]
+tank_1_resulting_liquid_height -> liquid_height  [arrowhead = "none", label = "for timestep dependent on"]
+LP
+tank_1_resulting_liquid_height [ label = "{tank 1 resulting liquid height : \l}"]
+additional_liquid_height [ label = "{additional liquid height : \l}"]
+tank_1_resulting_liquid_height -> additional_liquid_height  [arrowhead = "none", label = " dependent "]
+LP
+additional_liquid_height [ label = "{additional liquid height : \l}"]
+height [ label = "{height : \l}"]
+additional_liquid_height -> height  [arrowhead = "empty"]
+D3
+tank_1_resulting_liquid_height [ label = "{tank 1 resulting liquid height : \l}"]
+defined [ label = "{defined : \l}"]
+tank_1_resulting_liquid_height -> defined  [arrowhead = "none", label = "for timestep dependent "]
+LP
+state [ label = "{state : \l}"]
+pump [ label = "{pump : \l}"]
+state -> pump  [arrowhead = "odiamond"]
+D5
+cross-sectional_area [ label = "{cross-sectional area : \l}"]
+tank_1 [ label = "{tank 1 : \l}"]
+cross-sectional_area -> tank_1  [arrowhead = "odiamond"]
+D5
+liquid_height [ label = "{liquid height : \l}"]
+height [ label = "{height : \l}"]
+liquid_height -> height  [arrowhead = "empty"]
+D3
+
+
+R64:When the tank 1 pump is ON and the valve is CLOSED the liquid height in the tank shall increase from the previous timestep.
+tank_1_pump [ label = "{tank 1 pump |+ When on : \l}"]
+D4
+liquid_height [ label = "{liquid height : \l}"]
+previous_timestep [ label = "{previous timestep : \l}"]
+liquid_height -> previous_timestep  [arrowhead = "none", label = "in tank increase from"]
+LP
+liquid_height [ label = "{liquid height : \l}"]
+previous_timestep [ label = "{previous timestep : \l}"]
+liquid_height -> previous_timestep  [arrowhead = "none", label = " increase from"]
+LP
+liquid_height [ label = "{liquid height : \l}"]
+height [ label = "{height : \l}"]
+liquid_height -> height  [arrowhead = "empty"]
+D3
+previous_timestep [ label = "{previous timestep : \l}"]
+timestep [ label = "{timestep : \l}"]
+previous_timestep -> timestep  [arrowhead = "empty"]
+D3
+
+
+R65:When the tank 1 pump is OFF and the valve is OPEN the liquid height in the tank shall decrease from the previous timestep.
+tank_1_pump [ label = "{tank 1 pump |+ When off : \l}"]
+D4
+liquid_height [ label = "{liquid height : \l}"]
+previous_timestep [ label = "{previous timestep : \l}"]
+liquid_height -> previous_timestep  [arrowhead = "none", label = "in tank decrease from"]
+LP
+liquid_height [ label = "{liquid height : \l}"]
+height [ label = "{height : \l}"]
+liquid_height -> height  [arrowhead = "empty"]
+D3
+previous_timestep [ label = "{previous timestep : \l}"]
+timestep [ label = "{timestep : \l}"]
+previous_timestep -> timestep  [arrowhead = "empty"]
+D3
+liquid_height [ label = "{liquid height : \l}"]
+previous_timestep [ label = "{previous timestep : \l}"]
+liquid_height -> previous_timestep  [arrowhead = "none", label = " decrease from"]
+LP
+
+
+R66:When the tank 1 pump is OFF that the valve is CLOSED the liquid height in the tank shall remain equivalent to the liquid height from the previous timestep.
+tank_1_pump [ label = "{tank 1 pump : \l}"]
+liquid_height [ label = "{liquid height : \l}"]
+tank_1_pump -> liquid_height  [arrowhead = "none", label = "OFF that the valve is CLOSED"]
+LP
+tank_1_pump [ label = "{tank 1 pump : \l}"]
+tank [ label = "{tank : \l}"]
+tank_1_pump -> tank  [arrowhead = "none", label = "OFF that the valve is CLOSED liquid height in"]
+LP
+liquid_height [ label = "{liquid height : \l}"]
+height [ label = "{height : \l}"]
+liquid_height -> height  [arrowhead = "empty"]
+D3
+previous_timestep [ label = "{previous timestep : \l}"]
+timestep [ label = "{timestep : \l}"]
+previous_timestep -> timestep  [arrowhead = "empty"]
+D3
+
+
+R67:When the pump is ON there should be inflow into the tank 1.
+pump [ label = "{pump |+ When on : \l}"]
+D4
+
+
+R68:When the pump is OFF there should be NO inflow into tank 1.
+pump [ label = "{pump |+ When off : \l}"]
+D4
+
+
+R69:When the tank 1 valve is OPEN the flow rate shall be equal to the physical maximum flow rate of the valve.
+physical_maximum_flow_rate [ label = "{physical maximum flow rate : \l}"]
+maximum_flow_rate [ label = "{maximum flow rate : \l}"]
+physical_maximum_flow_rate -> maximum_flow_rate  [arrowhead = "empty"]
+D3
+physical_maximum_flow_rate [ label = "{physical maximum flow rate : \l}"]
+valve [ label = "{valve : \l}"]
+physical_maximum_flow_rate -> valve  [arrowhead = "odiamond"]
+D5
+
+
+R70:When the tank 1 valve is CLOSED the flow rate of the valve shall be zero.
+tank_1_valve [ label = "{tank 1 valve |+ When close : \l}"]
+D4
+flow_rate [ label = "{flow rate : \l}"]
+valve [ label = "{valve : \l}"]
+flow_rate -> valve  [arrowhead = "odiamond"]
+D5
+
+
+R71:Tank 2 is initially empty or below the tank 2 low liquid height sensor.
+tank_2_low_liquid_height_sensor_ [ label = "{tank 2 low liquid height sensor  : \l}"]
+tank_2_low_liquid_height_sensor_ [ label = "{tank 2 low liquid height sensor  : \l}"]
+tank_2_low_liquid_height_sensor_ -> tank_2_low_liquid_height_sensor_  [arrowhead = "empty"]
+D3
+Tank_2 [ label = "{Tank 2 |+ initially empty : \l}"]
+D4
+
+
+R72:If the tank is not empty the liquid height must be known to the system.
+liquid_height [ label = "{liquid height : \l}"]
+system [ label = "{system : \l}"]
+liquid_height -> system  [arrowhead = "none", label = "know to"]
+B1
+liquid_height [ label = "{liquid height : \l}"]
+height [ label = "{height : \l}"]
+liquid_height -> height  [arrowhead = "empty"]
+D3
+
+
+R73:The tank 2 change in liquid volume for each timestep is limited by the maximum inflow and outflow for each timestep.
+tank_2_change [ label = "{tank 2 change : \l}"]
+timestep [ label = "{timestep : \l}"]
+tank_2_change -> timestep  [arrowhead = "none", label = "limit  by maximum inflow and outflow for"]
+B1
+liquid_volume [ label = "{liquid volume : \l}"]
+volume [ label = "{volume : \l}"]
+liquid_volume -> volume  [arrowhead = "empty"]
+D3
+tank_2_change [ label = "{tank 2 change : \l}"]
+maximum_inflow_and_outflow [ label = "{maximum inflow and outflow : \l}"]
+tank_2_change -> maximum_inflow_and_outflow  [arrowhead = "none", label = "limit by"]
+B1
+
+
+R74:The resulting tank 2 liquid height for each timestep is a function of the liquid height in the previous timestep, the additional liquid height as defined by the net flow rate from the state of the inflow valve from tank 1 and tank 2 outflow valves (production and emergency), and the cross-sectional area.
+tank_2_liquid_height [ label = "{tank 2 liquid height : \l}"]
+liquid_height [ label = "{liquid height : \l}"]
+tank_2_liquid_height -> liquid_height  [arrowhead = "none", label = " function of"]
+LP
+tank_2_liquid_height [ label = "{tank 2 liquid height : \l}"]
+liquid_height [ label = "{liquid height : \l}"]
+tank_2_liquid_height -> liquid_height  [arrowhead = "none", label = "for timestep function of"]
+LP
+function [ label = "{function : \l}"]
+liquid_height [ label = "{liquid height : \l}"]
+function -> liquid_height  [arrowhead = "odiamond"]
+D5
+additional_liquid_height [ label = "{additional liquid height : \l}"]
+height [ label = "{height : \l}"]
+additional_liquid_height -> height  [arrowhead = "empty"]
+D3
+tank_2_liquid_height [ label = "{tank 2 liquid height : \l}"]
+previous_timestep [ label = "{previous timestep : \l}"]
+tank_2_liquid_height -> previous_timestep  [arrowhead = "none", label = " function "]
+LP
+tank_2_liquid_height [ label = "{tank 2 liquid height : \l}"]
+tank_2_liquid_height [ label = "{tank 2 liquid height : \l}"]
+tank_2_liquid_height -> tank_2_liquid_height  [arrowhead = "empty"]
+D3
+cross-sectional_area [ label = "{cross-sectional area : \l}"]
+area [ label = "{area : \l}"]
+cross-sectional_area -> area  [arrowhead = "empty"]
+D3
+liquid_height [ label = "{liquid height : \l}"]
+height [ label = "{height : \l}"]
+liquid_height -> height  [arrowhead = "empty"]
+D3
+tank_2_liquid_height [ label = "{tank 2 liquid height : \l}"]
+previous_timestep [ label = "{previous timestep : \l}"]
+tank_2_liquid_height -> previous_timestep  [arrowhead = "none", label = "for timestep function "]
+LP
+state [ label = "{state : \l}"]
+inflow_valve [ label = "{inflow valve : \l}"]
+state -> inflow_valve  [arrowhead = "odiamond"]
+D5
+previous_timestep [ label = "{previous timestep : \l}"]
+timestep [ label = "{timestep : \l}"]
+previous_timestep -> timestep  [arrowhead = "empty"]
+D3
+
+
+R75:When the tank 1 valve is OPEN and the tank 2 outflow valves (emergency and production) are CLOSED the liquid height in tank 2 shall increase from the previous timestep.
+tank_1_valve [ label = "{tank 1 valve |+ When open : \l}"]
+D4
+liquid_height [ label = "{liquid height : \l}"]
+height [ label = "{height : \l}"]
+liquid_height -> height  [arrowhead = "empty"]
+D3
+previous_timestep [ label = "{previous timestep : \l}"]
+timestep [ label = "{timestep : \l}"]
+previous_timestep -> timestep  [arrowhead = "empty"]
+D3
+
+
+R76:When the tank 1 valve is OPEN, the tank 2 production valve is OPEN, and the tank 2 emergency valve is CLOSED the liquid height in tank 2 shall increase from the previous timestep.
+tank_1_valve [ label = "{tank 1 valve |+ When open : \l}"]
+D4
+liquid_height [ label = "{liquid height : \l}"]
+height [ label = "{height : \l}"]
+liquid_height -> height  [arrowhead = "empty"]
+D3
+previous_timestep [ label = "{previous timestep : \l}"]
+timestep [ label = "{timestep : \l}"]
+previous_timestep -> timestep  [arrowhead = "empty"]
+D3
+
+
+R77:When the tank 1 valve is OPEN, the tank 2 production valve is CLOSED, and the tank 2 emergency valve is OPEN the liquid height in tank 2 shall decrease from the previous timestep.
+tank_1_valve [ label = "{tank 1 valve |+ When open : \l}"]
+D4
+liquid_height [ label = "{liquid height : \l}"]
+height [ label = "{height : \l}"]
+liquid_height -> height  [arrowhead = "empty"]
+D3
+previous_timestep [ label = "{previous timestep : \l}"]
+timestep [ label = "{timestep : \l}"]
+previous_timestep -> timestep  [arrowhead = "empty"]
+D3
+
+
+R78:When the tank 1 valve is CLOSED that the tank 2 valves (production and emergency) are CLOSED the liquid height in tank 2 shall remain the same from the previous timestep.
+(_production_ [ label = "{( production  : \l}"]
+production_ [ label = "{production  : \l}"]
+(_production_ -> production_  [arrowhead = "empty"]
+D3
+liquid_height [ label = "{liquid height : \l}"]
+height [ label = "{height : \l}"]
+liquid_height -> height  [arrowhead = "empty"]
+D3
+previous_timestep [ label = "{previous timestep : \l}"]
+timestep [ label = "{timestep : \l}"]
+previous_timestep -> timestep  [arrowhead = "empty"]
+D3
+
+
+R79:When the tank 2 production valve is OPEN there should be an outflow equal to that of the max production flow.
+tank_2_production_valve [ label = "{tank 2 production valve |+ When open : \l}"]
+D4
+
+
+R80:When the tank 2 production valve is CLOSED there should be no flow from that valve.
+tank_2_production_valve [ label = "{tank 2 production valve |+ When close : \l}"]
+D4
+
+
+R81:When the tank 2 emergency valve is OPEN there should be an outflow equal to that of the max emergency output flow.
+tank_2_emergency_valve [ label = "{tank 2 emergency valve |+ When open : \l}"]
+D4
+
+
+R82:When the tank 2 emergency valve is CLOSED there should be no flow from that valve.
+tank_2_emergency_valve [ label = "{tank 2 emergency valve |+ When close : \l}"]
+D4
+
+
+R83:When the tank 1 LOW liquid sensor is FALSE, the tank 1 pump shall be ON and the tank 1 outflow valve shall be CLOSED.
+tank_1_LOW_liquid_sensor [ label = "{tank 1 LOW liquid sensor |+ When false : \l}"]
+D4
+tank_1_LOW_liquid_sensor [ label = "{tank 1 LOW liquid sensor : \l}"]
+tank_1_low_liquid_sensor [ label = "{tank 1 low liquid sensor : \l}"]
+tank_1_LOW_liquid_sensor -> tank_1_low_liquid_sensor  [arrowhead = "empty"]
+D3
+
+
+R84:When the tank 1 HIGH liquid sensor is TRUE, the tank 1 pump shall be OFF and the tank 1 outflow valve shall be OPEN.
+tank_1_HIGH_liquid_sensor [ label = "{tank 1 HIGH liquid sensor |+ When true : \l}"]
+D4
+tank_1_HIGH_liquid_sensor [ label = "{tank 1 HIGH liquid sensor : \l}"]
+tank_1_high_liquid_sensor [ label = "{tank 1 high liquid sensor : \l}"]
+tank_1_HIGH_liquid_sensor -> tank_1_high_liquid_sensor  [arrowhead = "empty"]
+D3
+
+
+R85:When the tank 1 HIGH liquid sensor is FALSE and the tank 1 LOW liquid sensor is TRUE then the tank 1 pump and the tank 1 outflow valve shall maintain the states they were set to in the previous timestep.
+tank_1_LOW_liquid_sensor [ label = "{tank 1 LOW liquid sensor |+ true then : \l}"]
+D4
+tank_1_HIGH_liquid_sensor [ label = "{tank 1 HIGH liquid sensor |+ When false : \l}"]
+D4
+tank_1_pump [ label = "{tank 1 pump : \l}"]
+state [ label = "{state : \l}"]
+tank_1_pump -> state  [arrowhead = "none", label = "maintain"]
+LP
+tank_1_LOW_liquid_sensor [ label = "{tank 1 LOW liquid sensor : \l}"]
+tank_1_low_liquid_sensor [ label = "{tank 1 low liquid sensor : \l}"]
+tank_1_LOW_liquid_sensor -> tank_1_low_liquid_sensor  [arrowhead = "empty"]
+D3
+tank_1_HIGH_liquid_sensor [ label = "{tank 1 HIGH liquid sensor : \l}"]
+tank_1_high_liquid_sensor [ label = "{tank 1 high liquid sensor : \l}"]
+tank_1_HIGH_liquid_sensor -> tank_1_high_liquid_sensor  [arrowhead = "empty"]
+D3
+previous_timestep [ label = "{previous timestep : \l}"]
+timestep [ label = "{timestep : \l}"]
+previous_timestep -> timestep  [arrowhead = "empty"]
+D3
+
+
+R86:When the system is initially started the tank 2 production valve shall be CLOSED.
+R87:The system should do was required.
+R88:When the system is initially started the tank 2 production valve shall be CLOSED.
+R89:When the system is initially started the tank 2 emergency valve shall be CLOSED.
+R90:When the tank 2 LOW sensor is FALSE, the emergency valve and the production valve (outflow valves) shall be commanded to be CLOSED.
+tank_2_LOW_sensor [ label = "{tank 2 LOW sensor |+ When false : \l}"]
+D4
+
+
+R91:When the tank 2 LOW sensor is TRUE and the tank 2 MID sensor is FALSE, then emergency valve shall be commanded to be CLOSED and the production valve shall be commanded to be OPEN.
+tank_2_LOW_sensor [ label = "{tank 2 LOW sensor |+ When true : \l}"]
+D4
+emergency_valve [ label = "{emergency valve |+ close commanded : \l}"]
+D4
+
+
+R92:When the tank 2 HIGH sensor is TRUE, the emergency valve and the production valve (outflow valves) shall be commanded to be OPEN.
+tank_2_HIGH_sensor [ label = "{tank 2 HIGH sensor |+ When true : \l}"]
+D4
+
+
+R93:When the tank 2 MID sensor is TRUE, the tank 2 HIGH sensor is FALSE, and the emergency valve was previously open, then the emergency valve and the production valve (outflow valves) shall be commanded to be OPEN.
+emergency_valve [ label = "{emergency valve |+ previously open : \l}"]
+D4
+tank_2_MID_sensor [ label = "{tank 2 MID sensor |+ When true : \l}"]
+D4
+emergency_valve [ label = "{emergency valve |+ open commanded : \l}"]
+D4
+
+
+R94:When the tank 2 MID sensor is TRUE, the tank 2 HIGH sensor is FALSE, and the emergency valve was not previously open, then the emergency valve shall remain commanded CLOSED and the production valve shall be commanded to be OPEN.
+emergency_valve [ label = "{emergency valve |+ previously open : \l}"]
+D4
+tank_2_MID_sensor [ label = "{tank 2 MID sensor |+ When true : \l}"]
+D4
+emergency_valve [ label = "{emergency valve |+ closed remain : \l}"]
+D4
+
+
+R95:The Tank 1 Previous Height shall initially be the specified initial value.
+Tank_1_Previous_Height [ label = "{Tank 1 Previous Height |+ initially value : \l}"]
+D4
+specified_initial_value [ label = "{specified initial value : \l}"]
+value [ label = "{value : \l}"]
+specified_initial_value -> value  [arrowhead = "empty"]
+D3
+Tank_1_Previous_Height [ label = "{Tank 1 Previous Height : \l}"]
+tank_1_previous_height [ label = "{tank 1 previous height : \l}"]
+Tank_1_Previous_Height -> tank_1_previous_height  [arrowhead = "empty"]
+D3
+
+
+R96:The Tank 2 Previous Height shall initially be the specified initial value.
+specified_initial_value [ label = "{specified initial value : \l}"]
+value [ label = "{value : \l}"]
+specified_initial_value -> value  [arrowhead = "empty"]
+D3
+Tank_2_Previous_Height [ label = "{Tank 2 Previous Height : \l}"]
+tank_2_previous_height [ label = "{tank 2 previous height : \l}"]
+Tank_2_Previous_Height -> tank_2_previous_height  [arrowhead = "empty"]
+D3
+Tank_2_Previous_Height [ label = "{Tank 2 Previous Height |+ initially value : \l}"]
+D4
+
+
+R97:The Previous Pump State shall initially be the specified initial value.
+specified_initial_value [ label = "{specified initial value : \l}"]
+value [ label = "{value : \l}"]
+specified_initial_value -> value  [arrowhead = "empty"]
+D3
+Previous_Pump_State [ label = "{Previous Pump State |+ initially value : \l}"]
+D4
+Previous_Pump_State [ label = "{Previous Pump State : \l}"]
+pump_state [ label = "{pump state : \l}"]
+Previous_Pump_State -> pump_state  [arrowhead = "empty"]
+D3
+
+
+R98:The Previous Valve State shall initially be the specified initial value.
+Previous_Valve_State [ label = "{Previous Valve State : \l}"]
+valve_state [ label = "{valve state : \l}"]
+Previous_Valve_State -> valve_state  [arrowhead = "empty"]
+D3
+specified_initial_value [ label = "{specified initial value : \l}"]
+value [ label = "{value : \l}"]
+specified_initial_value -> value  [arrowhead = "empty"]
+D3
+Previous_Valve_State [ label = "{Previous Valve State |+ initially value : \l}"]
+D4
+
+
+R99:The Previous Production Valve State shall initially be the specified initial value.
+specified_initial_value [ label = "{specified initial value : \l}"]
+value [ label = "{value : \l}"]
+specified_initial_value -> value  [arrowhead = "empty"]
+D3
+Previous_Production_Valve_State [ label = "{Previous Production Valve State : \l}"]
+production_valve_state [ label = "{production valve state : \l}"]
+Previous_Production_Valve_State -> production_valve_state  [arrowhead = "empty"]
+D3
+Previous_Production_Valve_State [ label = "{Previous Production Valve State |+ initially value : \l}"]
+D4
+
+
+R100:The Previous Emergency Valve State shall initially be the specified initial value.
+specified_initial_value [ label = "{specified initial value : \l}"]
+value [ label = "{value : \l}"]
+specified_initial_value -> value  [arrowhead = "empty"]
+D3
+Previous_Emergency_Valve_State [ label = "{Previous Emergency Valve State |+ initially value : \l}"]
+D4
+Previous_Emergency_Valve_State [ label = "{Previous Emergency Valve State : \l}"]
+emergency_valve_state [ label = "{emergency valve state : \l}"]
+Previous_Emergency_Valve_State -> emergency_valve_state  [arrowhead = "empty"]
+D3
+
+
+R101:After the initial time step, the Tank 1 Previous Height shall be equal to the Tank 1 Height in the previous step.
+Tank_1_Previous_Height [ label = "{Tank 1 Previous Height : \l}"]
+initial_time_step [ label = "{initial time step : \l}"]
+Tank_1_Previous_Height -> initial_time_step  [arrowhead = "none", label = " equal After"]
+LP
+previous_step [ label = "{previous step : \l}"]
+step [ label = "{step : \l}"]
+previous_step -> step  [arrowhead = "empty"]
+D3
+Tank_1_Previous_Height [ label = "{Tank 1 Previous Height : \l}"]
+Tank_1_Height [ label = "{Tank 1 Height : \l}"]
+Tank_1_Previous_Height -> Tank_1_Height  [arrowhead = "none", label = " equal to"]
+LP
+initial_time_step [ label = "{initial time step : \l}"]
+time_step [ label = "{time step : \l}"]
+initial_time_step -> time_step  [arrowhead = "empty"]
+D3
+Tank_1_Previous_Height [ label = "{Tank 1 Previous Height : \l}"]
+tank_1_previous_height [ label = "{tank 1 previous height : \l}"]
+Tank_1_Previous_Height -> tank_1_previous_height  [arrowhead = "empty"]
+D3
+Tank_1_Previous_Height [ label = "{Tank 1 Previous Height : \l}"]
+previous_step [ label = "{previous step : \l}"]
+Tank_1_Previous_Height -> previous_step  [arrowhead = "none", label = " equal "]
+LP
+
+
+R102:After the initial time step, the Tank 2 Previous Height shall be equal to the Tank 2 Height in the previous step.
+Tank_2_Previous_Height [ label = "{Tank 2 Previous Height : \l}"]
+Tank_2_Height [ label = "{Tank 2 Height : \l}"]
+Tank_2_Previous_Height -> Tank_2_Height  [arrowhead = "none", label = " equal to"]
+LP
+previous_step [ label = "{previous step : \l}"]
+step [ label = "{step : \l}"]
+previous_step -> step  [arrowhead = "empty"]
+D3
+Tank_2_Previous_Height [ label = "{Tank 2 Previous Height : \l}"]
+tank_2_previous_height [ label = "{tank 2 previous height : \l}"]
+Tank_2_Previous_Height -> tank_2_previous_height  [arrowhead = "empty"]
+D3
+Tank_2_Previous_Height [ label = "{Tank 2 Previous Height : \l}"]
+initial_time_step [ label = "{initial time step : \l}"]
+Tank_2_Previous_Height -> initial_time_step  [arrowhead = "none", label = " equal After"]
+LP
+initial_time_step [ label = "{initial time step : \l}"]
+time_step [ label = "{time step : \l}"]
+initial_time_step -> time_step  [arrowhead = "empty"]
+D3
+Tank_2_Previous_Height [ label = "{Tank 2 Previous Height : \l}"]
+previous_step [ label = "{previous step : \l}"]
+Tank_2_Previous_Height -> previous_step  [arrowhead = "none", label = " equal "]
+LP
+
+
+R103:After the initial time step, the Previous Pump State shall be equal to the Pump State in the previous step.
+Previous_Pump_State [ label = "{Previous Pump State : \l}"]
+Pump_State [ label = "{Pump State : \l}"]
+Previous_Pump_State -> Pump_State  [arrowhead = "none", label = " equal to"]
+LP
+Previous_Pump_State [ label = "{Previous Pump State : \l}"]
+initial_time_step [ label = "{initial time step : \l}"]
+Previous_Pump_State -> initial_time_step  [arrowhead = "none", label = " equal After"]
+LP
+previous_step [ label = "{previous step : \l}"]
+step [ label = "{step : \l}"]
+previous_step -> step  [arrowhead = "empty"]
+D3
+Previous_Pump_State [ label = "{Previous Pump State : \l}"]
+previous_step [ label = "{previous step : \l}"]
+Previous_Pump_State -> previous_step  [arrowhead = "none", label = " equal in"]
+LP
+initial_time_step [ label = "{initial time step : \l}"]
+time_step [ label = "{time step : \l}"]
+initial_time_step -> time_step  [arrowhead = "empty"]
+D3
+Previous_Pump_State [ label = "{Previous Pump State : \l}"]
+pump_state [ label = "{pump state : \l}"]
+Previous_Pump_State -> pump_state  [arrowhead = "empty"]
+D3
+
+
+R104:After the initial time step, the Previous Valve State shall be equal to the Valve State in the previous step
+Previous_Valve_State [ label = "{Previous Valve State : \l}"]
+valve_state [ label = "{valve state : \l}"]
+Previous_Valve_State -> valve_state  [arrowhead = "empty"]
+D3
+previous_step [ label = "{previous step : \l}"]
+step [ label = "{step : \l}"]
+previous_step -> step  [arrowhead = "empty"]
+D3
+Previous_Valve_State [ label = "{Previous Valve State : \l}"]
+initial_time_step [ label = "{initial time step : \l}"]
+Previous_Valve_State -> initial_time_step  [arrowhead = "none", label = " equal After"]
+LP
+initial_time_step [ label = "{initial time step : \l}"]
+time_step [ label = "{time step : \l}"]
+initial_time_step -> time_step  [arrowhead = "empty"]
+D3
+Previous_Valve_State [ label = "{Previous Valve State : \l}"]
+previous_step [ label = "{previous step : \l}"]
+Previous_Valve_State -> previous_step  [arrowhead = "none", label = " equal in"]
+LP
+Previous_Valve_State [ label = "{Previous Valve State : \l}"]
+Valve_State [ label = "{Valve State : \l}"]
+Previous_Valve_State -> Valve_State  [arrowhead = "none", label = " equal to"]
+LP
+
+
+R105:After the initial time step, the Previous Production Valve State shall be equal to the Production Valve State in the previous step.
+previous_step [ label = "{previous step : \l}"]
+step [ label = "{step : \l}"]
+previous_step -> step  [arrowhead = "empty"]
+D3
+Previous_Production_Valve_State [ label = "{Previous Production Valve State : \l}"]
+Production_Valve_State [ label = "{Production Valve State : \l}"]
+Previous_Production_Valve_State -> Production_Valve_State  [arrowhead = "none", label = " equal to"]
+LP
+Previous_Production_Valve_State [ label = "{Previous Production Valve State : \l}"]
+production_valve_state [ label = "{production valve state : \l}"]
+Previous_Production_Valve_State -> production_valve_state  [arrowhead = "empty"]
+D3
+Previous_Production_Valve_State [ label = "{Previous Production Valve State : \l}"]
+initial_time_step [ label = "{initial time step : \l}"]
+Previous_Production_Valve_State -> initial_time_step  [arrowhead = "none", label = " equal After"]
+LP
+Previous_Production_Valve_State [ label = "{Previous Production Valve State : \l}"]
+previous_step [ label = "{previous step : \l}"]
+Previous_Production_Valve_State -> previous_step  [arrowhead = "none", label = " equal in"]
+LP
+initial_time_step [ label = "{initial time step : \l}"]
+time_step [ label = "{time step : \l}"]
+initial_time_step -> time_step  [arrowhead = "empty"]
+D3
+
+
+R106:After the initial time step, the Previous Emergency Valve State shall be equal to the Emergency Valve State in the previous step.
+Previous_Emergency_Valve_State [ label = "{Previous Emergency Valve State : \l}"]
+Emergency_Valve_State [ label = "{Emergency Valve State : \l}"]
+Previous_Emergency_Valve_State -> Emergency_Valve_State  [arrowhead = "none", label = " equal to"]
+LP
+previous_step [ label = "{previous step : \l}"]
+step [ label = "{step : \l}"]
+previous_step -> step  [arrowhead = "empty"]
+D3
+initial_time_step [ label = "{initial time step : \l}"]
+time_step [ label = "{time step : \l}"]
+initial_time_step -> time_step  [arrowhead = "empty"]
+D3
+Previous_Emergency_Valve_State [ label = "{Previous Emergency Valve State : \l}"]
+emergency_valve_state [ label = "{emergency valve state : \l}"]
+Previous_Emergency_Valve_State -> emergency_valve_state  [arrowhead = "empty"]
+D3
+Previous_Emergency_Valve_State [ label = "{Previous Emergency Valve State : \l}"]
+initial_time_step [ label = "{initial time step : \l}"]
+Previous_Emergency_Valve_State -> initial_time_step  [arrowhead = "none", label = " equal After"]
+LP
+Previous_Emergency_Valve_State [ label = "{Previous Emergency Valve State : \l}"]
+previous_step [ label = "{previous step : \l}"]
+Previous_Emergency_Valve_State -> previous_step  [arrowhead = "none", label = " equal in"]
+LP
+
+
+R107:The system must support a computerized banking network that includes both human cashiers, and ATMs.
+that [ label = "{that : \l}"]
+human_cashier [ label = "{human cashier : \l}"]
+that -> human_cashier  [arrowhead = "none", label = "includes"]
+LP
+computerized_banking_network [ label = "{computerized banking network : \l}"]
+banking_network [ label = "{banking network : \l}"]
+computerized_banking_network -> banking_network  [arrowhead = "empty"]
+D3
+human_cashier [ label = "{human cashier : \l}"]
+cashier [ label = "{cashier : \l}"]
+human_cashier -> cashier  [arrowhead = "empty"]
+D3
+system [ label = "{system : \l}"]
+computerized_banking_network [ label = "{computerized banking network : \l}"]
+system -> computerized_banking_network  [arrowhead = "none", label = "support"]
+LP
+
+
+R108:The computerized banking network will be shared by a consortium of banks.
+computerized_banking_network [ label = "{computerized banking network : \l}"]
+consortium [ label = "{consortium : \l}"]
+computerized_banking_network -> consortium  [arrowhead = "none", label = "share by"]
+B1
+computerized_banking_network [ label = "{computerized banking network : \l}"]
+banking_network [ label = "{banking network : \l}"]
+computerized_banking_network -> banking_network  [arrowhead = "empty"]
+D3
+computerized_banking_network [ label = "{computerized banking network : \l}"]
+bank [ label = "{bank : \l}"]
+computerized_banking_network -> bank  [arrowhead = "none", label = "share  by consortium of"]
+B1
+consortium [ label = "{consortium : \l}"]
+bank [ label = "{bank : \l}"]
+consortium -> bank  [arrowhead = "odiamond"]
+D5
+
+
+R109:Each bank provides a computer that maintains the bank's accounts, and processes transactions against the accounts.
+bank [ label = "{bank : \l}"]
+computer [ label = "{computer : \l}"]
+bank -> computer  [arrowhead = "none", label = "provides"]
+LP
+bank [ label = "{bank : \l}"]
+accounts [ label = "{accounts : \l}"]
+bank -> accounts  [arrowhead = "odiamond"]
+D5
+
+
+R110:Cashier stations are owned by individual banks, and communicate directly with the bank's computers.
+individual_bank [ label = "{individual bank : \l}"]
+bank [ label = "{bank : \l}"]
+individual_bank -> bank  [arrowhead = "empty"]
+D3
+Cashier_station [ label = "{Cashier station : \l}"]
+individual_bank [ label = "{individual bank : \l}"]
+Cashier_station -> individual_bank  [arrowhead = "none", label = "own by"]
+B1
+bank [ label = "{bank : \l}"]
+computers [ label = "{computers : \l}"]
+bank -> computers  [arrowhead = "odiamond"]
+D5
+
+
+R111:Human cashiers enter both the account data and the transaction data.
+Human_cashiers_enter_ [ label = "{Human cashiers enter  : \l}"]
+cashiers_enter_ [ label = "{cashiers enter  : \l}"]
+Human_cashiers_enter_ -> cashiers_enter_  [arrowhead = "empty"]
+D3
+Human_cashiers_enter [ label = "{Human cashiers enter : \l}"]
+account_datum [ label = "{account datum : \l}"]
+Human_cashiers_enter -> account_datum  [arrowhead = "none", label = "enter"]
+LP
+
+
+R112:An ATM communicates with a central computer.
+ATM [ label = "{ATM : \l}"]
+central_computer [ label = "{central computer : \l}"]
+ATM -> central_computer  [arrowhead = "none", label = " communicate with"]
+LP
+central_computer [ label = "{central computer : \l}"]
+computer [ label = "{computer : \l}"]
+central_computer -> computer  [arrowhead = "empty"]
+D3
+
+
+R113:The central computer clears transactions with the banks.
+central_computer [ label = "{central computer : \l}"]
+transaction [ label = "{transaction : \l}"]
+central_computer -> transaction  [arrowhead = "none", label = "clears"]
+LP
+central_computer [ label = "{central computer : \l}"]
+bank [ label = "{bank : \l}"]
+central_computer -> bank  [arrowhead = "none", label = "clears transaction with"]
+LP
+central_computer [ label = "{central computer : \l}"]
+computer [ label = "{computer : \l}"]
+central_computer -> computer  [arrowhead = "empty"]
+D3
+
+
+R114:An ATM accepts a cash card, and interacts with the user.
+ATM [ label = "{ATM : \l}"]
+cash_card [ label = "{cash card : \l}"]
+ATM -> cash_card  [arrowhead = "none", label = "accepts"]
+LP
+
+
+R115:An ATM communicates with the central computer to carry out transactions.
+central_computer [ label = "{central computer : \l}"]
+computer [ label = "{computer : \l}"]
+central_computer -> computer  [arrowhead = "empty"]
+D3
+central_computer [ label = "{central computer : \l}"]
+transaction [ label = "{transaction : \l}"]
+central_computer -> transaction  [arrowhead = "none", label = "carry out"]
+LP
+
+
+R116:An ATM dispenses cash, and prints receipts.
+ATM [ label = "{ATM : \l}"]
+cash [ label = "{cash : \l}"]
+ATM -> cash  [arrowhead = "none", label = "dispenses"]
+LP
+
+
+R117:The system requires appropriate record-keeping, and security provisions.
+system [ label = "{system : \l}"]
+appropriate_record-keeping [ label = "{appropriate record-keeping : \l}"]
+system -> appropriate_record-keeping  [arrowhead = "none", label = "requires"]
+LP
+appropriate_record-keeping [ label = "{appropriate record-keeping : \l}"]
+record-keeping [ label = "{record-keeping : \l}"]
+appropriate_record-keeping -> record-keeping  [arrowhead = "empty"]
+D3
+
+
+R118:The system must handle concurrent access to the same account correctly.
+same_account [ label = "{same account : \l}"]
+account [ label = "{account : \l}"]
+same_account -> account  [arrowhead = "empty"]
+D3
+concurrent_access [ label = "{concurrent access : \l}"]
+access [ label = "{access : \l}"]
+concurrent_access -> access  [arrowhead = "empty"]
+D3
+system [ label = "{system : \l}"]
+same_account [ label = "{same account : \l}"]
+system -> same_account  [arrowhead = "none", label = "handle concurrent access to"]
+LP
+system [ label = "{system : \l}"]
+concurrent_access [ label = "{concurrent access : \l}"]
+system -> concurrent_access  [arrowhead = "none", label = "handle"]
+LP
+
+
+R119:The banks will provide the bank's own software for the bank's own computers.
+bank [ label = "{bank : \l}"]
+own_software [ label = "{own software : \l}"]
+bank -> own_software  [arrowhead = "none", label = "provide"]
+LP
+bank [ label = "{bank : \l}"]
+software [ label = "{software : \l}"]
+bank -> software  [arrowhead = "odiamond"]
+D5
+bank [ label = "{bank : \l}"]
+own_computers [ label = "{own computers : \l}"]
+bank -> own_computers  [arrowhead = "none", label = "provide own software for"]
+LP
+bank [ label = "{bank : \l}"]
+computers [ label = "{computers : \l}"]
+bank -> computers  [arrowhead = "odiamond"]
+D5
+
+
+}

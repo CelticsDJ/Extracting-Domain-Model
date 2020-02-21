@@ -224,7 +224,11 @@ public class Classes_Rules {
 		}
 
 		else {
-			relation = getRelationType(annotatedDoc, rel).replace("according", "according to");
+			try {
+				relation = getRelationType(annotatedDoc, rel).replace("according", "according to");
+			}catch (NullPointerException e) {
+				return;
+			}
 		}
 
 		target_cl = Utilities.getMapped_NPPrunedString(annotatedDoc, target_id);

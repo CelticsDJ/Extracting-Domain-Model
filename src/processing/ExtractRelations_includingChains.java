@@ -607,11 +607,12 @@ public class ExtractRelations_includingChains {
 	}
 	
 	public static void extractPossNP(Document annotated_Doc,  Annotation sentence){
-		AnnotationSet relations = gate.Utils.getContainedAnnotations(inputAS, sentence, "Poss_NP");
+		AnnotationSet relations = gate.Utils.getContainedAnnotations(inputAS, sentence, "Dep-nmod:poss");
 		List<Annotation> Relations = gate.Utils.inDocumentOrder(relations);
 		
 		for(Annotation relation:  Relations)
 		{
+			/*
 			FeatureMap rel_features = relation.getFeatures();
 			String str = rel_features.get("pruned_string").toString();
 			String [] NPs = str.split("\'s");
@@ -622,7 +623,12 @@ public class ExtractRelations_includingChains {
 
 				addRelation(rel);
 				relationsCount++;
-			}						
+			}*/
+			System.out.println(System.lineSeparator() +"NP's NP:  " +  relation.getFeatures().get("token1") + " --> has --> " + relation.getFeatures().get("token2"));
+			Concept_Relation rel = new Concept_Relation(new Concept_Class(relation.getFeatures().get("token1").toString()), new Concept_Class(relation.getFeatures().get("token2").toString()), RelationType.AGGREGATION, "D5");
+
+			addRelation(rel);
+			relationsCount++;
 		}
 		
 	}

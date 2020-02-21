@@ -52,6 +52,10 @@ public class Relation_Rules {
 				
 		for(Annotation VP: VPs)
 		{
+			if(VP.getFeatures().get("category").toString().equals("JJR")) {
+				continue;
+			}
+
 			int num_Objects = 0;
 			isAdvMod = false;
 			String relVerb = Utils.cleanStringFor(annotatedDoc, VP);
@@ -195,8 +199,13 @@ public class Relation_Rules {
 
 		FeatureMap features = Factory.newFeatureMap();
 		String VP1 = VP.getFeatures().get("string").toString();
+		String relation;
 
-		String relation = getRelationType(annotatedDoc, rel).replace("according", "according to");
+		try {
+			relation = getRelationType(annotatedDoc, rel).replace("according", "according to");
+		}catch (NullPointerException e) {
+			return;
+		}
 
 		Concept_Class target_cl;
 		String target;
