@@ -1,6 +1,7 @@
 package utils;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
@@ -14,6 +15,7 @@ public class Utils_DuplicateCheck {
 			map.put(new StringTuple(quad.getB(), quad.getC()), quad);
 		}		
 		List<StringQuadruple> return_list = new ArrayList<StringQuadruple>(map.values());
+		return_list.sort(Comparator.comparing(StringQuadruple::getDepth));
 		return return_list;		
 	}
 	

@@ -123,17 +123,42 @@ public class ExtractRelations_includingChains {
 		}
 	}	
 	
-	private static void createRelationCombinations(MetaRelation rel)
-	{
-		for(StringQuadruple rel_chain: rel.getRelationChains())
-		{
+	private static void createRelationCombinations(MetaRelation rel) {
 
-			for(StringQuadruple subj_chain: rel.getSubjects())
-			{
-				for(StringQuadruple obj_chain: rel.getObjects())
-				{
-					Association_Relation association = Utilities.formRelations(subj_chain.getC(), obj_chain.getC(), subj_chain.getD(), obj_chain.getD(), (subj_chain.getB() + " " + rel_chain.getB() + " " + obj_chain.getB() + " " + rel_chain.getA() + " " + rel_chain.getC()).replace("  "," ").replace("  "," ").replace("  "," ").trim(), isXcomp, "LP");
-					addRelation(association);
+		if(rel.getSubjects().size() > 0 && rel.getRelationChains().size() > 1 && rel.getObjects().size() > 1) {
+			//由于NLP工具导致的问题
+			System.out.println("NLP problem: R" + reqId);
+		}
+
+		if (rel.getObjects().size() == 1) {
+
+			StringQuadruple obj_chain = rel.getObjects().get(0);
+
+			String objStr = obj_chain.getC();
+			String verbStr = rel.getRelationChains().get(0).getB();
+
+			for (StringQuadruple rel_chain : rel.getRelationChains()) {
+				for (StringQuadruple subj_chain : rel.getSubjects()) {
+					if (rel_chain.getDepth() == 0) {
+						Association_Relation association = Utilities.formRelations(subj_chain.getC(), objStr, subj_chain.getD(), obj_chain.getD(), (subj_chain.getB() + " " + rel_chain.getB() + " " + obj_chain.getB() + " " + rel_chain.getA() + " " + rel_chain.getC()).replace("  ", " ").replace("  ", " ").replace("  ", " ").trim(), isXcomp, "LP");
+						addRelation(association);
+					} else {
+						Association_Relation association = Utilities.formRelations(subj_chain.getC(), rel_chain.getC(), subj_chain.getD(), obj_chain.getD(), (subj_chain.getB() + " " + rel_chain.getB() + " " + obj_chain.getB() + " " + rel_chain.getA()).replace(verbStr, verbStr + " " +  objStr).replace("  ", " ").replace("  ", " ").replace("  ", " ").trim(), isXcomp, "LP");
+						addRelation(association);
+					}
+				}
+			}
+
+		}
+
+		else {
+			for (StringQuadruple rel_chain : rel.getRelationChains()) {
+
+				for (StringQuadruple subj_chain : rel.getSubjects()) {
+					for (StringQuadruple obj_chain : rel.getObjects()) {
+						Association_Relation association = Utilities.formRelations(subj_chain.getC(), obj_chain.getC(), subj_chain.getD(), obj_chain.getD(), (subj_chain.getB() + " " + rel_chain.getB() + " " + obj_chain.getB() + " " + rel_chain.getA() + " " + rel_chain.getC()).replace("  ", " ").replace("  ", " ").replace("  ", " ").trim(), isXcomp, "LP");
+						addRelation(association);
+					}
 				}
 			}
 		}
@@ -170,7 +195,7 @@ public class ExtractRelations_includingChains {
 				List<StringQuadruple> subject_quads = Chaining.getSubjectChains(doc, inputAS.get(subjectpass_Id), 0);
 				for(StringQuadruple subject_quad: subject_quads){
 					String subj = subject_quad.getC();
-					if(agent_Id!= 0)
+					if(agent_Id != 0)
 					 {
 						 Concept_Class I_Obj = Utilities.getMapped_NPPrunedString(doc, agent_Id);
 						 iobj = I_Obj.getName();
