@@ -1,11 +1,7 @@
 package processing;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import gate.Annotation;
 import gate.AnnotationSet;
@@ -64,6 +60,10 @@ public class ExtractRelations_includingChains {
 	public static void traverseRelations() throws SecurityException, IOException
 	{
 		//original_annotated_doc = GlobalVariables.annotated_doc;
+
+		hashmap_requirmenets_Relations.clear();
+		hashmap_reqId_Relations.clear();
+		reqId = relId = 0;
 		
 		doc = GlobalVariables.annotated_doc;
 		inputAS = doc.getAnnotations();
@@ -121,6 +121,7 @@ public class ExtractRelations_includingChains {
 			extractAdjectivallyModifiedNPs(doc, sentence);
 			hashmap_requirmenets_Relations.add(new Requirement_Relations("R"+reqId, gate.Utils.stringFor(doc, sentence), hashmap_reqId_Relations.get("R"+reqId)));
 		}
+		//markDuplicateRelations();
 	}	
 	
 	private static void createRelationCombinations(MetaRelation rel) {
@@ -129,6 +130,16 @@ public class ExtractRelations_includingChains {
 			//由于NLP工具导致的问题
 			System.out.println("NLP problem: R" + reqId);
 		}
+
+		if(rel.getObjects().size() == 0 || rel.getRelationChains().size() == 0) {
+			return;
+		}
+
+		int obj_depth_bound = rel.getObjects().get(rel.getObjects().size()-1).getDepth();
+		int rel_depth_bound = rel.getRelationChains().get(rel.getRelationChains().size()-1).getDepth();
+
+		obj_depth_bound = (obj_depth_bound + 1) / 2;
+		rel_depth_bound = (rel_depth_bound + 1) / 2;
 
 		if (rel.getObjects().size() == 1) {
 
@@ -143,6 +154,12 @@ public class ExtractRelations_includingChains {
 						Association_Relation association = Utilities.formRelations(subj_chain.getC(), objStr, subj_chain.getD(), obj_chain.getD(), (subj_chain.getB() + " " + rel_chain.getB() + " " + obj_chain.getB() + " " + rel_chain.getA() + " " + rel_chain.getC()).replace("  ", " ").replace("  ", " ").replace("  ", " ").trim(), isXcomp, "LP");
 						addRelation(association);
 					} else {
+
+						//过滤depth较低的关联关系
+						if(rel_chain.getDepth() < rel_depth_bound || obj_chain.getDepth() < obj_depth_bound) {
+							continue;
+						}
+
 						Association_Relation association = Utilities.formRelations(subj_chain.getC(), rel_chain.getC(), subj_chain.getD(), obj_chain.getD(), (subj_chain.getB() + " " + rel_chain.getB() + " " + obj_chain.getB() + " " + rel_chain.getA()).replace(verbStr, verbStr + " " +  objStr).replace("  ", " ").replace("  ", " ").replace("  ", " ").trim(), isXcomp, "LP");
 						addRelation(association);
 					}
@@ -153,9 +170,13 @@ public class ExtractRelations_includingChains {
 
 		else {
 			for (StringQuadruple rel_chain : rel.getRelationChains()) {
-
 				for (StringQuadruple subj_chain : rel.getSubjects()) {
 					for (StringQuadruple obj_chain : rel.getObjects()) {
+
+						if(rel_chain.getDepth() < rel_depth_bound || obj_chain.getDepth() < obj_depth_bound) {
+							continue;
+						}
+
 						Association_Relation association = Utilities.formRelations(subj_chain.getC(), obj_chain.getC(), subj_chain.getD(), obj_chain.getD(), (subj_chain.getB() + " " + rel_chain.getB() + " " + obj_chain.getB() + " " + rel_chain.getA() + " " + rel_chain.getC()).replace("  ", " ").replace("  ", " ").replace("  ", " ").trim(), isXcomp, "LP");
 						addRelation(association);
 					}
@@ -658,6 +679,35 @@ public class ExtractRelations_includingChains {
 		relations.add(rel);
 		hashmap_reqId_Relations.put("R"+reqId, relations);
 	}
+
+	/*public static void markDuplicateRelations() {
+
+		List<Concept_Relation> relations = new ArrayList<>();
+
+		for(Requirement_Relations req_relations : hashmap_requirmenets_Relations) {
+			Iterator it = req_relations.relations.iterator();
+			while (it.hasNext()) {
+				Object obj = it.next();
+				if (obj.getClass().toString().contains("Concept_Relation")) {
+					Concept_Relation rel = (Concept_Relation) obj;
+
+					if(!rel.getRelationType().equals(RelationType.ASSOCIATION)) {
+						for(Concept_Relation tmp : relations) {
+							if(rel.getSource().getName().equals(tmp.getSource().getName()) && rel.getTarget().getName().equals(tmp.getTarget().getName()) && rel.getRelationType().equals(tmp.getRelationType())){
+								rel.setDuplicateStatus(true);
+							}
+							else {
+								relations.add(rel);
+							}
+						}
+					}
+
+				}
+			}
+		}
+		return;
+	}*/
+
 }
 
 

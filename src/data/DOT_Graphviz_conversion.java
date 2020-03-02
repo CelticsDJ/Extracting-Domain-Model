@@ -49,15 +49,15 @@ public class DOT_Graphviz_conversion {
 					Object obj = it.next();
 					if (obj.getClass().toString().contains("Concept_Relation")) {
 						Concept_Relation rel = (Concept_Relation) obj;
-						if (rel.getRelationType().equals(RelationType.ATTRIBUTE)) {
+						if (rel.getRelationType().equals(RelationType.ATTRIBUTE) && !rel.getDuplicateStatus()) {
 							sb.append(rel.getSource().name.replace(" ", "_") + " [ label = \"{" + rel.getSource().name + " |+ " + rel.getTarget().name + " : \\l}\"]" + System.lineSeparator());
 						} else {
 							sb.append(rel.getSource().name.replace(" ", "_") + " [ label = \"{" + rel.getSource().name + " : \\l}\"]" + System.lineSeparator());
 							sb.append(rel.getTarget().name.replace(" ", "_") + " [ label = \"{" + rel.getTarget().name + " : \\l}\"]" + System.lineSeparator());
-							if (rel.getRelationType().equals(RelationType.AGGREGATION)) {
+							if (rel.getRelationType().equals(RelationType.AGGREGATION) && !rel.getDuplicateStatus()) {
 								sb.append(rel.getSource().name.replace(" ", "_") + " -> " + rel.getTarget().name.replace(" ", "_"));
 								sb.append("  [arrowhead = \"odiamond\"]" + System.lineSeparator());
-							} else if (rel.getRelationType().equals(RelationType.GENERALIZATION)) {
+							} else if (rel.getRelationType().equals(RelationType.GENERALIZATION) && !rel.getDuplicateStatus()) {
 								sb.append(rel.getSource().name.replace(" ", "_") + " -> " + rel.getTarget().name.replace(" ", "_"));
 								sb.append("  [arrowhead = \"empty\"]" + System.lineSeparator());
 							}
