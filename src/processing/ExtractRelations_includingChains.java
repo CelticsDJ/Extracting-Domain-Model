@@ -121,7 +121,7 @@ public class ExtractRelations_includingChains {
 			extractAdjectivallyModifiedNPs(doc, sentence);
 			hashmap_requirmenets_Relations.add(new Requirement_Relations("R"+reqId, gate.Utils.stringFor(doc, sentence), hashmap_reqId_Relations.get("R"+reqId)));
 		}
-		//markDuplicateRelations();
+		markDuplicateRelations();
 	}	
 	
 	private static void createRelationCombinations(MetaRelation rel) {
@@ -680,11 +680,14 @@ public class ExtractRelations_includingChains {
 		hashmap_reqId_Relations.put("R"+reqId, relations);
 	}
 
-	/*public static void markDuplicateRelations() {
+	public static void markDuplicateRelations() {
 
 		List<Concept_Relation> relations = new ArrayList<>();
 
 		for(Requirement_Relations req_relations : hashmap_requirmenets_Relations) {
+			if(req_relations.relations == null) {
+				continue;
+			}
 			Iterator it = req_relations.relations.iterator();
 			while (it.hasNext()) {
 				Object obj = it.next();
@@ -696,9 +699,10 @@ public class ExtractRelations_includingChains {
 							if(rel.getSource().getName().equals(tmp.getSource().getName()) && rel.getTarget().getName().equals(tmp.getTarget().getName()) && rel.getRelationType().equals(tmp.getRelationType())){
 								rel.setDuplicateStatus(true);
 							}
-							else {
-								relations.add(rel);
-							}
+						}
+
+						if(!rel.getDuplicateStatus()) {
+							relations.add(rel);
 						}
 					}
 
@@ -706,7 +710,7 @@ public class ExtractRelations_includingChains {
 			}
 		}
 		return;
-	}*/
+	}
 
 }
 

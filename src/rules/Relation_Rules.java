@@ -59,8 +59,8 @@ public class Relation_Rules {
 			int num_Objects = 0;
 			isAdvMod = false;
 			String relVerb = Utils.cleanStringFor(annotatedDoc, VP);
-			String VPStr = getVPString(annotatedDoc, VP);
-			//String VPStr = VP.getFeatures().get("text").toString();
+			//String VPStr = getVPString(annotatedDoc, VP);
+			String VPStr = VP.getFeatures().get("string").toString();
 			
 			FeatureMap VP_features = VP.getFeatures();
 			FeatureMap updatedFeatures = Factory.newFeatureMap();

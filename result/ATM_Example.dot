@@ -13,14 +13,8 @@ fontsize = 8
 
 
 R1:The system must support a computerized banking network that includes both human cashiers, and ATMs.
-computerized_banking_network [ label = "{computerized banking network : \l}"]
-banking_network [ label = "{banking network : \l}"]
-computerized_banking_network -> banking_network  [arrowhead = "empty"]
-D3
-human_cashier [ label = "{human cashier : \l}"]
-cashier [ label = "{cashier : \l}"]
-human_cashier -> cashier  [arrowhead = "empty"]
-D3
+
+
 that [ label = "{that : \l}"]
 human_cashier [ label = "{human cashier : \l}"]
 that -> human_cashier  [arrowhead = "none", label = "includes"]
@@ -44,10 +38,7 @@ computerized_banking_network [ label = "{computerized banking network : \l}"]
 bank [ label = "{bank : \l}"]
 computerized_banking_network -> bank  [arrowhead = "none", label = "share  by consortium of"]
 B1
-consortium [ label = "{consortium : \l}"]
-bank [ label = "{bank : \l}"]
-consortium -> bank  [arrowhead = "odiamond"]
-D5
+
 
 
 R3:Each bank provides a computer that maintains the bank's accounts, and processes transactions against the accounts.
@@ -55,10 +46,7 @@ bank [ label = "{bank : \l}"]
 computer [ label = "{computer : \l}"]
 bank -> computer  [arrowhead = "none", label = "provides"]
 LP
-bank [ label = "{bank : \l}"]
-accounts [ label = "{accounts : \l}"]
-bank -> accounts  [arrowhead = "odiamond"]
-D5
+
 
 
 R4:Cashier stations are owned by individual banks, and communicate directly with the bank's computers.
@@ -70,10 +58,7 @@ Cashier_station [ label = "{Cashier station : \l}"]
 individual_bank [ label = "{individual bank : \l}"]
 Cashier_station -> individual_bank  [arrowhead = "none", label = "own by"]
 B1
-individual_bank [ label = "{individual bank : \l}"]
-bank [ label = "{bank : \l}"]
-individual_bank -> bank  [arrowhead = "empty"]
-D3
+
 
 
 R5:Human cashiers enter both the account data and the transaction data.
@@ -81,10 +66,7 @@ Human_cashiers_enter [ label = "{Human cashiers enter : \l}"]
 account_datum [ label = "{account datum : \l}"]
 Human_cashiers_enter -> account_datum  [arrowhead = "none", label = "enter"]
 LP
-Human_cashiers_enter_ [ label = "{Human cashiers enter  : \l}"]
-cashiers_enter_ [ label = "{cashiers enter  : \l}"]
-Human_cashiers_enter_ -> cashiers_enter_  [arrowhead = "empty"]
-D3
+
 
 
 R6:An ATM communicates with a central computer.
@@ -121,10 +103,7 @@ central_computer [ label = "{central computer : \l}"]
 transaction [ label = "{transaction : \l}"]
 central_computer -> transaction  [arrowhead = "none", label = "carry out"]
 LP
-central_computer [ label = "{central computer : \l}"]
-computer [ label = "{computer : \l}"]
-central_computer -> computer  [arrowhead = "empty"]
-D3
+
 
 
 R10:An ATM dispenses cash, and prints receipts.
@@ -139,36 +118,21 @@ system [ label = "{system : \l}"]
 appropriate_record-keeping [ label = "{appropriate record-keeping : \l}"]
 system -> appropriate_record-keeping  [arrowhead = "none", label = "requires"]
 LP
-appropriate_record-keeping [ label = "{appropriate record-keeping : \l}"]
-record-keeping [ label = "{record-keeping : \l}"]
-appropriate_record-keeping -> record-keeping  [arrowhead = "empty"]
-D3
+
 
 
 R12:The system must handle concurrent access to the same account correctly.
-concurrent_access [ label = "{concurrent access : \l}"]
-access [ label = "{access : \l}"]
-concurrent_access -> access  [arrowhead = "empty"]
-D3
+
 system [ label = "{system : \l}"]
 same_account [ label = "{same account : \l}"]
 system -> same_account  [arrowhead = "none", label = "handle concurrent access to"]
 LP
-same_account [ label = "{same account : \l}"]
-account [ label = "{account : \l}"]
-same_account -> account  [arrowhead = "empty"]
-D3
+
 
 
 R13:The banks will provide the bank's own software for the bank's own computers.
-bank [ label = "{bank : \l}"]
-software [ label = "{software : \l}"]
-bank -> software  [arrowhead = "odiamond"]
-D5
-bank [ label = "{bank : \l}"]
-computers [ label = "{computers : \l}"]
-bank -> computers  [arrowhead = "odiamond"]
-D5
+
+
 bank [ label = "{bank : \l}"]
 own_computers [ label = "{own computers : \l}"]
 bank -> own_computers  [arrowhead = "none", label = "provide own software for"]

@@ -124,9 +124,7 @@ public class DeriveAnnotations {
             }
         }
 
-        for(Annotation token : tokens) {
 
-        }
 
         //Relation_Verb
         //for (Annotation a : VBs) {
