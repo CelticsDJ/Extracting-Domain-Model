@@ -15,7 +15,7 @@ import data.Concept_Class;
 import data.GlobalVariables;
 import utils.Utilities;
 
-import static utils.Utilities.getRelationType;
+import static utils.Utilities.*;
 
 public class Classes_Rules {
 	
@@ -74,6 +74,23 @@ public class Classes_Rules {
 						
 			if(list_dependencies.size() > 0)
 				{
+					List<DependencyRelation> nmods = new ArrayList<>();
+					for(DependencyRelation dep : list_dependencies) {
+						if(dep.getType().equals("nmod")) {
+							nmods.add(dep);
+						}
+					}
+					if(nmods.size() > 1) {
+						Annotation nextNP = annotatedDoc.getAnnotations().get(Utilities.getMapped_NP(annotatedDoc, nmods.get(0).getTargetId()));
+						List<DependencyRelation> updateDeps = (List<DependencyRelation>) nextNP.getFeatures().get("dependencies");
+						for(int i = 1; i < nmods.size(); ++i) {
+							if(getMapped_NP(annotatedDoc, nmods.get(i).getTargetId()) > nextNP.getId()) {
+								updateDeps.add(nmods.get(i));
+							}
+						}
+						nextNP.getFeatures().replace("dependencies", updateDeps);
+					}
+
 					for(DependencyRelation rel: list_dependencies)
 					{
 						if(Arrays.stream(acceptable_dependencies).parallel().anyMatch(rel.getType()::contains)) //Java 8 stream API
@@ -219,6 +236,24 @@ public class Classes_Rules {
 
 				if(dep.getType().equals("case") || dep.getType().equals("mark")) {
 					relation = annotatedDoc.getAnnotations().get(dep.getTargetId()).getFeatures().get("string").toString().concat(" ").concat(relation);
+				}
+
+				if(dep.getType().equals("nmod")) {
+
+					boolean flag = false;
+					for(DependencyRelation dep2 : dependencies) {
+						if(dep2.getType().equals("dobj")) {
+							target_id = dep2.getTargetId();
+							flag = true;
+							break;
+						}
+					}
+
+					if(flag && getMapped_NP(annotatedDoc, dep.getTargetId()) != getMapped_NP(annotatedDoc, target_id)) {
+						List<DependencyRelation> updateDeps = (List<DependencyRelation>) annotatedDoc.getAnnotations().get(getMapped_NP(annotatedDoc, target_id)).getFeatures().get("dependencies");
+						updateDeps.add(dep);
+						annotatedDoc.getAnnotations().get(target_id).getFeatures().replace("dependencies", updateDeps);
+					}
 				}
 			}
 		}

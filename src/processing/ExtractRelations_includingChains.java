@@ -75,6 +75,10 @@ public class ExtractRelations_includingChains {
 			//Assign Requirement IDs 
 			reqId++;
 			relId = 1;
+
+			if(reqId == 11) {
+				reqId = 11;
+			}
 				
 			AnnotationSet relations = gate.Utils.getContainedAnnotations(inputAS, sentence, "Relations");
 			List<Annotation> Relations = gate.Utils.inDocumentOrder(relations);

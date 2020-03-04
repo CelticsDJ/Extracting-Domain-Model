@@ -135,7 +135,8 @@ public class Chaining {
 		if(list_chains.size() == 0)
 		{
 			return return_list;
-		}		
+		}
+
 		/*
 		 * If there are more than 1 chains that begin from this source.
 		 * Example: "confirmation from the user for this action and subsequent related actions in project"
@@ -150,7 +151,10 @@ public class Chaining {
 			String prev_PP = "";			
 			String base_old = "";
 			String base_new = "";
-			
+
+			if(list_chains.size() > 1) {
+				list_chains = list_chains.subList(0,1);
+			}
 			
 			
 			for(Annotation chain_NP: list_chains)
@@ -209,6 +213,7 @@ public class Chaining {
 				}		
 			}
 		}
+		return_list.sort(Comparator.comparing(StringQuadruple::getB));
 
 		return (List<StringQuadruple>) Utils_DuplicateCheck.removeDuplicates(return_list);
 	}
