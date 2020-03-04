@@ -256,7 +256,7 @@ public class Chaining {
 							for(StringQuadruple iobj_quad: iobj_quads)
 							{
 								if(chainFeatures.get("target_category").equals("JJ")) {
-									return_list.add(new StringQuadruple("",verbStr + " " + PP + " " +  iobj_quad.getC(), "", iobj_quad.getD(), depth++));
+									return_list.add(new StringQuadruple("",verbStr + " " + PP + " " +  iobj_quad.getC(), "", "JJ", depth++));
 								}
 								else if(iobj_quad.getA().equals("true"))
 								{						

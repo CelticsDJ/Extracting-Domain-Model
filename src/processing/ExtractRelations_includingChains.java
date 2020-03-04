@@ -35,7 +35,7 @@ public class ExtractRelations_includingChains {
 	private static int prep_from_Id = 0;
 	private static int prepc_according_to = 0;
 	*/
-	private static String rel = "";
+	private static String rel_str = "";
 	private static String rel_root = "";
 	private static FeatureMap rel_features;
 	private static boolean isXcomp = false;
@@ -138,8 +138,8 @@ public class ExtractRelations_includingChains {
 		int obj_depth_bound = rel.getObjects().get(rel.getObjects().size()-1).getDepth();
 		int rel_depth_bound = rel.getRelationChains().get(rel.getRelationChains().size()-1).getDepth();
 
-		obj_depth_bound = (obj_depth_bound + 1) / 2;
-		rel_depth_bound = (rel_depth_bound + 1) / 2;
+		obj_depth_bound = (obj_depth_bound + 1) / 2 - 1;
+		rel_depth_bound = (rel_depth_bound + 1) / 2 - 1;
 
 		if (rel.getObjects().size() == 1) {
 
@@ -156,7 +156,7 @@ public class ExtractRelations_includingChains {
 						continue;
 					}
 
-					if (rel_chain.getDepth() == 0 || rel_chain.getDepth() == rel_depth_bound) {
+					if (rel_chain.getDepth() == 0 || rel_chain.getDepth() == rel_depth_bound || rel_chain.getD().equals("JJ")) {
 						Association_Relation association = Utilities.formRelations(subj_chain.getC(), objStr, subj_chain.getD(), obj_chain.getD(), (subj_chain.getB() + " " + rel_chain.getB() + " " + obj_chain.getB() + " " + rel_chain.getA() + " " + rel_chain.getC()).replace("  ", " ").replace("  ", " ").replace("  ", " ").trim(), isXcomp, "LP");
 						addRelation(association);
 					} else {
@@ -206,7 +206,7 @@ public class ExtractRelations_includingChains {
 					//else if(quads.size() <= 1) //Only add attribute when there is no other choice, i.e., there is no other chain to the verb
 					if(isAdvMod)
 					{
-						Concept_Relation rel = new Concept_Relation(new Concept_Class(subject_quad.getC()), new Concept_Class(rel_root), RelationType.ATTRIBUTE, "D4");
+						Concept_Relation rel = new Concept_Relation(new Concept_Class(subject_quad.getC()), new Concept_Class(rel_str), RelationType.ATTRIBUTE, "D4");
 						addRelation(rel);
 					}
 				}
@@ -227,7 +227,7 @@ public class ExtractRelations_includingChains {
 					 }		
 					else if(!iobj.equals(""))
 					{
-						String relationText = (quad.getB().isEmpty()?rel_root  + " " + verb:quad.getB().replace(rel, rel_root   + " " + verb));
+						String relationText = (quad.getB().isEmpty()?rel_root  + " " + verb:quad.getB().replace(rel_str, rel_root   + " " + verb));
 						//String relationText = (quad.getB().isEmpty()?rel_root  + " " + verb:quad.getB().replace(rel, rel_root + verb));
 						Association_Relation rel = Utilities.formRelations(subj, iobj, subject_quad.getD(), quad.getD(), relationText, isXcomp, "B1");
 						addRelation(rel);
@@ -236,7 +236,7 @@ public class ExtractRelations_includingChains {
 					//else if(quads.size() <= 1) //Only add attribute when there is no other choice, i.e., there is no other chain to the verb
 					if(isAdvMod)
 					{
-						Concept_Relation rel = new Concept_Relation(new Concept_Class(subj), new Concept_Class(rel_root), RelationType.ATTRIBUTE, "D4");
+						Concept_Relation rel = new Concept_Relation(new Concept_Class(subj), new Concept_Class(rel_str), RelationType.ATTRIBUTE, "D4");
 						addRelation(rel);
 					}
 				}				
@@ -464,7 +464,7 @@ public class ExtractRelations_includingChains {
 		prep_to_Id = rel_features.get("prep_to") == null? 0:  (int) rel_features.get("prep_to");
 		prep_from_Id = rel_features.get("prep_from") == null? 0:  (int) rel_features.get("prep_from");
 		*/
-		rel = rel_features.get("str").toString();
+		rel_str = rel_features.get("str").toString();
 		rel_root = rel_features.get("root").toString();
 		/*
 		prepc_according_to = ((rel_features.get("prepc_according_to") == null) || (rel_features.get("P_Object") == null))? 0:  (int) rel_features.get("P_Object");
@@ -656,14 +656,14 @@ public class ExtractRelations_includingChains {
 	
 	public static void addRelation(Object relObj)
 	{			
-		if(rel.getClass().toString().contains("Concept_Relation"))
+		/*if(rel.getClass().toString().contains("Concept_Relation"))
 		{
 			//rel = (Concept_Relation) relObj;
 		}
 		else
 		{
 			//rel = (Association_Relation) relObj;
-		}
+		}*/
 		Concept_Relation rel = (Concept_Relation) relObj;
 		HashSet<Concept_Relation> relations = hashmap_reqId_Relations.get("R"+reqId);
 		if(relations == null)

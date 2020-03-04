@@ -148,7 +148,34 @@ public class Relation_Rules {
 			updatedFeatures.put("Num_Objects" , num_Objects);
 			updatedFeatures.put("str" , VPStr);
 			updatedFeatures.put("root", VPStr.replace(relVerb, VP_features.get("root").toString())); //Updated this to add adverb to the root
-			annotatedDoc.getAnnotations().add(Utils.start(VP), Utils.end(VP), "Relations", updatedFeatures);			
+
+			if(VP.getFeatures().get("category").toString().equals("VBG")) {
+				for(DependencyRelation rel : list_dependencies) {
+
+					if(rel.getType().equals("cop")) {
+						updatedFeatures.put("isAdvMod", 1);
+					}
+
+					if(rel.getType().equals("conj")) {
+						Annotation tmp = annotatedDoc.getAnnotations().get(rel.getTargetId());
+
+						FeatureMap tmpFeatures = Factory.newFeatureMap();
+						try {
+							tmpFeatures.put("Subject", updatedFeatures.get("Subject"));
+							tmpFeatures.put("isAdvMod", updatedFeatures.get("isAdvMod"));
+						}catch(NullPointerException e) {
+							System.out.println("piu");
+						}
+						tmpFeatures.put("Num_Objects", updatedFeatures.get("Num_Objects"));
+						tmpFeatures.put("str", tmp.getFeatures().get("string"));
+						tmpFeatures.put("root", tmp.getFeatures().get("root"));
+
+						annotatedDoc.getAnnotations().add(Utils.start(tmp), Utils.end(tmp), "Relations", tmpFeatures);
+					}
+				}
+			}
+
+			annotatedDoc.getAnnotations().add(Utils.start(VP), Utils.end(VP), "Relations", updatedFeatures);
 		}
 	}
 
