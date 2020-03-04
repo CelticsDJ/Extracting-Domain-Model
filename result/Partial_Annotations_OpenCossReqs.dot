@@ -13,30 +13,28 @@ fontsize = 8
 
 
 R1:The OPENCOSS platform shall provide the users with the ability to indicate the evidence types of the evidence items, to be provided for an assurance project.
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-ability_ [ label = "{ability  : \l}"]
-OPENCOSS_platform -> ability_  [arrowhead = "none", label = "provide user with"]
-LP
+evidence_type [ label = "{evidence type : \l}"]
+evidence_item [ label = "{evidence item : \l}"]
+evidence_type -> evidence_item  [arrowhead = "odiamond"]
+D5
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 user [ label = "{user : \l}"]
-OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide with ability"]
 LP
-
 
 
 R2:The OPENCOSS platform shall provide users with the ability to select an existing evidence characterization model for an assurance project.
-
+existing_evidence_characterization_model [ label = "{existing evidence characterization model : \l}"]
+evidence_characterization_model [ label = "{evidence characterization model : \l}"]
+existing_evidence_characterization_model -> evidence_characterization_model  [arrowhead = "empty"]
+D3
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 assurance_project [ label = "{assurance project : \l}"]
 OPENCOSS_platform -> assurance_project  [arrowhead = "none", label = "provide user with ability to select existing evidence characterization model for"]
 LP
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 user [ label = "{user : \l}"]
-OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
-LP
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-existing_evidence_characterization_model [ label = "{existing evidence characterization model : \l}"]
-OPENCOSS_platform -> existing_evidence_characterization_model  [arrowhead = "none", label = "provide user with ability to select"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide with ability to select existing evidence characterization model"]
 LP
 
 
@@ -49,7 +47,10 @@ OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 artefact [ label = "{artefact : \l}"]
 OPENCOSS_platform -> artefact  [arrowhead = "none", label = "store CCL-information of"]
 LP
-
+CCL-information [ label = "{CCL-information : \l}"]
+artefact [ label = "{artefact : \l}"]
+CCL-information -> artefact  [arrowhead = "odiamond"]
+D5
 evidence_item [ label = "{evidence item : \l}"]
 artefact [ label = "{artefact : \l}"]
 evidence_item -> artefact  [arrowhead = "none", label = "associate to"]
@@ -57,17 +58,10 @@ B1
 
 
 R4:The OPENCOSS platform shall provide users with the ability to modify the information about the artefact to which an evidence item of an assurance project is associated.
-evidence_item [ label = "{evidence item : \l}"]
-assurance_project [ label = "{assurance project : \l}"]
-evidence_item -> assurance_project  [arrowhead = "odiamond"]
-D5
+
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 user [ label = "{user : \l}"]
-OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
-LP
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-information [ label = "{information : \l}"]
-OPENCOSS_platform -> information  [arrowhead = "none", label = "provide user with ability to modify"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide with ability to modify information"]
 LP
 evidence_item [ label = "{evidence item : \l}"]
 artefact [ label = "{artefact : \l}"]
@@ -80,28 +74,33 @@ LP
 
 
 R5:The OPENCOSS platform shall provide users with the ability to associate evidence items of an assurance project with an artefact that has been used in another project.
-
+associate_evidence_item [ label = "{associate evidence item : \l}"]
+evidence_item [ label = "{evidence item : \l}"]
+associate_evidence_item -> evidence_item  [arrowhead = "empty"]
+D3
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 assurance_project [ label = "{assurance project : \l}"]
 OPENCOSS_platform -> assurance_project  [arrowhead = "none", label = "provide user with ability to associate evidence item of"]
 LP
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-associate_evidence_item [ label = "{associate evidence item : \l}"]
-OPENCOSS_platform -> associate_evidence_item  [arrowhead = "none", label = "provide user with ability to"]
-LP
-
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-user [ label = "{user : \l}"]
-OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
-LP
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 artefact [ label = "{artefact : \l}"]
 OPENCOSS_platform -> artefact  [arrowhead = "none", label = "provide user with ability to associate evidence item of assurance project with"]
 LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide with ability to associate evidence item"]
+LP
+associate_evidence_item [ label = "{associate evidence item : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+associate_evidence_item -> assurance_project  [arrowhead = "odiamond"]
+D5
 
 
 R6:When a USER wants to drop an evidence item from an assurance project, the OPENCOSS platform shall request confirmation from the user for this action and subsequent related actions.
-
+subsequent_related_action [ label = "{subsequent related action : \l}"]
+action [ label = "{action : \l}"]
+subsequent_related_action -> action  [arrowhead = "empty"]
+D3
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 user [ label = "{user : \l}"]
 OPENCOSS_platform -> user  [arrowhead = "none", label = "request confirmation from"]
@@ -112,32 +111,28 @@ OPENCOSS_platform -> action  [arrowhead = "none", label = "request confirmation 
 LP
 USER [ label = "{USER : \l}"]
 evidence_item [ label = "{evidence item : \l}"]
-USER -> evidence_item  [arrowhead = "none", label = "wants to drop"]
+USER -> evidence_item  [arrowhead = "none", label = "drop"]
 LP
 
 
 R7:The OPENCOSS platform shall provide users with the ability to modify the information of the evidence items of an assurance project.
-evidence_item [ label = "{evidence item : \l}"]
-assurance_project [ label = "{assurance project : \l}"]
-evidence_item -> assurance_project  [arrowhead = "odiamond"]
-D5
+
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide with ability to modify information"]
+LP
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 assurance_project [ label = "{assurance project : \l}"]
 OPENCOSS_platform -> assurance_project  [arrowhead = "none", label = "provide user with ability to modify information of evidence item of"]
 LP
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-user [ label = "{user : \l}"]
-OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
-LP
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 information [ label = "{information : \l}"]
-OPENCOSS_platform -> information  [arrowhead = "none", label = "provide user with ability to modify"]
-LP
+evidence_item [ label = "{evidence item : \l}"]
+information -> evidence_item  [arrowhead = "odiamond"]
+D5
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 evidence_item [ label = "{evidence item : \l}"]
 OPENCOSS_platform -> evidence_item  [arrowhead = "none", label = "provide user with ability to modify information of"]
 LP
-
 
 
 R8:The OPENCOSS platform shall provide users with the ability to copy evidence items to an assurance project that previously have been stored in another assurance project.
@@ -146,12 +141,8 @@ evidence_item [ label = "{evidence item : \l}"]
 OPENCOSS_platform -> evidence_item  [arrowhead = "none", label = "provide user with ability to copy"]
 LP
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-ability_ [ label = "{ability  : \l}"]
-OPENCOSS_platform -> ability_  [arrowhead = "none", label = "provide user with"]
-LP
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 user [ label = "{user : \l}"]
-OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide with ability"]
 LP
 
 
@@ -164,8 +155,14 @@ OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 assurance_project [ label = "{assurance project : \l}"]
 OPENCOSS_platform -> assurance_project  [arrowhead = "none", label = "store time and date of action performed evidence items of"]
 LP
-
-
+evidence_items_ [ label = "{evidence items  : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+evidence_items_ -> assurance_project  [arrowhead = "odiamond"]
+D5
+time_and_date [ label = "{time and date : \l}"]
+action [ label = "{action : \l}"]
+time_and_date -> action  [arrowhead = "odiamond"]
+D5
 
 
 R10:The OPENCOSS platform shall create the evidence repository of an assurance project from its evidence characterization model.
@@ -173,34 +170,33 @@ OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 assurance_project [ label = "{assurance project : \l}"]
 OPENCOSS_platform -> assurance_project  [arrowhead = "none", label = "create evidence repository of"]
 LP
-
+evidence_repository_ [ label = "{evidence repository  : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+evidence_repository_ -> assurance_project  [arrowhead = "odiamond"]
+D5
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 evidence_characterization_model [ label = "{evidence characterization model : \l}"]
 OPENCOSS_platform -> evidence_characterization_model  [arrowhead = "none", label = "create evidence repository of assurance project from"]
 LP
-
+its [ label = "{its : \l}"]
+model [ label = "{model : \l}"]
+its -> model  [arrowhead = "odiamond"]
+D5
 
 
 R11:The OPENCOSS platform shall provide users with the ability to modify the intermediate nodes in the tree view for display of the evidence items of an assurance project.
+
 display [ label = "{display : \l}"]
 evidence_item [ label = "{evidence item : \l}"]
 display -> evidence_item  [arrowhead = "odiamond"]
 D5
-evidence_item [ label = "{evidence item : \l}"]
-assurance_project [ label = "{assurance project : \l}"]
-evidence_item -> assurance_project  [arrowhead = "odiamond"]
-D5
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-ability_ [ label = "{ability  : \l}"]
-OPENCOSS_platform -> ability_  [arrowhead = "none", label = "provide user with"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide with ability"]
 LP
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 intermediate_node [ label = "{intermediate node : \l}"]
 OPENCOSS_platform -> intermediate_node  [arrowhead = "none", label = "provide user with ability to modify"]
-LP
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-user [ label = "{user : \l}"]
-OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
 LP
 intermediate_node [ label = "{intermediate node : \l}"]
 node [ label = "{node : \l}"]
@@ -209,18 +205,7 @@ D3
 
 
 R12:The OPENCOSS platform shall provide users with the ability to associate evidence types to the intermediate nodes of the tree view for display of the evidence items of an assurance project.
-intermediate_node [ label = "{intermediate node : \l}"]
-tree_view [ label = "{tree view : \l}"]
-intermediate_node -> tree_view  [arrowhead = "odiamond"]
-D5
-display [ label = "{display : \l}"]
-evidence_item [ label = "{evidence item : \l}"]
-display -> evidence_item  [arrowhead = "odiamond"]
-D5
-evidence_item [ label = "{evidence item : \l}"]
-assurance_project [ label = "{assurance project : \l}"]
-evidence_item -> assurance_project  [arrowhead = "odiamond"]
-D5
+
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 ability [ label = "{ability : \l}"]
 OPENCOSS_platform -> ability  [arrowhead = "none", label = "provide to associate evidence type to intermediate node of user with tree view"]
@@ -229,7 +214,15 @@ OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 ability [ label = "{ability : \l}"]
 OPENCOSS_platform -> ability  [arrowhead = "none", label = "provide to associate evidence type to intermediate node of tree view for display of evidence item of user with assurance project"]
 LP
+intermediate_node [ label = "{intermediate node : \l}"]
+tree_view [ label = "{tree view : \l}"]
+intermediate_node -> tree_view  [arrowhead = "odiamond"]
+D5
 
+associate_evidence_type [ label = "{associate evidence type : \l}"]
+evidence_type [ label = "{evidence type : \l}"]
+associate_evidence_type -> evidence_type  [arrowhead = "empty"]
+D3
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 ability [ label = "{ability : \l}"]
 OPENCOSS_platform -> ability  [arrowhead = "none", label = "provide to associate evidence type to intermediate node of tree view for display of user with evidence item"]
@@ -238,22 +231,11 @@ OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 ability [ label = "{ability : \l}"]
 OPENCOSS_platform -> ability  [arrowhead = "none", label = "provide to associate evidence type to intermediate node of tree view for user with display"]
 LP
-intermediate_node [ label = "{intermediate node : \l}"]
-node [ label = "{node : \l}"]
-intermediate_node -> node  [arrowhead = "empty"]
-D3
+
 
 
 R13:When an evidence characterization model has been selected for an assurance project, the OPENCOSS platform shall propose intermediate nodes for the tree view for display of the evidence items of the project according to the evidence characterization model.
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-evidence_item [ label = "{evidence item : \l}"]
-OPENCOSS_platform -> evidence_item  [arrowhead = "none", label = "propose intermediate node for tree view for display of"]
-LP
 
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-intermediate_node [ label = "{intermediate node : \l}"]
-OPENCOSS_platform -> intermediate_node  [arrowhead = "none", label = "propose"]
-LP
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 project [ label = "{project : \l}"]
 OPENCOSS_platform -> project  [arrowhead = "none", label = "propose intermediate node for tree view for display of evidence item of"]
@@ -262,8 +244,15 @@ OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 evidence_characterization_model [ label = "{evidence characterization model : \l}"]
 OPENCOSS_platform -> evidence_characterization_model  [arrowhead = "none", label = "propose intermediate node according to"]
 LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+intermediate_node [ label = "{intermediate node : \l}"]
+OPENCOSS_platform -> intermediate_node  [arrowhead = "none", label = "propose for tree view for display of evidence item"]
+LP
 
-
+evidence_item [ label = "{evidence item : \l}"]
+project [ label = "{project : \l}"]
+evidence_item -> project  [arrowhead = "odiamond"]
+D5
 evidence_characterization_model [ label = "{evidence characterization model : \l}"]
 assurance_project [ label = "{assurance project : \l}"]
 evidence_characterization_model -> assurance_project  [arrowhead = "none", label = "select for"]
@@ -279,32 +268,36 @@ evidence_type [ label = "{evidence type : \l}"]
 display [ label = "{display : \l}"]
 evidence_type -> display  [arrowhead = "none", label = "use for"]
 B1
-
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 associated_evidence_type [ label = "{associated evidence type : \l}"]
 OPENCOSS_platform -> associated_evidence_type  [arrowhead = "none", label = "include evidence item of project in tree view node of"]
 LP
+
+their [ label = "{their : \l}"]
+types [ label = "{types : \l}"]
+their -> types  [arrowhead = "odiamond"]
+D5
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 tree_view_node [ label = "{tree view node : \l}"]
 OPENCOSS_platform -> tree_view_node  [arrowhead = "none", label = "include evidence item of project in"]
 LP
+tree_view_node [ label = "{tree view node : \l}"]
+associated_evidence_type [ label = "{associated evidence type : \l}"]
+tree_view_node -> associated_evidence_type  [arrowhead = "odiamond"]
+D5
 evidence_type [ label = "{evidence type : \l}"]
 tree_view [ label = "{tree view : \l}"]
 evidence_type -> tree_view  [arrowhead = "none", label = "use  for definition of intermediate node of"]
 B1
+
 evidence_characterization_model [ label = "{evidence characterization model : \l}"]
 assurance_project [ label = "{assurance project : \l}"]
 evidence_characterization_model -> assurance_project  [arrowhead = "none", label = "select for"]
 B1
-
 evidence_type [ label = "{evidence type : \l}"]
 definition [ label = "{definition : \l}"]
 evidence_type -> definition  [arrowhead = "none", label = "use for"]
 B1
-display [ label = "{display : \l}"]
-evidence_item [ label = "{evidence item : \l}"]
-display -> evidence_item  [arrowhead = "odiamond"]
-D5
 evidence_type [ label = "{evidence type : \l}"]
 project [ label = "{project : \l}"]
 evidence_type -> project  [arrowhead = "none", label = "use  for definition for display of evidence item of"]
@@ -314,52 +307,40 @@ evidence_type [ label = "{evidence type : \l}"]
 evidence_item [ label = "{evidence item : \l}"]
 evidence_type -> evidence_item  [arrowhead = "none", label = "use  for definition for display of"]
 B1
-
-evidence_item [ label = "{evidence item : \l}"]
-project [ label = "{project : \l}"]
-evidence_item -> project  [arrowhead = "odiamond"]
-D5
 evidence_type [ label = "{evidence type : \l}"]
 intermediate_node [ label = "{intermediate node : \l}"]
 evidence_type -> intermediate_node  [arrowhead = "none", label = "use  for definition of"]
 B1
+
+definition [ label = "{definition : \l}"]
 intermediate_node [ label = "{intermediate node : \l}"]
-node [ label = "{node : \l}"]
-intermediate_node -> node  [arrowhead = "empty"]
-D3
+definition -> intermediate_node  [arrowhead = "odiamond"]
+D5
 
 
 R15:The OPENCOSS platform shall provide users with the ability to indicate the information to be included in the reports about the body of evidence of an assurance project.
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-information [ label = "{information : \l}"]
-OPENCOSS_platform -> information  [arrowhead = "none", label = "provide user with ability to indicate"]
-LP
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-ability_ [ label = "{ability  : \l}"]
-OPENCOSS_platform -> ability_  [arrowhead = "none", label = "provide user with"]
-LP
+evidence [ label = "{evidence : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+evidence -> assurance_project  [arrowhead = "odiamond"]
+D5
 body [ label = "{body : \l}"]
 evidence [ label = "{evidence : \l}"]
 body -> evidence  [arrowhead = "odiamond"]
 D5
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-user [ label = "{user : \l}"]
-OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
+information [ label = "{information : \l}"]
+OPENCOSS_platform -> information  [arrowhead = "none", label = "provide user with ability to indicate"]
 LP
-evidence [ label = "{evidence : \l}"]
-assurance_project [ label = "{assurance project : \l}"]
-evidence -> assurance_project  [arrowhead = "odiamond"]
-D5
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide with ability"]
+LP
 
 
 R16:The OPENCOSS platform shall provide users with the ability to define evidence traceability link types for an assurance project.
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-ability_ [ label = "{ability  : \l}"]
-OPENCOSS_platform -> ability_  [arrowhead = "none", label = "provide user with"]
-LP
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 user [ label = "{user : \l}"]
-OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide with ability"]
 LP
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 evidence_traceability_link_type [ label = "{evidence traceability link type : \l}"]
@@ -368,10 +349,6 @@ LP
 
 
 R17:The OPENCOSS platform shall provide users with the ability to drop evidence traceability links of an assurance project.
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-evidence_traceability_link [ label = "{evidence traceability link : \l}"]
-OPENCOSS_platform -> evidence_traceability_link  [arrowhead = "none", label = "provide user with ability to drop"]
-LP
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 assurance_project [ label = "{assurance project : \l}"]
 OPENCOSS_platform -> assurance_project  [arrowhead = "none", label = "provide user with ability to drop evidence traceability link of"]
@@ -382,24 +359,24 @@ evidence_traceability_link -> assurance_project  [arrowhead = "odiamond"]
 D5
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 user [ label = "{user : \l}"]
-OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide with ability to drop evidence traceability link"]
 LP
 
 
 R18:When a user aims to drop an evidence traceability link of an assurance project, the OPENCOSS platform shall require confirmation of the action from the user.
+
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 action [ label = "{action : \l}"]
 OPENCOSS_platform -> action  [arrowhead = "none", label = "require confirmation of"]
 LP
-evidence_traceability_link [ label = "{evidence traceability link : \l}"]
-assurance_project [ label = "{assurance project : \l}"]
-evidence_traceability_link -> assurance_project  [arrowhead = "odiamond"]
-D5
 user [ label = "{user : \l}"]
 assurance_project [ label = "{assurance project : \l}"]
 user -> assurance_project  [arrowhead = "none", label = "aims to drop evidence traceability link of"]
 LP
-
+confirmation [ label = "{confirmation : \l}"]
+action [ label = "{action : \l}"]
+confirmation -> action  [arrowhead = "odiamond"]
+D5
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 user [ label = "{user : \l}"]
 OPENCOSS_platform -> user  [arrowhead = "none", label = "require confirmation of action from"]
@@ -407,16 +384,19 @@ LP
 
 
 R19:The OPENCOSS platform shall be able to show the chains of evidence to which an evidence item of an assurance project belongs by means of models.
-evidence_item [ label = "{evidence item : \l}"]
-assurance_project [ label = "{assurance project : \l}"]
-evidence_item -> assurance_project  [arrowhead = "odiamond"]
-D5
+
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 evidence [ label = "{evidence : \l}"]
-OPENCOSS_platform -> evidence  [arrowhead = "none", label = "able to show chain of"]
+OPENCOSS_platform -> evidence  [arrowhead = "none", label = "show chain of"]
 LP
-
-
+chain [ label = "{chain : \l}"]
+evidence_ [ label = "{evidence  : \l}"]
+chain -> evidence_  [arrowhead = "odiamond"]
+D5
+means [ label = "{means : \l}"]
+model [ label = "{model : \l}"]
+means -> model  [arrowhead = "odiamond"]
+D5
 
 
 R20:The OPENCOSS platform will include a column in a table for traceability visualization for each evidence type to include in the table indicated by users.
@@ -439,10 +419,6 @@ LP
 
 
 R21:The OPENCOSS platform shall provide users with the ability to specify the rationale behind the evaluation of an evidence item of an assurance project.
-evidence_item [ label = "{evidence item : \l}"]
-assurance_project [ label = "{assurance project : \l}"]
-evidence_item -> assurance_project  [arrowhead = "odiamond"]
-D5
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 evidence_item [ label = "{evidence item : \l}"]
 OPENCOSS_platform -> evidence_item  [arrowhead = "none", label = "provide user with ability to specify rationale behind evaluation of"]
@@ -451,73 +427,60 @@ OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 assurance_project [ label = "{assurance project : \l}"]
 OPENCOSS_platform -> assurance_project  [arrowhead = "none", label = "provide user with ability to specify rationale behind evaluation of evidence item of"]
 LP
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-evaluation [ label = "{evaluation : \l}"]
-OPENCOSS_platform -> evaluation  [arrowhead = "none", label = "provide user with ability to specify rationale behind"]
-LP
 
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 user [ label = "{user : \l}"]
-OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide with ability to specify rationale behind evaluation"]
 LP
-
-
-R22:The OPENCOSS platform shall provide users with the ability to define criteria for evaluation of evidence items of an assurance project.
-evidence_item [ label = "{evidence item : \l}"]
-assurance_project [ label = "{assurance project : \l}"]
-evidence_item -> assurance_project  [arrowhead = "odiamond"]
-D5
 evaluation [ label = "{evaluation : \l}"]
 evidence_item [ label = "{evidence item : \l}"]
 evaluation -> evidence_item  [arrowhead = "odiamond"]
 D5
+
+
+R22:The OPENCOSS platform shall provide users with the ability to define criteria for evaluation of evidence items of an assurance project.
+
+
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide with ability to define criterion for evaluation"]
+LP
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 evidence_item [ label = "{evidence item : \l}"]
 OPENCOSS_platform -> evidence_item  [arrowhead = "none", label = "provide user with ability to define criterion for evaluation of"]
 LP
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-user [ label = "{user : \l}"]
-OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
-LP
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 assurance_project [ label = "{assurance project : \l}"]
 OPENCOSS_platform -> assurance_project  [arrowhead = "none", label = "provide user with ability to define criterion for evaluation of evidence item of"]
-LP
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-evaluation [ label = "{evaluation : \l}"]
-OPENCOSS_platform -> evaluation  [arrowhead = "none", label = "provide user with ability to define criterion for"]
 LP
 
 
 R23:The OPENCOSS platform shall provide users with the ability to evaluate evidence items of an assurance project according to evaluation criteria defined in other projects.
-evidence_item [ label = "{evidence item : \l}"]
-assurance_project [ label = "{assurance project : \l}"]
-evidence_item -> assurance_project  [arrowhead = "odiamond"]
-D5
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 defined [ label = "{defined : \l}"]
 OPENCOSS_platform -> defined  [arrowhead = "none", label = "provide user with ability according to evaluation criterion"]
 LP
+
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 user [ label = "{user : \l}"]
-OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
-LP
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-assurance_project [ label = "{assurance project : \l}"]
-OPENCOSS_platform -> assurance_project  [arrowhead = "none", label = "provide user with ability to evaluate evidence item of"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide with ability to evaluate evidence item of assurance project"]
 LP
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 evaluation_criterion [ label = "{evaluation criterion : \l}"]
 OPENCOSS_platform -> evaluation_criterion  [arrowhead = "none", label = "provide user according to"]
 LP
-
+other_project [ label = "{other project : \l}"]
+project [ label = "{project : \l}"]
+other_project -> project  [arrowhead = "empty"]
+D3
 
 
 R24:The OPENCOSS platform shall provide users with the ability to evaluate evidence items of an assurance project with evaluation categories for evaluation criteria defined in other projects.
-evidence_item [ label = "{evidence item : \l}"]
-assurance_project [ label = "{assurance project : \l}"]
-evidence_item -> assurance_project  [arrowhead = "odiamond"]
-D5
+
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide with ability to evaluate evidence item of assurance project"]
+LP
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 defined [ label = "{defined : \l}"]
 OPENCOSS_platform -> defined  [arrowhead = "none", label = "provide user with ability to evaluate evidence item of assurance project with evaluation category for evaluation criterion"]
@@ -530,33 +493,19 @@ OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 evaluation_criterion [ label = "{evaluation criterion : \l}"]
 OPENCOSS_platform -> evaluation_criterion  [arrowhead = "none", label = "provide user with ability to evaluate evidence item of assurance project with evaluation category for"]
 LP
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-user [ label = "{user : \l}"]
-OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
-LP
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-assurance_project [ label = "{assurance project : \l}"]
-OPENCOSS_platform -> assurance_project  [arrowhead = "none", label = "provide user with ability to evaluate evidence item of"]
-LP
-other_project [ label = "{other project : \l}"]
-project [ label = "{project : \l}"]
-other_project -> project  [arrowhead = "empty"]
-D3
+
 
 
 R25:The OPENCOSS platform shall provide users with the ability to specify actions required in the body of evidence of an assurance project as a result of evidence evaluation.
+
+
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide with ability to specify action required"]
+LP
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 evidence_evaluation [ label = "{evidence evaluation : \l}"]
 OPENCOSS_platform -> evidence_evaluation  [arrowhead = "none", label = "provide user with ability as result of"]
-LP
-
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-required [ label = "{required : \l}"]
-OPENCOSS_platform -> required  [arrowhead = "none", label = "provide user with ability to specify action"]
-LP
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-user [ label = "{user : \l}"]
-OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
 LP
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 result [ label = "{result : \l}"]
@@ -568,16 +517,8 @@ result -> evidence_evaluation  [arrowhead = "odiamond"]
 D5
 
 
-
 R26:When an evidence item of an assurance project has been associated to actions to perform as a result of evidence evaluation, the OPENCOSS platform shall colour such an evidence item in red.
-evidence_item [ label = "{evidence item : \l}"]
-assurance_project [ label = "{assurance project : \l}"]
-evidence_item -> assurance_project  [arrowhead = "odiamond"]
-D5
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-evidence_item [ label = "{evidence item : \l}"]
-OPENCOSS_platform -> evidence_item  [arrowhead = "none", label = "colour"]
-LP
+
 evidence_item [ label = "{evidence item : \l}"]
 perform [ label = "{perform : \l}"]
 evidence_item -> perform  [arrowhead = "none", label = "associate  to action to"]
@@ -587,33 +528,29 @@ action [ label = "{action : \l}"]
 evidence_item -> action  [arrowhead = "none", label = "associate to"]
 B1
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-red [ label = "{red : \l}"]
-OPENCOSS_platform -> red  [arrowhead = "none", label = "colour evidence item in"]
+evidence_item [ label = "{evidence item : \l}"]
+OPENCOSS_platform -> evidence_item  [arrowhead = "none", label = "colour in red"]
 LP
-result [ label = "{result : \l}"]
-evidence_evaluation [ label = "{evidence evaluation : \l}"]
-result -> evidence_evaluation  [arrowhead = "odiamond"]
-D5
+
 
 
 R27:When the status of an action required in an assurance project as a result of evidence evaluation is "pending", the OPENCOSS platform shall colour such an action in red.
-
-
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-red [ label = "{red : \l}"]
-OPENCOSS_platform -> red  [arrowhead = "none", label = "colour action in"]
-LP
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 action [ label = "{action : \l}"]
-OPENCOSS_platform -> action  [arrowhead = "none", label = "colour"]
+OPENCOSS_platform -> action  [arrowhead = "none", label = "colour in red"]
 LP
+status [ label = "{status : \l}"]
+action [ label = "{action : \l}"]
+status -> action  [arrowhead = "odiamond"]
+D5
+
 
 
 R28:When a user has indicated a possible change in an evidence item of an assurance project, the OPENCOSS platform shall indicate the evidence items of the assurance project that would be affected by the change.
-evidence_item [ label = "{evidence item : \l}"]
-assurance_project [ label = "{assurance project : \l}"]
-evidence_item -> assurance_project  [arrowhead = "odiamond"]
-D5
+possible_change [ label = "{possible change : \l}"]
+change [ label = "{change : \l}"]
+possible_change -> change  [arrowhead = "empty"]
+D3
 
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 assurance_project [ label = "{assurance project : \l}"]
@@ -630,56 +567,48 @@ LP
 
 
 R29:The OPENCOSS platform shall provide users with the ability to specify actions required in the body of evidence of an assurance project as a result of an evidence item change.
+
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 evidence_item_change [ label = "{evidence item change : \l}"]
 OPENCOSS_platform -> evidence_item_change  [arrowhead = "none", label = "provide user with ability as result of"]
 LP
 
-body [ label = "{body : \l}"]
-evidence [ label = "{evidence : \l}"]
-body -> evidence  [arrowhead = "odiamond"]
+result [ label = "{result : \l}"]
+evidence_item_change [ label = "{evidence item change : \l}"]
+result -> evidence_item_change  [arrowhead = "odiamond"]
 D5
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-required [ label = "{required : \l}"]
-OPENCOSS_platform -> required  [arrowhead = "none", label = "provide user with ability to specify action"]
-LP
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 user [ label = "{user : \l}"]
-OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide with ability to specify action required"]
 LP
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 result [ label = "{result : \l}"]
 OPENCOSS_platform -> result  [arrowhead = "none", label = "provide user as"]
 LP
-evidence [ label = "{evidence : \l}"]
-assurance_project [ label = "{assurance project : \l}"]
-evidence -> assurance_project  [arrowhead = "odiamond"]
-D5
 
 
 R30:The OPENCOSS platform shall record if the status of an action required in an assurance project as a result of the change of an evidence item is "pending" or "addressed".
-
-
-status [ label = "{status : \l}"]
-action [ label = "{action : \l}"]
-status -> action  [arrowhead = "odiamond"]
+result [ label = "{result : \l}"]
+change [ label = "{change : \l}"]
+result -> change  [arrowhead = "odiamond"]
+D5
+change [ label = "{change : \l}"]
+evidence_item [ label = "{evidence item : \l}"]
+change -> evidence_item  [arrowhead = "odiamond"]
 D5
 
 
-R31:When an evidence traceability link of an assurance project has been affected by evidence item changes, the OPENCOSS platform shall colour such a link in red.
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-red [ label = "{red : \l}"]
-OPENCOSS_platform -> red  [arrowhead = "none", label = "colour link in"]
-LP
 
+R31:When an evidence traceability link of an assurance project has been affected by evidence item changes, the OPENCOSS platform shall colour such a link in red.
+
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+link [ label = "{link : \l}"]
+OPENCOSS_platform -> link  [arrowhead = "none", label = "colour in red"]
+LP
 evidence_traceability_link [ label = "{evidence traceability link : \l}"]
 evidence_item_change [ label = "{evidence item change : \l}"]
 evidence_traceability_link -> evidence_item_change  [arrowhead = "none", label = "affect by"]
 B1
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-link [ label = "{link : \l}"]
-OPENCOSS_platform -> link  [arrowhead = "none", label = "colour"]
-LP
 
 
 R32:The OPENCOSS platform shall provide users with the ability to import evidence items for an assurance project from artefacts in an external tool.
@@ -688,17 +617,13 @@ evidence_item [ label = "{evidence item : \l}"]
 OPENCOSS_platform -> evidence_item  [arrowhead = "none", label = "provide user with ability to import"]
 LP
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-ability_ [ label = "{ability  : \l}"]
-OPENCOSS_platform -> ability_  [arrowhead = "none", label = "provide user with"]
+user [ label = "{user : \l}"]
+OPENCOSS_platform -> user  [arrowhead = "none", label = "provide with ability"]
 LP
 external_tool [ label = "{external tool : \l}"]
 tool [ label = "{tool : \l}"]
 external_tool -> tool  [arrowhead = "empty"]
 D3
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-user [ label = "{user : \l}"]
-OPENCOSS_platform -> user  [arrowhead = "none", label = "provide"]
-LP
 
 
 R33:The OPENCOSS platform shall be able to automatically associate an artefact in an external tool to an evidence item of an assurance project imported from the external too.
@@ -706,7 +631,7 @@ R33:The OPENCOSS platform shall be able to automatically associate an artefact i
 
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 artefact [ label = "{artefact : \l}"]
-OPENCOSS_platform -> artefact  [arrowhead = "none", label = "able to automatically associate"]
+OPENCOSS_platform -> artefact  [arrowhead = "none", label = "automatically associate"]
 LP
 
 

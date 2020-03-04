@@ -49,7 +49,7 @@ public class DOT_Graphviz_conversion {
 					Object obj = it.next();
 					if (obj.getClass().toString().contains("Concept_Relation")) {
 						Concept_Relation rel = (Concept_Relation) obj;
-						if(rel.getDuplicateStatus()) {
+						if(!rel.getDuplicateStatus()) {
 							if (rel.getRelationType().equals(RelationType.ATTRIBUTE)) {
 								sb.append(rel.getSource().name.replace(" ", "_") + " [ label = \"{" + rel.getSource().name + " |+ " + rel.getTarget().name + " : \\l}\"]" + System.lineSeparator());
 							} else {

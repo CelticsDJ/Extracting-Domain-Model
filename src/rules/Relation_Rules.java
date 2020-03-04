@@ -231,6 +231,8 @@ public class Relation_Rules {
 		features.put("relation_Type", relation);
 		features.put("kind", "VP_NP");
 		features.put("cardinality", target_cl.getCardinality());
+
+		features.put("target_category", annotatedDoc.getAnnotations().get(rel.getTargetId()).getFeatures().get("category"));
 		/*
 		if(!(VP1.equals("provide")))
 		{

@@ -225,6 +225,8 @@ public class Chaining {
 		List<Annotation> list_Chains = Utils.inDocumentOrder(chains_VP);
 		List<StringQuadruple> return_list = new ArrayList<StringQuadruple>();
 		String verbStr = relation.getFeatures().get("str").toString();
+
+		verb = verb.replace("want to", "").replace("wants to", "").replace("able to", "");
 		
 		return_list.add(new StringQuadruple("", verb, "", "0", depth++));
 		
@@ -253,7 +255,10 @@ public class Chaining {
 							iobj_quads.sort(Comparator.comparing(StringQuadruple::getDepth));
 							for(StringQuadruple iobj_quad: iobj_quads)
 							{
-								if(iobj_quad.getA().equals("true"))
+								if(chainFeatures.get("target_category").equals("JJ")) {
+									return_list.add(new StringQuadruple("",verbStr + " " + PP + " " +  iobj_quad.getC(), "", iobj_quad.getD(), depth++));
+								}
+								else if(iobj_quad.getA().equals("true"))
 								{						
 									return_list.add(new StringQuadruple(/*PP*/"", ((prev_PP.equals("") ? verbStr : base_new) + " " + PP + " " + iobj_quad.getB()).trim(), iobj_quad.getC(), iobj_quad.getD(), depth++));
 								}
@@ -285,7 +290,17 @@ public class Chaining {
 							base_new = base_new + " " + PP + " " +  iobj;
 						}*/
 						prev_PP = PP;						
-						//Level 2 chaining for VP - NP - NP														
+						//Level 2 chaining for VP - NP - NP
+						/*for(StringQuadruple quad: getObjectChains(doc, doc.getAnnotations().get(Integer.parseInt(chainFeatures.get("target_ID").toString())), depth+1)) //RECURSION
+						{
+							if(quad.getA() == "true") {
+								return_list.add(new StringQuadruple("", ((prev_PP.equals("") ? verbStr : base_new) + " " + PP + " " + quad.getB()).trim(), quad.getC(), quad.getD(), depth++));
+							}
+							else {
+								Concept_Class iObject = Utilities.getMapped_NPPrunedString(doc, iobj_annot.getId());
+								return_list.add(new StringQuadruple(PP, verbStr, iObject.getName(), iObject.getCardinality(), depth++));
+							}
+						}*/
 					}
 				}
 			}

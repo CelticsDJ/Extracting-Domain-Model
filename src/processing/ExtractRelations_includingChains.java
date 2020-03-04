@@ -150,16 +150,16 @@ public class ExtractRelations_includingChains {
 
 			for (StringQuadruple rel_chain : rel.getRelationChains()) {
 				for (StringQuadruple subj_chain : rel.getSubjects()) {
-					if (rel_chain.getDepth() == 0) {
+
+					//过滤depth较低的关联关系
+					if(rel_chain.getDepth() < rel_depth_bound || obj_chain.getDepth() < obj_depth_bound) {
+						continue;
+					}
+
+					if (rel_chain.getDepth() == 0 || rel_chain.getDepth() == rel_depth_bound) {
 						Association_Relation association = Utilities.formRelations(subj_chain.getC(), objStr, subj_chain.getD(), obj_chain.getD(), (subj_chain.getB() + " " + rel_chain.getB() + " " + obj_chain.getB() + " " + rel_chain.getA() + " " + rel_chain.getC()).replace("  ", " ").replace("  ", " ").replace("  ", " ").trim(), isXcomp, "LP");
 						addRelation(association);
 					} else {
-
-						//过滤depth较低的关联关系
-						if(rel_chain.getDepth() < rel_depth_bound || obj_chain.getDepth() < obj_depth_bound) {
-							continue;
-						}
-
 						Association_Relation association = Utilities.formRelations(subj_chain.getC(), rel_chain.getC(), subj_chain.getD(), obj_chain.getD(), (subj_chain.getB() + " " + rel_chain.getB() + " " + obj_chain.getB() + " " + rel_chain.getA()).replace(verbStr, verbStr + " " +  objStr).replace("  ", " ").replace("  ", " ").replace("  ", " ").trim(), isXcomp, "LP");
 						addRelation(association);
 					}
@@ -684,28 +684,34 @@ public class ExtractRelations_includingChains {
 
 		List<Concept_Relation> relations = new ArrayList<>();
 
-		for(Requirement_Relations req_relations : hashmap_requirmenets_Relations) {
-			if(req_relations.relations == null) {
-				continue;
-			}
-			Iterator it = req_relations.relations.iterator();
-			while (it.hasNext()) {
-				Object obj = it.next();
-				if (obj.getClass().toString().contains("Concept_Relation")) {
-					Concept_Relation rel = (Concept_Relation) obj;
+		Integer req_id = 1;
+		while(req_id <= ExtractRelations_includingChains.hashmap_requirmenets_Relations.size()) {
+			for (Requirement_Relations req_relations : hashmap_requirmenets_Relations) {
+				if (!req_relations.Req_Id.equals("R" + req_id.toString())) {
+					continue;
+				}
+				req_id++;
 
-					if(!rel.getRelationType().equals(RelationType.ASSOCIATION)) {
-						for(Concept_Relation tmp : relations) {
-							if(rel.getSource().getName().equals(tmp.getSource().getName()) && rel.getTarget().getName().equals(tmp.getTarget().getName()) && rel.getRelationType().equals(tmp.getRelationType())){
-								rel.setDuplicateStatus(true);
+				if (req_relations.relations == null) {
+					continue;
+				}
+				Iterator it = req_relations.relations.iterator();
+				while (it.hasNext()) {
+					Object obj = it.next();
+					if (obj.getClass().toString().contains("Concept_Relation")) {
+						Concept_Relation rel = (Concept_Relation) obj;
+						if (!rel.getRelationType().equals(RelationType.ASSOCIATION)) {
+							for (Concept_Relation tmp : relations) {
+								if (rel.getSource().getName().equals(tmp.getSource().getName()) && rel.getTarget().getName().equals(tmp.getTarget().getName()) && rel.getRelationType().equals(tmp.getRelationType())) {
+									rel.setDuplicateStatus(true);
+								}
+							}
+
+							if (!rel.getDuplicateStatus()) {
+								relations.add(rel);
 							}
 						}
-
-						if(!rel.getDuplicateStatus()) {
-							relations.add(rel);
-						}
 					}
-
 				}
 			}
 		}
