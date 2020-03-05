@@ -17,6 +17,7 @@ import gate.util.persistence.PersistenceManager;
 import data.DOT_Graphviz_conversion;
 import data.GlobalVariables;
 import data.JSONConversion;
+import processing.Concept_Pattern;
 import processing.ExtractRelations_includingChains;
 import rules.Classes_Rules;
 import rules.Relation_Rules;
@@ -107,6 +108,8 @@ public class Model_Extraction_Main {
 		Classes_Rules.classesInfo();
 		
 		ExtractRelations_includingChains.traverseRelations();
+
+        Concept_Pattern.Concept_Pattern();
 		
 		//Classes_Rules.printAdjNPs(doc);
 		
