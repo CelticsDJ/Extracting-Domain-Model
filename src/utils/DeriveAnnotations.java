@@ -69,7 +69,7 @@ public class DeriveAnnotations {
                     String pruned_string = "";
                     String root = "";
                     for(Integer id : consists) {
-                        String tmp = annotations.get(id).getFeatures().get("string").toString();
+                        String tmp = annotations.get(id).getFeatures().get("root").toString();
                         String tmp_root = annotations.get(id).getFeatures().get("root").toString();
                         if(!tmp.toLowerCase().equals("the") && !tmp.toLowerCase().equals("any") && !tmp.toLowerCase().equals("s") && !tmp.toLowerCase().equals("'s")) {
                             pruned_string = pruned_string.concat(tmp + " ");
@@ -84,7 +84,7 @@ public class DeriveAnnotations {
                     String pruned_structure = "";
                     for (Integer id : consists) {
                         String category = annotations.get(id).getFeatures().get("category").toString();
-                        if(!category.equals("DT") && !category.equals("PDT")) {
+                        if(!category.equals("DT") && !category.equals("PDT") && !category.equals("POS")) {
                             pruned_structure = pruned_structure.concat(category);
                             pruned_structure = pruned_structure.concat("-");
                         }
@@ -104,7 +104,7 @@ public class DeriveAnnotations {
                     featureMap.put("dependencies", dependencies);
                     featureMap.put("firstToken", firstToken);
                     featureMap.put("isPlural", isPlural);
-                    featureMap.put("pruned_string", pruned_string);
+                    featureMap.put("pruned_string", pruned_string.trim());
                     featureMap.put("pruned_structure", pruned_structure);
                     featureMap.put("root", root);
                     featureMap.put("structure", structure);

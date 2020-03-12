@@ -220,7 +220,7 @@ public class Classes_Rules {
 		Integer target_id = rel.getTargetId();
 		String relation = "";
 
-		if(rel.getType().equals("acl") || rel.getType().equals("dep")) {
+		if(rel.getType().equals("acl")) {
 
 			Annotation VB = annotatedDoc.getAnnotations().get(target_id);
 

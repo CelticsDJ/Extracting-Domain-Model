@@ -76,8 +76,8 @@ public class ExtractRelations_includingChains {
 			reqId++;
 			relId = 1;
 
-			if(reqId == 11) {
-				reqId = 11;
+			if(reqId == 9) {
+				reqId = 9;
 			}
 				
 			AnnotationSet relations = gate.Utils.getContainedAnnotations(inputAS, sentence, "Relations");
@@ -668,6 +668,17 @@ public class ExtractRelations_includingChains {
 		{
 			//rel = (Association_Relation) relObj;
 		}*/
+
+		try {
+			Association_Relation tmp = (Association_Relation) relObj;
+			if (tmp.getRelationName().equals("provide") || tmp.getRelationName().equals("provide user with") || tmp.getRelationName().equals("provide with ability")) {
+				return;
+			}
+		}
+		catch(Exception e) {
+			System.out.println("先就这么地吧");
+		}
+
 		Concept_Relation rel = (Concept_Relation) relObj;
 		HashSet<Concept_Relation> relations = hashmap_reqId_Relations.get("R"+reqId);
 		if(relations == null)
