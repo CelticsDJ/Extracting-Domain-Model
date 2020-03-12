@@ -48,7 +48,7 @@ public class Classes_Rules {
 				}
 			}
 		}*/
-		String [] acceptable_dependencies = {"rcmod", "prep", "nmod", "acl"};
+		String [] acceptable_dependencies = {"rcmod", "prep", "nmod", "acl", "dep"};
 		
 		/*
 		 * Traverse through all the Parse_NPs 
@@ -220,7 +220,7 @@ public class Classes_Rules {
 		Integer target_id = rel.getTargetId();
 		String relation = "";
 
-		if(rel.getType().equals("acl")) {
+		if(rel.getType().equals("acl") || rel.getType().equals("dep")) {
 
 			Annotation VB = annotatedDoc.getAnnotations().get(target_id);
 
