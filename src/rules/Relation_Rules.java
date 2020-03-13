@@ -17,6 +17,7 @@ import data.Concept_Class;
 import data.GlobalVariables;
 import utils.Utilities;
 
+import static utils.Utilities.getMapped_NP;
 import static utils.Utilities.getRelationType;
 
 public class Relation_Rules {
@@ -79,6 +80,32 @@ public class Relation_Rules {
 			
 			for(DependencyRelation rel: list_dependencies)
 			{
+				boolean flag = false;
+
+				if(VP_features.get("string").toString().contains("associate")) {
+					Annotation nextNP = null;
+
+					List<DependencyRelation> nmods = new ArrayList<>();
+					for (DependencyRelation dep : list_dependencies) {
+						if (dep.getType().equals("nmod")) {
+							nmods.add(dep);
+						}
+						if (dep.getType().equals("dobj")) {
+							nextNP = annotatedDoc.getAnnotations().get(Utilities.getMapped_NP(annotatedDoc, dep.getTargetId()));
+						}
+					}
+					if (nmods.size() > 1 && nextNP != null) {
+						List<DependencyRelation> updateDeps = (List<DependencyRelation>) nextNP.getFeatures().get("dependencies");
+						for (int i = 0; i < nmods.size(); ++i) {
+							if (getMapped_NP(annotatedDoc, nmods.get(i).getTargetId()) > nextNP.getId()) {
+								updateDeps.add(nmods.get(i));
+							}
+						}
+						nextNP.getFeatures().replace("dependencies", updateDeps);
+						flag = true;
+					}
+				}
+
 				//System.out.println(rel.getType() + " -- " + rel.getTargetId());
 				if(rel.getType().equals("nsubj") || rel.getType().equals("xsubj"))
 				{
@@ -124,7 +151,7 @@ public class Relation_Rules {
 					updatedFeatures.put(rel.getType(), rel.getTargetId());					
 					makeVP_PPChains(annotatedDoc, VP, rel);
 				}
-				else if(rel.getType().equals("nmod"))
+				else if(rel.getType().equals("nmod") && !flag)
 				{
 					updatedFeatures.put(rel.getType(), rel.getTargetId());
 					makeVP_PPChains(annotatedDoc, VP, rel);

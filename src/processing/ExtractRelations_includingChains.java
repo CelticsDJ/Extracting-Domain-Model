@@ -76,8 +76,8 @@ public class ExtractRelations_includingChains {
 			reqId++;
 			relId = 1;
 
-			if(reqId == 22) {
-				reqId = 22;
+			if(reqId == 33) {
+				reqId = 33;
 			}
 				
 			AnnotationSet relations = gate.Utils.getContainedAnnotations(inputAS, sentence, "Relations");
@@ -686,6 +686,11 @@ public class ExtractRelations_includingChains {
 			}
 
 			if(tmp.getRelationName().contains("provide") && !tmp.getRelationName().contains("provide user with")) {
+				return;
+			}
+			if(tmp.getRelationName().startsWith("include") && tmp.getRelationName().endsWith("in")) {
+				Concept_Relation include_pattern = new Concept_Relation(new Concept_Class(tmp.getRelationName().replace("include", "").replace("in", "").trim()), new Concept_Class(tmp.getTarget().getName()), RelationType.AGGREGATION, "D6");
+				addRelation(include_pattern);
 				return;
 			}
 		}

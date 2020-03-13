@@ -231,7 +231,7 @@ public class Chaining {
 		List<StringQuadruple> return_list = new ArrayList<StringQuadruple>();
 		String verbStr = relation.getFeatures().get("str").toString();
 
-		verb = verb.replace("want to", "").replace("wants to", "").replace("able to", "");
+		verb = verb.replace("want to", "").replace("wants to", "").replace("able to", "").replace("automatically", "").trim();
 		
 		return_list.add(new StringQuadruple("", verb, "", "0", depth++));
 		
@@ -248,7 +248,7 @@ public class Chaining {
 				for(Annotation chain_VP: list_Chains)
 				{
 					FeatureMap chainFeatures = chain_VP.getFeatures();
-					if(chainFeatures.get("kind").toString().equals("VP_NP") && chainFeatures.get("source_String").toString().equals(verb))
+					if(chainFeatures.get("kind").toString().equals("VP_NP") && (chainFeatures.get("source_String").toString().equals(verb)))
 					{
 						String PP = chainFeatures.get("relation_Type").toString().replaceAll("prep(c)?_", "").replaceAll("_", " ");
 						String iobj = chainFeatures.get("target_String").toString().trim();

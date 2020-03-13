@@ -95,6 +95,9 @@ public class Classes_Rules {
 					{
 						if(Arrays.stream(acceptable_dependencies).parallel().anyMatch(rel.getType()::contains)) //Java 8 stream API
 						{
+							if(rel.getType().equals("dep") && NP_features.get("pruned_string").equals("ability")) {
+								rel.setType("acl");
+							}
 
 							//暂时不处理nmod:poss
 							if(rel.getType().equals("nmod:poss") || rel.getType().equals("acl:relcl")) {
@@ -296,7 +299,7 @@ public class Classes_Rules {
 
 		Utilities.addAnnotation(annotatedDoc, NP, inputAS.get(target_cl.getID()), features, "Chain_1");
 
-		if(relation.equals("of")) {
+		if(relation.equals("of") || relation.equals("from")) {
 			Annotation NP_1 = annotatedDoc.getAnnotations().get(NP.getId());
 			Annotation NP_2 = annotatedDoc.getAnnotations().get(target_id);
 
@@ -307,7 +310,9 @@ public class Classes_Rules {
 			featureMap.put("NP1_id", NP_1.getId());
 			featureMap.put("NP2_id", NP_2.getId());
 
-			annotatedDoc.getAnnotations().add(start, end, "NP_of_NP", featureMap);
+			String annotation_type = "NP_" + relation + "_NP";
+
+			annotatedDoc.getAnnotations().add(start, end, annotation_type, featureMap);
 		}
 											
 	}

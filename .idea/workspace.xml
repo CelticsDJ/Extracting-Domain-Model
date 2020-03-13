@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e0f1cae0-0125-44d0-b210-061836e67475" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/result/ATM_Example.dot" beforeDir="false" afterPath="$PROJECT_DIR$/result/ATM_Example.dot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/Partial_Annotations_OpenCossReqs.dot" beforeDir="false" afterPath="$PROJECT_DIR$/result/Partial_Annotations_OpenCossReqs.dot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/Two Tanks Requirements.dot" beforeDir="false" afterPath="$PROJECT_DIR$/result/Two Tanks Requirements.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/processing/Chaining.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/processing/Chaining.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rules/Classes_Rules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rules/Classes_Rules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rules/Relation_Rules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rules/Relation_Rules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/DeriveAnnotations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/DeriveAnnotations.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,8 +44,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-517">
-              <caret line="132" selection-start-line="132" selection-end-line="132" />
+            <state relative-caret-position="396">
+              <caret line="693" column="23" selection-start-line="693" selection-start-column="23" selection-end-line="693" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/processing/Chaining.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1898">
+              <caret line="250" column="139" selection-start-line="250" selection-start-column="139" selection-end-line="250" selection-end-column="139" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -54,8 +68,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utils/DeriveAnnotations.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1185">
-              <caret line="88" column="76" selection-start-line="88" selection-start-column="76" selection-end-line="88" selection-end-column="76" />
+            <state relative-caret-position="482">
+              <caret line="127" column="23" selection-start-line="127" selection-start-column="10" selection-end-line="127" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#init#0;class#DeriveAnnotations#0" />
@@ -70,8 +84,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/rules/Classes_Rules.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1635">
-              <caret line="124" selection-start-line="124" selection-end-line="124" />
+            <state relative-caret-position="358">
+              <caret line="91" column="21" lean-forward="true" selection-start-line="76" selection-start-column="20" selection-end-line="91" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/rules/Relation_Rules.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="184" lean-forward="true" selection-start-line="184" selection-end-line="184" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -95,7 +121,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main/Model_Extraction_Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
+            <state relative-caret-position="70">
               <caret line="42" selection-start-line="42" selection-end-line="42" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -115,8 +141,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>D4</find>
-      <find>sb.append</find>
       <find>params1</find>
       <find>Next</find>
       <find>NP_of</find>
@@ -145,6 +169,8 @@
       <find>Adjectivally</find>
       <find>Adjectiva</find>
       <find>Adje</find>
+      <find>relation_verb</find>
+      <find>able to</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -192,7 +218,6 @@
         <option value="$PROJECT_DIR$/src/utils/Utils_DuplicateCheck.java" />
         <option value="$PROJECT_DIR$/src/utils/Utilities.java" />
         <option value="$PROJECT_DIR$/src/data/Requirement_Relations.java" />
-        <option value="$PROJECT_DIR$/src/processing/Chaining.java" />
         <option value="$PROJECT_DIR$/src/data/Aggregation_Patterns.java" />
         <option value="$PROJECT_DIR$/src/data/DOT_Graphviz_conversion.java" />
         <option value="$PROJECT_DIR$/src/processing/Attribute_Pattern.java" />
@@ -200,9 +225,10 @@
         <option value="$PROJECT_DIR$/src/Main/Model_Extraction_Main.java" />
         <option value="$PROJECT_DIR$/src/data/Generalization_Patterns.java" />
         <option value="$PROJECT_DIR$/src/processing/Concept_Pattern.java" />
-        <option value="$PROJECT_DIR$/src/rules/Relation_Rules.java" />
-        <option value="$PROJECT_DIR$/src/rules/Classes_Rules.java" />
         <option value="$PROJECT_DIR$/src/utils/DeriveAnnotations.java" />
+        <option value="$PROJECT_DIR$/src/rules/Classes_Rules.java" />
+        <option value="$PROJECT_DIR$/src/processing/Chaining.java" />
+        <option value="$PROJECT_DIR$/src/rules/Relation_Rules.java" />
         <option value="$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java" />
       </list>
     </option>
@@ -427,7 +453,7 @@
       <workItem from="1583297459039" duration="13425000" />
       <workItem from="1583385251522" duration="4250000" />
       <workItem from="1583997360568" duration="3866000" />
-      <workItem from="1584074669910" duration="1473000" />
+      <workItem from="1584074669910" duration="5015000" />
     </task>
     <servers />
   </component>
@@ -443,7 +469,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="244937000" />
+    <option name="totallyTimeSpent" value="248479000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -469,11 +495,11 @@
       <window_info anchor="bottom" id="Version Control" order="1" />
       <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.4981685" weight="0.32959184" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.5689866" side_tool="true" visible="true" weight="0.3653061" />
+      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.5714286" side_tool="true" visible="true" weight="0.3653061" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" sideWeight="0.48351648" weight="0.32959184" />
-      <window_info active="true" anchor="bottom" id="Run" order="7" sideWeight="0.43101344" visible="true" weight="0.3653061" />
-      <window_info anchor="bottom" id="Debug" order="8" sideWeight="0.6990232" weight="0.45714286" />
+      <window_info active="true" anchor="bottom" id="Run" order="7" sideWeight="0.42857143" visible="true" weight="0.3653061" />
+      <window_info anchor="bottom" id="Debug" order="8" sideWeight="0.6965812" weight="0.45714286" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.46947497" weight="0.32959184" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
@@ -521,12 +547,6 @@
           <line>79</line>
           <properties />
           <option name="timeStamp" value="228" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java</url>
-          <line>132</line>
-          <properties />
-          <option name="timeStamp" value="236" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -798,16 +818,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/processing/Attribute_Pattern.java" />
     <entry file="file://$PROJECT_DIR$/src/data/Generalization_Pattern.java" />
-    <entry file="file://$PROJECT_DIR$/src/processing/Chaining.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="205" selection-start-line="205" selection-end-line="205" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/data/Generalization_Patterns.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -850,34 +860,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/rules/Relation_Rules.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="126" column="52" selection-start-line="126" selection-start-column="52" selection-end-line="126" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/DeriveAnnotations.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1185">
-          <caret line="88" column="76" selection-start-line="88" selection-start-column="76" selection-end-line="88" selection-end-column="76" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#init#0;class#DeriveAnnotations#0" />
-            <element signature="method#isreceivedDep#0;class#DeriveAnnotations#0" />
-            <element signature="method#isAtomicNP#0;class#DeriveAnnotations#0" />
-            <element signature="method#derive_prep#0;class#DeriveAnnotations#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/rules/Classes_Rules.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1635">
-          <caret line="124" selection-start-line="124" selection-end-line="124" />
+        <state relative-caret-position="358">
+          <caret line="91" column="21" lean-forward="true" selection-start-line="76" selection-start-column="20" selection-end-line="91" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -895,10 +881,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/DeriveAnnotations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="127" column="23" selection-start-line="127" selection-start-column="10" selection-end-line="127" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#init#0;class#DeriveAnnotations#0" />
+            <element signature="method#isreceivedDep#0;class#DeriveAnnotations#0" />
+            <element signature="method#isAtomicNP#0;class#DeriveAnnotations#0" />
+            <element signature="method#derive_prep#0;class#DeriveAnnotations#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/processing/Chaining.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1898">
+          <caret line="250" column="139" selection-start-line="250" selection-start-column="139" selection-end-line="250" selection-end-column="139" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/Model_Extraction_Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
+        <state relative-caret-position="70">
           <caret line="42" selection-start-line="42" selection-end-line="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rules/Relation_Rules.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="184" lean-forward="true" selection-start-line="184" selection-end-line="184" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -907,8 +927,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-517">
-          <caret line="132" selection-start-line="132" selection-end-line="132" />
+        <state relative-caret-position="396">
+          <caret line="693" column="23" selection-start-line="693" selection-start-column="23" selection-end-line="693" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

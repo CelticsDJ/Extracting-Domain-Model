@@ -14,8 +14,12 @@ fontsize = 8
 
 R1:The OPENCOSS platform shall provide the users with the ability to indicate the evidence types of the evidence items, to be provided for an assurance project.
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-indicate [ label = "{indicate : \l}"]
-OPENCOSS_platform -> indicate  [arrowhead = "none", label = "provide user with ability"]
+evidence_type [ label = "{evidence type : \l}"]
+OPENCOSS_platform -> evidence_type  [arrowhead = "none", label = "provide user with ability to indicate"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+evidence_item [ label = "{evidence item : \l}"]
+OPENCOSS_platform -> evidence_item  [arrowhead = "none", label = "provide user with ability to indicate evidence type of"]
 LP
 evidence_type [ label = "{evidence type : \l}"]
 evidence_item [ label = "{evidence item : \l}"]
@@ -120,6 +124,10 @@ LP
 USER [ label = "{USER : \l}"]
 evidence_item [ label = "{evidence item : \l}"]
 USER -> evidence_item  [arrowhead = "none", label = "drop"]
+LP
+USER [ label = "{USER : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+USER -> assurance_project  [arrowhead = "none", label = "drop evidence item from"]
 LP
 
 
@@ -290,10 +298,6 @@ OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 associated_evidence_type [ label = "{associated evidence type : \l}"]
 OPENCOSS_platform -> associated_evidence_type  [arrowhead = "none", label = "include evidence item of project in tree view node of"]
 LP
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-tree_view_node [ label = "{tree view node : \l}"]
-OPENCOSS_platform -> tree_view_node  [arrowhead = "none", label = "include evidence item of project in"]
-LP
 tree_view_node [ label = "{tree view node : \l}"]
 associated_evidence_type [ label = "{associated evidence type : \l}"]
 tree_view_node -> associated_evidence_type  [arrowhead = "odiamond"]
@@ -318,6 +322,10 @@ evidence_type [ label = "{evidence type : \l}"]
 project [ label = "{project : \l}"]
 evidence_type -> project  [arrowhead = "none", label = "use  for definition for display of evidence item of"]
 B1
+evidence_item_of_project [ label = "{evidence item of project : \l}"]
+tree_view_node [ label = "{tree view node : \l}"]
+evidence_item_of_project -> tree_view_node  [arrowhead = "odiamond"]
+D6
 definition [ label = "{definition : \l}"]
 intermediate_node [ label = "{intermediate node : \l}"]
 definition -> intermediate_node  [arrowhead = "odiamond"]
@@ -429,6 +437,10 @@ D5
 
 
 R20:The OPENCOSS platform will include a column in a table for traceability visualization for each evidence type to include in the table indicated by users.
+column [ label = "{column : \l}"]
+table [ label = "{table : \l}"]
+column -> table  [arrowhead = "odiamond"]
+D6
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 traceability_visualization [ label = "{traceability visualization : \l}"]
 OPENCOSS_platform -> traceability_visualization  [arrowhead = "none", label = "include for evidence type to column in table for include"]
@@ -448,10 +460,6 @@ LP
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 column [ label = "{column : \l}"]
 OPENCOSS_platform -> column  [arrowhead = "none", label = "include for evidence type"]
-LP
-OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-table [ label = "{table : \l}"]
-OPENCOSS_platform -> table  [arrowhead = "none", label = "include column in"]
 LP
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
 column [ label = "{column : \l}"]
@@ -721,10 +729,22 @@ LP
 
 
 R33:The OPENCOSS platform shall be able to automatically associate an artefact in an external tool to an evidence item of an assurance project imported from the external too.
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+external_tool [ label = "{external tool : \l}"]
+OPENCOSS_platform -> external_tool  [arrowhead = "none", label = "associate artefact in"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+imported [ label = "{imported : \l}"]
+OPENCOSS_platform -> imported  [arrowhead = "none", label = "associate artefact in external tool to evidence item of assurance project"]
+LP
 
 OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
-artefact [ label = "{artefact : \l}"]
-OPENCOSS_platform -> artefact  [arrowhead = "none", label = "automatically associate"]
+evidence_item [ label = "{evidence item : \l}"]
+OPENCOSS_platform -> evidence_item  [arrowhead = "none", label = "associate artefact in external tool to"]
+LP
+OPENCOSS_platform [ label = "{OPENCOSS platform : \l}"]
+assurance_project [ label = "{assurance project : \l}"]
+OPENCOSS_platform -> assurance_project  [arrowhead = "none", label = "associate artefact in external tool to evidence item of"]
 LP
 
 
