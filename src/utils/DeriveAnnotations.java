@@ -125,6 +125,34 @@ public class DeriveAnnotations {
         }
 
 
+        for(Annotation token : tokens) {
+            if(token.getFeatures().get("category").toString().startsWith("VB")) {
+
+                if(token.getFeatures().get("string").toString().equals("used")) {
+                    System.out.println("used");
+                }
+
+                if(Utilities.getMapped_VP(GlobalVariables.annotated_doc, token.getId()) != 0) {
+                    continue;
+                }
+
+                boolean flag = false;
+
+                List<DependencyRelation> dependencies = (List<DependencyRelation>) token.getFeatures().get("dependencies");
+                if(dependencies != null) {
+                    for (DependencyRelation dep : dependencies) {
+                        if (dep.getType().startsWith("nsubj")) {
+                            flag = true;
+                        }
+                    }
+                }
+
+                if(flag) {
+                    annotations.add(token.getStartNode(), token.getEndNode(), "Relation_Verb", token.getFeatures());
+                }
+
+            }
+        }
         //Relation_Verb
         //for (Annotation a : VBs) {
 

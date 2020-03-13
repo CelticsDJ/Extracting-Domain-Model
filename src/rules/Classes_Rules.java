@@ -299,7 +299,18 @@ public class Classes_Rules {
 
 		Utilities.addAnnotation(annotatedDoc, NP, inputAS.get(target_cl.getID()), features, "Chain_1");
 
-		if(relation.equals("of") || relation.equals("from")) {
+		if(relation.equals("of") || relation.equals("from") || relation.contains("include")) {
+			if(relation.contains("include")) {
+				Annotation VB = annotatedDoc.getAnnotations().get(target_id);
+				List<DependencyRelation> dependencies = (List<DependencyRelation>) VB.getFeatures().get("dependencies");
+				for(DependencyRelation dep : dependencies) {
+					if(dep.getType().equals("nmod")) {
+						target_id = dep.getTargetId();
+					}
+				}
+				relation = "of";
+			}
+
 			Annotation NP_1 = annotatedDoc.getAnnotations().get(NP.getId());
 			Annotation NP_2 = annotatedDoc.getAnnotations().get(target_id);
 
