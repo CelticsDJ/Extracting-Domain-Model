@@ -17,8 +17,7 @@ import data.Concept_Class;
 import data.GlobalVariables;
 import utils.Utilities;
 
-import static utils.Utilities.getMapped_NP;
-import static utils.Utilities.getRelationType;
+import static utils.Utilities.*;
 
 public class Relation_Rules {
 	
@@ -110,6 +109,16 @@ public class Relation_Rules {
 				if(rel.getType().equals("nsubj") || rel.getType().equals("xsubj"))
 				{
 					int Subject_Id = Utilities.getMapped_NP(annotatedDoc, rel.getTargetId());
+					String subjectStr =  "";
+					try {
+						subjectStr = annotatedDoc.getAnnotations().get(Subject_Id).getFeatures().get("pruned_string").toString();
+					}
+					catch (NullPointerException e) {
+						subjectStr = annotatedDoc.getAnnotations().get(Subject_Id).getFeatures().get("string").toString();
+					}
+					if(subjectStr.equals("that") || subjectStr.equals("which")) {
+						Subject_Id = getRealSource(annotatedDoc, VP, rel.getTargetId());
+					}
 					updatedFeatures.put("Subject", Subject_Id);
 				}
 				else if(rel.getType().equals("xsubj"))
@@ -139,6 +148,16 @@ public class Relation_Rules {
 				else if(rel.getType().equals("nsubjpass"))
 				{
 					int Subject_Id = Utilities.getMapped_NP(annotatedDoc, rel.getTargetId());
+					String subjectStr =  "";
+					try {
+						subjectStr = annotatedDoc.getAnnotations().get(Subject_Id).getFeatures().get("pruned_string").toString();
+					}
+					catch (NullPointerException e) {
+						subjectStr = annotatedDoc.getAnnotations().get(Subject_Id).getFeatures().get("string").toString();
+					}
+					if(subjectStr.equals("that") || subjectStr.equals("which")) {
+						Subject_Id = getRealSource(annotatedDoc, VP, rel.getTargetId());
+					}
 					updatedFeatures.put("Passive_Subject", Subject_Id);
 				}
 				else if(rel.getType().equals("agent"))
@@ -148,7 +167,7 @@ public class Relation_Rules {
 				}
 				else if(rel.getType().contains("prep_")) // not used
 				{
-					updatedFeatures.put(rel.getType(), rel.getTargetId());					
+					updatedFeatures.put(rel.getType(), rel.getTargetId());
 					makeVP_PPChains(annotatedDoc, VP, rel);
 				}
 				else if(rel.getType().equals("nmod") && !flag)
@@ -342,7 +361,7 @@ public class Relation_Rules {
 //	}
 
 
-	// 不懂
+	// 懂了
 	private static String getVPString(Document doc, Annotation VP)
 	{
 		AnnotationSet overlappingVP_adv = Utils.getOverlappingAnnotations(doc.getAnnotations(), VP, "Dep-advmod");

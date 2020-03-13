@@ -688,6 +688,9 @@ public class ExtractRelations_includingChains {
 			if(tmp.getRelationName().contains("provide") && !tmp.getRelationName().contains("provide user with")) {
 				return;
 			}
+			if (tmp.getTarget().getName().endsWith("ed")) {
+				return;
+			}
 			if(tmp.getRelationName().startsWith("include") && tmp.getRelationName().endsWith("in")) {
 				Concept_Relation include_pattern = new Concept_Relation(new Concept_Class(tmp.getRelationName().replace("include", "").replace("in", "").trim()), new Concept_Class(tmp.getTarget().getName()), RelationType.AGGREGATION, "D6");
 				addRelation(include_pattern);
@@ -716,7 +719,8 @@ public class ExtractRelations_includingChains {
 
 	public static void markDuplicateRelations() {
 
-		List<Concept_Relation> relations = new ArrayList<>();
+		List<Concept_Relation> concept_relations = new ArrayList<>();
+		List<Association_Relation> association_relations = new ArrayList<>();
 
 		Integer req_id = 1;
 		while(req_id <= ExtractRelations_includingChains.hashmap_requirmenets_Relations.size()) {
@@ -735,15 +739,27 @@ public class ExtractRelations_includingChains {
 					if (obj.getClass().toString().contains("Concept_Relation")) {
 						Concept_Relation rel = (Concept_Relation) obj;
 						if (!rel.getRelationType().equals(RelationType.ASSOCIATION)) {
-							for (Concept_Relation tmp : relations) {
+							for (Concept_Relation tmp : concept_relations) {
 								if (rel.getSource().getName().equals(tmp.getSource().getName()) && rel.getTarget().getName().equals(tmp.getTarget().getName()) && rel.getRelationType().equals(tmp.getRelationType())) {
 									rel.setDuplicateStatus(true);
 								}
 							}
 
 							if (!rel.getDuplicateStatus()) {
-								relations.add(rel);
+								concept_relations.add(rel);
 							}
+						}
+					}
+					else {
+						//Association去重
+						Association_Relation rel = (Association_Relation) obj;
+						for(Association_Relation tmp : association_relations) {
+							if(rel.getSource().getName().equals(tmp.getSource().getName()) && rel.getTarget().getName().equals(tmp.getTarget().getName()) && rel.getRelationName().equals(tmp.getRelationName())) {
+								rel.setDuplicateStatus(true);
+							}
+						}
+						if(!rel.getDuplicateStatus()) {
+							association_relations.add(rel);
 						}
 					}
 				}

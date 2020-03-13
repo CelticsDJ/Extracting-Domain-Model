@@ -125,7 +125,7 @@ public class DeriveAnnotations {
         }
 
 
-        for(Annotation token : tokens) {
+        /*for(Annotation token : tokens) {
             if(token.getFeatures().get("category").toString().startsWith("VB")) {
 
                 if(token.getFeatures().get("string").toString().equals("used")) {
@@ -152,7 +152,7 @@ public class DeriveAnnotations {
                 }
 
             }
-        }
+        }*/
         //Relation_Verb
         //for (Annotation a : VBs) {
 

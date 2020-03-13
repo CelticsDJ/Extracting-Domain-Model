@@ -301,6 +301,49 @@ public class Utilities {
 		return new Concept_Class(gate.Utils.stringFor(doc, doc.getAnnotations().get(token_id)), token_id, "1");
 	}
 
+	public static int getRealSource(Document doc, Annotation VP, int NP_id) {
+
+		AnnotationSet tokens = doc.getAnnotations().get("Token");
+
+		AnnotationSet VBs = gate.Utils.getOverlappingAnnotations(tokens, VP);
+
+		int VB_id = VP.getId();
+
+		if(VBs.size() == 1) {
+			VB_id = Utils.getOnlyAnn(VBs).getId();
+		}
+
+		int return_id = NP_id;
+
+		while(return_id >= 0) {
+			Annotation tmp = tokens.get(return_id);
+
+			if(tmp == null) {
+				break;
+			}
+
+			try {
+				List<DependencyRelation> dependencies = (List<DependencyRelation>) tmp.getFeatures().get("dependencies");
+
+				if (dependencies != null) {
+					for (DependencyRelation dr : dependencies) {
+						//应该是equals.(VP_id) 暂时不好改
+						if (dr.getType().equals("acl:relcl") && dr.getTargetId().equals(VB_id)) {
+							return return_id;
+						}
+					}
+				}
+
+				return_id -= 2;
+			}
+			catch (NullPointerException e) {
+				return_id -= 2;
+			}
+		}
+
+		return return_id;
+	}
+
 	public static List<Integer> getTokenID(Document doc, int NP_id)
 	{
 		Annotation NP = doc.getAnnotations().get(NP_id);
