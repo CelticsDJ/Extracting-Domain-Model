@@ -76,8 +76,8 @@ public class ExtractRelations_includingChains {
 			reqId++;
 			relId = 1;
 
-			if(reqId == 9) {
-				reqId = 9;
+			if(reqId == 22) {
+				reqId = 22;
 			}
 				
 			AnnotationSet relations = gate.Utils.getContainedAnnotations(inputAS, sentence, "Relations");
@@ -139,8 +139,18 @@ public class ExtractRelations_includingChains {
 			return;
 		}
 
+		boolean provide_pattern = false;
+
+		if(rel.getRelationChains().get(0).getB().contains("provide")) {
+			provide_pattern = true;
+		}
+
 		int obj_depth_bound = rel.getObjects().get(rel.getObjects().size()-1).getDepth();
 		int rel_depth_bound = rel.getRelationChains().get(rel.getRelationChains().size()-1).getDepth();
+
+		if(provide_pattern) {
+			rel_depth_bound = 2;
+		}
 
 		obj_depth_bound = (obj_depth_bound + 1) / 2 - 1;
 		rel_depth_bound = (rel_depth_bound + 1) / 2 - 1;
@@ -156,7 +166,7 @@ public class ExtractRelations_includingChains {
 				for (StringQuadruple subj_chain : rel.getSubjects()) {
 
 					//过滤depth较低的关联关系
-					if(rel_chain.getDepth() < rel_depth_bound || obj_chain.getDepth() < obj_depth_bound) {
+					if((rel_chain.getDepth() < rel_depth_bound || obj_chain.getDepth() < obj_depth_bound) && !provide_pattern) {
 						continue;
 					}
 
@@ -177,7 +187,7 @@ public class ExtractRelations_includingChains {
 				for (StringQuadruple subj_chain : rel.getSubjects()) {
 					for (StringQuadruple obj_chain : rel.getObjects()) {
 
-						if(rel_chain.getDepth() < rel_depth_bound || obj_chain.getDepth() < obj_depth_bound) {
+						if((rel_chain.getDepth() < rel_depth_bound || obj_chain.getDepth() < obj_depth_bound) && !provide_pattern) {
 							continue;
 						}
 
@@ -674,9 +684,13 @@ public class ExtractRelations_includingChains {
 			if (tmp.getRelationName().equals("provide") || tmp.getRelationName().equals("provide user with") || tmp.getRelationName().equals("provide with ability")) {
 				return;
 			}
+
+			if(tmp.getRelationName().contains("provide") && !tmp.getRelationName().contains("provide user with")) {
+				return;
+			}
 		}
 		catch(Exception e) {
-			System.out.println("先就这么地吧");
+			System.out.println();
 		}
 
 		Concept_Relation rel = (Concept_Relation) relObj;

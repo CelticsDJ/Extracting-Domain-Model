@@ -36,22 +36,18 @@ computerized_banking_network [ label = "{computerized banking network : \l}"]
 consortium [ label = "{consortium : \l}"]
 computerized_banking_network -> consortium  [arrowhead = "none", label = "share by"]
 B1
-
-computerized_banking_network [ label = "{computerized banking network : \l}"]
-bank [ label = "{bank : \l}"]
-computerized_banking_network -> bank  [arrowhead = "none", label = "share  by consortium of"]
-B1
 consortium [ label = "{consortium : \l}"]
 bank [ label = "{bank : \l}"]
 consortium -> bank  [arrowhead = "odiamond"]
 D5
+computerized_banking_network [ label = "{computerized banking network : \l}"]
+bank [ label = "{bank : \l}"]
+computerized_banking_network -> bank  [arrowhead = "none", label = "share  by consortium of"]
+B1
+
 
 
 R3:Each bank provides a computer that maintains the bank's accounts, and processes transactions against the accounts.
-bank [ label = "{bank : \l}"]
-computer [ label = "{computer : \l}"]
-bank -> computer  [arrowhead = "none", label = "provides"]
-LP
 bank [ label = "{bank : \l}"]
 accounts [ label = "{accounts : \l}"]
 bank -> accounts  [arrowhead = "odiamond"]
@@ -59,6 +55,10 @@ D5
 
 
 R4:Cashier stations are owned by individual banks, and communicate directly with the bank's computers.
+bank [ label = "{bank : \l}"]
+computers [ label = "{computers : \l}"]
+bank -> computers  [arrowhead = "odiamond"]
+D5
 Cashier_station [ label = "{Cashier station : \l}"]
 individual_bank [ label = "{individual bank : \l}"]
 Cashier_station -> individual_bank  [arrowhead = "none", label = "own by"]
@@ -67,10 +67,6 @@ individual_bank [ label = "{individual bank : \l}"]
 bank [ label = "{bank : \l}"]
 individual_bank -> bank  [arrowhead = "empty"]
 D3
-bank [ label = "{bank : \l}"]
-computers [ label = "{computers : \l}"]
-bank -> computers  [arrowhead = "odiamond"]
-D5
 
 
 R5:Human cashiers enter both the account data and the transaction data.
@@ -85,22 +81,22 @@ D3
 
 
 R6:An ATM communicates with a central computer.
-central_computer [ label = "{central computer : \l}"]
-computer [ label = "{computer : \l}"]
-central_computer -> computer  [arrowhead = "empty"]
-D3
 ATM [ label = "{ATM : \l}"]
 central_computer [ label = "{central computer : \l}"]
 ATM -> central_computer  [arrowhead = "none", label = " communicate with"]
 LP
+central_computer [ label = "{central computer : \l}"]
+computer [ label = "{computer : \l}"]
+central_computer -> computer  [arrowhead = "empty"]
+D3
 
 
 R7:The central computer clears transactions with the banks.
-
 central_computer [ label = "{central computer : \l}"]
 transaction [ label = "{transaction : \l}"]
 central_computer -> transaction  [arrowhead = "none", label = "clears"]
 LP
+
 central_computer [ label = "{central computer : \l}"]
 bank [ label = "{bank : \l}"]
 central_computer -> bank  [arrowhead = "none", label = "clears transaction with"]
@@ -145,13 +141,13 @@ system [ label = "{system : \l}"]
 same_account [ label = "{same account : \l}"]
 system -> same_account  [arrowhead = "none", label = "handle concurrent access to"]
 LP
-same_account [ label = "{same account : \l}"]
-account [ label = "{account : \l}"]
-same_account -> account  [arrowhead = "empty"]
-D3
 concurrent_access [ label = "{concurrent access : \l}"]
 access [ label = "{access : \l}"]
 concurrent_access -> access  [arrowhead = "empty"]
+D3
+same_account [ label = "{same account : \l}"]
+account [ label = "{account : \l}"]
+same_account -> account  [arrowhead = "empty"]
 D3
 system [ label = "{system : \l}"]
 concurrent_access [ label = "{concurrent access : \l}"]
@@ -160,23 +156,19 @@ LP
 
 
 R13:The banks will provide the bank's own software for the bank's own computers.
-own_computer [ label = "{own computer : \l}"]
-computer [ label = "{computer : \l}"]
-own_computer -> computer  [arrowhead = "empty"]
-D3
+
 own_software [ label = "{own software : \l}"]
 software [ label = "{software : \l}"]
 own_software -> software  [arrowhead = "empty"]
+D3
+own_computer [ label = "{own computer : \l}"]
+computer [ label = "{computer : \l}"]
+own_computer -> computer  [arrowhead = "empty"]
 D3
 bank [ label = "{bank : \l}"]
 software [ label = "{software : \l}"]
 bank -> software  [arrowhead = "odiamond"]
 D5
-bank [ label = "{bank : \l}"]
-own_computer [ label = "{own computer : \l}"]
-bank -> own_computer  [arrowhead = "none", label = "provide own software for"]
-LP
-
 
 
 }
