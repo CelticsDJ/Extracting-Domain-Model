@@ -2,13 +2,10 @@ package rules;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import gate.*;
-//import gate.stanford.DependencyRelation;
 import gate.util.InvalidOffsetException;
 import gate.stanford.DependencyRelation;
 import data.Concept_Class;
@@ -23,14 +20,6 @@ public class Classes_Rules {
 	private static Document annotatedDoc;
 	private static AnnotationSet inputAS;
 	
-	/*
-	 * Manage all the information related to classes
-	 * Tasks - 
-	 * 1) Build NP chain
-	 * 2) Manage Adjectively Modified NPs
-	 * 3) Manage special annotation, such as rcmod
-	 */
-	
 	public static void classesInfo() throws InvalidOffsetException
 	{
 		//Declarations
@@ -40,14 +29,6 @@ public class Classes_Rules {
 		AnnotationSet NPset = inputAS.get("Parse_NP");
 		List<Annotation> NPs = Utils.inDocumentOrder(NPset);
 		AnnotationSet tmp = annotatedDoc.getAnnotations();
-		/*ArrayList<Annotation> NPs = new ArrayList<>();
-		for (Annotation a : tmp) {
-			if (a.getType().equals("Token")) {
-				if(a.getFeatures().get("category").equals("NN") && a.getFeatures().get("dependencies") != null){
-					NPs.add(a);
-				}
-			}
-		}*/
 		String [] acceptable_dependencies = {"rcmod", "prep", "nmod", "acl", "dep"};
 		
 		/*
@@ -60,14 +41,6 @@ public class Classes_Rules {
 			
 			//Maintain a set of all concepts
 			set_Concepts.add((String) NP_features.get("pruned_string").toString());
-
-			/*
-			List<String> dependencies = (List<String>) NP_features.get("dependencies");
-			List<DependencyRelation> list_dependencies = new ArrayList<>();
-			for (String dep : dependencies) {
-				list_dependencies.add(new DependencyRelation(dep));
-			}
-			*/
 			
 			//@SuppressWarnings("unchecked")
 			List<DependencyRelation> list_dependencies = (NP_features.get("dependencies") == null)?new ArrayList<>():(List<DependencyRelation>) NP_features.get("dependencies");
@@ -116,42 +89,6 @@ public class Classes_Rules {
 		}
 	}
 	
-	public static HashMap<String, Set<String>> manageAdjModifiers(Annotation NP, FeatureMap NP_features)
-	{
-		HashMap<String, Set<String>> map_adjNPs = new HashMap<String, Set<String>>();
-		String NP_structure = (String) NP_features.get("pruned_structure").toString();
-		String NP_string = (String) NP_features.get("pruned_string").toString();
-		
-		if(NP_structure.contains("JJ") && NP_features.get("validNN").toString().equals("true"))
-		{
-			int startPos_BaseNP = returnBaseofAdjectivialNP(NP_structure, NP_string);
-			String base_NP = NP_string.substring(startPos_BaseNP, NP_string.length()).toLowerCase();
-			if(map_adjNPs.containsKey(base_NP))
-			{
-				map_adjNPs.get(base_NP).add(Utilities.getMapped_NPPrunedString(annotatedDoc, NP.getId()).getName());
-			}
-			else
-			{
-				map_adjNPs.put(base_NP, new HashSet<String>());
-				map_adjNPs.get(base_NP).add(Utilities.getMapped_NPPrunedString(annotatedDoc, NP.getId()).getName());
-			}
-		}
-		return map_adjNPs;
-	}
-	
-//	public static void printAdjNPs(Document doc)
-//	{
-//		for(String key: map_adjNPs.keySet())
-//		{
-//			System.out.println(System.lineSeparator() + key + " : ");
-//			Set<String> lst_NPs = map_adjNPs.get(key);
-//			for(String NP: lst_NPs)
-//			{
-//				System.out.println(NP);
-//			}
-//		}
-//	}
-	
 	public static int returnBaseofAdjectivialNP(String NP_structure, String NP_string)
 	{
 		String [] arr_POS = NP_structure.split("-");
@@ -173,47 +110,6 @@ public class Classes_Rules {
 	 */
 	private static void buildChains(DependencyRelation rel, Annotation NP)
 	{
-		/*if(rel.getType().contains("prep"))
-		{
-				FeatureMap features = Factory.newFeatureMap();
-				Concept_Class NP1 = Utilities.getMapped_NPPrunedString(annotatedDoc, NP.getId());					
-
-				Concept_Class target_cl;
-				String target;
-				if(rel.getType().contains("prepc"))
-				{
-					target_cl = Utilities.getNextNPinSentence(annotatedDoc, rel.getTargetId());
-					target = target_cl.getName();
-				}
-				else
-				{
-					target_cl = Utilities.getMapped_NPPrunedString(annotatedDoc, rel.getTargetId());
-					target = target_cl.getName();
-				}
-
-				if(NP1.getID() == target_cl.getID()) {
-					return;
-				}
-
-
-				features.put("source_ID", NP1.getID());
-				features.put("source_Type", "Parse_NP");
-				features.put("source_String", NP1.getName());
-
-				features.put("target_ID", target_cl.getID());
-				features.put("target_Type", "Parse_NP");
-				features.put("target_String", target);
-				features.put("relation_Type", rel.getType());
-				features.put("kind", "NP_NP");
-				
-				features.put("cardinality", NP1.getCardinality());
-
-				if(NP1.getName().equals(target)) {
-					System.out.println(target + " " + rel.getType() + " " + target);
-				}
-
-				Utilities.addAnnotation(annotatedDoc, NP, inputAS.get(target_cl.getID()), features, "Chain_1");
-		}*/
 		FeatureMap features = Factory.newFeatureMap();
 		Concept_Class NP1 = Utilities.getMapped_NPPrunedString(annotatedDoc, NP.getId());
 
@@ -253,9 +149,13 @@ public class Classes_Rules {
 					}
 
 					if(flag && getMapped_NP(annotatedDoc, dep.getTargetId()) != getMapped_NP(annotatedDoc, target_id)) {
-						List<DependencyRelation> updateDeps = (List<DependencyRelation>) annotatedDoc.getAnnotations().get(getMapped_NP(annotatedDoc, target_id)).getFeatures().get("dependencies");
-						updateDeps.add(dep);
-						annotatedDoc.getAnnotations().get(target_id).getFeatures().replace("dependencies", updateDeps);
+						try {
+							List<DependencyRelation> updateDeps = (List<DependencyRelation>) annotatedDoc.getAnnotations().get(getMapped_NP(annotatedDoc, target_id)).getFeatures().get("dependencies");
+							updateDeps.add(dep);
+							annotatedDoc.getAnnotations().get(target_id).getFeatures().replace("dependencies", updateDeps);
+						}catch (Exception e) {
+							System.out.println(e);
+						}
 					}
 				}
 			}

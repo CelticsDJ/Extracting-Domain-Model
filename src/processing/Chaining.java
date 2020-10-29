@@ -117,7 +117,11 @@ public class Chaining {
 	 * 1 Quadruple = (is altered, relation chain, object, cardinality)
 	 */
 	public static List<StringQuadruple> getObjectChains(Document doc, Annotation Source_Annot, int depth)
-	{		
+	{
+		if(Source_Annot == null) {
+			System.out.println("**************");
+		}
+
 		Concept_Class object = Utilities.getMapped_NPPrunedString(doc, Source_Annot.getId()); //Get class of the source annotation
 		String source = object.getName().trim(); //Source string 
 		String cardinality = object.getCardinality().trim(); //Source cardinality (A decision to have the cardinality of the chain as the cardinality of the source)

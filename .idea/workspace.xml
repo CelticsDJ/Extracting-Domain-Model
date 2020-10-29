@@ -1,21 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="e0f1cae0-0125-44d0-b210-061836e67475" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/Write_To_Excel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/My_extraction.iml" beforeDir="false" afterPath="$PROJECT_DIR$/My_extraction.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/META-INF/My_extraction.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/Main/Model_Extraction_Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/Main/Model_Extraction_Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/data/Aggregation_Patterns.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/data/Aggregation_Patterns.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/data/Association_Relation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/data/Association_Relation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/data/Attribute.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/data/Attribute.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/data/Concept_Class.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/data/Concept_Class.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/data/Concept_Relation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/data/Concept_Relation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/data/DOT_Graphviz_conversion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/data/DOT_Graphviz_conversion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/data/ForwardDependecyTypes.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/data/ForwardDependecyTypes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/data/Generalization_Patterns.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/data/Generalization_Patterns.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/data/GlobalVariables.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/data/GlobalVariables.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/data/JSONConversion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/data/JSONConversion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/data/MetaRelation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/data/MetaRelation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/data/RelationType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/data/RelationType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/data/Requirement_Relations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/data/Requirement_Relations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/experimentation/Experimentation$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/experimentation/Experimentation$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/experimentation/Experimentation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/experimentation/Experimentation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/experimentation/TestCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/experimentation/TestCode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/gate/stanford/DependencyRelation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/gate/stanford/DependencyRelation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/processing/Chaining.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/processing/Chaining.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/processing/Concept_Pattern.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/processing/Concept_Pattern.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/processing/ExtractRelations_includingChains.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/processing/ExtractRelations_includingChains.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/rules/Classes_Rules.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/rules/Classes_Rules.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/My_extraction/rules/Relation_Rules.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/rules/Relation_Rules.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/test/testGateApplicationSaving$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/test/testGateApplicationSaving$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/test/testGateApplicationSaving.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/test/testGateApplicationSaving.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/test/test_AssociationClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/test/test_AssociationClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/test/test_Assoctaion_Relation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/test/test_Assoctaion_Relation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/test/test_isAtomicNP.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/test/test_isAtomicNP.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/My_extraction/utils/DeriveAnnotations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/utils/DeriveAnnotations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/utils/StringQuadruple.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/utils/StringQuadruple.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/utils/StringTuple.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/utils/StringTuple.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/My_extraction/utils/Utilities.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/utils/Utilities.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/utils/Utils_DuplicateCheck.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/My_extraction/utils/Utils_DuplicateCheck.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/ATM_Example.dot" beforeDir="false" afterPath="$PROJECT_DIR$/result/ATM_Example.dot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/Partial_Annotations_OpenCossReqs.dot" beforeDir="false" afterPath="$PROJECT_DIR$/result/Partial_Annotations_OpenCossReqs.dot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/Two Tanks Requirements.dot" beforeDir="false" afterPath="$PROJECT_DIR$/result/Two Tanks Requirements.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Model_Extraction_Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Model_Extraction_Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/processing/Chaining.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/processing/Chaining.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rules/Classes_Rules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rules/Classes_Rules.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/rules/Relation_Rules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rules/Relation_Rules.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/DeriveAnnotations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/DeriveAnnotations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Utilities.java" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,86 +93,6 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="FavoritesManager">
-    <favorites_list name="My_extraction" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="761" column="59" selection-start-line="761" selection-start-column="59" selection-end-line="761" selection-end-column="59" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/data/DOT_Graphviz_conversion.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="66" column="21" lean-forward="true" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utils/DeriveAnnotations.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="545">
-              <caret line="154" column="11" selection-start-line="154" selection-start-column="11" selection-end-line="154" selection-end-column="11" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#init#0;class#DeriveAnnotations#0" />
-                <element signature="method#isreceivedDep#0;class#DeriveAnnotations#0" />
-                <element signature="method#isAtomicNP#0;class#DeriveAnnotations#0" />
-                <element signature="method#derive_prep#0;class#DeriveAnnotations#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utils/Utilities.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4770">
-              <caret line="331" column="45" selection-start-line="331" selection-start-column="45" selection-end-line="331" selection-end-column="45" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/rules/Relation_Rules.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="545">
-              <caret line="363" column="9" selection-start-line="363" selection-start-column="9" selection-end-line="363" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main/Model_Extraction_Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="37" selection-start-line="37" selection-end-line="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -128,182 +100,31 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>Next</find>
-      <find>NP_of</find>
-      <find>&quot;_&quot;</find>
-      <find>aggregation</find>
-      <find>D5</find>
-      <find>hashmap_reqId_Relations</find>
-      <find>&quot;LP&quot;</find>
-      <find>req_id</find>
-      <find>'s</find>
-      <find>acl</find>
-      <find>relVerb</find>
-      <find>Attribute</find>
-      <find>a</find>
-      <find>advmod</find>
-      <find>rel_root</find>
-      <find>rel =</find>
-      <find>d4</find>
-      <find>isAdvmod</find>
-      <find>sort</find>
-      <find>d3</find>
-      <find>&quot;concept_relation</find>
-      <find>concept_relation</find>
-      <find>Aggregation</find>
-      <find>&quot;D5&quot;</find>
-      <find>Adjectivally</find>
-      <find>Adjectiva</find>
-      <find>Adje</find>
-      <find>relation_verb</find>
-      <find>able to</find>
-      <find>&quot;Pass</find>
-    </findStrings>
-    <replaceStrings>
-      <replace />
-      <replace>Extracting Domain Model</replace>
-      <replace>0</replace>
-    </replaceStrings>
-    <dirStrings>
-      <dir>/Applications/GATE_Developer_8.1/bin/gate.jar</dir>
-    </dirStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/processing/BriefFormatter.java" />
-        <option value="$PROJECT_DIR$/src/processing/BuildChains_NPs.java" />
-        <option value="$PROJECT_DIR$/src/data/Attribute.java" />
-        <option value="$PROJECT_DIR$/src/data/Concept_Class.java" />
-        <option value="$PROJECT_DIR$/src/data/Concept_Relation.java" />
-        <option value="$PROJECT_DIR$/src/data/ForwardDependecyTypes.java" />
-        <option value="$PROJECT_DIR$/src/data/GlobalVariables.java" />
-        <option value="$PROJECT_DIR$/src/data/RelationType.java" />
-        <option value="$PROJECT_DIR$/src/data/MetaRelation.java" />
-        <option value="$PROJECT_DIR$/src/experimentation/LoadGateResources.java" />
-        <option value="$PROJECT_DIR$/src/experimentation/Experimentation.java" />
-        <option value="$PROJECT_DIR$/src/utils/StringTriple.java" />
-        <option value="$PROJECT_DIR$/src/utils/StringTuple.java" />
-        <option value="$PROJECT_DIR$/src/processing/ExtractRelations_includingChains_backupJuly2016.java" />
-        <option value="$PROJECT_DIR$/src/processing/ExtractRelations_includingChainsandForwardDependencies.java" />
-        <option value="$PROJECT_DIR$/src/processing/ExtractRelations_includingChains_backupJune2016.java" />
-        <option value="$PROJECT_DIR$/src/data/JSONConversion.java" />
-        <option value="$PROJECT_DIR$/src/test/test_AssociationClass.java" />
-        <option value="$PROJECT_DIR$/src/test/test_Assoctaion_Relation.java" />
-        <option value="$PROJECT_DIR$/src/test/testGateApplicationSaving.java" />
-        <option value="$PROJECT_DIR$/src/experimentation/TestCode.java" />
-        <option value="$PROJECT_DIR$/src/data/Association_Relation.java" />
-        <option value="$PROJECT_DIR$/src/test/test_isAtomicNP.java" />
-        <option value="$USER_HOME$/Downloads/01 Model Extraction Binary/DoTagChunks.jape" />
-        <option value="$PROJECT_DIR$/src/DependencyRelation/DependencyRelation.java" />
-        <option value="$PROJECT_DIR$/src/gate/DependencyRelation/DependencyRelation.java" />
-        <option value="$PROJECT_DIR$/src/gate/stanford/DependencyRelation.java" />
-        <option value="$PROJECT_DIR$/src/utils/StringQuadruple.java" />
-        <option value="$PROJECT_DIR$/src/utils/Utils_DuplicateCheck.java" />
-        <option value="$PROJECT_DIR$/src/data/Requirement_Relations.java" />
-        <option value="$PROJECT_DIR$/src/data/Aggregation_Patterns.java" />
-        <option value="$PROJECT_DIR$/src/data/DOT_Graphviz_conversion.java" />
-        <option value="$PROJECT_DIR$/src/processing/Attribute_Pattern.java" />
-        <option value="$PROJECT_DIR$/src/data/Generalization_Pattern.java" />
-        <option value="$PROJECT_DIR$/src/Main/Model_Extraction_Main.java" />
-        <option value="$PROJECT_DIR$/src/data/Generalization_Patterns.java" />
-        <option value="$PROJECT_DIR$/src/processing/Concept_Pattern.java" />
-        <option value="$PROJECT_DIR$/src/processing/Chaining.java" />
-        <option value="$PROJECT_DIR$/src/rules/Classes_Rules.java" />
-        <option value="$PROJECT_DIR$/src/utils/Utilities.java" />
-        <option value="$PROJECT_DIR$/src/rules/Relation_Rules.java" />
-        <option value="$PROJECT_DIR$/src/utils/DeriveAnnotations.java" />
-        <option value="$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1680" />
-    <option name="height" value="1050" />
-  </component>
+  <component name="ProjectId" id="1jGfk9ImxbQVH0oqNiIz1efktc2" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Extracting Domain Model" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Extracting Domain Model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Extracting Domain Model" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Extracting Domain Model" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Extracting Domain Model" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Extracting Domain Model" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Extracting Domain Model" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Extracting Domain Model" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Extracting Domain Model" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Extracting Domain Model" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="processing" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Extracting Domain Model" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Extracting Domain Model" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="rules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Extracting Domain Model" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Extracting Domain Model" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/GATE_Developer_8.6.1/lib" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Application.Model_Extraction_Main (1)">
     <configuration name="Model_Extraction_Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -384,6 +205,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -445,72 +267,82 @@
       <workItem from="1584074669910" duration="9662000" />
       <workItem from="1584087468748" duration="26000" />
       <workItem from="1584088895265" duration="1192000" />
+      <workItem from="1603435492781" duration="3359000" />
+      <workItem from="1603443620499" duration="1723000" />
+      <workItem from="1603530102273" duration="5705000" />
+      <workItem from="1603542067460" duration="1356000" />
+      <workItem from="1603686820288" duration="3623000" />
+      <workItem from="1603708256533" duration="6695000" />
+      <workItem from="1603763587982" duration="86000" />
+      <workItem from="1603948119858" duration="2507000" />
+      <workItem from="1603956801880" duration="37000" />
     </task>
     <servers />
   </component>
-  <component name="TestHistory">
-    <history-entry file="test_isAtomicNP_test_isAtomic - 2019.12.26 at 13h 17m 14s.xml">
-      <configuration name="test_isAtomicNP.test_isAtomic" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="test_isAtomicNP_test_isAtomic - 2019.12.26 at 13h 18m 17s.xml">
-      <configuration name="test_isAtomicNP.test_isAtomic" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="test_isAtomicNP_test_isAtomic - 2019.12.26 at 13h 21m 45s.xml">
-      <configuration name="test_isAtomicNP.test_isAtomic" configurationId="JUnit" />
-    </history-entry>
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="254344000" />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
-    <layout>
-      <window_info id="Designer" order="0" />
-      <window_info id="UI Designer" order="1" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Favorites" order="3" sideWeight="0.50076103" side_tool="true" weight="0.24969475" />
-      <window_info id="Image Layers" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.49923897" visible="true" weight="0.23626374" />
-      <window_info id="Structure" order="6" sideWeight="0.50076103" side_tool="true" weight="0.24969475" />
-      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="1" />
-      <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.4981685" weight="0.32959184" />
-      <window_info anchor="bottom" id="Database Changes" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.57448107" side_tool="true" visible="true" weight="0.3653061" />
-      <window_info anchor="bottom" id="Message" order="5" />
-      <window_info anchor="bottom" id="Find" order="6" sideWeight="0.48351648" weight="0.32959184" />
-      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.42551893" visible="true" weight="0.3653061" />
-      <window_info anchor="bottom" id="Debug" order="8" sideWeight="0.6947497" weight="0.45714286" />
-      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.46764347" weight="0.32959184" />
-      <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="12" weight="0.32959184" />
-      <window_info anchor="bottom" id="Spring" order="13" />
-      <window_info anchor="right" id="Theme Preview" order="0" />
-      <window_info anchor="right" id="Database" order="1" />
-      <window_info anchor="right" id="Capture Analysis" order="2" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info anchor="right" id="Maven" order="4" />
-      <window_info anchor="right" id="Palette" order="5" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
-      <window_info anchor="right" x="0" y="0" width="370" height="850" id="Documentation" order="9" side_tool="true" weight="0.32967034" />
-      <window_info anchor="right" id="Coverage" order="10" side_tool="true" weight="0.32967034" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="634" y="260" key="FileChooserDialogImpl" timestamp="1603437222059">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="634" y="260" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603437222059" />
+    <state width="1877" height="258" key="GridCell.Tab.0.bottom" timestamp="1603956793788">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603956793788" />
+    <state width="1877" height="258" key="GridCell.Tab.0.center" timestamp="1603956793788">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="258" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603956793788" />
+    <state width="1877" height="258" key="GridCell.Tab.0.left" timestamp="1603956793788">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="258" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603956793788" />
+    <state width="1877" height="258" key="GridCell.Tab.0.right" timestamp="1603956793788">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="258" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603956793788" />
+    <state width="1877" height="419" key="GridCell.Tab.1.bottom" timestamp="1603716097234">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="419" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603716097234" />
+    <state width="1877" height="419" key="GridCell.Tab.1.center" timestamp="1603716097234">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="419" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603716097234" />
+    <state width="1877" height="419" key="GridCell.Tab.1.left" timestamp="1603716097234">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="419" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603716097234" />
+    <state width="1877" height="419" key="GridCell.Tab.1.right" timestamp="1603716097234">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="419" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603716097234" />
+    <state x="440" y="94" key="SettingsEditor" timestamp="1603437238005">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603437238005" />
+    <state x="821" y="149" width="596" height="891" key="find.popup" timestamp="1603763600222">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="821" y="149" width="596" height="891" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603763600222" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1603956789410">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603956789410" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -518,26 +350,42 @@
         <line-breakpoint enabled="true" type="java-line">
           <url>jar:///Applications/GATE_Developer_8.1/bin/gate.jar!/gate/util/persistence/PersistenceManager.class</url>
           <line>432</line>
-          <properties />
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java</url>
-          <line>252</line>
-          <properties />
-          <option name="timeStamp" value="152" />
+          <url>file://$PROJECT_DIR$/src/rules/Classes_Rules.java</url>
+          <line>156</line>
+          <option name="timeStamp" value="264" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/processing/Chaining.java</url>
+          <line>121</line>
+          <option name="timeStamp" value="268" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/processing/Concept_Pattern.java</url>
           <line>99</line>
-          <properties />
-          <option name="timeStamp" value="224" />
+          <option name="timeStamp" value="269" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/utils/Utilities.java</url>
-          <line>343</line>
-          <properties />
-          <option name="timeStamp" value="263" />
+          <url>file://$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java</url>
+          <line>253</line>
+          <option name="timeStamp" value="270" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java</url>
+          <line>92</line>
+          <option name="timeStamp" value="297" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/processing/Chaining.java</url>
+          <line>237</line>
+          <option name="timeStamp" value="299" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/rules/Relation_Rules.java</url>
+          <line>153</line>
+          <option name="timeStamp" value="300" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -546,470 +394,5 @@
     <SUITE FILE_PATH="coverage/My_extraction$Model_Extraction_Main__1_.ic" NAME="Model_Extraction_Main (1) Coverage Results" MODIFIED="1577180134380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Main.*</FILTER>
     </SUITE>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="jar:///Applications/GATE_Developer_8.1/plugins/Stanford_CoreNLP/lib/stanford-ner-3.4.jar!/edu/stanford/nlp/util/ArraySet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/Attribute.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/Concept_Class.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jrt:///Library/Java/JavaVirtualMachines/jdk-12.0.1.jdk/Contents/Home!/java.base/java/util/AbstractMap.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#11503#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-12.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/util/HashMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21405">
-          <caret line="1489" column="22" selection-start-line="1489" selection-start-column="22" selection-end-line="1489" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Applications/GATE_Developer_8.1/bin/gate.jar!/gate/SimpleAnnotationSet.class" />
-    <entry file="jar:///Applications/GATE_Developer_8.1/bin/gate.jar!/gate/Factory.class" />
-    <entry file="jar:///Applications/GATE_Developer_8.1/bin/gate.jar!/gate/annotation/AnnotationSetImpl.class" />
-    <entry file="file://$PROJECT_DIR$/src/experimentation/LoadGateResources.java" />
-    <entry file="jar:///Applications/GATE_Developer_8.1/bin/gate.jar!/gate/Utils.class" />
-    <entry file="file://$USER_HOME$/Downloads/01 Model Extraction Binary/DoTagChunks.jape">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="95" column="47" lean-forward="true" selection-start-line="95" selection-start-column="47" selection-end-line="95" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/experimentation/TestCode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="52" column="43" selection-start-line="52" selection-start-column="43" selection-end-line="52" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/experimentation/Experimentation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="52" column="40" selection-start-line="52" selection-start-column="40" selection-end-line="52" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/test_isAtomicNP.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/test_AssociationClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/test_Assoctaion_Relation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/testGateApplicationSaving.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="55" column="32" selection-start-line="55" selection-start-column="32" selection-end-line="55" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/JSONConversion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-12.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/StringBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2130">
-          <caret line="173" column="14" selection-start-line="173" selection-start-column="14" selection-end-line="173" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-12.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/Integer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10950">
-          <caret line="775" column="15" selection-start-line="775" selection-start-column="15" selection-end-line="775" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gate/stanford/DependencyRelation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="37" column="7" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-12.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/util/ArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="457" column="16" selection-start-line="457" selection-start-column="16" selection-end-line="457" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-12.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/util/Objects.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="371" column="29" selection-start-line="371" selection-start-column="29" selection-end-line="371" selection-end-column="29" />
-          <folding>
-            <element signature="e#13877#13878#0" expanded="true" />
-            <element signature="e#13945#13946#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Applications/GATE_Developer_8.6/lib/gate-core-8.6.jar!/gate/annotation/AnnotationImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3937">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Applications/GATE_Developer_8.6/lib/gate-core-8.6.jar!/gate/annotation/AnnotationSetImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="111" column="19" selection-start-line="111" selection-start-column="19" selection-end-line="111" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/MetaRelation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="e#623#624#0" expanded="true" />
-            <element signature="e#664#665#0" expanded="true" />
-            <element signature="e#737#738#0" expanded="true" />
-            <element signature="e#781#782#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Applications/GATE_Developer_8.6/lib/gate-core-8.6.jar!/gate/Gate.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="660" selection-start-line="660" selection-end-line="660" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Applications/GATE_Developer_8.6/lib/gate-core-8.6.jar!/gate/Factory.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/Utils_DuplicateCheck.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="33" lean-forward="true" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/Requirement_Relations.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Applications/GATE_Developer_8.6/lib/gate-core-8.6.jar!/gate/Utils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="83" column="25" selection-start-line="83" selection-start-column="25" selection-end-line="83" selection-end-column="25" />
-          <folding>
-            <element signature="e#2896#2897#0" expanded="true" />
-            <element signature="e#2951#2952#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/StringQuadruple.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-219">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/ForwardDependecyTypes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/GlobalVariables.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/processing/Attribute_Pattern.java" />
-    <entry file="file://$PROJECT_DIR$/src/data/Generalization_Pattern.java" />
-    <entry file="file://$PROJECT_DIR$/src/data/Generalization_Patterns.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/Aggregation_Patterns.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/RelationType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/processing/Concept_Pattern.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/Concept_Relation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="13" column="79" selection-start-line="13" selection-start-column="67" selection-end-line="13" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-12.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="3409" column="18" selection-start-line="3409" selection-start-column="18" selection-end-line="3409" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/processing/Chaining.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1898">
-          <caret line="250" column="139" selection-start-line="250" selection-start-column="139" selection-end-line="250" selection-end-column="139" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/Association_Relation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
-          <folding>
-            <element signature="e#560#561#0" expanded="true" />
-            <element signature="e#582#583#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/rules/Classes_Rules.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="303" selection-start-line="303" selection-end-line="303" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/Utilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4770">
-          <caret line="331" column="45" selection-start-line="331" selection-start-column="45" selection-end-line="331" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/rules/Relation_Rules.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="363" column="9" selection-start-line="363" selection-start-column="9" selection-end-line="363" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/DeriveAnnotations.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="154" column="11" selection-start-line="154" selection-start-column="11" selection-end-line="154" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#init#0;class#DeriveAnnotations#0" />
-            <element signature="method#isreceivedDep#0;class#DeriveAnnotations#0" />
-            <element signature="method#isAtomicNP#0;class#DeriveAnnotations#0" />
-            <element signature="method#derive_prep#0;class#DeriveAnnotations#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/Model_Extraction_Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="761" column="59" selection-start-line="761" selection-start-column="59" selection-end-line="761" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/DOT_Graphviz_conversion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="66" column="21" lean-forward="true" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>My_extraction</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>12</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>

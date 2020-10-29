@@ -79,5 +79,6 @@
         <jarDirectory url="file:///Applications/GATE_Developer_8.6/lib" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>

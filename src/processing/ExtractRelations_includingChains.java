@@ -15,6 +15,7 @@ import data.GlobalVariables;
 import data.MetaRelation;
 import data.RelationType;
 import data.Requirement_Relations;
+import gate.stanford.DependencyRelation;
 import rules.Classes_Rules;
 import utils.StringQuadruple;
 import utils.StringTuple;
@@ -76,10 +77,10 @@ public class ExtractRelations_includingChains {
 			reqId++;
 			relId = 1;
 
-			if(reqId == 33) {
-				reqId = 33;
+			if(reqId == 30) {
+				reqId = 30;
 			}
-				
+
 			AnnotationSet relations = gate.Utils.getContainedAnnotations(inputAS, sentence, "Relations");
 			List<Annotation> Relations = gate.Utils.inDocumentOrder(relations);
 			//List<MetaRelation> sentence_Relations = new ArrayList<MetaRelation>();
@@ -166,15 +167,15 @@ public class ExtractRelations_includingChains {
 				for (StringQuadruple subj_chain : rel.getSubjects()) {
 
 					//过滤depth较低的关联关系
-					if((rel_chain.getDepth() < rel_depth_bound || obj_chain.getDepth() < obj_depth_bound) && !provide_pattern) {
+					/*if((rel_chain.getDepth() < rel_depth_bound || obj_chain.getDepth() < obj_depth_bound) && !provide_pattern) {
 						continue;
-					}
+					}*/
 
 					if (rel_chain.getDepth() == 0 || rel_chain.getDepth() == rel_depth_bound || rel_chain.getD().equals("JJ")) {
-						Association_Relation association = Utilities.formRelations(subj_chain.getC(), objStr, subj_chain.getD(), obj_chain.getD(), (subj_chain.getB() + " " + rel_chain.getB() + " " + obj_chain.getB() + " " + rel_chain.getA() + " " + rel_chain.getC()).replace("  ", " ").replace("  ", " ").replace("  ", " ").trim(), isXcomp, "LP");
+						Association_Relation association = Utilities.formRelations(subj_chain.getC(), objStr, subj_chain.getD(), obj_chain.getD(), (subj_chain.getB() + " " + rel_chain.getB() + " " + obj_chain.getB() + " " + rel_chain.getA() + " " + rel_chain.getC()).replace("  ", " ").replace("  ", " ").replace("  ", " ").trim(), isXcomp, "Association");
 						addRelation(association);
 					} else {
-						Association_Relation association = Utilities.formRelations(subj_chain.getC(), rel_chain.getC(), subj_chain.getD(), obj_chain.getD(), (subj_chain.getB() + " " + rel_chain.getB() + " " + obj_chain.getB() + " " + rel_chain.getA()).replace(verbStr, verbStr + " " +  objStr).replace("  ", " ").replace("  ", " ").replace("  ", " ").trim(), isXcomp, "LP");
+						Association_Relation association = Utilities.formRelations(subj_chain.getC(), rel_chain.getC(), subj_chain.getD(), obj_chain.getD(), (subj_chain.getB() + " " + rel_chain.getB() + " " + obj_chain.getB() + " " + rel_chain.getA()).replace(verbStr, verbStr + " " +  objStr).replace("  ", " ").replace("  ", " ").replace("  ", " ").trim(), isXcomp, "Association");
 						addRelation(association);
 					}
 				}
@@ -187,11 +188,11 @@ public class ExtractRelations_includingChains {
 				for (StringQuadruple subj_chain : rel.getSubjects()) {
 					for (StringQuadruple obj_chain : rel.getObjects()) {
 
-						if((rel_chain.getDepth() < rel_depth_bound || obj_chain.getDepth() < obj_depth_bound) && !provide_pattern) {
+						/*if((rel_chain.getDepth() < rel_depth_bound || obj_chain.getDepth() < obj_depth_bound) && !provide_pattern) {
 							continue;
-						}
+						}*/
 
-						Association_Relation association = Utilities.formRelations(subj_chain.getC(), obj_chain.getC(), subj_chain.getD(), obj_chain.getD(), (subj_chain.getB() + " " + rel_chain.getB() + " " + obj_chain.getB() + " " + rel_chain.getA() + " " + rel_chain.getC()).replace("  ", " ").replace("  ", " ").replace("  ", " ").trim(), isXcomp, "LP");
+						Association_Relation association = Utilities.formRelations(subj_chain.getC(), obj_chain.getC(), subj_chain.getD(), obj_chain.getD(), (subj_chain.getB() + " " + rel_chain.getB() + " " + obj_chain.getB() + " " + rel_chain.getA() + " " + rel_chain.getC()).replace("  ", " ").replace("  ", " ").replace("  ", " ").trim(), isXcomp, "Association");
 						addRelation(association);
 					}
 				}
@@ -213,14 +214,14 @@ public class ExtractRelations_includingChains {
 				{
 					if(!iobj.equals(""))
 					{
-						Association_Relation rel = Utilities.formRelations(subject_quad.getC(), iobj, subject_quad.getD(), quad.getD(), subject_quad.getB() + " " + rel_root + " " + verb, isXcomp, "LP");
+						Association_Relation rel = Utilities.formRelations(subject_quad.getC(), iobj, subject_quad.getD(), quad.getD(), subject_quad.getB() + " " + rel_root + " " + verb, isXcomp, "Association");
 						addRelation(rel);						
 						relationsCount++;
 					}
 					//else if(quads.size() <= 1) //Only add attribute when there is no other choice, i.e., there is no other chain to the verb
 					if(isAdvMod)
 					{
-						Concept_Relation rel = new Concept_Relation(new Concept_Class(subject_quad.getC()), new Concept_Class(rel_str), RelationType.ATTRIBUTE, "D4");
+						Concept_Relation rel = new Concept_Relation(new Concept_Class(subject_quad.getC()), new Concept_Class(rel_str), RelationType.ATTRIBUTE, "Attribuate");
 						addRelation(rel);
 					}
 				}
@@ -250,124 +251,13 @@ public class ExtractRelations_includingChains {
 					//else if(quads.size() <= 1) //Only add attribute when there is no other choice, i.e., there is no other chain to the verb
 					if(isAdvMod)
 					{
-						Concept_Relation rel = new Concept_Relation(new Concept_Class(subj), new Concept_Class(rel_str), RelationType.ATTRIBUTE, "D4");
+						Concept_Relation rel = new Concept_Relation(new Concept_Class(subj), new Concept_Class(rel_str), RelationType.ATTRIBUTE, "Attribuate");
 						addRelation(rel);
 					}
 				}				
 			}
 		}
 	}
-	
-	/*private static void extractTransitiveRelation(Annotation relation, Annotation Subject, Annotation Object)
-	{		
-		Concept_Class subject = Utilities.getMapped_NPPrunedString(doc, subject_Id);		
-		String subj = subject.getName();		
-		concepts.add(subj.toLowerCase());
-		
-		List<StringQuadruple> object_quads = traverseNP_Chains(Object);
-		
-		for(StringQuadruple object_quad: object_quads)
-		{
-			if(object_quads.size() == 1 && object_quads.get(0).getB().equals(""))
-			{
-				Concept_Class obj_cl = Utilities.getMapped_NPPrunedString(doc, Object.getId());
-				object_quad.setC(obj_cl.getName());
-				object_quad.setD(obj_cl.getCardinality());
-			}
-			if(object_quads.indexOf(object_quad) == 0)
-			{
-				printTransitiveRelation(subject, object_quad,relation, " T1 ");
-			}
-			else
-			{
-				printTransitiveRelation(subject, object_quad,relation, " T2 ");
-			}
-			
-		}
-	}*/
-	
-	/*private static void extractTransitiveRelation_includingChains(Annotation relation, Annotation Subject, Annotation Object)
-	{
-		List<StringQuadruple> subject_quads = traverseNP_Chains(Subject);
-		List<StringQuadruple> object_quads = traverseNP_Chains(Object);
-		for(StringQuadruple subject_chain: subject_quads)
-		{
-			
-			
-		}
-	}*/
-	
-	/*private static void printTransitiveRelation(Concept_Class subject, StringQuadruple obj_Quad, Annotation relation, String relationText)
-	{	
-		List<StringQuadruple> VP_chains = Chaining.traverseVP_Chains(doc, relation);
-		String verb = relation.getFeatures().get("root").toString();
-		String prev_PP = "";
-		String base_old = "";
-		String base_new = "";
-		
-		if(!relationText.equals(" P "))
-		{
-			if(relationText.equals(" T1 "))
-			{
-				System.out.println(System.lineSeparator() +relationText + isXcomp + " Transitive Relation 1.1: " +  subject.getName() + " --> " + verb + " "  + obj_Quad.getB() + " --> " +  obj_Quad.getC());
-				System.out.println(System.lineSeparator() +"cardinality: " +  subject.getCardinality() + " to " + obj_Quad.getD());
-				Association_Relation rel = Utilities.formRelations(subject.getName(), obj_Quad.getC(), subject.getCardinality(), obj_Quad.getD(), verb + " "  + obj_Quad.getB(), isXcomp, "B1");
-				addRelation(rel);
-			}
-			else
-			{
-				System.out.println(System.lineSeparator() +relationText + isXcomp + " Transitive Relation 1.2: " +  subject.getName() + " --> " + verb + " "  + obj_Quad.getB() + " --> " +  obj_Quad.getC());
-				System.out.println(System.lineSeparator() +"cardinality: " +  subject.getCardinality() + " to " + obj_Quad.getD());
-				Association_Relation rel = Utilities.formRelations(subject.getName(), obj_Quad.getC(), subject.getCardinality(), obj_Quad.getD(), verb + " "  + obj_Quad.getB(), isXcomp, "N1");
-				addRelation(rel);
-			}			
-			relationsCount++;
-		}
-		for(StringQuadruple quad: VP_chains)
-		{
-			String PP = quad.getA();
-			String iobj = quad.getC();
-			
-			String iobj_chain = quad.getB().trim();
-			
-			if(!iobj.equals(""))
-			{
-				if(prev_PP.equals(""))//First chain
-				{					
-					System.out.println(System.lineSeparator() +relationText + isXcomp + " Transitive Relation 1.2: " +  subject.getName() + " --> " + verb + " "  + obj_Quad.getB() + " " + obj_Quad.getC() + " " + PP + " " + iobj_chain + " --> " +  iobj);
-					System.out.println(System.lineSeparator() +"cardinality: " +  subject.getCardinality() + " to " + quad.getD());
-					Association_Relation rel = Utilities.formRelations(subject.getName(), obj_Quad.getC(), subject.getCardinality(), obj_Quad.getD(), verb + " "  + obj_Quad.getB() + " " + obj_Quad.getC() + " " + PP + " " + iobj_chain + " " + iobj, isXcomp, "N1");
-					addRelation(rel);
-					relationsCount++;
-					base_old = verb + " "  + obj_Quad.getB() + " " + obj_Quad.getC();
-					base_new = verb + " "  + obj_Quad.getB() + " " + obj_Quad.getC() + " " + PP + " " + iobj_chain + " " +  iobj;
-				}
-				else if(prev_PP.equals(PP)) //Chain with same prepositions, e.g., "confirmation from the user FOR (this action) and (subsequent related actions)"
-				{
-					System.out.println(System.lineSeparator() +relationText + isXcomp + " Transitive Relation 1.2: " +  subject.getName() + " --> " + base_old + " " + PP + " " + iobj_chain + " --> " +  iobj);
-					System.out.println(System.lineSeparator() +"cardinality: " +  subject.getCardinality() + " to " + quad.getD());
-					Association_Relation rel = Utilities.formRelations(subject.getName(), obj_Quad.getC(), subject.getCardinality(), iobj, base_old + " " + PP + " " + iobj_chain, isXcomp, "N1");
-					addRelation(rel);
-					
-					relationsCount++;
-					base_new = base_old + " " + PP + " " + iobj_chain + " --> " +  iobj;
-				}
-				else //Chain with different continuous prepositions, e.g., "confirmation FROM the user FOR this action"
-				{
-					System.out.println(System.lineSeparator() +relationText + isXcomp + " Transitive Relation 1.2: " +  subject.getName() + " --> " + base_new + " " + PP + " " + iobj_chain + " --> " +  iobj);
-					System.out.println(System.lineSeparator() +"cardinality: " +  subject.getCardinality() + " to " + quad.getD());
-					
-					Association_Relation rel = Utilities.formRelations(subject.getName(), obj_Quad.getC(), subject.getCardinality(), iobj, base_new + " " + PP + " " + iobj_chain, isXcomp, "N1");
-					addRelation(rel);
-					
-					relationsCount++;
-					base_old = base_new;
-					base_new = base_new + " " + PP + " " + iobj_chain + " " +  iobj;					
-				}
-				prev_PP = PP;
-			}
-		}	
-	}*/
 	
 	/*
 	 * Output List of triples
@@ -486,61 +376,7 @@ public class ExtractRelations_includingChains {
 		isXcomp = rel_features.get("xcomp") == null? false: true;
 		isAdvMod = rel_features.get("isAdvMod") == null? false: true;
 	}
-	
-	//Rule Provide Pattern
-	/*private static boolean providePatternRelation(Annotation relation)
-	{
-		AnnotationSet provide_Patterns = gate.Utils.getOverlappingAnnotations(inputAS, relation, "Pattern_Provide");
-		if(provide_Patterns.size() != 1)
-		{
-			return false;
-		}
-			
-		Annotation provide_Pattern = gate.Utils.getOnlyAnn(provide_Patterns);
-		AnnotationSet containingNPs = gate.Utils.getContainedAnnotations(inputAS, provide_Pattern, "Parse_NP");
-		AnnotationSet containingVPs = gate.Utils.getContainedAnnotations(inputAS, provide_Pattern, "Relations");
-		List<Annotation> list_containingNPs = gate.Utils.inDocumentOrder(containingNPs);
-		List<Annotation> list_containingVPs = gate.Utils.inDocumentOrder(containingVPs);
-		
-		String relation_str = gate.Utils.stringFor(doc, provide_Pattern);
-		
-		List<StringQuadruple> obj_quads = new ArrayList<StringQuadruple>();
-		for(int i = 0; i < list_containingNPs.size(); i++)
-		{
-			Annotation NP = list_containingNPs.get(i);
-			String NP_prunedString = NP.getFeatures().get("pruned_string").toString();
-			String NPStr = gate.Utils.stringFor(doc, list_containingNPs.get(i));
-			if(i == (list_containingNPs.size() - 1))
-			{
-				relation_str = relation_str.replace(NPStr, "");
-				obj_quads = traverseNP_Chains(NP);
-				if(obj_quads.size() == 1 && obj_quads.get(0).getB().equals(""))
-				{					
-					Concept_Class obj = Utilities.getMapped_NPPrunedString(doc, NP.getId());
-					obj_quads.get(0).setC(obj.getName());
-					obj_quads.get(0).setD(obj.getCardinality());
-				}
-			}
-			else
-			{
-				relation_str = relation_str.replaceFirst(NPStr, NP_prunedString);
-			}			
-		}
-		Concept_Class subject = Utilities.getMapped_NPPrunedString(doc, subject_Id); 
-		String subj = subject.getName();
-		for(StringQuadruple obj_quad: obj_quads)
-		{			
-			System.out.println(System.lineSeparator() +"Provide Pattern :  " +  subj + " --> " + relation_str.trim() + " " + obj_quad.getB() + " --> " + obj_quad.getC());
-			System.out.println(System.lineSeparator() +"cardinality: " +  subject.getCardinality() + " to " + obj_quad.getD());
-			Association_Relation rel = Utilities.formRelations(subj, obj_quad.getC(), subject.getCardinality(), obj_quad.getD(), relation_str.trim() + " " + obj_quad.getB(), false, "N3");
-			addRelation(rel);
-			relationsCount++;
-			printTransitiveRelation(subject, obj_quad, list_containingVPs.get(list_containingVPs.size() - 1),  " P ");
-			explore_VmodDependencies_overlappingwithProvide(provide_Pattern);
-		}
-		return true;
-	}*/
-	
+
 	private static void explore_VmodDependencies_overlappingwithProvide(Annotation provide_Pattern)
 	{	
 		AnnotationSet overlapping_vmod = Utils.getOverlappingAnnotations(inputAS, provide_Pattern, "Dep-vmod");
@@ -572,7 +408,6 @@ public class ExtractRelations_includingChains {
 			{
 				String NP1 = Utilities.getMapped_NPPrunedString(doc, list_NPs.get(0).getId()).getName();
 				String NP2 = Utilities.getMapped_NPPrunedString(doc, list_NPs.get(1).getId()).getName();
-				System.out.println(System.lineSeparator() +annot_name + " : " +  NP2 + " --> has --> " + NP1);
 				relationsCount++;
 			}
 		}
@@ -580,21 +415,52 @@ public class ExtractRelations_includingChains {
 	
 	public static void extractAdjectivallyModifiedNPs(Document annotated_Doc, Annotation sentence)
 	{
+		/*
 		AnnotationSet NPs = gate.Utils.getContainedAnnotations(inputAS, sentence, "Parse_NP");
 		List<Annotation> list_NPs = gate.Utils.inDocumentOrder(NPs);
 		for(Annotation NP:  list_NPs)
 		{
-			/*
-			 * Task - Manage Adjectively Modifiers for rule D3
-			 */
-			HashMap<String, Set<String>> map_AdjNPs = Classes_Rules.manageAdjModifiers(NP,NP.getFeatures());
+			HashMap<String, Set<String>> map_AdjNPs = Classes_Rules.manageModifiers(NP,NP.getFeatures());
 			for(String key: map_AdjNPs.keySet())
 			{
 				for(String obj: map_AdjNPs.get(key))
 				{
-					Concept_Relation rel = new Concept_Relation(new Concept_Class(obj), new Concept_Class(key), RelationType.GENERALIZATION, "D3");
+					Concept_Relation rel = new Concept_Relation(new Concept_Class(obj), new Concept_Class(key), RelationType.GENERALIZATION, "Generalization");
 					addRelation(rel);
 				}
+			}
+		}
+		*/
+
+		AnnotationSet tokenSet = gate.Utils.getContainedAnnotations(inputAS, sentence,"Token");
+		List<Annotation> tokens = gate.Utils.inDocumentOrder(tokenSet);
+		for(Annotation token : tokens) {
+			List<DependencyRelation> dependencies = (List<DependencyRelation>) token.getFeatures().get("dependencies");
+			try {
+				for (DependencyRelation dep : dependencies) {
+					if (dep.getType().equals("compound")) {
+						String base_string = token.getFeatures().get("string").toString();
+
+						int compound_target = dep.getTargetId();
+						String compound_string = "";
+						while (compound_target <= token.getId()) {
+							compound_string =  compound_string.concat(tokenSet.get(compound_target).getFeatures().get("string").toString() + " ");
+							compound_target += 2;
+						}
+
+						compound_target = dep.getTargetId();
+						int base_id = token.getId();
+						while(base_id > compound_target + 2) {
+							base_id -= 2;
+							base_string = tokenSet.get(base_id).getFeatures().get("string").toString() + " " + base_string;
+						}
+
+						Concept_Relation rel = new Concept_Relation(new Concept_Class(compound_string.trim()), new Concept_Class(base_string), RelationType.GENERALIZATION, "Generalization");
+						addRelation(rel);
+					}
+				}
+			}catch (Exception e) {
+
 			}
 		}
 	}
@@ -615,9 +481,7 @@ public class ExtractRelations_includingChains {
 			Annotation NP2annot = annotated_Doc.getAnnotations().get(NP2_id);
 			String NP1 = Utilities.getMapped_NPPrunedString(doc, NP1annot.getId()).getName();
 			String NP2 = Utilities.getMapped_NPPrunedString(doc, NP2annot.getId()).getName();
-			
-			System.out.println(System.lineSeparator() +"NP of NP:  " +  NP1 + " --> of --> " + NP2);
-			Concept_Relation rel = new Concept_Relation(new Concept_Class(NP1), new Concept_Class(NP2), RelationType.AGGREGATION, "D5");
+			Concept_Relation rel = new Concept_Relation(new Concept_Class(NP1), new Concept_Class(NP2), RelationType.AGGREGATION, "Aggregation");
 
 			addRelation(rel);
 			relationsCount++;
@@ -654,13 +518,13 @@ public class ExtractRelations_includingChains {
 			if(NPs.length == 2)
 			{
 				System.out.println(System.lineSeparator() +"NP's NP:  " +  NPs[0] + " --> has --> " + NPs[1]);
-				Concept_Relation rel = new Concept_Relation(new Concept_Class(NPs[0]), new Concept_Class(NPs[1]), RelationType.AGGREGATION, "D5"); 
+				Concept_Relation rel = new Concept_Relation(new Concept_Class(NPs[0]), new Concept_Class(NPs[1]), RelationType.AGGREGATION, "Aggregation");
 
 				addRelation(rel);
 				relationsCount++;
 			}*/
-			System.out.println(System.lineSeparator() +"NP's NP:  " +  relation.getFeatures().get("token1") + " --> has --> " + relation.getFeatures().get("token2"));
-			Concept_Relation rel = new Concept_Relation(new Concept_Class(relation.getFeatures().get("token1").toString()), new Concept_Class(relation.getFeatures().get("token2").toString()), RelationType.AGGREGATION, "D5");
+			//Concept_Relation rel = new Concept_Relation(new Concept_Class(relation.getFeatures().get("token1").toString()), new Concept_Class(relation.getFeatures().get("token2").toString()), RelationType.AGGREGATION, "Aggregation");
+			Concept_Relation rel = new Concept_Relation(new Concept_Class(relation.getFeatures().get("token1").toString()), new Concept_Class(relation.getFeatures().get("token2").toString()), RelationType.ATTRIBUTE, "Attribuate");
 
 			addRelation(rel);
 			relationsCount++;
@@ -669,16 +533,7 @@ public class ExtractRelations_includingChains {
 	}
 	
 	public static void addRelation(Object relObj)
-	{			
-		/*if(rel.getClass().toString().contains("Concept_Relation"))
-		{
-			//rel = (Concept_Relation) relObj;
-		}
-		else
-		{
-			//rel = (Association_Relation) relObj;
-		}*/
-
+	{
 		try {
 			Association_Relation tmp = (Association_Relation) relObj;
 			if (tmp.getRelationName().equals("provide") || tmp.getRelationName().equals("provide user with") || tmp.getRelationName().equals("provide with ability")) {
@@ -698,7 +553,7 @@ public class ExtractRelations_includingChains {
 			}
 		}
 		catch(Exception e) {
-			System.out.println();
+
 		}
 
 		Concept_Relation rel = (Concept_Relation) relObj;

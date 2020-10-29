@@ -7,7 +7,6 @@ import java.util.List;
 
 import javax.swing.SwingUtilities;
 
-import edu.stanford.nlp.util.ArraySet;
 import gate.*;
 import gate.creole.ANNIEConstants;
 import gate.creole.ConditionalSerialAnalyserController;
@@ -36,7 +35,7 @@ public class Model_Extraction_Main {
 		//prepare the GATE library
 		Gate.init();
 
-		for ( int i = 1; i <= 3; ++i) {
+		for ( int i = 2; i <= 2; ++i) {
 			Corpus corpus = init(i);
 			for (Document annoted_Doc : corpus) {
 
@@ -60,44 +59,19 @@ public class Model_Extraction_Main {
 		Corpus corpus = (Corpus) Factory.createResource("gate.corpora.CorpusImpl");
 		corpus.setName("Test_Corpus");
 
-		URL docURL_1 = new URL("file:///Users/dujianuo/Desktop/domain model/Extracting Domain Model/resources/All_Annotations_OpenCossReqs.xml");;
+		URL docURL_1 = new URL("file:///C:\\Users\\26309\\workspace\\Extracting-Domain-Model\\resources\\All_Annotations_OpenCossReqs.xml");
 
-		if(i == 1) {
-			docURL_1 = new URL("file:///Users/dujianuo/Desktop/domain model/Extracting Domain Model/resources/Partial_Annotations_OpenCossReqs.xml");
-		}
-		else if(i == 2) {
-			docURL_1 = new URL("file:///Users/dujianuo/Desktop/domain model/Extracting Domain Model/resources/Two Tanks Requirements.xml");
+		if(i == 2) {
+			docURL_1 = new URL("file:///C:\\Users\\26309\\workspace\\Extracting-Domain-Model\\resources/iTrust.xml");
 		}
 		else if(i == 3) {
-			docURL_1 = new URL("file:///Users/dujianuo/Desktop/domain model/Extracting Domain Model/resources/ATM_Example.xml");
+			docURL_1 = new URL("file:///C:\\Users\\26309\\workspace\\Extracting-Domain-Model\\resources/ATM_Example.xml");
 		}
 		Document doc_1 = Factory.newDocument(docURL_1, "UTF-8");
 		doc_1.setName("OpenCossReqs");
 
-
-		
-		//Show the GATE developer window
-		/*SwingUtilities.invokeAndWait(new Runnable() { public void run() {
-			MainFrame.getInstance().setVisible(true); }
-		});*/
-		
-		//Load Creole Plugin;
-		//System.out.println(Gate.getPluginsHome().getAbsolutePath());
-		//Gate.getCreoleRegister().registerDirectories(new File(gate.Gate.getPluginsHome(), ANNIEConstants.PLUGIN_DIR).toURI().toURL());
-		//Gate.getCreoleRegister().registerDirectories(new File(gate.Gate.getPluginsHome(), "OpenNLP").toURI().toURL());
-		//Gate.getCreoleRegister().registerDirectories(new File(gate.Gate.getPluginsHome(), "Stanford_CoreNLP").toURI().toURL());
-		//Gate.getCreoleRegister().registerDirectories(new File(gate.Gate.getPluginsHome(), "Tools").toURI().toURL());
-
 	    corpus.add(doc_1);
-	    //corpus.add(doc_2);
-			    			
-		//ProcessingResource pr =  (ProcessingResource) Factory.createResource("gate.stanford.Tagger", Factory.newFeatureMap());
-		
-		//ConditionalSerialAnalyserController pipeline = (ConditionalSerialAnalyserController) PersistenceManager.loadObjectFromFile(new File("/Users/dujianuo/Desktop/domain model/Extracting Domain Model/models.gapp"));
-		//CorpusController pipeline = (CorpusController) PersistenceManager.loadObjectFromFile(new File("/Users/dujianuo/Desktop/domain model/Extracting Domain Model/models.gapp"));
-		//pipeline.setCorpus(corpus);
-		//pipeline.execute();
-		
+
 		return corpus;
 	}
 	
@@ -117,17 +91,17 @@ public class Model_Extraction_Main {
 		
 		//DOT_Graphviz_conversion.writeDOTFile("/Users/dujianuo/Desktop/domain model/Extracting Domain Model/result/example_1.dot");
 		if(i == 1) {
-			DOT_Graphviz_conversion.writeDOTFile("/Users/dujianuo/Desktop/domain model/Extracting Domain Model/result/Partial_Annotations_OpenCossReqs.dot");
+			DOT_Graphviz_conversion.writeDOTFile("result/Partial_Annotations_OpenCossReqs.dot");
 		}
 		else if (i == 2) {
-			DOT_Graphviz_conversion.writeDOTFile("/Users/dujianuo/Desktop/domain model/Extracting Domain Model/result/Two Tanks Requirements.dot");
+			DOT_Graphviz_conversion.writeDOTFile("result/iTrust.dot");
 		}
 		else if (i == 3) {
-			DOT_Graphviz_conversion.writeDOTFile("/Users/dujianuo/Desktop/domain model/Extracting Domain Model/result/ATM_Example.dot");
+			DOT_Graphviz_conversion.writeDOTFile("result/ATM_Example.dot");
 		}
 
-		System.out.println("*******************  RESULTS *************");
-		System.out.println(results);
+		//System.out.println("*******************  RESULTS *************");
+		//System.out.println(results);
 	}
 
 	/*private static void extractAtomicNPs() {
