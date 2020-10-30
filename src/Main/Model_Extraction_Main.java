@@ -3,20 +3,13 @@ package Main;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
-
-import javax.swing.SwingUtilities;
 
 import data.Write_To_Excel;
 import gate.*;
-import gate.creole.ANNIEConstants;
-import gate.creole.ConditionalSerialAnalyserController;
-import gate.gui.MainFrame;
 import gate.util.InvalidOffsetException;
-import gate.util.persistence.PersistenceManager;
+
 import data.DOT_Graphviz_conversion;
 import data.GlobalVariables;
-import data.JSONConversion;
 import processing.Concept_Pattern;
 import processing.ExtractRelations_includingChains;
 import rules.Classes_Rules;
@@ -36,7 +29,7 @@ public class Model_Extraction_Main {
 		//prepare the GATE library
 		Gate.init();
 
-		for ( int i = 2; i <= 2; ++i) {
+		for ( int i = 1; i <= 2; ++i) {
 			Corpus corpus = init(i);
 			for (Document annoted_Doc : corpus) {
 
@@ -49,27 +42,18 @@ public class Model_Extraction_Main {
 			}
 		}
 	}
-	
-	/*
-	 * This method initializes all the gate resources and is used to execute the pipeline (defined within this method)
-	 * on the document (defined within this method)
-	 * It returns the annotated document
-	 */
+
 	private static Corpus init(int i) throws Exception
 	{
 		Corpus corpus = (Corpus) Factory.createResource("gate.corpora.CorpusImpl");
 		corpus.setName("Test_Corpus");
 
-		//URL docURL = new URL("file:///C:\\Users\\26309\\workspace\\Extracting-Domain-Model\\resources\\All_Annotations_OpenCossReqs.xml");
-		URL docURL = new URL("file://All_Annotations_OpenCossReqs.xml");
+		URL docURL = new URL("file:///C:\\Users\\26309\\workspace\\Extracting-Domain-Model\\resources\\All_Annotations_OpenCossReqs.xml");
 
 		if(i == 2) {
-			//docURL = new URL("file:///C:\\Users\\26309\\workspace\\Extracting-Domain-Model\\resources/iTrust.xml");
-			docURL = new URL("file:///Users/dujianuo/Desktop/Extracting-Domain-Model/resources/iTrust.xml");
+			docURL = new URL("file:///C:\\Users\\26309\\workspace\\Extracting-Domain-Model\\resources/iTrust.xml");
 		}
-		else if(i == 3) {
-			//docURL = new URL("file:///C:\\Users\\26309\\workspace\\Extracting-Domain-Model\\resources/ATM_Example.xml");
-		}
+
 		Document doc = Factory.newDocument(docURL, "UTF-8");
 		doc.setName("OpenCossReqs");
 
@@ -81,18 +65,10 @@ public class Model_Extraction_Main {
 	private static void extractInfoFromAnnotatedDoc(int i) throws InvalidOffsetException, SecurityException, IOException
 	{				
 		Relation_Rules.extractRelations();
-		
 		Classes_Rules.classesInfo();
-		
 		ExtractRelations_includingChains.traverseRelations();
-
         Concept_Pattern.Concept_Pattern();
-		
-		//Classes_Rules.printAdjNPs(doc);
-		
-		String results = JSONConversion.converttoJSON();
-		
-		//DOT_Graphviz_conversion.writeDOTFile("/Users/dujianuo/Desktop/domain model/Extracting Domain Model/result/example_1.dot");
+
 		if(i == 1) {
 			DOT_Graphviz_conversion.writeDOTFile("result/Partial_Annotations_OpenCossReqs.dot");
 		}
@@ -103,9 +79,6 @@ public class Model_Extraction_Main {
 		else if (i == 3) {
 			DOT_Graphviz_conversion.writeDOTFile("result/ATM_Example.dot");
 		}
-
-		//System.out.println("*******************  RESULTS *************");
-		//System.out.println(results);
 	}
 
 	/*private static void extractAtomicNPs() {

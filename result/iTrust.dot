@@ -13,14 +13,14 @@ fontsize = 8
 
 
 R1:System must support password authentication.
-password_authentication [ label = "{password authentication : \l}"]
-authentication [ label = "{authentication : \l}"]
-password_authentication -> authentication  [arrowhead = "empty"]
-Generalization
 System [ label = "{System : \l}"]
 password_authentication [ label = "{password authentication : \l}"]
 System -> password_authentication  [arrowhead = "none", label = "support"]
 Association
+password_authentication [ label = "{password authentication : \l}"]
+authentication [ label = "{authentication : \l}"]
+password_authentication -> authentication  [arrowhead = "empty"]
+Generalization
 
 
 R2:System will allow the user to reset the password using a security question.
@@ -28,14 +28,14 @@ System [ label = "{System : \l}"]
 password [ label = "{password : \l}"]
 System -> password  [arrowhead = "none", label = "allow the user to reset"]
 Association
-System [ label = "{System : \l}"]
-user [ label = "{user : \l}"]
-System -> user  [arrowhead = "none", label = "allow the user to reset"]
-Association
 security_question [ label = "{security question : \l}"]
 question [ label = "{question : \l}"]
 security_question -> question  [arrowhead = "empty"]
 Generalization
+System [ label = "{System : \l}"]
+user [ label = "{user : \l}"]
+System -> user  [arrowhead = "none", label = "allow the user to reset"]
+Association
 
 
 R3:Electronic session must terminate after a pre-determined period of inactivity.
@@ -43,14 +43,14 @@ Electronic_session [ label = "{Electronic session : \l}"]
 inactivity [ label = "{inactivity : \l}"]
 Electronic_session -> inactivity  [arrowhead = "none", label = " terminate "]
 Association
-pre-determined_period [ label = "{pre-determined period : \l}"]
-inactivity [ label = "{inactivity : \l}"]
-pre-determined_period -> inactivity  [arrowhead = "odiamond"]
-Aggregation
 Electronic_session [ label = "{Electronic session : \l}"]
 pre-determined_period [ label = "{pre-determined period : \l}"]
 Electronic_session -> pre-determined_period  [arrowhead = "none", label = " terminate after"]
 Association
+pre-determined_period [ label = "{pre-determined period : \l}"]
+inactivity [ label = "{inactivity : \l}"]
+pre-determined_period -> inactivity  [arrowhead = "odiamond"]
+Aggregation
 
 
 R4:Administrator must be able to specify the pre-determined period.
@@ -111,42 +111,42 @@ R9:System must implement role for Designated Licensed Health Care Personnel.
 
 
 
-Designated_Licensed_Health_Care_Personnel [ label = "{Designated Licensed Health Care Personnel : \l}"]
-Licensed_Health_Care_Personnel [ label = "{Licensed Health Care Personnel : \l}"]
-Designated_Licensed_Health_Care_Personnel -> Licensed_Health_Care_Personnel  [arrowhead = "empty"]
-Generalization
 System [ label = "{System : \l}"]
 Designated_Licensed_Health_Care_Personnel [ label = "{Designated Licensed Health Care Personnel : \l}"]
 System -> Designated_Licensed_Health_Care_Personnel  [arrowhead = "none", label = "implement role for"]
 Association
+Designated_Licensed_Health_Care_Personnel [ label = "{Designated Licensed Health Care Personnel : \l}"]
+Licensed_Health_Care_Personnel [ label = "{Licensed Health Care Personnel : \l}"]
+Designated_Licensed_Health_Care_Personnel -> Licensed_Health_Care_Personnel  [arrowhead = "empty"]
+Generalization
 
 
 R10:System must implement role for Emergency Responder.
-Emergency_Responder [ label = "{Emergency Responder : \l}"]
-Responder [ label = "{Responder : \l}"]
-Emergency_Responder -> Responder  [arrowhead = "empty"]
-Generalization
 
 System [ label = "{System : \l}"]
 Emergency_Responder [ label = "{Emergency Responder : \l}"]
 System -> Emergency_Responder  [arrowhead = "none", label = "implement role for"]
 Association
+Emergency_Responder [ label = "{Emergency Responder : \l}"]
+Responder [ label = "{Responder : \l}"]
+Emergency_Responder -> Responder  [arrowhead = "empty"]
+Generalization
 
 
 R11:System must implement role for Unlicensed Authorized Personnel.
-Unlicensed_Authorized_Personnel [ label = "{Unlicensed Authorized Personnel : \l}"]
-Authorized_Personnel [ label = "{Authorized Personnel : \l}"]
-Unlicensed_Authorized_Personnel -> Authorized_Personnel  [arrowhead = "empty"]
-Generalization
-Authorized_Personnel [ label = "{Authorized Personnel : \l}"]
-Personnel [ label = "{Personnel : \l}"]
-Authorized_Personnel -> Personnel  [arrowhead = "empty"]
-Generalization
 System [ label = "{System : \l}"]
 Unlicensed_Authorized_Personnel [ label = "{Unlicensed Authorized Personnel : \l}"]
 System -> Unlicensed_Authorized_Personnel  [arrowhead = "none", label = "implement role for"]
 Association
+Unlicensed_Authorized_Personnel [ label = "{Unlicensed Authorized Personnel : \l}"]
+Authorized_Personnel [ label = "{Authorized Personnel : \l}"]
+Unlicensed_Authorized_Personnel -> Authorized_Personnel  [arrowhead = "empty"]
+Generalization
 
+Authorized_Personnel [ label = "{Authorized Personnel : \l}"]
+Personnel [ label = "{Personnel : \l}"]
+Authorized_Personnel -> Personnel  [arrowhead = "empty"]
+Generalization
 
 
 R12:System must implement role for Personal Representative.
@@ -154,11 +154,11 @@ System [ label = "{System : \l}"]
 Personal_Representative [ label = "{Personal Representative : \l}"]
 System -> Personal_Representative  [arrowhead = "none", label = "implement role for"]
 Association
-
 Personal_Representative [ label = "{Personal Representative : \l}"]
 Representative [ label = "{Representative : \l}"]
 Personal_Representative -> Representative  [arrowhead = "empty"]
 Generalization
+
 
 
 R13:System must implement role for Tester.
@@ -245,14 +245,6 @@ Association
 
 
 R23:Patient will be able to find LHCPs for prescription renewal or chronic disease risk factors.
-risk_factors [ label = "{risk factors : \l}"]
-factors [ label = "{factors : \l}"]
-risk_factors -> factors  [arrowhead = "empty"]
-Generalization
-disease_risk_factors [ label = "{disease risk factors : \l}"]
-risk_factors [ label = "{risk factors : \l}"]
-disease_risk_factors -> risk_factors  [arrowhead = "empty"]
-Generalization
 Patient [ label = "{Patient : \l}"]
 prescription_renewal [ label = "{prescription renewal : \l}"]
 Patient -> prescription_renewal  [arrowhead = "none", label = "find lhcp for"]
@@ -265,6 +257,14 @@ Patient [ label = "{Patient : \l}"]
 lhcp [ label = "{lhcp : \l}"]
 Patient -> lhcp  [arrowhead = "none", label = "find"]
 Association
+disease_risk_factors [ label = "{disease risk factors : \l}"]
+risk_factors [ label = "{risk factors : \l}"]
+disease_risk_factors -> risk_factors  [arrowhead = "empty"]
+Generalization
+risk_factors [ label = "{risk factors : \l}"]
+factors [ label = "{factors : \l}"]
+risk_factors -> factors  [arrowhead = "empty"]
+Generalization
 
 
 R24:Patient will be able to authenticate users.
@@ -372,12 +372,12 @@ Association
 
 R36:HCP will be able to find LHCPs for prescription renewal or chronic disease risk factors.
 
-
-
 HCP [ label = "{HCP : \l}"]
 prescription_renewal [ label = "{prescription renewal : \l}"]
 HCP -> prescription_renewal  [arrowhead = "none", label = "find lhcp for"]
 Association
+
+
 HCP [ label = "{HCP : \l}"]
 lhcp [ label = "{lhcp : \l}"]
 HCP -> lhcp  [arrowhead = "none", label = "find"]
@@ -392,11 +392,11 @@ Association
 
 
 R38:HCP will be able to enter personal health information.
-
 HCP [ label = "{HCP : \l}"]
 personal_health_information [ label = "{personal health information : \l}"]
 HCP -> personal_health_information  [arrowhead = "none", label = "enter"]
 Association
+
 
 
 R39:HCP will be able to edit personal health information.
@@ -420,14 +420,14 @@ HCP [ label = "{HCP : \l}"]
 patient [ label = "{patient : \l}"]
 HCP -> patient  [arrowhead = "none", label = "proactively confirm prescription-renewal need of"]
 Association
-prescription-renewal_need [ label = "{prescription-renewal need : \l}"]
-patient [ label = "{patient : \l}"]
-prescription-renewal_need -> patient  [arrowhead = "odiamond"]
-Aggregation
 prescription-renewal_needs [ label = "{prescription-renewal needs : \l}"]
 needs [ label = "{needs : \l}"]
 prescription-renewal_needs -> needs  [arrowhead = "empty"]
 Generalization
+prescription-renewal_need [ label = "{prescription-renewal need : \l}"]
+patient [ label = "{patient : \l}"]
+prescription-renewal_need -> patient  [arrowhead = "odiamond"]
+Aggregation
 
 
 R42:Administrator will be able to create a HCP.
@@ -445,14 +445,14 @@ Association
 
 
 R44:Administrator will be able to maintain the standards list.
-Administrator [ label = "{Administrator : \l}"]
-standards_list [ label = "{standards list : \l}"]
-Administrator -> standards_list  [arrowhead = "none", label = "maintain"]
-Association
 standards_list [ label = "{standards list : \l}"]
 list [ label = "{list : \l}"]
 standards_list -> list  [arrowhead = "empty"]
 Generalization
+Administrator [ label = "{Administrator : \l}"]
+standards_list [ label = "{standards list : \l}"]
+Administrator -> standards_list  [arrowhead = "none", label = "maintain"]
+Association
 
 
 R45:Administrator will be able to maintain a standard list of available immunizations.
@@ -556,11 +556,11 @@ HCP [ label = "{HCP : \l}"]
 personal_health_representative [ label = "{personal health representative : \l}"]
 HCP -> personal_health_representative  [arrowhead = "none", label = "undeclare"]
 Association
+
 HCP [ label = "{HCP : \l}"]
 patient [ label = "{patient : \l}"]
 HCP -> patient  [arrowhead = "none", label = "undeclare personal health representative for"]
 Association
-
 
 
 R55:HCP will be able to refer a patient for consultations.
@@ -587,14 +587,14 @@ Generalization
 
 R57:HCP will be able to disable patient.
 R58:HCP will be able to create UAP accounts.
-HCP [ label = "{HCP : \l}"]
-UAP_account [ label = "{UAP account : \l}"]
-HCP -> UAP_account  [arrowhead = "none", label = "create"]
-Association
 UAP_accounts [ label = "{UAP accounts : \l}"]
 accounts [ label = "{accounts : \l}"]
 UAP_accounts -> accounts  [arrowhead = "empty"]
 Generalization
+HCP [ label = "{HCP : \l}"]
+UAP_account [ label = "{UAP account : \l}"]
+HCP -> UAP_account  [arrowhead = "none", label = "create"]
+Association
 
 
 R59:System must support creating patients (accounts).
@@ -609,13 +609,13 @@ System [ label = "{System : \l}"]
 unique_Medical_User_Identification_number [ label = "{unique Medical User Identification number : \l}"]
 System -> unique_Medical_User_Identification_number  [arrowhead = "none", label = "generate"]
 Association
-Identification_number [ label = "{Identification number : \l}"]
-number [ label = "{number : \l}"]
-Identification_number -> number  [arrowhead = "empty"]
-Generalization
 User_Identification_number [ label = "{User Identification number : \l}"]
 Identification_number [ label = "{Identification number : \l}"]
 User_Identification_number -> Identification_number  [arrowhead = "empty"]
+Generalization
+Identification_number [ label = "{Identification number : \l}"]
+number [ label = "{number : \l}"]
+Identification_number -> number  [arrowhead = "empty"]
 Generalization
 
 
@@ -647,30 +647,34 @@ Association
 
 
 R64:System must support creating and editing patients (accounts).
-editing_patients [ label = "{editing patients : \l}"]
-patients [ label = "{patients : \l}"]
-editing_patients -> patients  [arrowhead = "empty"]
-Generalization
 System [ label = "{System : \l}"]
 editing_patient [ label = "{editing patient : \l}"]
 System -> editing_patient  [arrowhead = "none", label = "support creating"]
 Association
+editing_patients [ label = "{editing patients : \l}"]
+patients [ label = "{patients : \l}"]
+editing_patients -> patients  [arrowhead = "empty"]
+Generalization
 
 
 R65:System will support transaction logs that will include the MID of the editor, transaction type and transaction date.
 
-transaction_log [ label = "{transaction log : \l}"]
-editor [ label = "{editor : \l}"]
-transaction_log -> editor  [arrowhead = "none", label = "include MID of"]
-Association
-transaction_date [ label = "{transaction date : \l}"]
-date [ label = "{date : \l}"]
-transaction_date -> date  [arrowhead = "empty"]
-Generalization
 MID [ label = "{MID : \l}"]
 editor [ label = "{editor : \l}"]
 MID -> editor  [arrowhead = "odiamond"]
 Aggregation
+transaction_log [ label = "{transaction log : \l}"]
+editor [ label = "{editor : \l}"]
+transaction_log -> editor  [arrowhead = "none", label = "include MID of"]
+Association
+transaction_type [ label = "{transaction type : \l}"]
+type [ label = "{type : \l}"]
+transaction_type -> type  [arrowhead = "empty"]
+Generalization
+transaction_date [ label = "{transaction date : \l}"]
+date [ label = "{date : \l}"]
+transaction_date -> date  [arrowhead = "empty"]
+Generalization
 transaction_logs [ label = "{transaction logs : \l}"]
 logs [ label = "{logs : \l}"]
 transaction_logs -> logs  [arrowhead = "empty"]
@@ -679,21 +683,17 @@ System [ label = "{System : \l}"]
 transaction_log [ label = "{transaction log : \l}"]
 System -> transaction_log  [arrowhead = "none", label = "support"]
 Association
-transaction_type [ label = "{transaction type : \l}"]
-type [ label = "{type : \l}"]
-transaction_type -> type  [arrowhead = "empty"]
-Generalization
 
 
 R66:Patient must be able to view access log for a specified (by the patient) period of time.
-patient_)_period [ label = "{patient ) period : \l}"]
-time [ label = "{time : \l}"]
-patient_)_period -> time  [arrowhead = "odiamond"]
-Aggregation
 Patient [ label = "{Patient : \l}"]
 time [ label = "{time : \l}"]
 Patient -> time  [arrowhead = "none", label = "view access log for patient ) period of"]
 Association
+patient_)_period [ label = "{patient ) period : \l}"]
+time [ label = "{time : \l}"]
+patient_)_period -> time  [arrowhead = "odiamond"]
+Aggregation
 Patient [ label = "{Patient : \l}"]
 patient_)_period [ label = "{patient ) period : \l}"]
 Patient -> patient_)_period  [arrowhead = "none", label = "view access log for"]
@@ -703,11 +703,11 @@ Association
 
 
 R67:Health Care Personnel will be able to enter personal health records of patient.
+
 health_records [ label = "{health records : \l}"]
 records [ label = "{records : \l}"]
 health_records -> records  [arrowhead = "empty"]
 Generalization
-
 
 Health_Care_Personnel [ label = "{Health Care Personnel : \l}"]
 patient [ label = "{patient : \l}"]
@@ -726,11 +726,11 @@ Aggregation
 R68:Health Care Personnel will be able to edit the personal health records of patient.
 
 
-
 Health_Care_Personnel [ label = "{Health Care Personnel : \l}"]
 patient [ label = "{patient : \l}"]
 Health_Care_Personnel -> patient  [arrowhead = "none", label = "edit personal health record of"]
 Association
+
 Health_Care_Personnel [ label = "{Health Care Personnel : \l}"]
 personal_health_record [ label = "{personal health record : \l}"]
 Health_Care_Personnel -> personal_health_record  [arrowhead = "none", label = "edit"]
@@ -746,30 +746,30 @@ Generalization
 
 
 R70:System will allow for documenting office visits.
-System [ label = "{System : \l}"]
-office_visit [ label = "{office visit : \l}"]
-System -> office_visit  [arrowhead = "none", label = " allow for"]
-Association
 office_visits [ label = "{office visits : \l}"]
 visits [ label = "{visits : \l}"]
 office_visits -> visits  [arrowhead = "empty"]
 Generalization
+System [ label = "{System : \l}"]
+office_visit [ label = "{office visit : \l}"]
+System -> office_visit  [arrowhead = "none", label = " allow for"]
+Association
 
 
 R71:LHCP will be able to document the notes of an office visit.
-LHCP [ label = "{LHCP : \l}"]
-note [ label = "{note : \l}"]
-LHCP -> note  [arrowhead = "none", label = "document"]
-Association
-LHCP [ label = "{LHCP : \l}"]
-office_visit [ label = "{office visit : \l}"]
-LHCP -> office_visit  [arrowhead = "none", label = "document note of"]
-Association
 note [ label = "{note : \l}"]
 office_visit [ label = "{office visit : \l}"]
 note -> office_visit  [arrowhead = "odiamond"]
 Aggregation
+LHCP [ label = "{LHCP : \l}"]
+note [ label = "{note : \l}"]
+LHCP -> note  [arrowhead = "none", label = "document"]
+Association
 
+LHCP [ label = "{LHCP : \l}"]
+office_visit [ label = "{office visit : \l}"]
+LHCP -> office_visit  [arrowhead = "none", label = "document note of"]
+Association
 
 
 R72:LHCP will be able to provide the date of the office visit.
@@ -781,11 +781,11 @@ Aggregation
 
 
 R73:HCP will be able to document diagnoses determined during an office visit.
+
 HCP [ label = "{HCP : \l}"]
 diagnosis [ label = "{diagnosis : \l}"]
 HCP -> diagnosis  [arrowhead = "none", label = "document"]
 Association
-
 
 
 R74:HCP will be able to document medical procedures performed during an office visit.
@@ -797,11 +797,11 @@ Association
 
 
 R75:HCP will be able to document medications prescribed  to the patient during an office visit.
+
 HCP [ label = "{HCP : \l}"]
 medication [ label = "{medication : \l}"]
 HCP -> medication  [arrowhead = "none", label = "document"]
 Association
-
 
 
 R76:HCP will be able to document immunizations given to the patient during an office visit.
@@ -809,22 +809,22 @@ HCP [ label = "{HCP : \l}"]
 immunization [ label = "{immunization : \l}"]
 HCP -> immunization  [arrowhead = "none", label = "document"]
 Association
+
 HCP [ label = "{HCP : \l}"]
 given [ label = "{given : \l}"]
 HCP -> given  [arrowhead = "none", label = "document immunization"]
 Association
 
 
-
 R77:System will use ICD-9CM code to describe diagnoses.
-System [ label = "{System : \l}"]
-ICD-9CM_code [ label = "{ICD-9CM code : \l}"]
-System -> ICD-9CM_code  [arrowhead = "none", label = "use"]
-Association
 ICD-9CM_code [ label = "{ICD-9CM code : \l}"]
 code [ label = "{code : \l}"]
 ICD-9CM_code -> code  [arrowhead = "empty"]
 Generalization
+System [ label = "{System : \l}"]
+ICD-9CM_code [ label = "{ICD-9CM code : \l}"]
+System -> ICD-9CM_code  [arrowhead = "none", label = "use"]
+Association
 
 
 R78:System will use CPT code to describe medical procedures.
@@ -839,13 +839,13 @@ Association
 
 
 R79:System will use LOINC code to describe lab procedures.
-lab_procedures [ label = "{lab procedures : \l}"]
-procedures [ label = "{procedures : \l}"]
-lab_procedures -> procedures  [arrowhead = "empty"]
-Generalization
 LOINC_code [ label = "{LOINC code : \l}"]
 code [ label = "{code : \l}"]
 LOINC_code -> code  [arrowhead = "empty"]
+Generalization
+lab_procedures [ label = "{lab procedures : \l}"]
+procedures [ label = "{procedures : \l}"]
+lab_procedures -> procedures  [arrowhead = "empty"]
 Generalization
 System [ label = "{System : \l}"]
 LOINC_code [ label = "{LOINC code : \l}"]
@@ -901,14 +901,14 @@ instance [ label = "{instance : \l}"]
 epidemic_proportion [ label = "{epidemic proportion : \l}"]
 instance -> epidemic_proportion  [arrowhead = "none", label = "of certain ailment reaching"]
 Association
-instance [ label = "{instance : \l}"]
-certain_ailment [ label = "{certain ailment : \l}"]
-instance -> certain_ailment  [arrowhead = "odiamond"]
-Aggregation
 epidemic_proportions [ label = "{epidemic proportions : \l}"]
 proportions [ label = "{proportions : \l}"]
 epidemic_proportions -> proportions  [arrowhead = "empty"]
 Generalization
+instance [ label = "{instance : \l}"]
+certain_ailment [ label = "{certain ailment : \l}"]
+instance -> certain_ailment  [arrowhead = "odiamond"]
+Aggregation
 
 
 R84:System will use heurystic methods to analyze data in the database.
@@ -930,30 +930,30 @@ Association
 
 
 R86:System will identify patient's risk for Diabetes Type 1.
-patient [ label = "{patient |+ risk : \l}"]
-Attribuate
+System [ label = "{System : \l}"]
+risk [ label = "{risk : \l}"]
+System -> risk  [arrowhead = "none", label = "identify"]
+Association
 Diabetes_Type [ label = "{Diabetes Type : \l}"]
 Type [ label = "{Type : \l}"]
 Diabetes_Type -> Type  [arrowhead = "empty"]
 Generalization
 System [ label = "{System : \l}"]
-risk [ label = "{risk : \l}"]
-System -> risk  [arrowhead = "none", label = "identify"]
-Association
-System [ label = "{System : \l}"]
 Diabetes_Type_1 [ label = "{Diabetes Type 1 : \l}"]
 System -> Diabetes_Type_1  [arrowhead = "none", label = "identify risk for"]
 Association
+patient [ label = "{patient |+ risk : \l}"]
+Attribuate
 
 
 R87:System will identify patient's risk for Diabetes Type 2.
-
 
 
 System [ label = "{System : \l}"]
 Diabetes_Type_2 [ label = "{Diabetes Type 2 : \l}"]
 System -> Diabetes_Type_2  [arrowhead = "none", label = "identify risk for"]
 Association
+
 
 
 R88:System will identify patient's risk for Heart Disease.
@@ -977,6 +977,7 @@ Association
 
 
 R90:System will allow to identify chronic patients who need an office visit.
+
 System [ label = "{System : \l}"]
 chronic_patient [ label = "{chronic patient : \l}"]
 System -> chronic_patient  [arrowhead = "none", label = "allow to identify"]
@@ -985,7 +986,6 @@ who [ label = "{who : \l}"]
 office_visit [ label = "{office visit : \l}"]
 who -> office_visit  [arrowhead = "none", label = "need"]
 Association
-
 
 
 R91:System will allow to identify patients who need a flu shot.
@@ -1009,14 +1009,14 @@ who [ label = "{who : \l}"]
 immunization_schedule [ label = "{immunization schedule : \l}"]
 who -> immunization_schedule  [arrowhead = "none", label = "had proper immunization per"]
 Association
-who [ label = "{who : \l}"]
-proper_immunization [ label = "{proper immunization : \l}"]
-who -> proper_immunization  [arrowhead = "none", label = "had"]
-Association
 immunization_schedule [ label = "{immunization schedule : \l}"]
 schedule [ label = "{schedule : \l}"]
 immunization_schedule -> schedule  [arrowhead = "empty"]
 Generalization
+who [ label = "{who : \l}"]
+proper_immunization [ label = "{proper immunization : \l}"]
+who -> proper_immunization  [arrowhead = "none", label = "had"]
+Association
 
 
 R93:System will allow to view prescription report.
@@ -1053,6 +1053,7 @@ Generalization
 
 
 R96:Electronic health record will include patient's name.
+
 patient [ label = "{patient |+ name : \l}"]
 Attribuate
 Electronic_health_record [ label = "{Electronic health record : \l}"]
@@ -1061,15 +1062,14 @@ Electronic_health_record -> name  [arrowhead = "none", label = "include"]
 Association
 
 
-
 R97:Electronic health record will include patient's gender.
-patient [ label = "{patient |+ gender : \l}"]
-Attribuate
 Electronic_health_record [ label = "{Electronic health record : \l}"]
 gender [ label = "{gender : \l}"]
 Electronic_health_record -> gender  [arrowhead = "none", label = "include"]
 Association
 
+patient [ label = "{patient |+ gender : \l}"]
+Attribuate
 
 
 R98:Electronic health record will include patient's emergency contact.
@@ -1079,60 +1079,56 @@ Electronic_health_record -> emergency_contact  [arrowhead = "none", label = "inc
 Association
 patient [ label = "{patient |+ contact : \l}"]
 Attribuate
+
 emergency_contact [ label = "{emergency contact : \l}"]
 contact [ label = "{contact : \l}"]
 emergency_contact -> contact  [arrowhead = "empty"]
 Generalization
 
 
-
 R99:Electronic health record will include patient's allergies.
-patient [ label = "{patient |+ allergies : \l}"]
-Attribuate
 Electronic_health_record [ label = "{Electronic health record : \l}"]
 allergy [ label = "{allergy : \l}"]
 Electronic_health_record -> allergy  [arrowhead = "none", label = "include"]
 Association
-
-
-
-R100:Electronic health record will include patient's blood type.
-blood_type [ label = "{blood type : \l}"]
-type [ label = "{type : \l}"]
-blood_type -> type  [arrowhead = "empty"]
-Generalization
-Electronic_health_record [ label = "{Electronic health record : \l}"]
-blood_type [ label = "{blood type : \l}"]
-Electronic_health_record -> blood_type  [arrowhead = "none", label = "include"]
-Association
-patient [ label = "{patient |+ type : \l}"]
+patient [ label = "{patient |+ allergies : \l}"]
 Attribuate
 
 
 
+R100:Electronic health record will include patient's blood type.
+patient [ label = "{patient |+ type : \l}"]
+Attribuate
+
+Electronic_health_record [ label = "{Electronic health record : \l}"]
+blood_type [ label = "{blood type : \l}"]
+Electronic_health_record -> blood_type  [arrowhead = "none", label = "include"]
+Association
+blood_type [ label = "{blood type : \l}"]
+type [ label = "{type : \l}"]
+blood_type -> type  [arrowhead = "empty"]
+Generalization
+
+
 R101:Electronic health record will include list of patient's diagnosis.
-list [ label = "{list : \l}"]
-diagnosis [ label = "{diagnosis : \l}"]
-list -> diagnosis  [arrowhead = "odiamond"]
-Aggregation
 patient [ label = "{patient |+ diagnosis : \l}"]
 Attribuate
 Electronic_health_record [ label = "{Electronic health record : \l}"]
 list [ label = "{list : \l}"]
 Electronic_health_record -> list  [arrowhead = "none", label = "include"]
 Association
+
+list [ label = "{list : \l}"]
+diagnosis [ label = "{diagnosis : \l}"]
+list -> diagnosis  [arrowhead = "odiamond"]
+Aggregation
 Electronic_health_record [ label = "{Electronic health record : \l}"]
 diagnosis [ label = "{diagnosis : \l}"]
 Electronic_health_record -> diagnosis  [arrowhead = "none", label = "include list of"]
 Association
 
 
-
 R102:Electronic health record will include list of patient's prescriptions.
-list [ label = "{list : \l}"]
-prescription [ label = "{prescription : \l}"]
-list -> prescription  [arrowhead = "odiamond"]
-Aggregation
 Electronic_health_record [ label = "{Electronic health record : \l}"]
 prescription [ label = "{prescription : \l}"]
 Electronic_health_record -> prescription  [arrowhead = "none", label = "include list of"]
@@ -1141,6 +1137,10 @@ Association
 patient [ label = "{patient |+ prescriptions : \l}"]
 Attribuate
 
+list [ label = "{list : \l}"]
+prescription [ label = "{prescription : \l}"]
+list -> prescription  [arrowhead = "odiamond"]
+Aggregation
 
 
 R103:Electronic health record will include list of patient's immunizations.
@@ -1148,6 +1148,7 @@ list [ label = "{list : \l}"]
 immunization [ label = "{immunization : \l}"]
 list -> immunization  [arrowhead = "odiamond"]
 Aggregation
+
 
 Electronic_health_record [ label = "{Electronic health record : \l}"]
 immunization [ label = "{immunization : \l}"]
@@ -1157,8 +1158,9 @@ patient [ label = "{patient |+ immunizations : \l}"]
 Attribuate
 
 
-
 R104:System will allow LHCP and patient to manage their appointments.
+their [ label = "{their |+ appointments : \l}"]
+Attribuate
 System [ label = "{System : \l}"]
 LHCP_and_patient [ label = "{LHCP and patient : \l}"]
 System -> LHCP_and_patient  [arrowhead = "none", label = "allow LHCP and patient to manage"]
@@ -1167,8 +1169,6 @@ System [ label = "{System : \l}"]
 appointment [ label = "{appointment : \l}"]
 System -> appointment  [arrowhead = "none", label = "allow LHCP and patient to manage"]
 Association
-their [ label = "{their |+ appointments : \l}"]
-Attribuate
 
 
 R105:LHCP and Patient will be able to request an appointment.
@@ -1200,6 +1200,10 @@ Association
 
 
 R109:System will be able to generate a Comprehensive Patient Report.
+Patient_Report [ label = "{Patient Report : \l}"]
+Report [ label = "{Report : \l}"]
+Patient_Report -> Report  [arrowhead = "empty"]
+Generalization
 System [ label = "{System : \l}"]
 Comprehensive_Patient_Report [ label = "{Comprehensive Patient Report : \l}"]
 System -> Comprehensive_Patient_Report  [arrowhead = "none", label = "generate"]
@@ -1208,13 +1212,10 @@ Comprehensive_Patient_Report [ label = "{Comprehensive Patient Report : \l}"]
 Patient_Report [ label = "{Patient Report : \l}"]
 Comprehensive_Patient_Report -> Patient_Report  [arrowhead = "empty"]
 Generalization
-Patient_Report [ label = "{Patient Report : \l}"]
-Report [ label = "{Report : \l}"]
-Patient_Report -> Report  [arrowhead = "empty"]
-Generalization
 
 
 R110:Comprehensive Patient Report will include all patient demographic information.
+
 
 demographic_information [ label = "{demographic information : \l}"]
 information [ label = "{information : \l}"]
@@ -1223,19 +1224,18 @@ Generalization
 
 
 
-
 R111:Comprehensive Patient Report will include the entire history of personal health records.
+
 
 entire_history [ label = "{entire history : \l}"]
 personal_health_record [ label = "{personal health record : \l}"]
 entire_history -> personal_health_record  [arrowhead = "odiamond"]
 Aggregation
+
 Comprehensive_Patient_Report [ label = "{Comprehensive Patient Report : \l}"]
 personal_health_record [ label = "{personal health record : \l}"]
 Comprehensive_Patient_Report -> personal_health_record  [arrowhead = "none", label = "include entire history of"]
 Association
-
-
 
 
 
@@ -1266,17 +1266,20 @@ Attribuate
 
 
 R115:Comprehensive Patient Report will include all patient's medications.
+
+patient [ label = "{patient |+ medications : \l}"]
+Attribuate
 Comprehensive_Patient_Report [ label = "{Comprehensive Patient Report : \l}"]
 medication [ label = "{medication : \l}"]
 Comprehensive_Patient_Report -> medication  [arrowhead = "none", label = "include"]
 Association
-patient [ label = "{patient |+ medications : \l}"]
-Attribuate
-
 
 
 
 R116:Comprehensive Patient Report will include all patient's office visits.
+
+
+
 patient [ label = "{patient |+ visits : \l}"]
 Attribuate
 Comprehensive_Patient_Report [ label = "{Comprehensive Patient Report : \l}"]
@@ -1285,24 +1288,21 @@ Comprehensive_Patient_Report -> office_visit  [arrowhead = "none", label = "incl
 Association
 
 
-
-
-
 R117:Comprehensive Patient Report will include all patient's known relatives.
+
+
 patient [ label = "{patient |+ relatives : \l}"]
 Attribuate
 
 
 
-
-
 R118:LHCP will be able to request Comprehensive Patient Report.
+
+
 LHCP [ label = "{LHCP : \l}"]
 request_comprehensive_patient_report [ label = "{request comprehensive patient report : \l}"]
 LHCP -> request_comprehensive_patient_report  [arrowhead = "none", label = "request"]
 Association
-
-
 
 
 R119:Administrator will have to approve access to Comprehensive Patient Report for LHCP.
@@ -1310,27 +1310,27 @@ Administrator [ label = "{Administrator : \l}"]
 LHCP [ label = "{LHCP : \l}"]
 Administrator -> LHCP  [arrowhead = "none", label = "have to approve access to Comprehensive Patient Report for"]
 Association
+
 Administrator [ label = "{Administrator : \l}"]
 access [ label = "{access : \l}"]
 Administrator -> access  [arrowhead = "none", label = "have to approve"]
 Association
+
 Administrator [ label = "{Administrator : \l}"]
 Comprehensive_Patient_Report [ label = "{Comprehensive Patient Report : \l}"]
 Administrator -> Comprehensive_Patient_Report  [arrowhead = "none", label = "have to approve access to"]
 Association
 
 
-
-
 R120:System must implement Satisfaction Survey functionality.
-System [ label = "{System : \l}"]
-Satisfaction_Survey_functionality [ label = "{Satisfaction Survey functionality : \l}"]
-System -> Satisfaction_Survey_functionality  [arrowhead = "none", label = "implement"]
-Association
 Survey_functionality [ label = "{Survey functionality : \l}"]
 functionality [ label = "{functionality : \l}"]
 Survey_functionality -> functionality  [arrowhead = "empty"]
 Generalization
+System [ label = "{System : \l}"]
+Satisfaction_Survey_functionality [ label = "{Satisfaction Survey functionality : \l}"]
+System -> Satisfaction_Survey_functionality  [arrowhead = "none", label = "implement"]
+Association
 
 
 R121:Patients and Health Care Representatives will be able to fill out a Satisfaction Survey relative to a previous office visit.
@@ -1342,15 +1342,15 @@ Care_Representatives [ label = "{Care Representatives : \l}"]
 Representatives [ label = "{Representatives : \l}"]
 Care_Representatives -> Representatives  [arrowhead = "empty"]
 Generalization
-Health_Care_Representatives [ label = "{Health Care Representatives : \l}"]
-Care_Representatives [ label = "{Care Representatives : \l}"]
-Health_Care_Representatives -> Care_Representatives  [arrowhead = "empty"]
-Generalization
 Satisfaction_Survey [ label = "{Satisfaction Survey : \l}"]
 Survey [ label = "{Survey : \l}"]
 Satisfaction_Survey -> Survey  [arrowhead = "empty"]
 Generalization
 
+Health_Care_Representatives [ label = "{Health Care Representatives : \l}"]
+Care_Representatives [ label = "{Care Representatives : \l}"]
+Health_Care_Representatives -> Care_Representatives  [arrowhead = "empty"]
+Generalization
 
 
 R122:Satisfaction Survey will ask how many minutes the patient waited in the waiting room.
@@ -1404,13 +1404,13 @@ Generalization
 
 R128:Satisfaction Survey Results will display physician's address.
 
-
+physician [ label = "{physician |+ address : \l}"]
+Attribuate
 Satisfaction_Survey_result [ label = "{Satisfaction Survey result : \l}"]
 address [ label = "{address : \l}"]
 Satisfaction_Survey_result -> address  [arrowhead = "none", label = "display"]
 Association
-physician [ label = "{physician |+ address : \l}"]
-Attribuate
+
 
 
 R129:Satisfaction Survey Results will display average number of minutes patients wait in waiting room.
@@ -1419,19 +1419,19 @@ minute_patient [ label = "{minute patient : \l}"]
 room [ label = "{room : \l}"]
 minute_patient -> room  [arrowhead = "none", label = " wait in"]
 Association
-
-Satisfaction_Survey_result [ label = "{Satisfaction Survey result : \l}"]
-average_number [ label = "{average number : \l}"]
-Satisfaction_Survey_result -> average_number  [arrowhead = "none", label = "display"]
-Association
 average_number [ label = "{average number : \l}"]
 minute_patient [ label = "{minute patient : \l}"]
 average_number -> minute_patient  [arrowhead = "odiamond"]
 Aggregation
 Satisfaction_Survey_result [ label = "{Satisfaction Survey result : \l}"]
+average_number [ label = "{average number : \l}"]
+Satisfaction_Survey_result -> average_number  [arrowhead = "none", label = "display"]
+Association
+Satisfaction_Survey_result [ label = "{Satisfaction Survey result : \l}"]
 minute_patient [ label = "{minute patient : \l}"]
 Satisfaction_Survey_result -> minute_patient  [arrowhead = "none", label = "display average number of"]
 Association
+
 
 
 R130:Satisfaction Survey Results will display average number of minutes patients wait in examination room prior to seeing physician.
@@ -1448,20 +1448,20 @@ Association
 
 
 R131:Satisfaction Survey Results will display average office visit satisfaction.
-
 visit_satisfaction [ label = "{visit satisfaction : \l}"]
 satisfaction [ label = "{satisfaction : \l}"]
 visit_satisfaction -> satisfaction  [arrowhead = "empty"]
 Generalization
 
-office_visit_satisfaction [ label = "{office visit satisfaction : \l}"]
-visit_satisfaction [ label = "{visit satisfaction : \l}"]
-office_visit_satisfaction -> visit_satisfaction  [arrowhead = "empty"]
-Generalization
 Satisfaction_Survey_result [ label = "{Satisfaction Survey result : \l}"]
 average_office_visit_satisfaction [ label = "{average office visit satisfaction : \l}"]
 Satisfaction_Survey_result -> average_office_visit_satisfaction  [arrowhead = "none", label = "display"]
 Association
+
+office_visit_satisfaction [ label = "{office visit satisfaction : \l}"]
+visit_satisfaction [ label = "{visit satisfaction : \l}"]
+office_visit_satisfaction -> visit_satisfaction  [arrowhead = "empty"]
+Generalization
 
 
 R132:Satisfaction Survey Results will display average satisfaction with treatment.
@@ -1479,6 +1479,10 @@ Association
 
 R133:Satisfaction Survey Results will display percentage of office visits for which satisfaction information is available.
 
+percentage [ label = "{percentage : \l}"]
+office_visit [ label = "{office visit : \l}"]
+percentage -> office_visit  [arrowhead = "odiamond"]
+Aggregation
 
 Satisfaction_Survey_result [ label = "{Satisfaction Survey result : \l}"]
 office_visit [ label = "{office visit : \l}"]
@@ -1492,26 +1496,22 @@ satisfaction_information [ label = "{satisfaction information : \l}"]
 percentage [ label = "{percentage : \l}"]
 satisfaction_information -> percentage  [arrowhead = "none", label = " available for"]
 Association
-percentage [ label = "{percentage : \l}"]
-office_visit [ label = "{office visit : \l}"]
-percentage -> office_visit  [arrowhead = "odiamond"]
-Aggregation
-
 Satisfaction_Survey_result [ label = "{Satisfaction Survey result : \l}"]
 percentage [ label = "{percentage : \l}"]
 Satisfaction_Survey_result -> percentage  [arrowhead = "none", label = "display"]
 Association
 
 
+
 R134:System will maintain information about laboratory procedures for each patient.
-laboratory_procedures [ label = "{laboratory procedures : \l}"]
-procedures [ label = "{procedures : \l}"]
-laboratory_procedures -> procedures  [arrowhead = "empty"]
-Generalization
 System [ label = "{System : \l}"]
 patient [ label = "{patient : \l}"]
 System -> patient  [arrowhead = "none", label = "maintain information about laboratory procedure for"]
 Association
+laboratory_procedures [ label = "{laboratory procedures : \l}"]
+procedures [ label = "{procedures : \l}"]
+laboratory_procedures -> procedures  [arrowhead = "empty"]
+Generalization
 System [ label = "{System : \l}"]
 information [ label = "{information : \l}"]
 System -> information  [arrowhead = "none", label = "maintain"]
@@ -1523,41 +1523,45 @@ Association
 
 
 R135:Patient and Personal Health Representative will be able to view status of  laboratory procedures.
-
-patient_and_personal_health_representative [ label = "{patient and personal health representative : \l}"]
+status [ label = "{status : \l}"]
 laboratory_procedure [ label = "{laboratory procedure : \l}"]
-patient_and_personal_health_representative -> laboratory_procedure  [arrowhead = "none", label = "view status of"]
-Association
+status -> laboratory_procedure  [arrowhead = "odiamond"]
+Aggregation
+
+Health_Representative [ label = "{Health Representative : \l}"]
+Representative [ label = "{Representative : \l}"]
+Health_Representative -> Representative  [arrowhead = "empty"]
+Generalization
 Personal_Health_Representative [ label = "{Personal Health Representative : \l}"]
 Health_Representative [ label = "{Health Representative : \l}"]
 Personal_Health_Representative -> Health_Representative  [arrowhead = "empty"]
 Generalization
 patient_and_personal_health_representative [ label = "{patient and personal health representative : \l}"]
+laboratory_procedure [ label = "{laboratory procedure : \l}"]
+patient_and_personal_health_representative -> laboratory_procedure  [arrowhead = "none", label = "view status of"]
+Association
+patient_and_personal_health_representative [ label = "{patient and personal health representative : \l}"]
 status [ label = "{status : \l}"]
 patient_and_personal_health_representative -> status  [arrowhead = "none", label = "view"]
 Association
-status [ label = "{status : \l}"]
-laboratory_procedure [ label = "{laboratory procedure : \l}"]
-status -> laboratory_procedure  [arrowhead = "odiamond"]
-Aggregation
-Health_Representative [ label = "{Health Representative : \l}"]
-Representative [ label = "{Representative : \l}"]
-Health_Representative -> Representative  [arrowhead = "empty"]
-Generalization
 
 
 R136:HCP wille ba able to edit a laboratory procedure.
-laboratory_procedure [ label = "{laboratory procedure : \l}"]
-procedure [ label = "{procedure : \l}"]
-laboratory_procedure -> procedure  [arrowhead = "empty"]
-Generalization
 hcp_wille_ba [ label = "{hcp wille ba : \l}"]
 hcp_wille_ba [ label = "{hcp wille ba : \l}"]
 hcp_wille_ba -> hcp_wille_ba  [arrowhead = "none", label = "wille ba able"]
 Association
+laboratory_procedure [ label = "{laboratory procedure : \l}"]
+procedure [ label = "{procedure : \l}"]
+laboratory_procedure -> procedure  [arrowhead = "empty"]
+Generalization
 
 
 R137:System will be able to send out an email alert to all iTrust users in case of important event.
+case [ label = "{case : \l}"]
+important_event [ label = "{important event : \l}"]
+case -> important_event  [arrowhead = "odiamond"]
+Aggregation
 System [ label = "{System : \l}"]
 email_alert [ label = "{email alert : \l}"]
 System -> email_alert  [arrowhead = "none", label = "send to iTrust user"]
@@ -1566,10 +1570,6 @@ System [ label = "{System : \l}"]
 case [ label = "{case : \l}"]
 System -> case  [arrowhead = "none", label = "send email alert in"]
 Association
-iTrust_users [ label = "{iTrust users : \l}"]
-users [ label = "{users : \l}"]
-iTrust_users -> users  [arrowhead = "empty"]
-Generalization
 System [ label = "{System : \l}"]
 email_alert [ label = "{email alert : \l}"]
 System -> email_alert  [arrowhead = "none", label = "send"]
@@ -1582,10 +1582,10 @@ email_alert [ label = "{email alert : \l}"]
 alert [ label = "{alert : \l}"]
 email_alert -> alert  [arrowhead = "empty"]
 Generalization
-case [ label = "{case : \l}"]
-important_event [ label = "{important event : \l}"]
-case -> important_event  [arrowhead = "odiamond"]
-Aggregation
+iTrust_users [ label = "{iTrust users : \l}"]
+users [ label = "{users : \l}"]
+iTrust_users -> users  [arrowhead = "empty"]
+Generalization
 
 
 R138:System will send an email alert to iTrust user who changed the password.
@@ -1606,11 +1606,11 @@ Association
 
 R139:System will send an email alert to a patient when patient's laboratory procedure changes status.
 
-
 laboratory_procedure_change_status [ label = "{laboratory procedure change status : \l}"]
 laboratory_procedure_change_status [ label = "{laboratory procedure change status : \l}"]
 laboratory_procedure_change_status -> laboratory_procedure_change_status  [arrowhead = "none", label = "changes"]
 Association
+
 
 System [ label = "{System : \l}"]
 patient [ label = "{patient : \l}"]
@@ -1635,10 +1635,6 @@ Association
 
 R141:System will send an email alert to Patient when Administrator approves the comprehensive report generation.
 
-report_generation [ label = "{report generation : \l}"]
-generation [ label = "{generation : \l}"]
-report_generation -> generation  [arrowhead = "empty"]
-Generalization
 
 Administrator [ label = "{Administrator : \l}"]
 comprehensive_report_generation [ label = "{comprehensive report generation : \l}"]
@@ -1648,6 +1644,10 @@ System [ label = "{System : \l}"]
 Patient [ label = "{Patient : \l}"]
 System -> Patient  [arrowhead = "none", label = "send email alert to"]
 Association
+report_generation [ label = "{report generation : \l}"]
+generation [ label = "{generation : \l}"]
+report_generation -> generation  [arrowhead = "empty"]
+Generalization
 
 
 R142:System will send an email alert to Patient when LHCP generates the comprehensive report.
@@ -1731,6 +1731,8 @@ Generalization
 
 
 R150:System will store patient's emergency contacts.
+patient [ label = "{patient |+ contacts : \l}"]
+Attribuate
 System [ label = "{System : \l}"]
 emergency_contact [ label = "{emergency contact : \l}"]
 System -> emergency_contact  [arrowhead = "none", label = "store"]
@@ -1739,8 +1741,6 @@ emergency_contacts [ label = "{emergency contacts : \l}"]
 contacts [ label = "{contacts : \l}"]
 emergency_contacts -> contacts  [arrowhead = "empty"]
 Generalization
-patient [ label = "{patient |+ contacts : \l}"]
-Attribuate
 
 
 R151:System will store patients insurance company information.
@@ -1748,13 +1748,13 @@ System [ label = "{System : \l}"]
 patients_insurance_company_information [ label = "{patients insurance company information : \l}"]
 System -> patients_insurance_company_information  [arrowhead = "none", label = "store"]
 Association
-company_information [ label = "{company information : \l}"]
-information [ label = "{information : \l}"]
-company_information -> information  [arrowhead = "empty"]
-Generalization
 patients_insurance_company_information [ label = "{patients insurance company information : \l}"]
 insurance_company_information [ label = "{insurance company information : \l}"]
 patients_insurance_company_information -> insurance_company_information  [arrowhead = "empty"]
+Generalization
+company_information [ label = "{company information : \l}"]
+information [ label = "{information : \l}"]
+company_information -> information  [arrowhead = "empty"]
 Generalization
 insurance_company_information [ label = "{insurance company information : \l}"]
 company_information [ label = "{company information : \l}"]
@@ -1772,12 +1772,12 @@ Association
 
 
 R153:System will store patient's ethnicity.
-patient [ label = "{patient |+ ethnicity : \l}"]
-Attribuate
 System [ label = "{System : \l}"]
 ethnicity [ label = "{ethnicity : \l}"]
 System -> ethnicity  [arrowhead = "none", label = "store"]
 Association
+patient [ label = "{patient |+ ethnicity : \l}"]
+Attribuate
 
 
 R154:System will store patient's gender.
@@ -1813,12 +1813,12 @@ Generalization
 
 
 R157:System will store patient's height.
+patient [ label = "{patient |+ height : \l}"]
+Attribuate
 System [ label = "{System : \l}"]
 height [ label = "{height : \l}"]
 System -> height  [arrowhead = "none", label = "store"]
 Association
-patient [ label = "{patient |+ height : \l}"]
-Attribuate
 
 
 R158:System will store patient's width.
@@ -1831,16 +1831,16 @@ Attribuate
 
 
 R159:System will store patient's blood pressure.
-patient [ label = "{patient |+ pressure : \l}"]
-Attribuate
-System [ label = "{System : \l}"]
-blood_pressure [ label = "{blood pressure : \l}"]
-System -> blood_pressure  [arrowhead = "none", label = "store"]
-Association
 blood_pressure [ label = "{blood pressure : \l}"]
 pressure [ label = "{pressure : \l}"]
 blood_pressure -> pressure  [arrowhead = "empty"]
 Generalization
+System [ label = "{System : \l}"]
+blood_pressure [ label = "{blood pressure : \l}"]
+System -> blood_pressure  [arrowhead = "none", label = "store"]
+Association
+patient [ label = "{patient |+ pressure : \l}"]
+Attribuate
 
 
 R160:System will store patient's cholesterol.
@@ -1873,11 +1873,6 @@ Association
 
 
 R163:System will store risk factors for Type 1 diabetes.
-
-Type_1_diabetes [ label = "{Type 1 diabetes : \l}"]
-1_diabetes [ label = "{1 diabetes : \l}"]
-Type_1_diabetes -> 1_diabetes  [arrowhead = "empty"]
-Generalization
 System [ label = "{System : \l}"]
 Type_1_diabetes [ label = "{Type 1 diabetes : \l}"]
 System -> Type_1_diabetes  [arrowhead = "none", label = "store risk factor for"]
@@ -1886,32 +1881,37 @@ System [ label = "{System : \l}"]
 risk_factor [ label = "{risk factor : \l}"]
 System -> risk_factor  [arrowhead = "none", label = "store"]
 Association
+Type_1_diabetes [ label = "{Type 1 diabetes : \l}"]
+1_diabetes [ label = "{1 diabetes : \l}"]
+Type_1_diabetes -> 1_diabetes  [arrowhead = "empty"]
+Generalization
+
 
 
 R164:System will store risk factors for Type 2 diabetes.
-
-
-System [ label = "{System : \l}"]
-Type_2_diabetes [ label = "{Type 2 diabetes : \l}"]
-System -> Type_2_diabetes  [arrowhead = "none", label = "store risk factor for"]
-Association
 Type_2_diabetes [ label = "{Type 2 diabetes : \l}"]
 2_diabetes [ label = "{2 diabetes : \l}"]
 Type_2_diabetes -> 2_diabetes  [arrowhead = "empty"]
 Generalization
 
+System [ label = "{System : \l}"]
+Type_2_diabetes [ label = "{Type 2 diabetes : \l}"]
+System -> Type_2_diabetes  [arrowhead = "none", label = "store risk factor for"]
+Association
+
+
 
 R165:System will store risk factors for heart disease.
-
-heart_disease [ label = "{heart disease : \l}"]
-disease [ label = "{disease : \l}"]
-heart_disease -> disease  [arrowhead = "empty"]
-Generalization
 
 System [ label = "{System : \l}"]
 heart_disease [ label = "{heart disease : \l}"]
 System -> heart_disease  [arrowhead = "none", label = "store risk factor for"]
 Association
+heart_disease [ label = "{heart disease : \l}"]
+disease [ label = "{disease : \l}"]
+heart_disease -> disease  [arrowhead = "empty"]
+Generalization
+
 
 
 }
