@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.swing.SwingUtilities;
 
+import data.Write_To_Excel;
 import gate.*;
 import gate.creole.ANNIEConstants;
 import gate.creole.ConditionalSerialAnalyserController;
@@ -59,18 +60,20 @@ public class Model_Extraction_Main {
 		Corpus corpus = (Corpus) Factory.createResource("gate.corpora.CorpusImpl");
 		corpus.setName("Test_Corpus");
 
-		URL docURL_1 = new URL("file:///C:\\Users\\26309\\workspace\\Extracting-Domain-Model\\resources\\All_Annotations_OpenCossReqs.xml");
+		//URL docURL = new URL("file:///C:\\Users\\26309\\workspace\\Extracting-Domain-Model\\resources\\All_Annotations_OpenCossReqs.xml");
+		URL docURL = new URL("file://All_Annotations_OpenCossReqs.xml");
 
 		if(i == 2) {
-			docURL_1 = new URL("file:///C:\\Users\\26309\\workspace\\Extracting-Domain-Model\\resources/iTrust.xml");
+			//docURL = new URL("file:///C:\\Users\\26309\\workspace\\Extracting-Domain-Model\\resources/iTrust.xml");
+			docURL = new URL("file:///Users/dujianuo/Desktop/Extracting-Domain-Model/resources/iTrust.xml");
 		}
 		else if(i == 3) {
-			docURL_1 = new URL("file:///C:\\Users\\26309\\workspace\\Extracting-Domain-Model\\resources/ATM_Example.xml");
+			//docURL = new URL("file:///C:\\Users\\26309\\workspace\\Extracting-Domain-Model\\resources/ATM_Example.xml");
 		}
-		Document doc_1 = Factory.newDocument(docURL_1, "UTF-8");
-		doc_1.setName("OpenCossReqs");
+		Document doc = Factory.newDocument(docURL, "UTF-8");
+		doc.setName("OpenCossReqs");
 
-	    corpus.add(doc_1);
+	    corpus.add(doc);
 
 		return corpus;
 	}
@@ -95,6 +98,7 @@ public class Model_Extraction_Main {
 		}
 		else if (i == 2) {
 			DOT_Graphviz_conversion.writeDOTFile("result/iTrust.dot");
+			Write_To_Excel.Write_to_Excel("result/iTrust.xls");
 		}
 		else if (i == 3) {
 			DOT_Graphviz_conversion.writeDOTFile("result/ATM_Example.dot");
