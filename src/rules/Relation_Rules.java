@@ -75,7 +75,7 @@ public class Relation_Rules {
 					}
 				}
 
-				if(rel.getType().equals("nsubj") || rel.getType().equals("xsubj"))
+				if(rel.getType().equals("nsubj") || rel.getType().equals("xsubj") || rel.getType().equals("vocative"))
 				{
 					int Subject_Id = Utilities.getMapped_NP(annotatedDoc, rel.getTargetId());
 					String subjectStr =  "";

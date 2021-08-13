@@ -20,11 +20,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0f1cae0-0125-44d0-b210-061836e67475" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/stanford_corenlp_3_6_0.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/iTrust.dot" beforeDir="false" afterPath="$PROJECT_DIR$/result/iTrust.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/My_extraction.iml" beforeDir="false" afterPath="$PROJECT_DIR$/My_extraction.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stanford-corenlp-3.8.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/Main/Model_Extraction_Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/data/Aggregation_Patterns.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/data/Association_Relation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/data/Attribute.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/data/Concept_Class.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/data/Concept_Relation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/data/DOT_Graphviz_conversion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/data/ForwardDependecyTypes.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/data/Generalization_Patterns.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/data/GlobalVariables.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/data/JSONConversion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/data/MetaRelation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/data/RelationType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/data/Requirement_Relations.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/data/Write_To_Excel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/experimentation/Experimentation$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/experimentation/Experimentation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/experimentation/TestCode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/gate/stanford/DependencyRelation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/processing/Chaining.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/processing/Concept_Pattern.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/processing/ExtractRelations_includingChains.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/rules/Classes_Rules.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/rules/Relation_Rules.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/test/testGateApplicationSaving$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/test/testGateApplicationSaving.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/test/test_AssociationClass.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/test/test_Assoctaion_Relation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/test/test_isAtomicNP.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/utils/DeriveAnnotations.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/utils/StringQuadruple.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/utils/StringTuple.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/utils/Utilities.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/My_extraction/utils/Utils_DuplicateCheck.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/Partial_Annotations_OpenCossReqs.dot" beforeDir="false" afterPath="$PROJECT_DIR$/result/Partial_Annotations_OpenCossReqs.dot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Model_Extraction_Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Model_Extraction_Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data/Write_To_Excel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Write_To_Excel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gate/stanford/DependencyRelation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gate/stanford/DependencyRelation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rules/Classes_Rules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rules/Classes_Rules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rules/Relation_Rules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rules/Relation_Rules.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,12 +96,30 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/data/Write_To_Excel.java">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/processing/Chaining.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="505">
-              <caret line="49" column="60" selection-start-line="49" selection-start-column="60" selection-end-line="49" selection-end-column="60" />
+            <state relative-caret-position="3330">
+              <caret line="237" selection-start-line="237" selection-end-line="237" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/processing/Concept_Pattern.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1410">
+              <caret line="99" selection-start-line="99" selection-end-line="99" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main/Model_Extraction_Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="464">
+              <caret line="116" column="59" selection-start-line="116" selection-start-column="59" selection-end-line="116" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -70,54 +130,34 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/rules/Relation_Rules.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="153" selection-start-line="153" selection-end-line="153" />
+            <state relative-caret-position="270">
+              <caret line="166" column="75" selection-start-line="166" selection-start-column="75" selection-end-line="166" selection-end-column="75" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java">
+        <entry file="file://$PROJECT_DIR$/src/rules/Classes_Rules.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="92" selection-start-line="92" selection-end-line="92" />
+            <state relative-caret-position="373">
+              <caret line="132" column="50" lean-forward="true" selection-start-line="132" selection-start-column="50" selection-end-line="132" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../学习/毕设/domain model/redomex/src/lu/svv/chetan/models/rules/Relation_Rules.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="82" column="17" selection-start-line="82" selection-start-column="17" selection-end-line="82" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/processing/Chaining.java">
+        <entry file="file://$PROJECT_DIR$/../学习/毕设/domain model/redomex/src/lu/svv/chetan/models/rules/Classes_Rules.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="237" selection-start-line="237" selection-end-line="237" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/processing/Concept_Pattern.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="99" selection-start-line="99" selection-end-line="99" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main/Model_Extraction_Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="100" column="63" selection-start-line="100" selection-start-column="63" selection-end-line="100" selection-end-column="63" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/data/DOT_Graphviz_conversion.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="849">
-              <caret line="78" column="17" selection-start-line="48" selection-start-column="20" selection-end-line="78" selection-end-column="17" />
-            </state>
+            <state relative-caret-position="-213" />
           </provider>
         </entry>
       </file>
@@ -133,10 +173,24 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>rownum</find>
+      <find>FilenotFound</find>
+      <find>execute</find>
+      <find>typedDependencies</find>
+      <find>typedDependencies(</find>
+      <find>--</find>
+      <find>gz</find>
+      <find>resources</find>
+      <find>amod</find>
+      <find>iobj</find>
+      <find>case</find>
+      <find>acl</find>
     </findStrings>
     <replaceStrings>
       <replace>0</replace>
     </replaceStrings>
+    <dirStrings>
+      <dir>/Applications/GATE_Developer_8.1/lib/ant-1.9.3.jar</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -144,8 +198,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Main/Model_Extraction_Main.java" />
         <option value="$PROJECT_DIR$/src/data/Write_To_Excel.java" />
+        <option value="$PROJECT_DIR$/src/gate/stanford/DependencyMode.java" />
+        <option value="$PROJECT_DIR$/src/Main/Model_Extraction_Main.java" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/gate/stanford/Parser.java" />
+        <option value="$PROJECT_DIR$/src/rules/Classes_Rules.java" />
+        <option value="$PROJECT_DIR$/src/rules/Relation_Rules.java" />
       </list>
     </option>
   </component>
@@ -160,6 +219,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -167,6 +227,11 @@
             <path>
               <item name="Extracting-Domain-Model" type="b2602c69:ProjectViewProjectNode" />
               <item name="Extracting-Domain-Model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Extracting-Domain-Model" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Extracting-Domain-Model" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Extracting-Domain-Model" type="b2602c69:ProjectViewProjectNode" />
@@ -187,19 +252,16 @@
               <item name="Extracting-Domain-Model" type="b2602c69:ProjectViewProjectNode" />
               <item name="Extracting-Domain-Model" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="rules" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Extracting-Domain-Model" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Extracting-Domain-Model" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Main" type="462c0819:PsiDirectoryNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -210,7 +272,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/GATE_Developer_8.6.1/lib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -219,9 +281,14 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -386,30 +453,35 @@
       <workItem from="1603948119858" duration="2507000" />
       <workItem from="1603956801880" duration="37000" />
       <workItem from="1603958666195" duration="4356000" />
+      <workItem from="1604028468204" duration="138000" />
+      <workItem from="1611028824777" duration="2298000" />
+      <workItem from="1611127031576" duration="868000" />
+      <workItem from="1611201250123" duration="5706000" />
+      <workItem from="1611288943967" duration="1785000" />
+      <workItem from="1611815687275" duration="658000" />
+      <workItem from="1611819873551" duration="267000" />
+      <workItem from="1611821184388" duration="343000" />
+      <workItem from="1612094557960" duration="2800000" />
+      <workItem from="1612401186414" duration="275000" />
+      <workItem from="1614564213644" duration="133000" />
+      <workItem from="1628608435852" duration="4371000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4356000" />
+    <option name="totallyTimeSpent" value="23998000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Designer" />
-      <window_info id="Image Layers" />
-      <window_info id="Capture Tool" />
-      <window_info id="UI Designer" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24969475" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2728938" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Spring" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Messages" weight="0.32959184" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32959184" />
@@ -417,15 +489,22 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Database" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32959184" />
+      <window_info anchor="bottom" id="Database Changes" order="12" />
+      <window_info anchor="bottom" id="Version Control" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -464,54 +543,30 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="634" y="260" key="FileChooserDialogImpl" timestamp="1603437222059">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="634" y="260" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603437222059" />
-    <state width="1877" height="258" key="GridCell.Tab.0.bottom" timestamp="1603956793788">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603956793788" />
-    <state width="1877" height="258" key="GridCell.Tab.0.center" timestamp="1603956793788">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="258" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603956793788" />
-    <state width="1877" height="258" key="GridCell.Tab.0.left" timestamp="1603956793788">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="258" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603956793788" />
-    <state width="1877" height="258" key="GridCell.Tab.0.right" timestamp="1603956793788">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="258" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603956793788" />
-    <state width="1877" height="419" key="GridCell.Tab.1.bottom" timestamp="1603716097234">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="419" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603716097234" />
-    <state width="1877" height="419" key="GridCell.Tab.1.center" timestamp="1603716097234">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="419" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603716097234" />
-    <state width="1877" height="419" key="GridCell.Tab.1.left" timestamp="1603716097234">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="419" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603716097234" />
-    <state width="1877" height="419" key="GridCell.Tab.1.right" timestamp="1603716097234">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="419" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603716097234" />
-    <state x="440" y="94" key="SettingsEditor" timestamp="1603437238005">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603437238005" />
-    <state x="821" y="149" width="596" height="891" key="find.popup" timestamp="1603763600222">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="821" y="149" width="596" height="891" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603763600222" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1603956789410">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603956789410" />
+    <state x="634" y="260" key="FileChooserDialogImpl" />
+    <state x="634" y="260" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" />
+    <state width="1877" height="258" key="GridCell.Tab.0.bottom" />
+    <state width="1877" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" />
+    <state width="1877" height="258" key="GridCell.Tab.0.center" />
+    <state width="1877" height="258" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" />
+    <state width="1877" height="258" key="GridCell.Tab.0.left" />
+    <state width="1877" height="258" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" />
+    <state width="1877" height="258" key="GridCell.Tab.0.right" />
+    <state width="1877" height="258" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" />
+    <state width="1877" height="419" key="GridCell.Tab.1.bottom" />
+    <state width="1877" height="419" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" />
+    <state width="1877" height="419" key="GridCell.Tab.1.center" />
+    <state width="1877" height="419" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" />
+    <state width="1877" height="419" key="GridCell.Tab.1.left" />
+    <state width="1877" height="419" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" />
+    <state width="1877" height="419" key="GridCell.Tab.1.right" />
+    <state width="1877" height="419" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" />
+    <state x="440" y="94" key="SettingsEditor" />
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" />
+    <state x="821" y="149" width="596" height="891" key="find.popup" />
+    <state x="821" y="149" width="596" height="891" key="find.popup/0.0.1920.1040@0.0.1920.1040" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -540,6 +595,24 @@
           <properties />
           <option name="timeStamp" value="270" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main/Model_Extraction_Main.java</url>
+          <line>82</line>
+          <properties />
+          <option name="timeStamp" value="273" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main/Model_Extraction_Main.java</url>
+          <line>77</line>
+          <properties />
+          <option name="timeStamp" value="274" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main/Model_Extraction_Main.java</url>
+          <line>40</line>
+          <properties />
+          <option name="timeStamp" value="277" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -549,48 +622,6 @@
     </SUITE>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/data/DOT_Graphviz_conversion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="849">
-          <caret line="78" column="17" selection-start-line="48" selection-start-column="20" selection-end-line="78" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/rules/Relation_Rules.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="153" selection-start-line="153" selection-end-line="153" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="92" selection-start-line="92" selection-end-line="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/processing/Chaining.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="237" selection-start-line="237" selection-end-line="237" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/processing/Concept_Pattern.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="99" selection-start-line="99" selection-end-line="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/Model_Extraction_Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="100" column="63" selection-start-line="100" selection-start-column="63" selection-end-line="100" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/data/Concept_Class.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -612,13 +643,235 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///Applications/GATE_Developer_8.6/lib/gate-core-8.6.jar!/gate/util/persistence/PersistenceManager.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="389" selection-start-line="389" selection-end-line="389" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/data/Write_To_Excel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="505">
+        <state relative-caret-position="630">
           <caret line="49" column="60" selection-start-line="49" selection-start-column="60" selection-end-line="49" selection-end-column="60" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/processing/ExtractRelations_includingChains.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1095">
+          <caret line="92" selection-start-line="92" selection-end-line="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Applications/GATE_Developer_8.6/lib/gate-core-8.6.jar!/gate/util/Benchmark.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="126" column="17" selection-start-line="126" selection-start-column="17" selection-end-line="126" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/GATE_Developer_8.6/plugins/Stanford_CoreNLP/src/main/java/gate/stanford/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="151" column="21" selection-start-line="151" selection-start-column="14" selection-end-line="151" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#26152#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/stanford-corenlp-3.8.0.jar!/edu/stanford/nlp/trees/GrammaticalStructure.class" />
+    <entry file="jar://$PROJECT_DIR$/lib/stanford-corenlp-1.3.2.jar!/edu/stanford/nlp/trees/GrammaticalStructure.class" />
+    <entry file="file:///Applications/GATE_Developer_8.6/plugins/Stanford_CoreNLP/src/main/java/gate/stanford/DependencyMode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="50" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#1828#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Applications/GATE_Developer_8.6/lib/gate-core-8.6.jar!/gate/util/InvalidOffsetException.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="5" column="10" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/stanford-corenlp-4.0.0.jar!/edu/stanford/nlp/trees/GrammaticalStructure.class" />
+    <entry file="jar://$PROJECT_DIR$/lib/stanford-corenlp-8.5.1.jar!/gate/stanford/DependencyMode.class" />
+    <entry file="jar:///Applications/GATE_Developer_8.1/plugins/Stanford_CoreNLP/lib/stanford-ner-3.4.jar!/edu/stanford/nlp/trees/GrammaticalStructure.class" />
+    <entry file="jar:///Applications/GATE_Developer_8.1/plugins/Stanford_CoreNLP/lib/stanford-parser-3.4.jar!/edu/stanford/nlp/trees/GrammaticalStructure.class" />
+    <entry file="file://$PROJECT_DIR$/resources/Partial_Annotations_OpenCossReqs.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-822" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/result/Partial_Annotations_OpenCossReqs.dot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="884" column="11" lean-forward="true" selection-start-line="884" selection-start-column="11" selection-end-line="884" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/stanford-corenlp-3.6.0.jar!/edu/stanford/nlp/trees/GrammaticalStructure.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="876">
+          <caret line="567" column="53" selection-start-line="567" selection-start-column="53" selection-end-line="567" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Applications/GATE_Developer_8.6/lib/gate-core-8.6.jar!/gate/Factory.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="876">
+          <caret line="325" column="27" selection-start-line="325" selection-start-column="27" selection-end-line="325" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Applications/GATE_Developer_8.6/lib/gate-core-8.6.jar!/gate/Gate.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="876">
+          <caret line="172" column="26" selection-start-line="172" selection-start-column="26" selection-end-line="172" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data/GlobalVariables.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/result/OpenCossReqs.dot">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gate/stanford/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="583" column="111" lean-forward="true" selection-start-line="583" selection-start-column="111" selection-end-line="583" selection-end-column="111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gate/stanford/DependencyMode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gate/stanford/Tokenizer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1415">
+          <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gate/stanford/Tagger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="58" column="13" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data/DOT_Graphviz_conversion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="75">
+            <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/GATE_Developer_8.6/plugins/Stanford_CoreNLP/src/main/java/gate/stanford/apps/EnglishPOSDependencies.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="42" column="3" selection-start-line="42" selection-start-column="3" selection-end-line="42" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#1701#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/processing/Chaining.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3330">
+          <caret line="237" selection-start-line="237" selection-end-line="237" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/processing/Concept_Pattern.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1410">
+          <caret line="99" selection-start-line="99" selection-end-line="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/Model_Extraction_Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="116" column="59" selection-start-line="116" selection-start-column="59" selection-end-line="116" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../学习/毕设/domain model/redomex/src/lu/svv/chetan/models/rules/Classes_Rules.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-213" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rules/Relation_Rules.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="166" column="75" selection-start-line="166" selection-start-column="75" selection-end-line="166" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gate/stanford/DependencyRelation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="34" column="47" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/iTrust.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2741">
+          <caret line="198293" column="392" selection-start-line="198293" selection-start-column="388" selection-end-line="198293" selection-end-column="392" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rules/Classes_Rules.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="132" column="50" lean-forward="true" selection-start-line="132" selection-start-column="50" selection-end-line="132" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../学习/毕设/domain model/redomex/src/lu/svv/chetan/models/rules/Relation_Rules.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="82" column="17" selection-start-line="82" selection-start-column="17" selection-end-line="82" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -639,6 +892,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
+          <last-edited>No facets are configured</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -650,6 +904,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
+          <last-edited>com.alibaba:fastjson:1.2.55</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -661,6 +916,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
+          <last-edited>12</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

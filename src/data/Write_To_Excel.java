@@ -14,7 +14,7 @@ public class Write_To_Excel {
     public static void Write_to_Excel(String filename) {
 
         HSSFWorkbook workbook = new HSSFWorkbook();
-        HSSFSheet sheet = workbook.createSheet("iTrust");
+        HSSFSheet sheet = workbook.createSheet();
 
         Integer req_id = 1;
         int rownum = 0;

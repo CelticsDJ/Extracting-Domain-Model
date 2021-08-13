@@ -29,7 +29,7 @@ public class Classes_Rules {
 		AnnotationSet NPset = inputAS.get("Parse_NP");
 		List<Annotation> NPs = Utils.inDocumentOrder(NPset);
 		AnnotationSet tmp = annotatedDoc.getAnnotations();
-		String [] acceptable_dependencies = {"rcmod", "prep", "nmod", "acl", "dep"};
+		String [] acceptable_dependencies = {"rcmod", "prep", "nmod", "acl", "advcl", "dep"};
 		
 		/*
 		 * Traverse through all the Parse_NPs 
@@ -119,7 +119,7 @@ public class Classes_Rules {
 		Integer target_id = rel.getTargetId();
 		String relation = "";
 
-		if(rel.getType().equals("acl")) {
+		if(rel.getType().equals("acl") || rel.getType().equals("advcl")) {
 
 			Annotation VB = annotatedDoc.getAnnotations().get(target_id);
 

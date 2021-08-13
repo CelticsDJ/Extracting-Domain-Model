@@ -36,15 +36,23 @@ public class Model_Extraction_Main {
 		//prepare the GATE library
 		Gate.init();
 
-		for ( int i = 2; i <= 2; ++i) {
-			Corpus corpus = init(i);
+		Corpus testCorpus = init("/Users/dujianuo/Desktop/Extracting-Domain-Model/resources/requirements.txt");
+
+		GlobalVariables.setAnnotatedDoc(testCorpus.get(0));
+
+		DeriveAnnotations.DeriveAnnotations();
+
+		extractInfoFromAnnotatedDoc();
+
+		for (String arg : args) {
+			Corpus corpus = init(arg);
 			for (Document annoted_Doc : corpus) {
 
 				GlobalVariables.setAnnotatedDoc(annoted_Doc);
 
 				DeriveAnnotations.DeriveAnnotations();
 
-				extractInfoFromAnnotatedDoc(i);
+				extractInfoFromAnnotatedDoc();
 
 			}
 		}
@@ -55,30 +63,29 @@ public class Model_Extraction_Main {
 	 * on the document (defined within this method)
 	 * It returns the annotated document
 	 */
-	private static Corpus init(int i) throws Exception
+	private static Corpus init(String arg) throws Exception
 	{
 		Corpus corpus = (Corpus) Factory.createResource("gate.corpora.CorpusImpl");
 		corpus.setName("Test_Corpus");
 
-		//URL docURL = new URL("file:///C:\\Users\\26309\\workspace\\Extracting-Domain-Model\\resources\\All_Annotations_OpenCossReqs.xml");
-		URL docURL = new URL("file://All_Annotations_OpenCossReqs.xml");
+		URL docURL = new URL("file://" + arg);
 
-		if(i == 2) {
-			//docURL = new URL("file:///C:\\Users\\26309\\workspace\\Extracting-Domain-Model\\resources/iTrust.xml");
-			docURL = new URL("file:///Users/dujianuo/Desktop/Extracting-Domain-Model/resources/iTrust.xml");
-		}
-		else if(i == 3) {
-			//docURL = new URL("file:///C:\\Users\\26309\\workspace\\Extracting-Domain-Model\\resources/ATM_Example.xml");
-		}
 		Document doc = Factory.newDocument(docURL, "UTF-8");
 		doc.setName("OpenCossReqs");
 
 	    corpus.add(doc);
 
-		return corpus;
+	    ConditionalSerialAnalyserController controller = (ConditionalSerialAnalyserController) PersistenceManager.loadObjectFromFile(new File("resources/model8.6.gapp"));
+
+	    controller.setCorpus(corpus);
+	    controller.execute();
+
+	    return controller.getCorpus();
+
+		//return corpus;
 	}
 	
-	private static void extractInfoFromAnnotatedDoc(int i) throws InvalidOffsetException, SecurityException, IOException
+	private static void extractInfoFromAnnotatedDoc() throws InvalidOffsetException, SecurityException, IOException
 	{				
 		Relation_Rules.extractRelations();
 		
@@ -93,6 +100,7 @@ public class Model_Extraction_Main {
 		String results = JSONConversion.converttoJSON();
 		
 		//DOT_Graphviz_conversion.writeDOTFile("/Users/dujianuo/Desktop/domain model/Extracting Domain Model/result/example_1.dot");
+		/*
 		if(i == 1) {
 			DOT_Graphviz_conversion.writeDOTFile("result/Partial_Annotations_OpenCossReqs.dot");
 		}
@@ -103,6 +111,10 @@ public class Model_Extraction_Main {
 		else if (i == 3) {
 			DOT_Graphviz_conversion.writeDOTFile("result/ATM_Example.dot");
 		}
+		 */
+		String filename = "result/".concat(GlobalVariables.annotated_doc.getName());
+		DOT_Graphviz_conversion.writeDOTFile(filename.concat(".dot"));
+		Write_To_Excel.Write_to_Excel(filename.concat(".xls"));
 
 		//System.out.println("*******************  RESULTS *************");
 		//System.out.println(results);

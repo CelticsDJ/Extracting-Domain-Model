@@ -1,0 +1,11 @@
+Tank 1 shall not overflow.
+
+Tank 2 shall not overflow.
+
+The Tank 1 HIGH sensor is physically placed at a greater height above the tank 1 LOW sensor.
+
+The Tank 2 HIGH sensor is physically placed at a greater height above the tank 2 MID sensor.
+
+When the Tank 1 HIGH liquid sensor is TRUE, the Tank 1 pump shall be OFF and the Tank 1 outflow valve shall be OPEN.
+
+When the Tank 2 LOW sensor is FALSE, the emergency valve and the production valve outflow valves shall be commanded to be CLOSED.
