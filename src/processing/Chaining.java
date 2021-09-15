@@ -120,6 +120,8 @@ public class Chaining {
 	{
 		if(Source_Annot == null) {
 			System.out.println("**************");
+			//ostrich
+			return new ArrayList<>();
 		}
 
 		Concept_Class object = Utilities.getMapped_NPPrunedString(doc, Source_Annot.getId()); //Get class of the source annotation

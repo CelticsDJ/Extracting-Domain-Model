@@ -27,7 +27,8 @@ public class Relation_Rules {
 	public static void extractRelations() throws InvalidOffsetException
 	{
 		Document annotatedDoc = GlobalVariables.annotated_doc;
-		AnnotationSet Relation_Verb = annotatedDoc.getAnnotations().get("Relation_Verb");
+		AnnotationSet annotationSet = annotatedDoc.getAnnotations();
+		AnnotationSet Relation_Verb = annotationSet.get("Relation_Verb");
 		List<Annotation> VPs = Utils.inDocumentOrder(Relation_Verb);
 				
 		for(Annotation VP: VPs)
@@ -157,6 +158,34 @@ public class Relation_Rules {
 				{
 					int verb_Id = Utilities.getMapped_VP(annotatedDoc, rel.getTargetId());
 					updatedFeatures.put("FD_ccomp", verb_Id);
+				}
+				else if (rel.getType().equals("conj") || rel.getType().equals("appos")) {
+
+					int verb_id = Utilities.getMapped_VP(annotatedDoc, rel.getTargetId());
+					String conj = "and", conjVB = "";
+					try {
+						for (DependencyRelation cc : list_dependencies) {
+							if (cc.getType().equals("cc")) {
+								Annotation annotation = annotationSet.get(cc.getTargetId());
+								conj = annotation.getFeatures().get("string").toString();
+								break;
+							}
+						}
+						/*if ("".equals(conj)) {
+							throw new Exception();
+						}*/
+						if (verb_id == 0) {
+							conjVB = annotationSet.get(rel.getTargetId()).getFeatures().get("string").toString();
+						}
+						else conjVB = annotationSet.get(verb_id).getFeatures().get("string").toString();
+					} catch (Exception e) {
+						System.out.println("dep conj parse fault");
+					}
+
+					VPStr += (" " + conj + " " + conjVB);
+				}
+				else if (rel.getType().equals("compound:prt")) {
+					VPStr += " " + annotationSet.get(rel.getTargetId()).getFeatures().get("string").toString();
 				}
 			}
 			

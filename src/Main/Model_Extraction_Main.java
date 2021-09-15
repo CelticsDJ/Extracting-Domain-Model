@@ -3,6 +3,7 @@ package Main;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.SwingUtilities;
@@ -24,9 +25,10 @@ import rules.Relation_Rules;
 import utils.DeriveAnnotations;
 
 public class Model_Extraction_Main {
+
+	private static ConditionalSerialAnalyserController controller;
 	
-	public static void main(String [] args) throws Exception
-	{
+	public static void main(String [] args) throws Exception {
 		//Set GATE home to right location
 		File file = new File("/Applications/GATE_Developer_8.6/");
 
@@ -36,13 +38,36 @@ public class Model_Extraction_Main {
 		//prepare the GATE library
 		Gate.init();
 
-		Corpus testCorpus = init("/Users/dujianuo/Desktop/Extracting-Domain-Model/resources/requirements.txt");
+		controller = (ConditionalSerialAnalyserController) PersistenceManager.loadObjectFromFile(new File("resources/model8.6.gapp"));
 
-		GlobalVariables.setAnnotatedDoc(testCorpus.get(0));
+		//Corpus testCorpus = init("/Users/dujianuo/Desktop/Extracting-Domain-Model/resources/requirements.txt");
 
-		DeriveAnnotations.DeriveAnnotations();
+		String path = "/Users/dujianuo/Desktop/Extracting-Domain-Model/resources/";
+		File resources = new File("resources");
+		File[] inputs = resources.listFiles();
+		for (File xml : inputs) {
+			if (xml.getName().endsWith(".xml") && !xml.getName().startsWith("2") || xml.getName().equals("2CCHIT.txt")) {
 
-		extractInfoFromAnnotatedDoc();
+				System.out.println("========================================");
+				System.out.println(xml.getName());
+
+				Corpus corpus = init(path + xml.getName());
+
+				GlobalVariables.setAnnotatedDoc(corpus.get(0));
+				GlobalVariables.conceptCnt = new HashMap<>();
+
+				DeriveAnnotations.DeriveAnnotations();
+
+				extractInfoFromAnnotatedDoc();
+			}
+		}
+		//Corpus testCorpus = init("/Users/dujianuo/Desktop/Extracting-Domain-Model/resources/iTrust.xml");
+
+		//GlobalVariables.setAnnotatedDoc(testCorpus.get(0));
+
+		//DeriveAnnotations.DeriveAnnotations();
+
+		//extractInfoFromAnnotatedDoc();
 
 		for (String arg : args) {
 			Corpus corpus = init(arg);
@@ -66,19 +91,20 @@ public class Model_Extraction_Main {
 	private static Corpus init(String arg) throws Exception
 	{
 		Corpus corpus = (Corpus) Factory.createResource("gate.corpora.CorpusImpl");
-		corpus.setName("Test_Corpus");
+		corpus.setName("Corpus for " + arg);
 
 		URL docURL = new URL("file://" + arg);
 
 		Document doc = Factory.newDocument(docURL, "UTF-8");
-		doc.setName("OpenCossReqs");
+		doc.setName(arg);
 
 	    corpus.add(doc);
 
-	    ConditionalSerialAnalyserController controller = (ConditionalSerialAnalyserController) PersistenceManager.loadObjectFromFile(new File("resources/model8.6.gapp"));
+	    //ConditionalSerialAnalyserController controller = (ConditionalSerialAnalyserController) PersistenceManager.loadObjectFromFile(new File("resources/model8.6.gapp"));
 
 	    controller.setCorpus(corpus);
-	    controller.execute();
+
+	    if (arg.endsWith(".txt")) controller.execute();
 
 	    return controller.getCorpus();
 
@@ -112,7 +138,8 @@ public class Model_Extraction_Main {
 			DOT_Graphviz_conversion.writeDOTFile("result/ATM_Example.dot");
 		}
 		 */
-		String filename = "result/".concat(GlobalVariables.annotated_doc.getName());
+		//String filename = "result/".concat(GlobalVariables.annotated_doc.getName());
+		String filename = GlobalVariables.annotated_doc.getName();
 		DOT_Graphviz_conversion.writeDOTFile(filename.concat(".dot"));
 		Write_To_Excel.Write_to_Excel(filename.concat(".xls"));
 

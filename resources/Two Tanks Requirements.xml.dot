@@ -1,0 +1,963 @@
+digraph G {
+fontname = "Bitstream Vera Sans"
+fontsize = 8
+node [ 
+fontname = "Bitstream Vera Sans"
+fontsize = 8
+shape = "record"
+]
+edge [ 
+fontname = "Bitstream Vera Sans"
+fontsize = 8
+]
+
+
+R1:Tank 1 shall not overflow.
+R2:Tank 2 shall not overflow.
+R3:The initial liquid height Tank 1 shall be known to the control system.
+control_system [ label = "{control system : \l}"]
+system [ label = "{system : \l}"]
+control_system -> system  [arrowhead = "empty"]
+Generalization
+height_Tank [ label = "{height Tank : \l}"]
+Tank [ label = "{Tank : \l}"]
+height_Tank -> Tank  [arrowhead = "empty"]
+Generalization
+tank_1 [ label = "{tank 1 : \l}"]
+control_system [ label = "{control system : \l}"]
+tank_1 -> control_system  [arrowhead = "none", label = "know to"]
+B1
+
+
+R4:The initial liquid height Tank 2 shall be known to the control system.
+
+
+tank_2 [ label = "{tank 2 : \l}"]
+control_system [ label = "{control system : \l}"]
+tank_2 -> control_system  [arrowhead = "none", label = "know to"]
+B1
+
+
+R5:The height of the tank 1 liquid shall not be over the tank 1 high safety level for more than the specified time.
+tank_1_liquid [ label = "{tank 1 liquid : \l}"]
+1_liquid [ label = "{1 liquid : \l}"]
+tank_1_liquid -> 1_liquid  [arrowhead = "empty"]
+Generalization
+height [ label = "{height : \l}"]
+specified_time [ label = "{specified time : \l}"]
+height -> specified_time  [arrowhead = "none", label = " level "]
+Association
+height [ label = "{height : \l}"]
+more [ label = "{more : \l}"]
+height -> more  [arrowhead = "none", label = " level for"]
+Association
+height [ label = "{height : \l}"]
+more [ label = "{more : \l}"]
+height -> more  [arrowhead = "none", label = "of tank 1 liquid level for"]
+Association
+height [ label = "{height : \l}"]
+specified_time [ label = "{specified time : \l}"]
+height -> specified_time  [arrowhead = "none", label = "of tank 1 liquid level "]
+Association
+height [ label = "{height : \l}"]
+tank_1_liquid [ label = "{tank 1 liquid : \l}"]
+height -> tank_1_liquid  [arrowhead = "odiamond"]
+Aggregation
+safety_level [ label = "{safety level : \l}"]
+level [ label = "{level : \l}"]
+safety_level -> level  [arrowhead = "empty"]
+Generalization
+tank_1_high_safety_level [ label = "{tank 1 high safety level : \l}"]
+1_high_safety_level [ label = "{1 high safety level : \l}"]
+tank_1_high_safety_level -> 1_high_safety_level  [arrowhead = "empty"]
+Generalization
+
+
+R6:This specified time is dependent on the flowrate per timestep.
+R7:The height of the tank 1 liquid shall not be lower than the tank 1 low safety level (once it has already crossed it) for more than the specified time.
+
+tank_1_low_safety_level [ label = "{tank 1 low safety level : \l}"]
+1_low_safety_level [ label = "{1 low safety level : \l}"]
+tank_1_low_safety_level -> 1_low_safety_level  [arrowhead = "empty"]
+Generalization
+it [ label = "{it : \l}"]
+it [ label = "{it : \l}"]
+it -> it  [arrowhead = "none", label = "crossed"]
+Association
+
+
+
+
+R8:This specified time is dependent on the flowrate per timestep.
+R9:The height of the tank 2 liquid shall not be over the tank 2 high safety level for more than the specified time.
+
+
+height [ label = "{height : \l}"]
+more [ label = "{more : \l}"]
+height -> more  [arrowhead = "none", label = "of tank 2 liquid level for"]
+Association
+tank_2_high_safety_level [ label = "{tank 2 high safety level : \l}"]
+2_high_safety_level [ label = "{2 high safety level : \l}"]
+tank_2_high_safety_level -> 2_high_safety_level  [arrowhead = "empty"]
+Generalization
+tank_2_liquid [ label = "{tank 2 liquid : \l}"]
+2_liquid [ label = "{2 liquid : \l}"]
+tank_2_liquid -> 2_liquid  [arrowhead = "empty"]
+Generalization
+height [ label = "{height : \l}"]
+specified_time [ label = "{specified time : \l}"]
+height -> specified_time  [arrowhead = "none", label = "of tank 2 liquid level "]
+Association
+height [ label = "{height : \l}"]
+tank_2_liquid [ label = "{tank 2 liquid : \l}"]
+height -> tank_2_liquid  [arrowhead = "odiamond"]
+Aggregation
+
+
+
+R10:This specified time is dependent on the flowrate per timestep.
+R11:The height of the tank 2 liquid shall not be lower than the tank 2 low safety level (once it has already crossed it) for more than the specified time.
+
+
+
+tank_2_low_safety_level [ label = "{tank 2 low safety level : \l}"]
+2_low_safety_level [ label = "{2 low safety level : \l}"]
+tank_2_low_safety_level -> 2_low_safety_level  [arrowhead = "empty"]
+Generalization
+
+
+
+R12:This specified time is dependent on the flowrate per timestep.
+R13:The tank 1 HIGH sensor is physically placed at a greater height (above) the tank 1 LOW sensor.
+tank_1_LOW_sensor [ label = "{tank 1 LOW sensor : \l}"]
+1_LOW_sensor [ label = "{1 LOW sensor : \l}"]
+tank_1_LOW_sensor -> 1_LOW_sensor  [arrowhead = "empty"]
+Generalization
+tank_1_HIGH_sensor [ label = "{tank 1 HIGH sensor : \l}"]
+1_HIGH_sensor [ label = "{1 HIGH sensor : \l}"]
+tank_1_HIGH_sensor -> 1_HIGH_sensor  [arrowhead = "empty"]
+Generalization
+tank_1_HIGH_sensor [ label = "{tank 1 HIGH sensor : \l}"]
+a_greater_height_( [ label = "{a greater height ( : \l}"]
+tank_1_HIGH_sensor -> a_greater_height_(  [arrowhead = "none", label = "place at"]
+B1
+HIGH_sensor [ label = "{HIGH sensor : \l}"]
+sensor [ label = "{sensor : \l}"]
+HIGH_sensor -> sensor  [arrowhead = "empty"]
+Generalization
+LOW_sensor [ label = "{LOW sensor : \l}"]
+sensor [ label = "{sensor : \l}"]
+LOW_sensor -> sensor  [arrowhead = "empty"]
+Generalization
+
+
+R14:The tank 2 HIGH sensor is physically placed at a greater height (above) the tank 2 MID sensor.
+tank_2_HIGH_sensor [ label = "{tank 2 HIGH sensor : \l}"]
+a_greater_height_( [ label = "{a greater height ( : \l}"]
+tank_2_HIGH_sensor -> a_greater_height_(  [arrowhead = "none", label = "place at"]
+B1
+tank_2_HIGH_sensor [ label = "{tank 2 HIGH sensor : \l}"]
+tank_2_MID_sensor [ label = "{tank 2 MID sensor : \l}"]
+tank_2_HIGH_sensor -> tank_2_MID_sensor  [arrowhead = "none", label = "place  at a greater height ("]
+B1
+MID_sensor [ label = "{MID sensor : \l}"]
+sensor [ label = "{sensor : \l}"]
+MID_sensor -> sensor  [arrowhead = "empty"]
+Generalization
+tank_2_MID_sensor [ label = "{tank 2 MID sensor : \l}"]
+2_MID_sensor [ label = "{2 MID sensor : \l}"]
+tank_2_MID_sensor -> 2_MID_sensor  [arrowhead = "empty"]
+Generalization
+tank_2_HIGH_sensor [ label = "{tank 2 HIGH sensor : \l}"]
+2_HIGH_sensor [ label = "{2 HIGH sensor : \l}"]
+tank_2_HIGH_sensor -> 2_HIGH_sensor  [arrowhead = "empty"]
+Generalization
+
+
+
+R15:The tank 2 MID sensor is physically placed at a greater height (above) the tank 2 LOW sensor.
+
+tank_2_LOW_sensor [ label = "{tank 2 LOW sensor : \l}"]
+2_LOW_sensor [ label = "{2 LOW sensor : \l}"]
+tank_2_LOW_sensor -> 2_LOW_sensor  [arrowhead = "empty"]
+Generalization
+
+
+tank_2_MID_sensor [ label = "{tank 2 MID sensor : \l}"]
+a_greater_height_( [ label = "{a greater height ( : \l}"]
+tank_2_MID_sensor -> a_greater_height_(  [arrowhead = "none", label = "place at"]
+B1
+tank_2_MID_sensor [ label = "{tank 2 MID sensor : \l}"]
+tank_2_LOW_sensor [ label = "{tank 2 LOW sensor : \l}"]
+tank_2_MID_sensor -> tank_2_LOW_sensor  [arrowhead = "none", label = "place  at a greater height ("]
+B1
+
+
+R16:The sensor outputs shall initially be false.
+sensor_outputs [ label = "{sensor outputs : \l}"]
+outputs [ label = "{outputs : \l}"]
+sensor_outputs -> outputs  [arrowhead = "empty"]
+Generalization
+
+
+R17:If the tank 1 liquid height is greater than or equal to the sensor height of the tank 1 HIGH liquid sensor then the sensor should return an active (TRUE) state to the system.
+sensor [ label = "{sensor : \l}"]
+system [ label = "{system : \l}"]
+sensor -> system  [arrowhead = "none", label = "return an active ( true ) state to"]
+Association
+tank_1_liquid_height [ label = "{tank 1 liquid height : \l}"]
+1_liquid_height [ label = "{1 liquid height : \l}"]
+tank_1_liquid_height -> 1_liquid_height  [arrowhead = "empty"]
+Generalization
+tank_1_HIGH_liquid_sensor [ label = "{tank 1 HIGH liquid sensor : \l}"]
+1_HIGH_liquid_sensor [ label = "{1 HIGH liquid sensor : \l}"]
+tank_1_HIGH_liquid_sensor -> 1_HIGH_liquid_sensor  [arrowhead = "empty"]
+Generalization
+liquid_sensor [ label = "{liquid sensor : \l}"]
+sensor [ label = "{sensor : \l}"]
+liquid_sensor -> sensor  [arrowhead = "empty"]
+Generalization
+sensor [ label = "{sensor : \l}"]
+an_active_(_true_)_state [ label = "{an active ( true ) state : \l}"]
+sensor -> an_active_(_true_)_state  [arrowhead = "none", label = "return"]
+Association
+liquid_height [ label = "{liquid height : \l}"]
+height [ label = "{height : \l}"]
+liquid_height -> height  [arrowhead = "empty"]
+Generalization
+HIGH_liquid_sensor [ label = "{HIGH liquid sensor : \l}"]
+liquid_sensor [ label = "{liquid sensor : \l}"]
+HIGH_liquid_sensor -> liquid_sensor  [arrowhead = "empty"]
+Generalization
+sensor_height [ label = "{sensor height : \l}"]
+tank_1_HIGH_liquid_sensor [ label = "{tank 1 HIGH liquid sensor : \l}"]
+sensor_height -> tank_1_HIGH_liquid_sensor  [arrowhead = "odiamond"]
+Aggregation
+sensor_height [ label = "{sensor height : \l}"]
+height [ label = "{height : \l}"]
+sensor_height -> height  [arrowhead = "empty"]
+Generalization
+
+
+R18:If the tank 1 liquid height is below (less than) the placement height of the tank 1 HIGH liquid sensor then the sensor should return a (FALSE) state to the system.
+placement_height [ label = "{placement height : \l}"]
+tank_1_HIGH_liquid_sensor [ label = "{tank 1 HIGH liquid sensor : \l}"]
+placement_height -> tank_1_HIGH_liquid_sensor  [arrowhead = "odiamond"]
+Aggregation
+sensor [ label = "{sensor : \l}"]
+a_(_false_)_state [ label = "{a ( false ) state : \l}"]
+sensor -> a_(_false_)_state  [arrowhead = "none", label = "return"]
+Association
+placement_height [ label = "{placement height : \l}"]
+height [ label = "{height : \l}"]
+placement_height -> height  [arrowhead = "empty"]
+Generalization
+sensor [ label = "{sensor : \l}"]
+system [ label = "{system : \l}"]
+sensor -> system  [arrowhead = "none", label = "return a ( false ) state to"]
+Association
+tank_1_liquid_height [ label = "{tank 1 liquid height : \l}"]
+tank_1_HIGH_liquid_sensor [ label = "{tank 1 HIGH liquid sensor : \l}"]
+tank_1_liquid_height -> tank_1_HIGH_liquid_sensor  [arrowhead = "none", label = " height of"]
+Association
+
+
+
+
+
+
+
+R19:If the tank 1 liquid height is greater than or equal to the placement height of the tank 1 LOW liquid sensor then the sensor should return an active (TRUE) state to the system.
+placement_height [ label = "{placement height : \l}"]
+tank_1_LOW_liquid_sensor [ label = "{tank 1 LOW liquid sensor : \l}"]
+placement_height -> tank_1_LOW_liquid_sensor  [arrowhead = "odiamond"]
+Aggregation
+
+tank_1_LOW_liquid_sensor [ label = "{tank 1 LOW liquid sensor : \l}"]
+1_LOW_liquid_sensor [ label = "{1 LOW liquid sensor : \l}"]
+tank_1_LOW_liquid_sensor -> 1_LOW_liquid_sensor  [arrowhead = "empty"]
+Generalization
+
+
+
+
+
+
+R20:If the tank 1 liquid height is below (less than) the placement height of the tank 1 LOW liquid sensor then the sensor should return a (FALSE) state to the system.
+
+
+
+tank_1_liquid_height [ label = "{tank 1 liquid height : \l}"]
+tank_1_LOW_liquid_sensor [ label = "{tank 1 LOW liquid sensor : \l}"]
+tank_1_liquid_height -> tank_1_LOW_liquid_sensor  [arrowhead = "none", label = " height of"]
+Association
+
+
+
+
+
+R21:If the tank 2 liquid height is greater than or equal to the placement height of the tank 2 HIGH liquid sensor then the sensor should return an active (TRUE) state to the system.
+tank_2_liquid_height [ label = "{tank 2 liquid height : \l}"]
+2_liquid_height [ label = "{2 liquid height : \l}"]
+tank_2_liquid_height -> 2_liquid_height  [arrowhead = "empty"]
+Generalization
+
+
+placement_height [ label = "{placement height : \l}"]
+tank_2_HIGH_liquid_sensor [ label = "{tank 2 HIGH liquid sensor : \l}"]
+placement_height -> tank_2_HIGH_liquid_sensor  [arrowhead = "odiamond"]
+Aggregation
+
+
+
+tank_2_HIGH_liquid_sensor [ label = "{tank 2 HIGH liquid sensor : \l}"]
+2_HIGH_liquid_sensor [ label = "{2 HIGH liquid sensor : \l}"]
+tank_2_HIGH_liquid_sensor -> 2_HIGH_liquid_sensor  [arrowhead = "empty"]
+Generalization
+
+
+
+R22:If the tank 2 liquid height is below (less than) the placement height of the tank 2 HIGH liquid sensor then the sensor should return a (FALSE) state to the system.
+
+
+
+
+
+tank_2_liquid_height [ label = "{tank 2 liquid height : \l}"]
+tank_2_HIGH_liquid_sensor [ label = "{tank 2 HIGH liquid sensor : \l}"]
+tank_2_liquid_height -> tank_2_HIGH_liquid_sensor  [arrowhead = "none", label = " height of"]
+Association
+
+
+
+
+
+
+R23:If the tank 2 liquid height is greater than or equal to the placement height of the tank 2 MID liquid sensor then the sensor should return an active (TRUE) state to the system.
+MID_liquid_sensor [ label = "{MID liquid sensor : \l}"]
+liquid_sensor [ label = "{liquid sensor : \l}"]
+MID_liquid_sensor -> liquid_sensor  [arrowhead = "empty"]
+Generalization
+
+
+tank_2_MID_liquid_sensor [ label = "{tank 2 MID liquid sensor : \l}"]
+2_MID_liquid_sensor [ label = "{2 MID liquid sensor : \l}"]
+tank_2_MID_liquid_sensor -> 2_MID_liquid_sensor  [arrowhead = "empty"]
+Generalization
+placement_height [ label = "{placement height : \l}"]
+tank_2_MID_liquid_sensor [ label = "{tank 2 MID liquid sensor : \l}"]
+placement_height -> tank_2_MID_liquid_sensor  [arrowhead = "odiamond"]
+Aggregation
+
+sensor [ label = "{sensor : \l}"]
+system [ label = "{system : \l}"]
+sensor -> system  [arrowhead = "none", label = "return active ( TRUE ) state to"]
+Association
+
+sensor [ label = "{sensor : \l}"]
+active_(_TRUE_)_state [ label = "{active ( TRUE ) state : \l}"]
+sensor -> active_(_TRUE_)_state  [arrowhead = "none", label = "return"]
+Association
+
+
+R24:If the tank 2 liquid height is below (less than) the placement height of the tank 2 MID liquid sensor then the sensor should return a (FALSE) state to the system.
+
+
+
+
+
+
+
+
+tank_2_liquid_height [ label = "{tank 2 liquid height : \l}"]
+tank_2_MID_liquid_sensor [ label = "{tank 2 MID liquid sensor : \l}"]
+tank_2_liquid_height -> tank_2_MID_liquid_sensor  [arrowhead = "none", label = " height of"]
+Association
+
+
+R25:If the tank 2 liquid height is greater than or equal to the placement height of the tank 2 LOW liquid sensor then the sensor should return an active (TRUE) state to the system.
+tank_2_LOW_liquid_sensor [ label = "{tank 2 LOW liquid sensor : \l}"]
+2_LOW_liquid_sensor [ label = "{2 LOW liquid sensor : \l}"]
+tank_2_LOW_liquid_sensor -> 2_LOW_liquid_sensor  [arrowhead = "empty"]
+Generalization
+
+placement_height [ label = "{placement height : \l}"]
+tank_2_LOW_liquid_sensor [ label = "{tank 2 LOW liquid sensor : \l}"]
+placement_height -> tank_2_LOW_liquid_sensor  [arrowhead = "odiamond"]
+Aggregation
+
+
+
+
+
+
+R26:If the tank 2 liquid height is below (less than) the placement height of the tank 2 LOW liquid sensor then the sensor should return a (FALSE) state to the system.
+tank_2_liquid_height [ label = "{tank 2 liquid height : \l}"]
+tank_2_LOW_liquid_sensor [ label = "{tank 2 LOW liquid sensor : \l}"]
+tank_2_liquid_height -> tank_2_LOW_liquid_sensor  [arrowhead = "none", label = " height of"]
+Association
+
+
+
+
+
+
+
+
+R27:The tank 1 is initially empty or below the low tank 1 liquid height sensor.
+height_sensor [ label = "{height sensor : \l}"]
+sensor [ label = "{sensor : \l}"]
+height_sensor -> sensor  [arrowhead = "empty"]
+Generalization
+tank_1_liquid_height_sensor [ label = "{tank 1 liquid height sensor : \l}"]
+1_liquid_height_sensor [ label = "{1 liquid height sensor : \l}"]
+tank_1_liquid_height_sensor -> 1_liquid_height_sensor  [arrowhead = "empty"]
+Generalization
+
+
+R28:If the tank is not empty the liquid height must be known to the system.
+liquid_height [ label = "{liquid height : \l}"]
+system [ label = "{system : \l}"]
+liquid_height -> system  [arrowhead = "none", label = "know to"]
+B1
+
+
+R29:The tank 1 change in liquid volume for each timestep is limited by the maximum inflow and outflow for each timestep.
+tank_1_change [ label = "{tank 1 change : \l}"]
+1_change [ label = "{1 change : \l}"]
+tank_1_change -> 1_change  [arrowhead = "empty"]
+Generalization
+tank_1_change [ label = "{tank 1 change : \l}"]
+timestep [ label = "{timestep : \l}"]
+tank_1_change -> timestep  [arrowhead = "none", label = "limit  by maximum inflow and outflow for"]
+B1
+tank_1_change [ label = "{tank 1 change : \l}"]
+maximum_inflow_and_outflow [ label = "{maximum inflow and outflow : \l}"]
+tank_1_change -> maximum_inflow_and_outflow  [arrowhead = "none", label = "limit by"]
+B1
+
+
+R30:The tank 1 resulting liquid height for each timestep is dependent on the liquid height in the previous timestep plus the additional liquid height defined by the net flow rate from the state of the pump and the valve and the cross-sectional area of tank 1.
+tank_1_resulting_liquid_height [ label = "{tank 1 resulting liquid height : \l}"]
+previous_timestep [ label = "{previous timestep : \l}"]
+tank_1_resulting_liquid_height -> previous_timestep  [arrowhead = "none", label = " dependent "]
+Association
+tank_1_resulting_liquid_height [ label = "{tank 1 resulting liquid height : \l}"]
+previous_timestep [ label = "{previous timestep : \l}"]
+tank_1_resulting_liquid_height -> previous_timestep  [arrowhead = "none", label = "for timestep dependent "]
+Association
+cross-sectional_area [ label = "{cross-sectional area : \l}"]
+tank_1 [ label = "{tank 1 : \l}"]
+cross-sectional_area -> tank_1  [arrowhead = "odiamond"]
+Aggregation
+tank_1_resulting_liquid_height [ label = "{tank 1 resulting liquid height : \l}"]
+liquid_height [ label = "{liquid height : \l}"]
+tank_1_resulting_liquid_height -> liquid_height  [arrowhead = "none", label = "for timestep dependent on"]
+Association
+tank_1_resulting_liquid_height [ label = "{tank 1 resulting liquid height : \l}"]
+additional_liquid_height [ label = "{additional liquid height : \l}"]
+tank_1_resulting_liquid_height -> additional_liquid_height  [arrowhead = "none", label = " dependent "]
+Association
+flow_rate [ label = "{flow rate : \l}"]
+rate [ label = "{rate : \l}"]
+flow_rate -> rate  [arrowhead = "empty"]
+Generalization
+state [ label = "{state : \l}"]
+pump [ label = "{pump : \l}"]
+state -> pump  [arrowhead = "odiamond"]
+Aggregation
+tank_1_resulting_liquid_height [ label = "{tank 1 resulting liquid height : \l}"]
+additional_liquid_height [ label = "{additional liquid height : \l}"]
+tank_1_resulting_liquid_height -> additional_liquid_height  [arrowhead = "none", label = "for timestep dependent "]
+Association
+tank_1_resulting_liquid_height [ label = "{tank 1 resulting liquid height : \l}"]
+liquid_height [ label = "{liquid height : \l}"]
+tank_1_resulting_liquid_height -> liquid_height  [arrowhead = "none", label = " dependent on"]
+Association
+tank_1_resulting_liquid_height [ label = "{tank 1 resulting liquid height : \l}"]
+1_resulting_liquid_height [ label = "{1 resulting liquid height : \l}"]
+tank_1_resulting_liquid_height -> 1_resulting_liquid_height  [arrowhead = "empty"]
+Generalization
+
+
+R31:When the tank 1 pump is ON and the valve is CLOSED the liquid height in the tank shall increase from the previous timestep.
+tank_1_pump [ label = "{tank 1 pump : \l}"]
+1_pump [ label = "{1 pump : \l}"]
+tank_1_pump -> 1_pump  [arrowhead = "empty"]
+Generalization
+liquid_height [ label = "{liquid height : \l}"]
+previous_timestep [ label = "{previous timestep : \l}"]
+liquid_height -> previous_timestep  [arrowhead = "none", label = "in tank increase from"]
+Association
+liquid_height [ label = "{liquid height : \l}"]
+previous_timestep [ label = "{previous timestep : \l}"]
+liquid_height -> previous_timestep  [arrowhead = "none", label = " increase from"]
+Association
+
+
+R32:When the tank 1 pump is OFF and the valve is OPEN the liquid height in the tank shall decrease from the previous timestep.
+
+liquid_height [ label = "{liquid height : \l}"]
+previous_timestep [ label = "{previous timestep : \l}"]
+liquid_height -> previous_timestep  [arrowhead = "none", label = "in tank decrease from"]
+Association
+liquid_height [ label = "{liquid height : \l}"]
+previous_timestep [ label = "{previous timestep : \l}"]
+liquid_height -> previous_timestep  [arrowhead = "none", label = " decrease from"]
+Association
+
+
+R33:When the tank 1 pump is OFF that the valve is CLOSED the liquid height in the tank shall remain equivalent to the liquid height from the previous timestep.
+tank_1_pump [ label = "{tank 1 pump : \l}"]
+liquid_height [ label = "{liquid height : \l}"]
+tank_1_pump -> liquid_height  [arrowhead = "none", label = "OFF that the valve is CLOSED"]
+Association
+tank_1_pump [ label = "{tank 1 pump : \l}"]
+tank [ label = "{tank : \l}"]
+tank_1_pump -> tank  [arrowhead = "none", label = "OFF that the valve is CLOSED liquid height in"]
+Association
+
+
+
+R34:When the pump is ON there should be inflow into the tank 1.
+R35:When the pump is OFF there should be NO inflow into tank 1.
+R36:When the tank 1 valve is OPEN the flow rate shall be equal to the physical maximum flow rate of the valve.
+physical_maximum_flow_rate [ label = "{physical maximum flow rate : \l}"]
+valve [ label = "{valve : \l}"]
+physical_maximum_flow_rate -> valve  [arrowhead = "odiamond"]
+Aggregation
+
+tank_1_valve [ label = "{tank 1 valve : \l}"]
+1_valve [ label = "{1 valve : \l}"]
+tank_1_valve -> 1_valve  [arrowhead = "empty"]
+Generalization
+
+
+R37:When the tank 1 valve is CLOSED the flow rate of the valve shall be zero.
+flow_rate [ label = "{flow rate : \l}"]
+valve [ label = "{valve : \l}"]
+flow_rate -> valve  [arrowhead = "odiamond"]
+Aggregation
+
+
+
+
+R38:Tank 2 is initially empty or below the tank 2 low liquid height sensor.
+
+
+
+R39:If the tank is not empty the liquid height must be known to the system.
+
+
+
+R40:The tank 2 change in liquid volume for each timestep is limited by the maximum inflow and outflow for each timestep.
+tank_2_change [ label = "{tank 2 change : \l}"]
+timestep [ label = "{timestep : \l}"]
+tank_2_change -> timestep  [arrowhead = "none", label = "limit  by maximum inflow and outflow for"]
+B1
+tank_2_change [ label = "{tank 2 change : \l}"]
+maximum_inflow_and_outflow [ label = "{maximum inflow and outflow : \l}"]
+tank_2_change -> maximum_inflow_and_outflow  [arrowhead = "none", label = "limit by"]
+B1
+tank_2_change [ label = "{tank 2 change : \l}"]
+2_change [ label = "{2 change : \l}"]
+tank_2_change -> 2_change  [arrowhead = "empty"]
+Generalization
+
+
+R41:The resulting tank 2 liquid height for each timestep is a function of the liquid height in the previous timestep, the additional liquid height as defined by the net flow rate from the state of the inflow valve from tank 1 and tank 2 outflow valves (production and emergency), and the cross-sectional area.
+tank_2_liquid_height [ label = "{tank 2 liquid height : \l}"]
+liquid_height [ label = "{liquid height : \l}"]
+tank_2_liquid_height -> liquid_height  [arrowhead = "none", label = " function of"]
+Association
+tank_2_liquid_height [ label = "{tank 2 liquid height : \l}"]
+liquid_height [ label = "{liquid height : \l}"]
+tank_2_liquid_height -> liquid_height  [arrowhead = "none", label = "for timestep function of"]
+Association
+
+
+tank_2_liquid_height [ label = "{tank 2 liquid height : \l}"]
+previous_timestep [ label = "{previous timestep : \l}"]
+tank_2_liquid_height -> previous_timestep  [arrowhead = "none", label = " function "]
+Association
+function [ label = "{function : \l}"]
+liquid_height [ label = "{liquid height : \l}"]
+function -> liquid_height  [arrowhead = "odiamond"]
+Aggregation
+inflow_valve [ label = "{inflow valve : \l}"]
+valve [ label = "{valve : \l}"]
+inflow_valve -> valve  [arrowhead = "empty"]
+Generalization
+tank_2_liquid_height [ label = "{tank 2 liquid height : \l}"]
+previous_timestep [ label = "{previous timestep : \l}"]
+tank_2_liquid_height -> previous_timestep  [arrowhead = "none", label = "for timestep function "]
+Association
+state [ label = "{state : \l}"]
+inflow_valve [ label = "{inflow valve : \l}"]
+state -> inflow_valve  [arrowhead = "odiamond"]
+Aggregation
+
+
+R42:When the tank 1 valve is OPEN and the tank 2 outflow valves (emergency and production) are CLOSED the liquid height in tank 2 shall increase from the previous timestep.
+tank_2_outflow [ label = "{tank 2 outflow : \l}"]
+2_outflow [ label = "{2 outflow : \l}"]
+tank_2_outflow -> 2_outflow  [arrowhead = "empty"]
+Generalization
+
+
+
+R43:When the tank 1 valve is OPEN, the tank 2 production valve is OPEN, and the tank 2 emergency valve is CLOSED the liquid height in tank 2 shall increase from the previous timestep.
+emergency_valve [ label = "{emergency valve : \l}"]
+valve [ label = "{valve : \l}"]
+emergency_valve -> valve  [arrowhead = "empty"]
+Generalization
+production_valve [ label = "{production valve : \l}"]
+valve [ label = "{valve : \l}"]
+production_valve -> valve  [arrowhead = "empty"]
+Generalization
+tank_2_emergency_valve [ label = "{tank 2 emergency valve : \l}"]
+2_emergency_valve [ label = "{2 emergency valve : \l}"]
+tank_2_emergency_valve -> 2_emergency_valve  [arrowhead = "empty"]
+Generalization
+
+tank_2_production_valve [ label = "{tank 2 production valve : \l}"]
+2_production_valve [ label = "{2 production valve : \l}"]
+tank_2_production_valve -> 2_production_valve  [arrowhead = "empty"]
+Generalization
+
+
+R44:When the tank 1 valve is OPEN, the tank 2 production valve is CLOSED, and the tank 2 emergency valve is OPEN the liquid height in tank 2 shall decrease from the previous timestep.
+
+
+
+
+
+
+
+R45:When the tank 1 valve is CLOSED that the tank 2 valves (production and emergency) are CLOSED the liquid height in tank 2 shall remain the same from the previous timestep.
+tank_2_valves [ label = "{tank 2 valves : \l}"]
+2_valves [ label = "{2 valves : \l}"]
+tank_2_valves -> 2_valves  [arrowhead = "empty"]
+Generalization
+
+
+
+R46:When the tank 2 production valve is OPEN there should be an outflow equal to that of the max production flow.
+
+production_flow [ label = "{production flow : \l}"]
+flow [ label = "{flow : \l}"]
+production_flow -> flow  [arrowhead = "empty"]
+Generalization
+
+
+
+R47:When the tank 2 production valve is CLOSED there should be no flow from that valve.
+
+
+
+
+R48:When the tank 2 emergency valve is OPEN there should be an outflow equal to that of the max emergency output flow.
+output_flow [ label = "{output flow : \l}"]
+flow [ label = "{flow : \l}"]
+output_flow -> flow  [arrowhead = "empty"]
+Generalization
+
+
+emergency_output_flow [ label = "{emergency output flow : \l}"]
+output_flow [ label = "{output flow : \l}"]
+emergency_output_flow -> output_flow  [arrowhead = "empty"]
+Generalization
+
+
+R49:When the tank 2 emergency valve is CLOSED there should be no flow from that valve.
+
+
+
+
+R50:When the tank 1 LOW liquid sensor is FALSE, the tank 1 pump shall be ON and the tank 1 outflow valve shall be CLOSED.
+
+LOW_liquid_sensor [ label = "{LOW liquid sensor : \l}"]
+liquid_sensor [ label = "{liquid sensor : \l}"]
+LOW_liquid_sensor -> liquid_sensor  [arrowhead = "empty"]
+Generalization
+
+tank_1_outflow_valve [ label = "{tank 1 outflow valve : \l}"]
+1_outflow_valve [ label = "{1 outflow valve : \l}"]
+tank_1_outflow_valve -> 1_outflow_valve  [arrowhead = "empty"]
+Generalization
+
+outflow_valve [ label = "{outflow valve : \l}"]
+valve [ label = "{valve : \l}"]
+outflow_valve -> valve  [arrowhead = "empty"]
+Generalization
+
+
+R51:When the tank 1 HIGH liquid sensor is TRUE, the tank 1 pump shall be OFF and the tank 1 outflow valve shall be OPEN.
+
+
+
+
+
+
+
+
+R52:When the tank 1 HIGH liquid sensor is FALSE and the tank 1 LOW liquid sensor is TRUE then the tank 1 pump and the tank 1 outflow valve shall maintain the states they were set to in the previous timestep.
+
+
+
+
+tank_1_pump [ label = "{tank 1 pump : \l}"]
+state [ label = "{state : \l}"]
+tank_1_pump -> state  [arrowhead = "none", label = "maintain"]
+Association
+
+
+
+
+
+
+R53:When the system is initially started the tank 2 production valve shall be CLOSED.
+
+
+
+
+R54:The system should do was required.
+R55:When the system is initially started the tank 2 production valve shall be CLOSED.
+
+
+
+
+R56:When the system is initially started the tank 2 emergency valve shall be CLOSED.
+
+
+
+
+R57:When the tank 2 LOW sensor is FALSE, the emergency valve and the production valve (outflow valves) shall be commanded to be CLOSED.
+
+
+
+outflow [ label = "{outflow : \l}"]
+valves [ label = "{valves : \l}"]
+outflow -> valves  [arrowhead = "empty"]
+Generalization
+
+
+
+R58:When the tank 2 LOW sensor is TRUE and the tank 2 MID sensor is FALSE, then emergency valve shall be commanded to be CLOSED and the production valve shall be commanded to be OPEN.
+
+
+
+
+
+
+
+
+R59:When the tank 2 HIGH sensor is TRUE, the emergency valve and the production valve (outflow valves) shall be commanded to be OPEN.
+
+
+
+
+
+
+
+R60:When the tank 2 MID sensor is TRUE, the tank 2 HIGH sensor is FALSE, and the emergency valve was previously open, then the emergency valve and the production valve (outflow valves) shall be commanded to be OPEN.
+
+
+
+
+
+
+
+
+
+R61:When the tank 2 MID sensor is TRUE, the tank 2 HIGH sensor is FALSE, and the emergency valve was not previously open, then the emergency valve shall remain commanded CLOSED and the production valve shall be commanded to be OPEN.
+
+
+
+
+
+
+
+
+R62:The Tank 1 Previous Height shall initially be the specified initial value.
+1_Previous [ label = "{1 Previous : \l}"]
+Previous [ label = "{Previous : \l}"]
+1_Previous -> Previous  [arrowhead = "empty"]
+Generalization
+Tank_1_Previous_Height [ label = "{Tank 1 Previous Height : \l}"]
+1_Previous_Height [ label = "{1 Previous Height : \l}"]
+Tank_1_Previous_Height -> 1_Previous_Height  [arrowhead = "empty"]
+Generalization
+
+
+R63:The Tank 2 Previous Height shall initially be the specified initial value.
+2_Previous [ label = "{2 Previous : \l}"]
+Previous [ label = "{Previous : \l}"]
+2_Previous -> Previous  [arrowhead = "empty"]
+Generalization
+Tank_2_Previous_Height [ label = "{Tank 2 Previous Height : \l}"]
+2_Previous_Height [ label = "{2 Previous Height : \l}"]
+Tank_2_Previous_Height -> 2_Previous_Height  [arrowhead = "empty"]
+Generalization
+
+
+R64:The Previous Pump State shall initially be the specified initial value.
+Previous_Pump_State [ label = "{Previous Pump State : \l}"]
+Pump_State [ label = "{Pump State : \l}"]
+Previous_Pump_State -> Pump_State  [arrowhead = "empty"]
+Generalization
+Pump_State [ label = "{Pump State : \l}"]
+State [ label = "{State : \l}"]
+Pump_State -> State  [arrowhead = "empty"]
+Generalization
+
+
+R65:The Previous Valve State shall initially be the specified initial value.
+Valve_State [ label = "{Valve State : \l}"]
+State [ label = "{State : \l}"]
+Valve_State -> State  [arrowhead = "empty"]
+Generalization
+
+
+R66:The Previous Production Valve State shall initially be the specified initial value.
+Production_Valve_State [ label = "{Production Valve State : \l}"]
+Valve_State [ label = "{Valve State : \l}"]
+Production_Valve_State -> Valve_State  [arrowhead = "empty"]
+Generalization
+
+Previous_Production_Valve_State [ label = "{Previous Production Valve State : \l}"]
+Production_Valve_State [ label = "{Production Valve State : \l}"]
+Previous_Production_Valve_State -> Production_Valve_State  [arrowhead = "empty"]
+Generalization
+
+
+R67:The Previous Emergency Valve State shall initially be the specified initial value.
+Previous_Emergency_Valve_State [ label = "{Previous Emergency Valve State : \l}"]
+Emergency_Valve_State [ label = "{Emergency Valve State : \l}"]
+Previous_Emergency_Valve_State -> Emergency_Valve_State  [arrowhead = "empty"]
+Generalization
+Emergency_Valve_State [ label = "{Emergency Valve State : \l}"]
+Valve_State [ label = "{Valve State : \l}"]
+Emergency_Valve_State -> Valve_State  [arrowhead = "empty"]
+Generalization
+
+
+
+R68:After the initial time step, the Tank 1 Previous Height shall be equal to the Tank 1 Height in the previous step.
+Tank_1_Previous_Height [ label = "{Tank 1 Previous Height : \l}"]
+initial_time_step [ label = "{initial time step : \l}"]
+Tank_1_Previous_Height -> initial_time_step  [arrowhead = "none", label = " equal After"]
+Association
+Tank_1_Height [ label = "{Tank 1 Height : \l}"]
+1_Height [ label = "{1 Height : \l}"]
+Tank_1_Height -> 1_Height  [arrowhead = "empty"]
+Generalization
+Tank_1_Previous_Height [ label = "{Tank 1 Previous Height : \l}"]
+Tank_1_Height [ label = "{Tank 1 Height : \l}"]
+Tank_1_Previous_Height -> Tank_1_Height  [arrowhead = "none", label = " equal to"]
+Association
+
+time_step [ label = "{time step : \l}"]
+step [ label = "{step : \l}"]
+time_step -> step  [arrowhead = "empty"]
+Generalization
+Tank_1_Previous_Height [ label = "{Tank 1 Previous Height : \l}"]
+previous_step [ label = "{previous step : \l}"]
+Tank_1_Previous_Height -> previous_step  [arrowhead = "none", label = " equal "]
+Association
+
+
+R69:After the initial time step, the Tank 2 Previous Height shall be equal to the Tank 2 Height in the previous step.
+Tank_2_Height [ label = "{Tank 2 Height : \l}"]
+2_Height [ label = "{2 Height : \l}"]
+Tank_2_Height -> 2_Height  [arrowhead = "empty"]
+Generalization
+Tank_2_Previous_Height [ label = "{Tank 2 Previous Height : \l}"]
+Tank_2_Height [ label = "{Tank 2 Height : \l}"]
+Tank_2_Previous_Height -> Tank_2_Height  [arrowhead = "none", label = " equal to"]
+Association
+
+Tank_2_Previous_Height [ label = "{Tank 2 Previous Height : \l}"]
+initial_time_step [ label = "{initial time step : \l}"]
+Tank_2_Previous_Height -> initial_time_step  [arrowhead = "none", label = " equal After"]
+Association
+Tank_2_Previous_Height [ label = "{Tank 2 Previous Height : \l}"]
+previous_step [ label = "{previous step : \l}"]
+Tank_2_Previous_Height -> previous_step  [arrowhead = "none", label = " equal "]
+Association
+
+
+
+R70:After the initial time step, the Previous Pump State shall be equal to the Pump State in the previous step.
+Previous_Pump_State [ label = "{Previous Pump State : \l}"]
+Pump_State [ label = "{Pump State : \l}"]
+Previous_Pump_State -> Pump_State  [arrowhead = "none", label = " equal to"]
+Association
+Previous_Pump_State [ label = "{Previous Pump State : \l}"]
+initial_time_step [ label = "{initial time step : \l}"]
+Previous_Pump_State -> initial_time_step  [arrowhead = "none", label = " equal After"]
+Association
+
+Previous_Pump_State [ label = "{Previous Pump State : \l}"]
+previous_step [ label = "{previous step : \l}"]
+Previous_Pump_State -> previous_step  [arrowhead = "none", label = " equal in"]
+Association
+
+
+
+
+R71:After the initial time step, the Previous Valve State shall be equal to the Valve State in the previous step
+
+Previous_Valve_State [ label = "{Previous Valve State : \l}"]
+initial_time_step [ label = "{initial time step : \l}"]
+Previous_Valve_State -> initial_time_step  [arrowhead = "none", label = " equal After"]
+Association
+Previous_Valve_State [ label = "{Previous Valve State : \l}"]
+previous_step [ label = "{previous step : \l}"]
+Previous_Valve_State -> previous_step  [arrowhead = "none", label = " equal in"]
+Association
+
+Previous_Valve_State [ label = "{Previous Valve State : \l}"]
+Valve_State [ label = "{Valve State : \l}"]
+Previous_Valve_State -> Valve_State  [arrowhead = "none", label = " equal to"]
+Association
+
+
+R72:After the initial time step, the Previous Production Valve State shall be equal to the Production Valve State in the previous step.
+
+Previous_Production_Valve_State [ label = "{Previous Production Valve State : \l}"]
+Production_Valve_State [ label = "{Production Valve State : \l}"]
+Previous_Production_Valve_State -> Production_Valve_State  [arrowhead = "none", label = " equal to"]
+Association
+
+Previous_Production_Valve_State [ label = "{Previous Production Valve State : \l}"]
+initial_time_step [ label = "{initial time step : \l}"]
+Previous_Production_Valve_State -> initial_time_step  [arrowhead = "none", label = " equal After"]
+Association
+Previous_Production_Valve_State [ label = "{Previous Production Valve State : \l}"]
+previous_step [ label = "{previous step : \l}"]
+Previous_Production_Valve_State -> previous_step  [arrowhead = "none", label = " equal in"]
+Association
+
+
+
+
+R73:After the initial time step, the Previous Emergency Valve State shall be equal to the Emergency Valve State in the previous step.
+Previous_Emergency_Valve_State [ label = "{Previous Emergency Valve State : \l}"]
+Emergency_Valve_State [ label = "{Emergency Valve State : \l}"]
+Previous_Emergency_Valve_State -> Emergency_Valve_State  [arrowhead = "none", label = " equal to"]
+Association
+
+
+Previous_Emergency_Valve_State [ label = "{Previous Emergency Valve State : \l}"]
+initial_time_step [ label = "{initial time step : \l}"]
+Previous_Emergency_Valve_State -> initial_time_step  [arrowhead = "none", label = " equal After"]
+Association
+Previous_Emergency_Valve_State [ label = "{Previous Emergency Valve State : \l}"]
+previous_step [ label = "{previous step : \l}"]
+Previous_Emergency_Valve_State -> previous_step  [arrowhead = "none", label = " equal in"]
+Association
+
+
+
+}
