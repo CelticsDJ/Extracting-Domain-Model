@@ -229,8 +229,8 @@ public class Utilities {
 
 	public static String getRelationType(Document doc, DependencyRelation rel) {
 
-		Annotation targ = doc.getAnnotations().get(rel.getTargetId());
-		for (DependencyRelation dep : (List<DependencyRelation>) targ.getFeatures().get("dependencies")) {
+		Annotation target = doc.getAnnotations().get(rel.getTargetId());
+		for (DependencyRelation dep : (List<DependencyRelation>) target.getFeatures().get("dependencies")) {
 
 			if (dep.getType().equals("case")) {
 				return doc.getAnnotations().get(dep.getTargetId()).getFeatures().get("string").toString();

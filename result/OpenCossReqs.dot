@@ -1,0 +1,446 @@
+digraph G {
+fontname = "Bitstream Vera Sans"
+fontsize = 8
+node [ 
+fontname = "Bitstream Vera Sans"
+fontsize = 8
+shape = "record"
+]
+edge [ 
+fontname = "Bitstream Vera Sans"
+fontsize = 8
+]
+
+
+R1:The system shall allow authorized personnel to access records via secure connectivity from anywhere, at any time.
+system [ label = "{system : \l}"]
+authorized_personnel [ label = "{authorized personnel : \l}"]
+system -> authorized_personnel  [arrowhead = "none", label = "allow authorized personnel to access"]
+Association
+system [ label = "{system : \l}"]
+access_record [ label = "{access record : \l}"]
+system -> access_record  [arrowhead = "none", label = "allow authorized personnel to access"]
+Association
+system [ label = "{system : \l}"]
+time [ label = "{time : \l}"]
+system -> time  [arrowhead = "none", label = "allow authorized personnel to access access record at"]
+Association
+
+
+R2:The system provides patients with a unique login and password.
+R3:The system shall provide patients the ability to securely view physician approved medical data and lab results.
+lab_results [ label = "{lab results : \l}"]
+results [ label = "{results : \l}"]
+lab_results -> results  [arrowhead = "empty"]
+Generalization
+
+
+R4:The system shall have a secure message capability whereby patients can send messages to the practice and vice versa.
+message_capability [ label = "{message capability : \l}"]
+capability [ label = "{capability : \l}"]
+message_capability -> capability  [arrowhead = "empty"]
+Generalization
+system [ label = "{system : \l}"]
+secure_message_capability [ label = "{secure message capability : \l}"]
+system -> secure_message_capability  [arrowhead = "none", label = "have"]
+Association
+patient [ label = "{patient : \l}"]
+message [ label = "{message : \l}"]
+patient -> message  [arrowhead = "none", label = "send"]
+Association
+practice_and_vice_versa [ label = "{practice and vice versa : \l}"]
+and_vice_versa [ label = "{and vice versa : \l}"]
+practice_and_vice_versa -> and_vice_versa  [arrowhead = "empty"]
+Generalization
+patient [ label = "{patient : \l}"]
+practice_and_vice_versa [ label = "{practice and vice versa : \l}"]
+patient -> practice_and_vice_versa  [arrowhead = "none", label = "send message to"]
+Association
+
+
+R5:The system shall allow patients to view their demographic data and insurance information, and make changes to demographic information.
+insurance_information [ label = "{insurance information : \l}"]
+information [ label = "{information : \l}"]
+insurance_information -> information  [arrowhead = "empty"]
+Generalization
+system [ label = "{system : \l}"]
+demographic_data_and_insurance_information [ label = "{demographic data and insurance information : \l}"]
+system -> demographic_data_and_insurance_information  [arrowhead = "none", label = "allow patients to view"]
+Association
+system [ label = "{system : \l}"]
+patient [ label = "{patient : \l}"]
+system -> patient  [arrowhead = "none", label = "allow patients to view"]
+Association
+their [ label = "{their |+ data : \l}"]
+Attribuate
+
+
+R6:The system shall allow patients to schedule their own appointments.
+system [ label = "{system : \l}"]
+own_appointment [ label = "{own appointment : \l}"]
+system -> own_appointment  [arrowhead = "none", label = "allow patients to schedule"]
+Association
+their [ label = "{their |+ appointments : \l}"]
+Attribuate
+system [ label = "{system : \l}"]
+patient [ label = "{patient : \l}"]
+system -> patient  [arrowhead = "none", label = "allow patients to schedule"]
+Association
+
+
+R7:The system shall comply with HL7 to interface and import/export data from other HL7 compliant systems.
+HL7_compliant_systems [ label = "{HL7 compliant systems : \l}"]
+compliant_systems [ label = "{compliant systems : \l}"]
+HL7_compliant_systems -> compliant_systems  [arrowhead = "empty"]
+Generalization
+system [ label = "{system : \l}"]
+interface_and_import/export_datum [ label = "{interface and import/export datum : \l}"]
+system -> interface_and_import/export_datum  [arrowhead = "none", label = "comply with HL7 to interface"]
+Association
+system [ label = "{system : \l}"]
+other_HL7_compliant_system [ label = "{other HL7 compliant system : \l}"]
+system -> other_HL7_compliant_system  [arrowhead = "none", label = "comply with HL7 to interface interface and import/export datum from"]
+Association
+
+
+R8:The system shall allow providers to create pre-defined templates.
+R9:The system shall support prescription printing and faxing.
+prescription_printing [ label = "{prescription printing : \l}"]
+printing [ label = "{printing : \l}"]
+prescription_printing -> printing  [arrowhead = "empty"]
+Generalization
+system [ label = "{system : \l}"]
+prescription_printing_and_faxing [ label = "{prescription printing and faxing : \l}"]
+system -> prescription_printing_and_faxing  [arrowhead = "none", label = "support"]
+Association
+
+
+R10:The system shall route reports with attached notes for others to review.
+system [ label = "{system : \l}"]
+review [ label = "{review : \l}"]
+system -> review  [arrowhead = "none", label = "route route report to with attached note"]
+Association
+system [ label = "{system : \l}"]
+review [ label = "{review : \l}"]
+system -> review  [arrowhead = "none", label = "route with attached note for route report to other"]
+Association
+system [ label = "{system : \l}"]
+route_report [ label = "{route report : \l}"]
+system -> route_report  [arrowhead = "none", label = "route with attached note"]
+Association
+system [ label = "{system : \l}"]
+route_report [ label = "{route report : \l}"]
+system -> route_report  [arrowhead = "none", label = "route"]
+Association
+system [ label = "{system : \l}"]
+review [ label = "{review : \l}"]
+system -> review  [arrowhead = "none", label = "route route report to"]
+Association
+system [ label = "{system : \l}"]
+route_report [ label = "{route report : \l}"]
+system -> route_report  [arrowhead = "none", label = "route with attached note for other"]
+Association
+
+
+R11:The system shall allow physicians to review diagnosis from previous encounters.
+system [ label = "{system : \l}"]
+diagnosis [ label = "{diagnosis : \l}"]
+system -> diagnosis  [arrowhead = "none", label = "allow physicians to review"]
+Association
+system [ label = "{system : \l}"]
+physician [ label = "{physician : \l}"]
+system -> physician  [arrowhead = "none", label = "allow physicians to review"]
+Association
+
+
+R12:The system shall allow data to be displayed as flow sheets and growth charts for analysis.
+flow_sheets [ label = "{flow sheets : \l}"]
+sheets [ label = "{sheets : \l}"]
+flow_sheets -> sheets  [arrowhead = "empty"]
+Generalization
+growth_charts [ label = "{growth charts : \l}"]
+charts [ label = "{charts : \l}"]
+growth_charts -> charts  [arrowhead = "empty"]
+Generalization
+system [ label = "{system : \l}"]
+datum [ label = "{datum : \l}"]
+system -> datum  [arrowhead = "none", label = "allow data to be displayed"]
+Association
+
+
+R13:The system shall allow select outside providers to be copied on results.
+system [ label = "{system : \l}"]
+select_outside_provider [ label = "{select outside provider : \l}"]
+system -> select_outside_provider  [arrowhead = "none", label = "allow select"]
+Association
+
+
+R14:The system shall set no limit to the number of order forms that can be created.
+system [ label = "{system : \l}"]
+number [ label = "{number : \l}"]
+system -> number  [arrowhead = "none", label = "set limit to"]
+Association
+system [ label = "{system : \l}"]
+limit [ label = "{limit : \l}"]
+system -> limit  [arrowhead = "none", label = "set"]
+Association
+order_forms [ label = "{order forms : \l}"]
+forms [ label = "{forms : \l}"]
+order_forms -> forms  [arrowhead = "empty"]
+Generalization
+system [ label = "{system : \l}"]
+order_form [ label = "{order form : \l}"]
+system -> order_form  [arrowhead = "none", label = "set limit to number of"]
+Association
+number [ label = "{number : \l}"]
+order_form [ label = "{order form : \l}"]
+number -> order_form  [arrowhead = "odiamond"]
+Aggregation
+
+
+R15:The system shall allow order forms to be created universally or specifc to individual providers.
+system [ label = "{system : \l}"]
+order_form [ label = "{order form : \l}"]
+system -> order_form  [arrowhead = "none", label = "allow"]
+Association
+
+
+
+R16:The system shall allow progress note templates to be customized by the practice.
+system [ label = "{system : \l}"]
+progress_note_template [ label = "{progress note template : \l}"]
+system -> progress_note_template  [arrowhead = "none", label = "allow progress note"]
+Association
+
+
+R17:The system shall provide the physician with a snapshot view of daily schedules.
+snapshot_view [ label = "{snapshot view : \l}"]
+daily_schedule [ label = "{daily schedule : \l}"]
+snapshot_view -> daily_schedule  [arrowhead = "odiamond"]
+Aggregation
+
+
+R18:The system shall provide the physician with health maintenance items requiring immediate attention.
+maintenance_items [ label = "{maintenance items : \l}"]
+items [ label = "{items : \l}"]
+maintenance_items -> items  [arrowhead = "empty"]
+Generalization
+health_maintenance_items [ label = "{health maintenance items : \l}"]
+maintenance_items [ label = "{maintenance items : \l}"]
+health_maintenance_items -> maintenance_items  [arrowhead = "empty"]
+Generalization
+
+
+R19:The system shall provide the physician with items requiring signature approvals.
+R20:The system shall generate alerts for appointment recall.
+system [ label = "{system : \l}"]
+appointment_recall [ label = "{appointment recall : \l}"]
+system -> appointment_recall  [arrowhead = "none", label = "generate alert for"]
+Association
+system [ label = "{system : \l}"]
+alert [ label = "{alert : \l}"]
+system -> alert  [arrowhead = "none", label = "generate"]
+Association
+
+
+R21:The system shall generate alerts for prescription refills.
+system [ label = "{system : \l}"]
+prescription_refill [ label = "{prescription refill : \l}"]
+system -> prescription_refill  [arrowhead = "none", label = "generate alert for"]
+Association
+prescription_refills [ label = "{prescription refills : \l}"]
+refills [ label = "{refills : \l}"]
+prescription_refills -> refills  [arrowhead = "empty"]
+Generalization
+
+
+
+R22:The system shall generate alerts for laboratory orders.
+system [ label = "{system : \l}"]
+laboratory_order [ label = "{laboratory order : \l}"]
+system -> laboratory_order  [arrowhead = "none", label = "generate alert for"]
+Association
+laboratory_orders [ label = "{laboratory orders : \l}"]
+orders [ label = "{orders : \l}"]
+laboratory_orders -> orders  [arrowhead = "empty"]
+Generalization
+
+
+
+R23:The system will alert the provider as to any due or over due tasks as well as any suggested protocols for the patient when a patient's record is accessed.
+patient [ label = "{patient |+ record : \l}"]
+Attribuate
+system [ label = "{system : \l}"]
+provider [ label = "{provider : \l}"]
+system -> provider  [arrowhead = "none", label = "alert"]
+Association
+
+
+R24:The system shall prevent the creating of duplicate patient records.
+patient_records [ label = "{patient records : \l}"]
+records [ label = "{records : \l}"]
+patient_records -> records  [arrowhead = "empty"]
+Generalization
+
+
+R25:The system audit trail shall automatically capture system data changes, edits, charged, credits by all users.
+system_audit_trail [ label = "{system audit trail : \l}"]
+user [ label = "{user : \l}"]
+system_audit_trail -> user  [arrowhead = "none", label = "capture credit by"]
+Association
+data_changes [ label = "{data changes : \l}"]
+changes [ label = "{changes : \l}"]
+data_changes -> changes  [arrowhead = "empty"]
+Generalization
+audit_trail [ label = "{audit trail : \l}"]
+trail [ label = "{trail : \l}"]
+audit_trail -> trail  [arrowhead = "empty"]
+Generalization
+system_audit_trail [ label = "{system audit trail : \l}"]
+credit [ label = "{credit : \l}"]
+system_audit_trail -> credit  [arrowhead = "none", label = "capture"]
+Association
+system_audit_trail [ label = "{system audit trail : \l}"]
+audit_trail [ label = "{audit trail : \l}"]
+system_audit_trail -> audit_trail  [arrowhead = "empty"]
+Generalization
+system_data_changes [ label = "{system data changes : \l}"]
+data_changes [ label = "{data changes : \l}"]
+system_data_changes -> data_changes  [arrowhead = "empty"]
+Generalization
+
+
+R26:The system shall allow the administrator to establish user-defined security levels per user login.
+system [ label = "{system : \l}"]
+user-defined_security_level [ label = "{user-defined security level : \l}"]
+system -> user-defined_security_level  [arrowhead = "none", label = "allow the administrator to establish"]
+Association
+security_levels [ label = "{security levels : \l}"]
+levels [ label = "{levels : \l}"]
+security_levels -> levels  [arrowhead = "empty"]
+Generalization
+system [ label = "{system : \l}"]
+user_login [ label = "{user login : \l}"]
+system -> user_login  [arrowhead = "none", label = "allow the administrator to establish user-defined security level per"]
+Association
+system [ label = "{system : \l}"]
+administrator [ label = "{administrator : \l}"]
+system -> administrator  [arrowhead = "none", label = "allow the administrator to establish"]
+Association
+user_login [ label = "{user login : \l}"]
+login [ label = "{login : \l}"]
+user_login -> login  [arrowhead = "empty"]
+Generalization
+
+
+R27:The system shall track no-shows and cancellations.
+system [ label = "{system : \l}"]
+no-shows_and_cancellation [ label = "{no-shows and cancellation : \l}"]
+system -> no-shows_and_cancellation  [arrowhead = "none", label = "track"]
+Association
+
+
+R28:The system shall allow the user to define color coding for appointment types and reasons.
+appointment_types [ label = "{appointment types : \l}"]
+types [ label = "{types : \l}"]
+appointment_types -> types  [arrowhead = "empty"]
+Generalization
+system [ label = "{system : \l}"]
+user [ label = "{user : \l}"]
+system -> user  [arrowhead = "none", label = "allow the user to define"]
+Association
+system [ label = "{system : \l}"]
+color_code [ label = "{color code : \l}"]
+system -> color_code  [arrowhead = "none", label = "allow the user to define"]
+Association
+color_coding [ label = "{color coding : \l}"]
+coding [ label = "{coding : \l}"]
+color_coding -> coding  [arrowhead = "empty"]
+Generalization
+
+
+R29:The system shall support voice recognition so a provider can dictate notes to the patient's electronic record.
+system [ label = "{system : \l}"]
+voice_recognition [ label = "{voice recognition : \l}"]
+system -> voice_recognition  [arrowhead = "none", label = "support"]
+Association
+provider [ label = "{provider : \l}"]
+electronic_record [ label = "{electronic record : \l}"]
+provider -> electronic_record  [arrowhead = "none", label = "dictate note to"]
+Association
+
+provider [ label = "{provider : \l}"]
+note [ label = "{note : \l}"]
+provider -> note  [arrowhead = "none", label = "dictate"]
+Association
+voice_recognition [ label = "{voice recognition : \l}"]
+recognition [ label = "{recognition : \l}"]
+voice_recognition -> recognition  [arrowhead = "empty"]
+Generalization
+
+
+R30:The system shall support hand recognition so a provider can notate directly to a patient's electronic record.
+hand_recognition [ label = "{hand recognition : \l}"]
+recognition [ label = "{recognition : \l}"]
+hand_recognition -> recognition  [arrowhead = "empty"]
+Generalization
+provider [ label = "{provider : \l}"]
+electronic_record [ label = "{electronic record : \l}"]
+provider -> electronic_record  [arrowhead = "none", label = " notate to"]
+Association
+
+system [ label = "{system : \l}"]
+hand_recognition [ label = "{hand recognition : \l}"]
+system -> hand_recognition  [arrowhead = "none", label = "support"]
+Association
+
+
+R31:The system shall allow specified users to create prescriptions for physicians to approve.
+system [ label = "{system : \l}"]
+specified_user [ label = "{specified user : \l}"]
+system -> specified_user  [arrowhead = "none", label = "allow specified users to create"]
+Association
+system [ label = "{system : \l}"]
+prescription [ label = "{prescription : \l}"]
+system -> prescription  [arrowhead = "none", label = "allow specified users to create"]
+Association
+
+
+R32:The system shall transmit prescriptions to the patient's pharmacy.
+system [ label = "{system : \l}"]
+prescription [ label = "{prescription : \l}"]
+system -> prescription  [arrowhead = "none", label = "transmit"]
+Association
+patient [ label = "{patient |+ pharmacy : \l}"]
+Attribuate
+system [ label = "{system : \l}"]
+pharmacy [ label = "{pharmacy : \l}"]
+system -> pharmacy  [arrowhead = "none", label = "transmit prescription to"]
+Association
+
+
+R33:The system shall allow physicians to generate prescriptions via their favorites list.
+system [ label = "{system : \l}"]
+physician [ label = "{physician : \l}"]
+system -> physician  [arrowhead = "none", label = "allow physicians to generate"]
+Association
+their [ label = "{their |+ list : \l}"]
+Attribuate
+system [ label = "{system : \l}"]
+prescription [ label = "{prescription : \l}"]
+system -> prescription  [arrowhead = "none", label = "allow physicians to generate"]
+Association
+
+
+R34:The system shall allow the patient to fill out questionnaires/paperwork in advance through the portal.
+system [ label = "{system : \l}"]
+questionnaires/paperwork [ label = "{questionnaires/paperwork : \l}"]
+system -> questionnaires/paperwork  [arrowhead = "none", label = "allow the patient to fill"]
+Association
+system [ label = "{system : \l}"]
+patient [ label = "{patient : \l}"]
+system -> patient  [arrowhead = "none", label = "allow the patient to fill"]
+Association
+
+
+}

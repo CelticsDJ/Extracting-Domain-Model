@@ -9,12 +9,14 @@ import processing.ExtractRelations_includingChains;
 import java.io.FileOutputStream;
 import java.util.Iterator;
 
+import static data.GlobalVariables.conceptCnt;
+
 public class Write_To_Excel {
 
     public static void Write_to_Excel(String filename) {
 
         HSSFWorkbook workbook = new HSSFWorkbook();
-        HSSFSheet sheet = workbook.createSheet("iTrust");
+        HSSFSheet sheet = workbook.createSheet();
 
         Integer req_id = 1;
         int rownum = 0;
@@ -45,6 +47,11 @@ public class Write_To_Excel {
 
                         Object obj = it.next();
                         Concept_Relation rel = (Concept_Relation) obj;
+
+                        if (rel.rel_type.toString().equals("GENERALIZATION") && (!conceptCnt.containsKey(rel.getSource().getName()) || !conceptCnt.containsKey(rel.getTarget().getName()))) {
+                            continue;
+                        }
+
                         if (!rel.getDuplicateStatus()) {
 
                             HSSFRow row = sheet.createRow(++rownum);
@@ -63,8 +70,9 @@ public class Write_To_Excel {
                             }
                         }
                     }
-                }catch (Exception e) {
-                    System.out.println(req_id);
+                } catch (Exception e) {
+                    //System.out.println(req_relations.relations == null);
+                    //System.out.println(req_id);
                 }
             }
         }

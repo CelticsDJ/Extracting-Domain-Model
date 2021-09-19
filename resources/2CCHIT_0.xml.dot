@@ -1,0 +1,2514 @@
+digraph G {
+fontname = "Bitstream Vera Sans"
+fontsize = 8
+node [ 
+fontname = "Bitstream Vera Sans"
+fontsize = 8
+shape = "record"
+]
+edge [ 
+fontname = "Bitstream Vera Sans"
+fontsize = 8
+]
+
+
+R1:In areas where results from multiple patients are displayed, the system shall provide the ability to filter or sort results by patient.
+R2:The system shall (will) provide the ability to record the author, date and time of the in-progress note and the final note.
+author_,_date_and_time [ label = "{author , date and time : \l}"]
+in-progress_note [ label = "{in-progress note : \l}"]
+author_,_date_and_time -> in-progress_note  [arrowhead = "odiamond"]
+Aggregation
+
+
+R3:The system shall allow authorized users to update the directory.
+R4:The system shall associate (store and link) key identifier information (e.g., system ID, medical record number) with each patient record.
+system_ID [ label = "{system ID : \l}"]
+ID [ label = "{ID : \l}"]
+system_ID -> ID  [arrowhead = "empty"]
+Generalization
+identifier_information [ label = "{identifier information : \l}"]
+information [ label = "{information : \l}"]
+identifier_information -> information  [arrowhead = "empty"]
+Generalization
+record_number [ label = "{record number : \l}"]
+number [ label = "{number : \l}"]
+record_number -> number  [arrowhead = "empty"]
+Generalization
+
+
+R5:The system shall be able to support the standards identified and recommended by the Health Information Technology Standards Panel (HITSP) on its HITSP-TP13 Ver 1.0.1 document.
+Standards_Panel [ label = "{Standards Panel : \l}"]
+Panel [ label = "{Panel : \l}"]
+Standards_Panel -> Panel  [arrowhead = "empty"]
+Generalization
+system [ label = "{system : \l}"]
+standard [ label = "{standard : \l}"]
+system -> standard  [arrowhead = "none", label = "support"]
+Association
+Health_Information_Technology_Standards_Panel [ label = "{Health Information Technology Standards Panel : \l}"]
+Information_Technology_Standards_Panel [ label = "{Information Technology Standards Panel : \l}"]
+Health_Information_Technology_Standards_Panel -> Information_Technology_Standards_Panel  [arrowhead = "empty"]
+Generalization
+Ver_1.0.1_document [ label = "{Ver 1.0.1 document : \l}"]
+1.0.1_document [ label = "{1.0.1 document : \l}"]
+Ver_1.0.1_document -> 1.0.1_document  [arrowhead = "empty"]
+Generalization
+Information_Technology_Standards_Panel [ label = "{Information Technology Standards Panel : \l}"]
+Technology_Standards_Panel [ label = "{Technology Standards Panel : \l}"]
+Information_Technology_Standards_Panel -> Technology_Standards_Panel  [arrowhead = "empty"]
+Generalization
+its [ label = "{its |+ document : \l}"]
+Attribuate
+HITSP-TP13_Ver_1.0.1_document [ label = "{HITSP-TP13 Ver 1.0.1 document : \l}"]
+Ver_1.0.1_document [ label = "{Ver 1.0.1 document : \l}"]
+HITSP-TP13_Ver_1.0.1_document -> Ver_1.0.1_document  [arrowhead = "empty"]
+Generalization
+Technology_Standards_Panel [ label = "{Technology Standards Panel : \l}"]
+Standards_Panel [ label = "{Standards Panel : \l}"]
+Technology_Standards_Panel -> Standards_Panel  [arrowhead = "empty"]
+Generalization
+
+
+R6:The system shall be capable of documenting current and past tobacco use in a quantitative fashion.
+tobacco_use [ label = "{tobacco use : \l}"]
+use [ label = "{use : \l}"]
+tobacco_use -> use  [arrowhead = "empty"]
+Generalization
+
+
+R7:The system shall be capable of documenting that tobacco cessation counseling was provided, including a date stamp.
+tobacco_cessation_counseling [ label = "{tobacco cessation counseling : \l}"]
+cessation_counseling [ label = "{cessation counseling : \l}"]
+tobacco_cessation_counseling -> cessation_counseling  [arrowhead = "empty"]
+Generalization
+date_stamp [ label = "{date stamp : \l}"]
+stamp [ label = "{stamp : \l}"]
+date_stamp -> stamp  [arrowhead = "empty"]
+Generalization
+cessation_counseling [ label = "{cessation counseling : \l}"]
+counseling [ label = "{counseling : \l}"]
+cessation_counseling -> counseling  [arrowhead = "empty"]
+Generalization
+
+
+R8:The system shall be capable of indicating to the user when a vital sign measurement falls outside a preset normal range as set by authorized users.
+vital_sign_measurement [ label = "{vital sign measurement : \l}"]
+preset_normal_range [ label = "{preset normal range : \l}"]
+vital_sign_measurement -> preset_normal_range  [arrowhead = "none", label = " fall outside"]
+Association
+sign_measurement [ label = "{sign measurement : \l}"]
+measurement [ label = "{measurement : \l}"]
+sign_measurement -> measurement  [arrowhead = "empty"]
+Generalization
+
+
+R9:The system shall be capable of recording comments by the patient or the patient's representative regarding the accuracy or veracity of information in the patient record (henceforth 'patient annotations').
+accuracy_or_veracity [ label = "{accuracy or veracity : \l}"]
+information [ label = "{information : \l}"]
+accuracy_or_veracity -> information  [arrowhead = "odiamond"]
+Aggregation
+patient [ label = "{patient |+ representative : \l}"]
+Attribuate
+system [ label = "{system : \l}"]
+comment [ label = "{comment : \l}"]
+system -> comment  [arrowhead = "none", label = " capable of"]
+Association
+system [ label = "{system : \l}"]
+patient [ label = "{patient : \l}"]
+system -> patient  [arrowhead = "none", label = " capable "]
+Association
+
+
+R10:The system shall be capable, at the time of ordering a medication for administration (as opposed to prescribing), of alerting the user that based on the results of a laboratory test, the patient may be at increased risk for adverse effects of the medication.
+system [ label = "{system : \l}"]
+time [ label = "{time : \l}"]
+system -> time  [arrowhead = "none", label = " capable at"]
+Association
+system [ label = "{system : \l}"]
+medication [ label = "{medication : \l}"]
+system -> medication  [arrowhead = "none", label = " capable "]
+Association
+system [ label = "{system : \l}"]
+user [ label = "{user : \l}"]
+system -> user  [arrowhead = "none", label = " capable "]
+Association
+adverse_effect [ label = "{adverse effect : \l}"]
+medication [ label = "{medication : \l}"]
+adverse_effect -> medication  [arrowhead = "odiamond"]
+Aggregation
+patient [ label = "{patient : \l}"]
+adverse_effect [ label = "{adverse effect : \l}"]
+patient -> adverse_effect  [arrowhead = "none", label = " risk for"]
+Association
+patient [ label = "{patient : \l}"]
+medication [ label = "{medication : \l}"]
+patient -> medication  [arrowhead = "none", label = " risk "]
+Association
+result [ label = "{result : \l}"]
+laboratory_test [ label = "{laboratory test : \l}"]
+result -> laboratory_test  [arrowhead = "odiamond"]
+Aggregation
+laboratory_test [ label = "{laboratory test : \l}"]
+test [ label = "{test : \l}"]
+laboratory_test -> test  [arrowhead = "empty"]
+Generalization
+
+
+R11:The system shall create a single patient record for each patient.
+system [ label = "{system : \l}"]
+patient [ label = "{patient : \l}"]
+system -> patient  [arrowhead = "none", label = "create single record for"]
+Association
+system [ label = "{system : \l}"]
+single_patient_record [ label = "{single patient record : \l}"]
+system -> single_patient_record  [arrowhead = "none", label = "create"]
+Association
+
+
+R12:The system shall display and provide the ability for patients to electronically sign consent forms using currently available digital signature standards.
+signature_standards [ label = "{signature standards : \l}"]
+standards [ label = "{standards : \l}"]
+signature_standards -> standards  [arrowhead = "empty"]
+Generalization
+system [ label = "{system : \l}"]
+ability [ label = "{ability : \l}"]
+system -> ability  [arrowhead = "none", label = "display"]
+Association
+consent_forms [ label = "{consent forms : \l}"]
+forms [ label = "{forms : \l}"]
+consent_forms -> forms  [arrowhead = "empty"]
+Generalization
+system [ label = "{system : \l}"]
+patient [ label = "{patient : \l}"]
+system -> patient  [arrowhead = "none", label = "display ability for"]
+Association
+
+
+R13:Electronically signed consent forms shall be maintained within the patient medical record.
+signed_consent_form [ label = "{signed consent form : \l}"]
+patient_medical_record [ label = "{patient medical record : \l}"]
+signed_consent_form -> patient_medical_record  [arrowhead = "none", label = "maintain within"]
+B1
+
+
+
+R14:The system shall display patient annotations in a manner which distinguishes them from other content in the system.
+manner [ label = "{manner : \l}"]
+other_content [ label = "{other content : \l}"]
+manner -> other_content  [arrowhead = "none", label = "distinguishes them from"]
+Association
+system [ label = "{system : \l}"]
+manner [ label = "{manner : \l}"]
+system -> manner  [arrowhead = "none", label = "display patient annotation in"]
+Association
+system [ label = "{system : \l}"]
+patient_annotation [ label = "{patient annotation : \l}"]
+system -> patient_annotation  [arrowhead = "none", label = "display"]
+Association
+manner [ label = "{manner : \l}"]
+them [ label = "{them : \l}"]
+manner -> them  [arrowhead = "none", label = "distinguishes"]
+Association
+manner [ label = "{manner : \l}"]
+system [ label = "{system : \l}"]
+manner -> system  [arrowhead = "none", label = "distinguishes them in"]
+Association
+
+
+R15:The system shall ensure secure electronic messaging with patients.
+system [ label = "{system : \l}"]
+secure_electronic_messaging [ label = "{secure electronic messaging : \l}"]
+system -> secure_electronic_messaging  [arrowhead = "none", label = "ensure"]
+Association
+system [ label = "{system : \l}"]
+patient [ label = "{patient : \l}"]
+system -> patient  [arrowhead = "none", label = "ensure secure electronic messaging with"]
+Association
+
+
+R16:The system shall have the ability to provide a list of financial and administrative codes.
+system [ label = "{system : \l}"]
+ability [ label = "{ability : \l}"]
+system -> ability  [arrowhead = "none", label = "have"]
+Association
+list [ label = "{list : \l}"]
+financial_and_administrative_code [ label = "{financial and administrative code : \l}"]
+list -> financial_and_administrative_code  [arrowhead = "odiamond"]
+Aggregation
+
+
+R17:The system shall have the ability to provide a view of active orders for an individual patient.
+view [ label = "{view : \l}"]
+active_order [ label = "{active order : \l}"]
+view -> active_order  [arrowhead = "odiamond"]
+Aggregation
+
+
+
+R18:The system shall have the ability to provide a view of orders by like or comparable type, e.g., all radiology or all lab orders.
+
+lab_orders [ label = "{lab orders : \l}"]
+orders [ label = "{orders : \l}"]
+lab_orders -> orders  [arrowhead = "empty"]
+Generalization
+view [ label = "{view : \l}"]
+order [ label = "{order : \l}"]
+view -> order  [arrowhead = "odiamond"]
+Aggregation
+
+
+R19:The system shall have the ability to provide access to patient-specific test and procedure instructions that can be customized by the physician or health organization these instructions are to be given to the filler of the order.
+
+procedure_instructions [ label = "{procedure instructions : \l}"]
+instructions [ label = "{instructions : \l}"]
+procedure_instructions -> instructions  [arrowhead = "empty"]
+Generalization
+filler [ label = "{filler : \l}"]
+order [ label = "{order : \l}"]
+filler -> order  [arrowhead = "odiamond"]
+Aggregation
+physician_or_health_organization [ label = "{physician or health organization : \l}"]
+or_health_organization [ label = "{or health organization : \l}"]
+physician_or_health_organization -> or_health_organization  [arrowhead = "empty"]
+Generalization
+
+
+R20:These instructions may reside within the system or be provided through links to external sources.
+instruction [ label = "{instruction : \l}"]
+system [ label = "{system : \l}"]
+instruction -> system  [arrowhead = "none", label = " reside or  within"]
+Association
+
+
+R21:The system shall have the ability to provide access to patient-specific test and procedure instructions that can be customized by the physician or health organization these instructions are to be given to the patient.
+
+
+
+
+
+R22:These instructions may reside within the system or be provided through links to external sources.
+
+
+
+R23:The system shall have the ability to provide access to standard care plan, protocol and guideline documents when requested at the time of the clinical encounter.
+
+time [ label = "{time : \l}"]
+clinical_encounter [ label = "{clinical encounter : \l}"]
+time -> clinical_encounter  [arrowhead = "odiamond"]
+Aggregation
+
+
+R24:These documents may reside within the system or be provided through links to external sources.
+document [ label = "{document : \l}"]
+system [ label = "{system : \l}"]
+document -> system  [arrowhead = "none", label = " reside or  within"]
+Association
+
+
+R25:The system shall have the ability to provide access to test and procedure instructions that can be customized by the physician or health organization.
+
+health_organization [ label = "{health organization : \l}"]
+organization [ label = "{organization : \l}"]
+health_organization -> organization  [arrowhead = "empty"]
+Generalization
+test_and_procedure_instructions [ label = "{test and procedure instructions : \l}"]
+and_procedure_instructions [ label = "{and procedure instructions : \l}"]
+test_and_procedure_instructions -> and_procedure_instructions  [arrowhead = "empty"]
+Generalization
+
+
+R26:These instructions may reside within the system or be provided through links to external sources.
+
+
+
+R27:The system shall have the ability to provide assistance with selecting an appropriate CPT Evaluation and Management billing code based on codified clinical information in the encounter.
+
+Management_billing_code [ label = "{Management billing code : \l}"]
+billing_code [ label = "{billing code : \l}"]
+Management_billing_code -> billing_code  [arrowhead = "empty"]
+Generalization
+CPT_Evaluation [ label = "{CPT Evaluation : \l}"]
+Evaluation [ label = "{Evaluation : \l}"]
+CPT_Evaluation -> Evaluation  [arrowhead = "empty"]
+Generalization
+billing_code [ label = "{billing code : \l}"]
+code [ label = "{code : \l}"]
+billing_code -> code  [arrowhead = "empty"]
+Generalization
+
+
+R28:The system shall have the ability to provide electronic communication between prescribers and pharmacies or other intended recipients of the medication order.
+
+medication_order [ label = "{medication order : \l}"]
+order [ label = "{order : \l}"]
+medication_order -> order  [arrowhead = "empty"]
+Generalization
+other_intended_recipient [ label = "{other intended recipient : \l}"]
+medication_order [ label = "{medication order : \l}"]
+other_intended_recipient -> medication_order  [arrowhead = "odiamond"]
+Aggregation
+
+
+R29:The system shall have the ability to provide filtered displays of encounters based on encounter characteristics, including date of service, encounter provider and associated diagnosis.
+
+encounter_provider [ label = "{encounter provider : \l}"]
+provider [ label = "{provider : \l}"]
+encounter_provider -> provider  [arrowhead = "empty"]
+Generalization
+filtered_display [ label = "{filtered display : \l}"]
+encounter [ label = "{encounter : \l}"]
+filtered_display -> encounter  [arrowhead = "odiamond"]
+Aggregation
+date [ label = "{date : \l}"]
+service [ label = "{service : \l}"]
+date -> service  [arrowhead = "odiamond"]
+Aggregation
+encounter_characteristics [ label = "{encounter characteristics : \l}"]
+characteristics [ label = "{characteristics : \l}"]
+encounter_characteristics -> characteristics  [arrowhead = "empty"]
+Generalization
+
+
+R30:The system shall have the ability to provide support for disclosure management in compliance with HIPAA and applicable law.
+
+disclosure_management [ label = "{disclosure management : \l}"]
+management [ label = "{management : \l}"]
+disclosure_management -> management  [arrowhead = "empty"]
+Generalization
+
+
+R31:The system shall have the capacity to retain all recorded data in the production data base or archive for the minimum required per law.
+system [ label = "{system : \l}"]
+recorded_datum [ label = "{recorded datum : \l}"]
+system -> recorded_datum  [arrowhead = "none", label = "have capacity to retain"]
+Association
+data_base [ label = "{data base : \l}"]
+base [ label = "{base : \l}"]
+data_base -> base  [arrowhead = "empty"]
+Generalization
+system [ label = "{system : \l}"]
+capacity [ label = "{capacity : \l}"]
+system -> capacity  [arrowhead = "none", label = "have"]
+Association
+system [ label = "{system : \l}"]
+minimum [ label = "{minimum : \l}"]
+system -> minimum  [arrowhead = "none", label = "have capacity to retain recorded datum for"]
+Association
+production_data_base [ label = "{production data base : \l}"]
+data_base [ label = "{data base : \l}"]
+production_data_base -> data_base  [arrowhead = "empty"]
+Generalization
+
+
+R32:The system shall include standard medication codes associated with each medication in the list for medications in the vendor-provided medication database.
+medication_database [ label = "{medication database : \l}"]
+database [ label = "{database : \l}"]
+medication_database -> database  [arrowhead = "empty"]
+Generalization
+medication_codes [ label = "{medication codes : \l}"]
+codes [ label = "{codes : \l}"]
+medication_codes -> codes  [arrowhead = "empty"]
+Generalization
+
+
+
+R33:The system shall provide a field which will identify patients as being exempt from reporting functions.
+field [ label = "{field : \l}"]
+patient [ label = "{patient : \l}"]
+field -> patient  [arrowhead = "none", label = "identify"]
+Association
+
+
+R34:The system shall provide a means to document a patient's dispute with information currently in their chart.
+their [ label = "{their |+ chart : \l}"]
+Attribuate
+patient [ label = "{patient |+ dispute : \l}"]
+Attribuate
+
+
+R35:The system shall provide a method for archiving health record information.
+record_information [ label = "{record information : \l}"]
+information [ label = "{information : \l}"]
+record_information -> information  [arrowhead = "empty"]
+Generalization
+health_record_information [ label = "{health record information : \l}"]
+record_information [ label = "{record information : \l}"]
+health_record_information -> record_information  [arrowhead = "empty"]
+Generalization
+
+
+R36:The system shall provide access to clinical images.
+clinical_images [ label = "{clinical images : \l}"]
+images [ label = "{images : \l}"]
+clinical_images -> images  [arrowhead = "empty"]
+Generalization
+
+
+R37:They must be accessible from within the patient's chart and labeled and date-time stamped or included in a patient encounter document.
+encounter_document [ label = "{encounter document : \l}"]
+document [ label = "{document : \l}"]
+encounter_document -> document  [arrowhead = "empty"]
+Generalization
+They [ label = "{They : \l}"]
+chart [ label = "{chart : \l}"]
+They -> chart  [arrowhead = "none", label = " accessible and  and  from"]
+Association
+patient [ label = "{patient |+ chart : \l}"]
+Attribuate
+
+
+R38:These images may be stored within the system or be provided through direct linkage to external sources.
+image [ label = "{image : \l}"]
+system [ label = "{system : \l}"]
+image -> system  [arrowhead = "none", label = "store or  within"]
+B1
+
+
+R39:The system shall provide access to patient instructions and patient educational materials, which may reside within the system or be provided through links to external sources.
+R40:The system shall provide an administrative function allowing an administrator to set rules for data retention, automated archiving and data retrieval within minimum required by law.
+data_retrieval [ label = "{data retrieval : \l}"]
+retrieval [ label = "{retrieval : \l}"]
+data_retrieval -> retrieval  [arrowhead = "empty"]
+Generalization
+data_retention [ label = "{data retention : \l}"]
+retention [ label = "{retention : \l}"]
+data_retention -> retention  [arrowhead = "empty"]
+Generalization
+
+
+R41:The system shall provide drug-disease interaction alerts at the time of entering a problem.
+interaction_alerts [ label = "{interaction alerts : \l}"]
+alerts [ label = "{alerts : \l}"]
+interaction_alerts -> alerts  [arrowhead = "empty"]
+Generalization
+drug-disease_interaction_alerts [ label = "{drug-disease interaction alerts : \l}"]
+interaction_alerts [ label = "{interaction alerts : \l}"]
+drug-disease_interaction_alerts -> interaction_alerts  [arrowhead = "empty"]
+Generalization
+
+
+R42:The system shall provide drug-disease interaction alerts at the time of medication ordering.
+
+time [ label = "{time : \l}"]
+medication_order [ label = "{medication order : \l}"]
+time -> medication_order  [arrowhead = "odiamond"]
+Aggregation
+
+
+
+R43:The system shall provide protection to maintain the integrity of clinical data during concurrent access.
+integrity [ label = "{integrity : \l}"]
+clinical_datum [ label = "{clinical datum : \l}"]
+integrity -> clinical_datum  [arrowhead = "odiamond"]
+Aggregation
+
+
+R44:The system shall provide templates for inputting data in a structured format as part of clinical documentation.
+part [ label = "{part : \l}"]
+clinical_documentation [ label = "{clinical documentation : \l}"]
+part -> clinical_documentation  [arrowhead = "odiamond"]
+Aggregation
+
+
+R45:The system shall provide the ability for a user to attach a free text comment to a result that can be seen by another user who might subsequently view that result.
+who [ label = "{who : \l}"]
+result [ label = "{result : \l}"]
+who -> result  [arrowhead = "none", label = "view"]
+Association
+text_comment [ label = "{text comment : \l}"]
+comment [ label = "{comment : \l}"]
+text_comment -> comment  [arrowhead = "empty"]
+Generalization
+
+
+R46:The system shall provide the ability for a user to select a test order exit the process of creating the order at some point prior to completion such that another user can access the order for subsequent review and completion.
+test_order_exit [ label = "{test order exit : \l}"]
+order_exit [ label = "{order exit : \l}"]
+test_order_exit -> order_exit  [arrowhead = "empty"]
+Generalization
+user [ label = "{user : \l}"]
+test_order_exit [ label = "{test order exit : \l}"]
+user -> test_order_exit  [arrowhead = "none", label = "select a test order exit the process of creating the order at some point prior to completion such that another user can access"]
+Association
+user [ label = "{user : \l}"]
+order [ label = "{order : \l}"]
+user -> order  [arrowhead = "none", label = "select a test order exit the process of creating the order at some point prior to completion such that another user can access"]
+Association
+order_exit [ label = "{order exit : \l}"]
+exit [ label = "{exit : \l}"]
+order_exit -> exit  [arrowhead = "empty"]
+Generalization
+user [ label = "{user : \l}"]
+process [ label = "{process : \l}"]
+user -> process  [arrowhead = "none", label = "select a test order exit the process of creating the order at some point prior to completion such that another user can access test order exit"]
+Association
+
+
+R47:The system shall provide the ability for a user to select an order for a medication and exit the process of creating the order at some point prior to completion such that another user can access the order for subsequent review and completion.
+user [ label = "{user : \l}"]
+process [ label = "{process : \l}"]
+user -> process  [arrowhead = "none", label = "exit the process of creating the order at some point prior to completion such that another user can access"]
+Association
+user [ label = "{user : \l}"]
+order [ label = "{order : \l}"]
+user -> order  [arrowhead = "none", label = "exit the process of creating the order at some point prior to completion such that another user can access process of creating"]
+Association
+user [ label = "{user : \l}"]
+order [ label = "{order : \l}"]
+user -> order  [arrowhead = "none", label = "exit the process of creating the order at some point prior to completion such that another user can access"]
+Association
+user [ label = "{user : \l}"]
+point [ label = "{point : \l}"]
+user -> point  [arrowhead = "none", label = "exit the process of creating the order at some point prior to completion such that another user can access process of creating order at"]
+Association
+
+
+R48:The system shall provide the ability for a user to whom a result is presented to acknowledge the result.
+R49:The system shall provide the ability for concurrent users to simultaneously view the same record.
+concurrent_user [ label = "{concurrent user : \l}"]
+same_record [ label = "{same record : \l}"]
+concurrent_user -> same_record  [arrowhead = "none", label = "view"]
+Association
+
+
+R50:The system shall provide the ability for concurrent users to view the same clinical documentation or template.
+R51:The system shall provide the ability for multiple users to interact concurrently with the EHR application.
+EHR_application [ label = "{EHR application : \l}"]
+application [ label = "{application : \l}"]
+EHR_application -> application  [arrowhead = "empty"]
+Generalization
+multiple_user [ label = "{multiple user : \l}"]
+EHR_application [ label = "{EHR application : \l}"]
+multiple_user -> EHR_application  [arrowhead = "none", label = " interact with"]
+Association
+
+
+R52:The system shall provide the ability for the user to expressly indicate that the medication list has been reviewed this must be stored as structured data.
+medication_list [ label = "{medication list : \l}"]
+list [ label = "{list : \l}"]
+medication_list -> list  [arrowhead = "empty"]
+Generalization
+
+
+R53:The system must capture and display the ID of the user conducting the review, and the date of the review.
+system [ label = "{system : \l}"]
+user [ label = "{user : \l}"]
+system -> user  [arrowhead = "none", label = "capture and display the ID of the user conducting ID of"]
+Association
+system [ label = "{system : \l}"]
+ID [ label = "{ID : \l}"]
+system -> ID  [arrowhead = "none", label = "capture and display the ID of the user conducting"]
+Association
+ID [ label = "{ID : \l}"]
+user [ label = "{user : \l}"]
+ID -> user  [arrowhead = "odiamond"]
+Aggregation
+date [ label = "{date : \l}"]
+review [ label = "{review : \l}"]
+date -> review  [arrowhead = "odiamond"]
+Aggregation
+system [ label = "{system : \l}"]
+review [ label = "{review : \l}"]
+system -> review  [arrowhead = "none", label = "capture and display the ID of the user conducting"]
+Association
+
+
+R54:The system shall provide the ability to accept, store in the patient's record, and display clinical results received through an interface with an external source.
+patient [ label = "{patient |+ record : \l}"]
+Attribuate
+
+
+R55:The system shall provide the ability to accept, store in the patient's record, and display medication details from an external source.
+
+
+
+R56:The system shall provide the ability to access reports outside the EHR application.
+
+
+
+R57:The system shall provide the ability to add reminders for necessary follow up tests based on medication prescribed.
+R58:The system shall provide the ability to addend and/or correct notes that have been finalized.
+R59:The system shall provide the ability to alert the user if the drug interaction information is outdated.
+interaction_information [ label = "{interaction information : \l}"]
+information [ label = "{information : \l}"]
+interaction_information -> information  [arrowhead = "empty"]
+Generalization
+drug_interaction_information [ label = "{drug interaction information : \l}"]
+interaction_information [ label = "{interaction information : \l}"]
+drug_interaction_information -> interaction_information  [arrowhead = "empty"]
+Generalization
+
+
+R60:The system shall provide the ability to allow the user to configure prescriptions to incorporate fixed text according to the user's specifications and to customize the printed output of the prescription.
+user [ label = "{user |+ specifications : \l}"]
+Attribuate
+printed_output [ label = "{printed output : \l}"]
+prescription [ label = "{prescription : \l}"]
+printed_output -> prescription  [arrowhead = "odiamond"]
+Aggregation
+user [ label = "{user : \l}"]
+prescription [ label = "{prescription : \l}"]
+user -> prescription  [arrowhead = "none", label = "allow the user to configure"]
+Association
+
+
+R61:The system shall provide the ability to associate a diagnosis with a  prescription.
+R62:The system shall provide the ability to associate individual encounters with diagnoses.
+R63:The system shall provide the ability to associate one or more images with a non-numerical result.
+R64:The system shall provide the ability to associate orders, medications and notes with one or more codified problems.
+R65:The system shall provide the ability to associate orders, medications, and notes with one or more problems.
+associate_orders [ label = "{associate orders : \l}"]
+orders [ label = "{orders : \l}"]
+associate_orders -> orders  [arrowhead = "empty"]
+Generalization
+
+
+R66:The system shall provide the ability to audit the date/time and user of each instance when a patient chart is printed by the system.
+patient_chart [ label = "{patient chart : \l}"]
+system [ label = "{system : \l}"]
+patient_chart -> system  [arrowhead = "none", label = "print by"]
+B1
+date/time_and_user [ label = "{date/time and user : \l}"]
+instance [ label = "{instance : \l}"]
+date/time_and_user -> instance  [arrowhead = "odiamond"]
+Aggregation
+
+
+R67:The system shall provide the ability to automatically add reminders for necessary follow up tests based on medication prescribed.
+R68:The system shall provide the ability to automatically escalate incomplete tasks to the appropriate supervisor or authority.
+R69:The system shall provide the ability to automatically exclude from the display of current medications a prescription whose duration has been exceeded or end date has passed.
+whose [ label = "{whose |+ duration : \l}"]
+Attribuate
+end_date [ label = "{end date : \l}"]
+date [ label = "{date : \l}"]
+end_date -> date  [arrowhead = "empty"]
+Generalization
+display [ label = "{display : \l}"]
+current_medication [ label = "{current medication : \l}"]
+display -> current_medication  [arrowhead = "odiamond"]
+Aggregation
+
+
+R70:The system shall provide the ability to automatically generate an electronic reminder to the patient or the patient's guardian of disease management, preventive, or wellness services that are due.
+guardian [ label = "{guardian : \l}"]
+disease_management [ label = "{disease management : \l}"]
+guardian -> disease_management  [arrowhead = "odiamond"]
+Aggregation
+patient [ label = "{patient |+ guardian : \l}"]
+Attribuate
+wellness_services [ label = "{wellness services : \l}"]
+services [ label = "{services : \l}"]
+wellness_services -> services  [arrowhead = "empty"]
+Generalization
+disease_management [ label = "{disease management : \l}"]
+management [ label = "{management : \l}"]
+disease_management -> management  [arrowhead = "empty"]
+Generalization
+
+
+R71:The system shall provide the ability to automatically generate letters to remind the patient or the patient's guardian of disease management, preventive, or wellness services that are due.
+
+
+
+
+
+R72:The system shall provide the ability to automatically generate reminder letters for patients who are due or are overdue for disease management, preventive or wellness services.
+reminder_letters [ label = "{reminder letters : \l}"]
+letters [ label = "{letters : \l}"]
+reminder_letters -> letters  [arrowhead = "empty"]
+Generalization
+
+
+
+R73:The system shall provide the ability to calculate and graph body mass index (BMI) over time.
+body_mass_index [ label = "{body mass index : \l}"]
+mass_index [ label = "{mass index : \l}"]
+body_mass_index -> mass_index  [arrowhead = "empty"]
+Generalization
+mass_index [ label = "{mass index : \l}"]
+index [ label = "{index : \l}"]
+mass_index -> index  [arrowhead = "empty"]
+Generalization
+
+
+R74:The system shall provide the ability to capture and display any renewal requests received electronically from or on behalf of any dispensing entity.
+renewal_requests [ label = "{renewal requests : \l}"]
+requests [ label = "{requests : \l}"]
+renewal_requests -> requests  [arrowhead = "empty"]
+Generalization
+behalf [ label = "{behalf : \l}"]
+entity [ label = "{entity : \l}"]
+behalf -> entity  [arrowhead = "odiamond"]
+Aggregation
+dispensing_entity [ label = "{dispensing entity : \l}"]
+entity [ label = "{entity : \l}"]
+dispensing_entity -> entity  [arrowhead = "empty"]
+Generalization
+
+
+R75:The system shall provide the ability to capture and display notification of prior authorizations received electronically from or on behalf of any dispensing entity.
+notification [ label = "{notification : \l}"]
+prior_authorization [ label = "{prior authorization : \l}"]
+notification -> prior_authorization  [arrowhead = "odiamond"]
+Aggregation
+
+
+
+
+R76:The system shall provide the ability to capture and display temperature, weight and height in both metric and English units.
+R77:The system shall provide the ability to capture and store discrete data regarding symptoms, signs and clinical history, from a clinical encounter and to associate that data with codes from standardized nomenclatures.
+R78:The system shall provide the ability to capture and store external documents.
+R79:The system shall provide the ability to capture and store lists of medications and other agents to which the patient has had an allergic or other adverse reaction in a standard coded form.
+coded_form [ label = "{coded form : \l}"]
+form [ label = "{form : \l}"]
+coded_form -> form  [arrowhead = "empty"]
+Generalization
+patient [ label = "{patient : \l}"]
+standard_coded_form [ label = "{standard coded form : \l}"]
+patient -> standard_coded_form  [arrowhead = "none", label = "had an allergic or other adverse reaction in"]
+Association
+patient [ label = "{patient : \l}"]
+medication [ label = "{medication : \l}"]
+patient -> medication  [arrowhead = "none", label = "had an allergic or other adverse reaction to list of"]
+Association
+patient [ label = "{patient : \l}"]
+an_allergic_or_other_adverse_reaction [ label = "{an allergic or other adverse reaction : \l}"]
+patient -> an_allergic_or_other_adverse_reaction  [arrowhead = "none", label = "had"]
+Association
+patient [ label = "{patient : \l}"]
+an_allergic_or_other_adverse_reaction [ label = "{an allergic or other adverse reaction : \l}"]
+patient -> an_allergic_or_other_adverse_reaction  [arrowhead = "none", label = "had to list"]
+Association
+list [ label = "{list : \l}"]
+medication [ label = "{medication : \l}"]
+list -> medication  [arrowhead = "odiamond"]
+Aggregation
+
+
+R80:The system shall provide the ability to capture appropriate order entry detail, including associated diagnosis.
+entry_detail [ label = "{entry detail : \l}"]
+detail [ label = "{detail : \l}"]
+entry_detail -> detail  [arrowhead = "empty"]
+Generalization
+order_entry_detail [ label = "{order entry detail : \l}"]
+entry_detail [ label = "{entry detail : \l}"]
+order_entry_detail -> entry_detail  [arrowhead = "empty"]
+Generalization
+
+
+R81:The system shall provide the ability to capture common content for prescription details including strength, sig, quantity, and refills to be selected by the ordering clinician.
+prescription_details [ label = "{prescription details : \l}"]
+details [ label = "{details : \l}"]
+prescription_details -> details  [arrowhead = "empty"]
+Generalization
+
+
+R82:The system shall provide the ability to capture history collected from outside sources.
+history [ label = "{history : \l}"]
+outside_source [ label = "{outside source : \l}"]
+history -> outside_source  [arrowhead = "none", label = " collect from"]
+Association
+
+
+R83:The system shall provide the ability to capture medications entered by authorized users other than the prescriber.
+R84:The system shall provide the ability to capture other clinical data elements as discrete data.
+data_elements [ label = "{data elements : \l}"]
+elements [ label = "{elements : \l}"]
+data_elements -> elements  [arrowhead = "empty"]
+Generalization
+
+
+R85:The system shall provide the ability to capture patient history as both a presence and absence of conditions, i.e., the specification of the absence of a personal or family history of a specific diagnosis, procedure or health risk behavior.
+absence [ label = "{absence : \l}"]
+personal_or_family_history [ label = "{personal or family history : \l}"]
+absence -> personal_or_family_history  [arrowhead = "odiamond"]
+Aggregation
+personal_or_family_history [ label = "{personal or family history : \l}"]
+specific_diagnosis_,_procedure_or_health_risk_behavior [ label = "{specific diagnosis , procedure or health risk behavior : \l}"]
+personal_or_family_history -> specific_diagnosis_,_procedure_or_health_risk_behavior  [arrowhead = "odiamond"]
+Aggregation
+specification [ label = "{specification : \l}"]
+absence [ label = "{absence : \l}"]
+specification -> absence  [arrowhead = "odiamond"]
+Aggregation
+presence_and_absence [ label = "{presence and absence : \l}"]
+condition [ label = "{condition : \l}"]
+presence_and_absence -> condition  [arrowhead = "odiamond"]
+Aggregation
+
+
+R86:The system shall provide the ability to capture patient history in a standard coded form.
+
+
+
+R87:The system shall provide the ability to capture patient vital signs, including blood pressure, heart rate, respiratory rate, height, and weight, as discrete data.
+blood_pressure [ label = "{blood pressure : \l}"]
+pressure [ label = "{pressure : \l}"]
+blood_pressure -> pressure  [arrowhead = "empty"]
+Generalization
+respiratory_rate [ label = "{respiratory rate : \l}"]
+rate [ label = "{rate : \l}"]
+respiratory_rate -> rate  [arrowhead = "empty"]
+Generalization
+heart_rate [ label = "{heart rate : \l}"]
+rate [ label = "{rate : \l}"]
+heart_rate -> rate  [arrowhead = "empty"]
+Generalization
+
+
+R88:The system shall provide the ability to capture scanned paper consent documents (covered in DC.1.1.3.1).
+consent_documents [ label = "{consent documents : \l}"]
+documents [ label = "{documents : \l}"]
+consent_documents -> documents  [arrowhead = "empty"]
+Generalization
+paper_consent_documents [ label = "{paper consent documents : \l}"]
+consent_documents [ label = "{consent documents : \l}"]
+paper_consent_documents -> consent_documents  [arrowhead = "empty"]
+Generalization
+
+
+R89:The system shall provide the ability to capture structured data in the patient history.
+R90:The system shall provide the ability to capture the identity of the ordering provider for all test orders.
+test_orders [ label = "{test orders : \l}"]
+orders [ label = "{orders : \l}"]
+test_orders -> orders  [arrowhead = "empty"]
+Generalization
+identity [ label = "{identity : \l}"]
+provider [ label = "{provider : \l}"]
+identity -> provider  [arrowhead = "odiamond"]
+Aggregation
+
+
+R91:The system shall provide the ability to capture the identity of the prescribing provider for all medication orders.
+
+medication_orders [ label = "{medication orders : \l}"]
+orders [ label = "{orders : \l}"]
+medication_orders -> orders  [arrowhead = "empty"]
+Generalization
+
+
+R92:The system shall provide the ability to capture, store, display, and manage patient history.
+R93:The system shall provide the ability to check for drug-disease interactions for medications ordered for administration (as opposed to prescriptions) and alert the user at the time of ordering if potential interactions exist.
+R94:The system shall provide the ability to check for medication contraindications based on patient age for medications ordered for administration (as opposed to prescriptions) and alert the user at the time of ordering.
+medication_contraindications [ label = "{medication contraindications : \l}"]
+contraindications [ label = "{contraindications : \l}"]
+medication_contraindications -> contraindications  [arrowhead = "empty"]
+Generalization
+
+
+R95:The system shall provide the ability to check for potential interactions between a current medication and a newly entered allergy.
+R96:The system shall provide the ability to check for potential interactions between medications ordered for administration (as opposed to prescriptions) and current medications and alert the user at the time of ordering if potential interactions exist.
+R97:The system shall provide the ability to check for potential interactions between medications ordered for administration (as opposed to prescriptions) and medication allergies and intolerances listed in the record and alert the user at the time of ordering if potential interactions exist.
+medication_allergies [ label = "{medication allergies : \l}"]
+allergies [ label = "{allergies : \l}"]
+medication_allergies -> allergies  [arrowhead = "empty"]
+Generalization
+
+
+R98:The system shall provide the ability to check for potential interactions between medications to be prescribed and medication allergies and intolerances listed in the record and alert the user at the time of medication ordering if potential interactions exist.
+time [ label = "{time : \l}"]
+medication [ label = "{medication : \l}"]
+time -> medication  [arrowhead = "odiamond"]
+Aggregation
+
+
+
+R99:The system shall provide the ability to check whether a medication being prescribed has been noted to be ineffective for the patient in the past, and alert the user at the time of medication ordering if noted ineffectiveness exists.
+
+
+
+R100:The system shall provide the ability to chronologically display consents and authorizations.
+display_consents [ label = "{display consents : \l}"]
+consents [ label = "{consents : \l}"]
+display_consents -> consents  [arrowhead = "empty"]
+Generalization
+
+
+R101:The system shall provide the ability to cosign a note and record the date and time of signature.
+date_and_time [ label = "{date and time : \l}"]
+signature [ label = "{signature : \l}"]
+date_and_time -> signature  [arrowhead = "odiamond"]
+Aggregation
+
+
+R102:The system shall provide the ability to create and assign tasks by user or user role.
+user_or_user_role [ label = "{user or user role : \l}"]
+or_user_role [ label = "{or user role : \l}"]
+user_or_user_role -> or_user_role  [arrowhead = "empty"]
+Generalization
+
+
+R103:The system shall provide the ability to create and display a summary list for each patient that includes, at a minimum, the active problem list, current medication list, medication allergies and adverse reactions.
+problem_list [ label = "{problem list : \l}"]
+list [ label = "{list : \l}"]
+problem_list -> list  [arrowhead = "empty"]
+Generalization
+
+
+summary_list [ label = "{summary list : \l}"]
+list [ label = "{list : \l}"]
+summary_list -> list  [arrowhead = "empty"]
+Generalization
+
+
+R104:The system shall provide the ability to create and maintain a directory of clinical personnel external to the organization who are not users of the system to facilitate communication and information exchange.
+directory [ label = "{directory : \l}"]
+clinical_personnel [ label = "{clinical personnel : \l}"]
+directory -> clinical_personnel  [arrowhead = "odiamond"]
+Aggregation
+user [ label = "{user : \l}"]
+system [ label = "{system : \l}"]
+user -> system  [arrowhead = "odiamond"]
+Aggregation
+communication_and_information_exchange [ label = "{communication and information exchange : \l}"]
+and_information_exchange [ label = "{and information exchange : \l}"]
+communication_and_information_exchange -> and_information_exchange  [arrowhead = "empty"]
+Generalization
+
+
+R105:The system shall provide the ability to create clinical documentation or notes (henceforth documentation).
+R106:The system shall provide the ability to create hardcopy and electronic report summary information (procedures, medications, labs, immunizations, allergies, and vital signs).
+report_summary_information [ label = "{report summary information : \l}"]
+summary_information [ label = "{summary information : \l}"]
+report_summary_information -> summary_information  [arrowhead = "empty"]
+Generalization
+summary_information [ label = "{summary information : \l}"]
+information [ label = "{information : \l}"]
+summary_information -> information  [arrowhead = "empty"]
+Generalization
+
+
+R107:The system shall provide the ability to create patient specific instructions.
+R108:The system shall provide the ability to create prescription or other medication orders with sufficient information for correct filling and dispensing by a pharmacy.
+sufficient_information [ label = "{sufficient information : \l}"]
+pharmacy [ label = "{pharmacy : \l}"]
+sufficient_information -> pharmacy  [arrowhead = "none", label = "for correct correct filling by pharmacy filling and  by"]
+Association
+sufficient_information [ label = "{sufficient information : \l}"]
+pharmacy [ label = "{pharmacy : \l}"]
+sufficient_information -> pharmacy  [arrowhead = "none", label = "for correct correct filling filling and  by"]
+Association
+sufficient_information [ label = "{sufficient information : \l}"]
+pharmacy [ label = "{pharmacy : \l}"]
+sufficient_information -> pharmacy  [arrowhead = "none", label = " filling and  by"]
+Association
+
+
+
+R109:The system shall provide the ability to create provider specific medication lists of the most commonly prescribed drugs with a default dose, frequency, and quantity.
+provider_specific_medication_list [ label = "{provider specific medication list : \l}"]
+most_commonly_prescribed_drug [ label = "{most commonly prescribed drug : \l}"]
+provider_specific_medication_list -> most_commonly_prescribed_drug  [arrowhead = "odiamond"]
+Aggregation
+medication_lists [ label = "{medication lists : \l}"]
+lists [ label = "{lists : \l}"]
+medication_lists -> lists  [arrowhead = "empty"]
+Generalization
+
+
+R110:The system shall provide the ability to create provider specific medication lists of the most commonly prescribed drugs with a default route, dose, frequency, and quantity.
+
+default_route [ label = "{default route : \l}"]
+route [ label = "{route : \l}"]
+default_route -> route  [arrowhead = "empty"]
+Generalization
+
+
+
+R111:The system shall provide the ability to create referral orders with detail adequate for correct routing.
+referral_orders [ label = "{referral orders : \l}"]
+orders [ label = "{orders : \l}"]
+referral_orders -> orders  [arrowhead = "empty"]
+Generalization
+
+
+R112:The system shall provide the ability to create site-specific care plan, protocol, and guideline documents.
+site-specific_care_plan [ label = "{site-specific care plan : \l}"]
+care_plan [ label = "{care plan : \l}"]
+site-specific_care_plan -> care_plan  [arrowhead = "empty"]
+Generalization
+care_plan [ label = "{care plan : \l}"]
+plan [ label = "{plan : \l}"]
+care_plan -> plan  [arrowhead = "empty"]
+Generalization
+guideline_documents [ label = "{guideline documents : \l}"]
+documents [ label = "{documents : \l}"]
+guideline_documents -> documents  [arrowhead = "empty"]
+Generalization
+
+
+R113:The system shall provide the ability to customize clinical templates.
+clinical_templates [ label = "{clinical templates : \l}"]
+templates [ label = "{templates : \l}"]
+clinical_templates -> templates  [arrowhead = "empty"]
+Generalization
+
+
+R114:The system shall provide the ability to define one or more reports as the formal health record for disclosure purposes.
+health_record [ label = "{health record : \l}"]
+record [ label = "{record : \l}"]
+health_record -> record  [arrowhead = "empty"]
+Generalization
+disclosure_purposes [ label = "{disclosure purposes : \l}"]
+purposes [ label = "{purposes : \l}"]
+disclosure_purposes -> purposes  [arrowhead = "empty"]
+Generalization
+
+
+R115:The system shall provide the ability to designate a task as completed.
+R116:The system shall provide the ability to display a schedule of patient appointments, populated either through data entry in the system itself or through an external application interoperating with the system.
+data_entry [ label = "{data entry : \l}"]
+entry [ label = "{entry : \l}"]
+data_entry -> entry  [arrowhead = "empty"]
+Generalization
+schedule [ label = "{schedule : \l}"]
+patient_appointment [ label = "{patient appointment : \l}"]
+schedule -> patient_appointment  [arrowhead = "odiamond"]
+Aggregation
+
+
+R117:The system shall provide the ability to display alerts based on established guidelines.
+R118:The system shall provide the ability to display all current problems associated with a patient.
+R119:The system shall provide the ability to display CCD documents, using a subset of the HITSP C32 specification for Allergy and Conditions content information, and file them as intact documents in the EHR.
+CCD_documents [ label = "{CCD documents : \l}"]
+documents [ label = "{documents : \l}"]
+CCD_documents -> documents  [arrowhead = "empty"]
+Generalization
+HITSP_C32_specification [ label = "{HITSP C32 specification : \l}"]
+C32_specification [ label = "{C32 specification : \l}"]
+HITSP_C32_specification -> C32_specification  [arrowhead = "empty"]
+Generalization
+content_information [ label = "{content information : \l}"]
+information [ label = "{information : \l}"]
+content_information -> information  [arrowhead = "empty"]
+Generalization
+C32_specification [ label = "{C32 specification : \l}"]
+specification [ label = "{specification : \l}"]
+C32_specification -> specification  [arrowhead = "empty"]
+Generalization
+subset [ label = "{subset : \l}"]
+HITSP_C32_specification [ label = "{HITSP C32 specification : \l}"]
+subset -> HITSP_C32_specification  [arrowhead = "odiamond"]
+Aggregation
+Conditions_content_information [ label = "{Conditions content information : \l}"]
+content_information [ label = "{content information : \l}"]
+Conditions_content_information -> content_information  [arrowhead = "empty"]
+Generalization
+
+
+R120:The system shall provide the ability to display CCD documents, using a subset of the HITSP C32 specification for Allergy and Conditions content information, file them as intact documents in the EHR, and import the discrete data from one or more of the entries in a structured form into the patient record.
+one_or_more [ label = "{one or more : \l}"]
+entry [ label = "{entry : \l}"]
+one_or_more -> entry  [arrowhead = "odiamond"]
+Aggregation
+
+
+
+
+
+
+
+
+R121:If coded data is present it shall be maintained or mapped to a local value.
+it [ label = "{it : \l}"]
+local_value [ label = "{local value : \l}"]
+it -> local_value  [arrowhead = "none", label = "maintain or  to"]
+B1
+
+
+R122:The system shall provide the ability to display CCD documents, using a subset of the HITSP C32 specification for Medication and Immunization History information and file them as intact documents in the EHR.
+
+
+
+
+Immunization_History_information [ label = "{Immunization History information : \l}"]
+History_information [ label = "{History information : \l}"]
+Immunization_History_information -> History_information  [arrowhead = "empty"]
+Generalization
+History_information [ label = "{History information : \l}"]
+information [ label = "{information : \l}"]
+History_information -> information  [arrowhead = "empty"]
+Generalization
+
+
+R123:The system shall provide the ability to display CCD documents, using a subset of the HITSP C32 specification for Medication and Immunization History information, file them as intact documents in the EHR, and import the discrete data from one or more of the entries in a structured form into the patient record.
+
+
+
+
+
+
+
+
+R124:If coded data is present it shall be maintained or mapped to a local value.
+
+
+
+R125:The system shall provide the ability to display CCD documents, using a subset of the HITSP C32 specification for Registration Summary information, and file them as intact documents in the EHR.
+
+
+Registration_Summary_information [ label = "{Registration Summary information : \l}"]
+Summary_information [ label = "{Summary information : \l}"]
+Registration_Summary_information -> Summary_information  [arrowhead = "empty"]
+Generalization
+
+Summary_information [ label = "{Summary information : \l}"]
+information [ label = "{information : \l}"]
+Summary_information -> information  [arrowhead = "empty"]
+Generalization
+
+
+
+R126:The system shall provide the ability to display CCD documents, using a subset of the HITSP C32 specification for Registration Summary information, file them as intact documents in the EHR, and import the discrete data from one or more of the entries in a structured form into the patient record.
+
+
+
+
+
+
+
+
+
+R127:If coded data is present it shall be maintained or mapped to a local value.
+
+
+
+R128:The system shall provide the ability to display documentation.
+R129:The system shall provide the ability to display inactive and/or resolved problems.
+R130:The system shall provide the ability to display information received through health plan/payer formulary checking.
+health_plan/payer [ label = "{health plan/payer : \l}"]
+plan/payer [ label = "{plan/payer : \l}"]
+health_plan/payer -> plan/payer  [arrowhead = "empty"]
+Generalization
+
+
+R131:The system shall provide the ability to display information which has been inactivated or removed from the allergy and adverse reaction list.
+reaction_list [ label = "{reaction list : \l}"]
+list [ label = "{list : \l}"]
+reaction_list -> list  [arrowhead = "empty"]
+Generalization
+
+
+R132:The system shall provide the ability to display medical eligibility obtained from patient's insurance carrier, populated either through data entry in the system itself or through an external application interoperating with the system.
+patient [ label = "{patient |+ carrier : \l}"]
+Attribuate
+insurance_carrier [ label = "{insurance carrier : \l}"]
+carrier [ label = "{carrier : \l}"]
+insurance_carrier -> carrier  [arrowhead = "empty"]
+Generalization
+
+
+
+R133:The system shall provide the ability to display medication history for the patient.
+R134:The system shall provide the ability to display non-numeric current and historical test results as textual data.
+test_results [ label = "{test results : \l}"]
+results [ label = "{results : \l}"]
+test_results -> results  [arrowhead = "empty"]
+Generalization
+
+
+R135:The system shall provide the ability to display numerical results in flow sheets and graphical form in order to compare results, and shall provide the ability to display values graphed over time.
+flow_sheets [ label = "{flow sheets : \l}"]
+sheets [ label = "{sheets : \l}"]
+flow_sheets -> sheets  [arrowhead = "empty"]
+Generalization
+
+
+R136:The system shall provide the ability to display other discrete numeric clinical data elements, such as peak expiratory flow rate or pain scores, in tabular and graphical form.
+flow_rate [ label = "{flow rate : \l}"]
+rate [ label = "{rate : \l}"]
+flow_rate -> rate  [arrowhead = "empty"]
+Generalization
+tabular_and_graphical_form [ label = "{tabular and graphical form : \l}"]
+and_graphical_form [ label = "{and graphical form : \l}"]
+tabular_and_graphical_form -> and_graphical_form  [arrowhead = "empty"]
+Generalization
+pain_scores [ label = "{pain scores : \l}"]
+scores [ label = "{scores : \l}"]
+pain_scores -> scores  [arrowhead = "empty"]
+Generalization
+
+
+
+R137:The system shall provide the ability to display reminders for disease management, preventive and wellness services in the patient record.
+R138:The system shall provide the ability to display the associated problem or diagnosis (indication) on the printed prescription.
+R139:The system shall provide the ability to display user created instructions and/or prompts when ordering diagnostic tests or procedures.
+user_created_instructions [ label = "{user created instructions : \l}"]
+created_instructions [ label = "{created instructions : \l}"]
+user_created_instructions -> created_instructions  [arrowhead = "empty"]
+Generalization
+
+
+R140:The system shall provide the ability to display, on demand, potential interactions on a patients medication list, even if a medication is not being prescribed at the time.
+medication [ label = "{medication : \l}"]
+time [ label = "{time : \l}"]
+medication -> time  [arrowhead = "none", label = "prescribe at"]
+B1
+
+
+R141:The system shall provide the ability to distinguish between an allergy and an intolerance as discrete data.
+R142:The system shall provide the ability to document a patient encounter.
+R143:The system shall provide the ability to document encounters by one or more of the following means: direct keyboard entry of text structured data entry utilizing templates, forms, pick lists or macro substitution dictation with subsequent transcription of voice to text, either manually or via voice recognition system.
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "of text structured datum entry utilize template structured with subsequent transcription of voice"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice structured text structured datum entry utilize template with"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text either structured with subsequent transcription of voice to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text structured text structured datum entry utilize template with subsequent transcription of voice to"]
+Association
+entry_utilizing_templates [ label = "{entry utilizing templates : \l}"]
+utilizing_templates [ label = "{utilizing templates : \l}"]
+entry_utilizing_templates -> utilizing_templates  [arrowhead = "empty"]
+Generalization
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "structured with subsequent transcription of text structured datum entry utilize template with subsequent transcription of voice"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "of text structured datum entry utilize template structured with subsequent transcription of voice to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice to text structured with subsequent transcription of voice"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice structured with subsequent transcription of text structured datum entry utilize template with subsequent transcription of voice to voice"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice structured text structured datum entry utilize template with subsequent transcription of voice to with subsequent transcription"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text either structured with subsequent transcription of text structured datum entry utilize template with voice"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription structured with subsequent transcription of text structured datum entry utilize template with voice"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription structured with subsequent transcription of text structured datum entry utilize template with subsequent transcription of voice"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "structured with subsequent transcription of voice to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice structured with subsequent transcription of voice to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice to text structured with subsequent transcription of text structured datum entry utilize template with voice"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text structured with subsequent transcription of text structured datum entry utilize template with voice"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription structured"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice to text structured with subsequent transcription of voice to text structured datum entry utilize template with subsequent transcription of text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "structured text structured datum entry utilize template with with subsequent transcription"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice structured with subsequent transcription of text structured datum entry utilize template with subsequent transcription of voice"]
+Association
+voice_recognition_system [ label = "{voice recognition system : \l}"]
+recognition_system [ label = "{recognition system : \l}"]
+voice_recognition_system -> recognition_system  [arrowhead = "empty"]
+Generalization
+data_entry_utilizing_templates [ label = "{data entry utilizing templates : \l}"]
+entry_utilizing_templates [ label = "{entry utilizing templates : \l}"]
+data_entry_utilizing_templates -> entry_utilizing_templates  [arrowhead = "empty"]
+Generalization
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "structured text structured datum entry utilize template with to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "of text structured datum entry utilize template structured text structured datum entry utilize template with to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription structured text structured datum entry utilize template with subsequent transcription of voice to to text"]
+Association
+substitution_dictation [ label = "{substitution dictation : \l}"]
+dictation [ label = "{dictation : \l}"]
+substitution_dictation -> dictation  [arrowhead = "empty"]
+Generalization
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text either structured text structured datum entry utilize template with subsequent transcription of"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text structured text structured datum entry utilize template with to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text either structured text structured datum entry utilize template with with subsequent transcription"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text either structured with subsequent transcription of text structured datum entry utilize template with subsequent transcription of voice to voice"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription structured with subsequent transcription of voice to text structured datum entry utilize template with subsequent transcription of voice to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice to text structured text structured datum entry utilize template with to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice to text structured text structured datum entry utilize template with with subsequent transcription"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice structured with subsequent transcription of voice to text structured datum entry utilize template with subsequent transcription of voice to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "structured with subsequent transcription of voice to text structured datum entry utilize template with text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription structured text structured datum entry utilize template with subsequent transcription of voice to with subsequent transcription"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text structured with subsequent transcription"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text either structured with subsequent transcription of voice to text structured datum entry utilize template with subsequent transcription of text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text structured text structured datum entry utilize template with subsequent transcription of to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text either structured"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice to text structured"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "of text structured datum entry utilize template structured with subsequent transcription of voice to text structured datum entry utilize template with subsequent transcription of voice to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text either structured text structured datum entry utilize template with subsequent transcription of voice to"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text structured text structured datum entry utilize template with"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "of text structured datum entry utilize template structured text structured datum entry utilize template with subsequent transcription of voice to"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice structured"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice to text structured with subsequent transcription of voice to text structured datum entry utilize template with subsequent transcription of voice to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice structured with subsequent transcription of text structured datum entry utilize template with voice"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text structured with subsequent transcription of voice to text structured datum entry utilize template with subsequent transcription of voice to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice structured with subsequent transcription"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription structured with subsequent transcription of voice to text"]
+Association
+recognition_system [ label = "{recognition system : \l}"]
+system [ label = "{system : \l}"]
+recognition_system -> system  [arrowhead = "empty"]
+Generalization
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice structured text structured datum entry utilize template with subsequent transcription of with subsequent transcription"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "of text structured datum entry utilize template structured with subsequent transcription of voice to text structured datum entry utilize template with subsequent transcription of text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice to text structured text structured datum entry utilize template with subsequent transcription of voice to to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "structured text structured datum entry utilize template with"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription structured with subsequent transcription of voice"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "of text structured datum entry utilize template structured with subsequent transcription"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "of text structured datum entry utilize template structured text structured datum entry utilize template with subsequent transcription of voice to with subsequent transcription"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice to text structured with subsequent transcription"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "of text structured datum entry utilize template structured with subsequent transcription of text structured datum entry utilize template with subsequent transcription of voice to voice"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "of text structured datum entry utilize template structured text structured datum entry utilize template with subsequent transcription of with subsequent transcription"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription structured text structured datum entry utilize template with subsequent transcription of with subsequent transcription"]
+Association
+one_or_more [ label = "{one or more : \l}"]
+means [ label = "{means : \l}"]
+one_or_more -> means  [arrowhead = "odiamond"]
+Aggregation
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text either structured text structured datum entry utilize template with to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "of text structured datum entry utilize template structured text structured datum entry utilize template with subsequent transcription of to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text structured"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription structured with subsequent transcription of voice to text structured datum entry utilize template with text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "structured text structured datum entry utilize template with subsequent transcription of to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription structured text structured datum entry utilize template with subsequent transcription of"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text structured text structured datum entry utilize template with subsequent transcription of voice to with subsequent transcription"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "structured with subsequent transcription of voice to text structured datum entry utilize template with subsequent transcription of text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription structured with subsequent transcription of voice to text structured datum entry utilize template with subsequent transcription of text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "structured with subsequent transcription of voice"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice structured with subsequent transcription of voice to text structured datum entry utilize template with subsequent transcription of text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text either structured with subsequent transcription of voice"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice to text structured to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice to text structured with subsequent transcription of text structured datum entry utilize template with subsequent transcription of voice"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice to text structured text structured datum entry utilize template with"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text structured to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice to text structured text structured datum entry utilize template with subsequent transcription of voice to with subsequent transcription"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice structured text structured datum entry utilize template with subsequent transcription of voice to"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text either structured with subsequent transcription of voice to text structured datum entry utilize template with subsequent transcription of voice to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "of text structured datum entry utilize template structured text structured datum entry utilize template with subsequent transcription of voice to to text"]
+Association
+macro_substitution_dictation [ label = "{macro substitution dictation : \l}"]
+substitution_dictation [ label = "{substitution dictation : \l}"]
+macro_substitution_dictation -> substitution_dictation  [arrowhead = "empty"]
+Generalization
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "of text structured datum entry utilize template structured with subsequent transcription of text structured datum entry utilize template with voice"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "structured text structured datum entry utilize template with subsequent transcription of with subsequent transcription"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "of text structured datum entry utilize template structured with subsequent transcription of text structured datum entry utilize template with subsequent transcription of voice"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "structured with subsequent transcription of text structured datum entry utilize template with voice"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text structured with subsequent transcription of text structured datum entry utilize template with subsequent transcription of voice"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "structured with subsequent transcription of voice to text structured datum entry utilize template with subsequent transcription of voice to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text structured with subsequent transcription of voice to text structured datum entry utilize template with text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text either structured text structured datum entry utilize template with subsequent transcription of to text"]
+Association
+pick_lists [ label = "{pick lists : \l}"]
+lists [ label = "{lists : \l}"]
+pick_lists -> lists  [arrowhead = "empty"]
+Generalization
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "of text structured datum entry utilize template structured with subsequent transcription of voice to text structured datum entry utilize template with text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "structured with subsequent transcription"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text structured text structured datum entry utilize template with subsequent transcription of with subsequent transcription"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "structured text structured datum entry utilize template with subsequent transcription of voice to"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription structured text structured datum entry utilize template with"]
+Association
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+voice [ label = "{voice : \l}"]
+subsequent_transcription -> voice  [arrowhead = "odiamond"]
+Aggregation
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice to text structured text structured datum entry utilize template with subsequent transcription of"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text either structured text structured datum entry utilize template with subsequent transcription of voice to with subsequent transcription"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription structured with subsequent transcription"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text either structured to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text structured with subsequent transcription of voice"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text either structured text structured datum entry utilize template with subsequent transcription of voice to to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "odiamond"]
+Aggregation
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text either structured with subsequent transcription"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text structured text structured datum entry utilize template with subsequent transcription of voice to to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text either structured with subsequent transcription of text structured datum entry utilize template with subsequent transcription of voice"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice structured text structured datum entry utilize template with subsequent transcription of to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "structured with subsequent transcription of text structured datum entry utilize template with subsequent transcription of voice to voice"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice structured text structured datum entry utilize template with subsequent transcription of"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice structured to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text either structured text structured datum entry utilize template with"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "of text structured datum entry utilize template structured"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "structured"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice to text structured text structured datum entry utilize template with subsequent transcription of with subsequent transcription"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text either structured with subsequent transcription of voice to text structured datum entry utilize template with text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice to text structured text structured datum entry utilize template with subsequent transcription of voice to"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription structured text structured datum entry utilize template with subsequent transcription of voice to"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "structured text structured datum entry utilize template with subsequent transcription of voice to to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "of text structured datum entry utilize template structured to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text structured text structured datum entry utilize template with subsequent transcription of"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "of text structured datum entry utilize template structured text structured datum entry utilize template with with subsequent transcription"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription structured text structured datum entry utilize template with to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "structured text structured datum entry utilize template with subsequent transcription of"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text structured with subsequent transcription of voice to text structured datum entry utilize template with subsequent transcription of text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription structured with subsequent transcription of text structured datum entry utilize template with subsequent transcription of voice to voice"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text either structured text structured datum entry utilize template with subsequent transcription of with subsequent transcription"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice structured text structured datum entry utilize template with to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice structured text structured datum entry utilize template with with subsequent transcription"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "structured to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice to text structured text structured datum entry utilize template with subsequent transcription of to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription structured to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice to text structured with subsequent transcription of voice to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "of text structured datum entry utilize template structured text structured datum entry utilize template with"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "of text structured datum entry utilize template structured text structured datum entry utilize template with subsequent transcription of"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text structured text structured datum entry utilize template with with subsequent transcription"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice to text structured with subsequent transcription of voice to text structured datum entry utilize template with text"]
+Association
+keyboard_entry [ label = "{keyboard entry : \l}"]
+entry [ label = "{entry : \l}"]
+keyboard_entry -> entry  [arrowhead = "empty"]
+Generalization
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text structured with subsequent transcription of text structured datum entry utilize template with subsequent transcription of voice to voice"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription structured text structured datum entry utilize template with with subsequent transcription"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+subsequent_transcription [ label = "{subsequent transcription : \l}"]
+direct_keyboard_entry -> subsequent_transcription  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice structured with subsequent transcription of voice to text structured datum entry utilize template with text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice to text structured with subsequent transcription of text structured datum entry utilize template with subsequent transcription of voice to voice"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription to text structured with subsequent transcription of voice to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text_structured_datum_entry_utilize_template [ label = "{text structured datum entry utilize template : \l}"]
+direct_keyboard_entry -> text_structured_datum_entry_utilize_template  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice structured with subsequent transcription of voice"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+voice [ label = "{voice : \l}"]
+direct_keyboard_entry -> voice  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription structured text structured datum entry utilize template with subsequent transcription of to text"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "structured text structured datum entry utilize template with subsequent transcription of voice to with subsequent transcription"]
+Association
+direct_keyboard_entry [ label = "{direct keyboard entry : \l}"]
+text [ label = "{text : \l}"]
+direct_keyboard_entry -> text  [arrowhead = "none", label = "of text structured datum entry utilize template with subsequent transcription of voice structured text structured datum entry utilize template with subsequent transcription of voice to to text"]
+Association
+
+
+R144:The system shall provide the ability to document medication administration.
+R145:The system shall provide the ability to document reasons disease management or preventive services/wellness prompts were overridden.
+
+
+
+R146:The system shall provide the ability to document that a disease management or preventive service has been performed with associated dates or other relevant details recorded.
+preventive_service [ label = "{preventive service : \l}"]
+service [ label = "{service : \l}"]
+preventive_service -> service  [arrowhead = "empty"]
+Generalization
+
+
+
+R147:The system shall provide the ability to document that a preventive or disease management service has been performed based on activities documented in the record (e.g., vitals signs taken).
+disease_management_service [ label = "{disease management service : \l}"]
+management_service [ label = "{management service : \l}"]
+disease_management_service -> management_service  [arrowhead = "empty"]
+Generalization
+management_service [ label = "{management service : \l}"]
+service [ label = "{service : \l}"]
+management_service -> service  [arrowhead = "empty"]
+Generalization
+
+
+R148:The system shall provide the ability to document verbal/telephone communication into the patient record.
+R149:The system shall provide the ability to electronically communicate from the prescriber to the pharmacy an initial medication order as well as renewals of an existing order.
+
+renewal [ label = "{renewal : \l}"]
+order [ label = "{order : \l}"]
+renewal -> order  [arrowhead = "odiamond"]
+Aggregation
+
+
+R150:The system shall provide the ability to enter free text notes.
+text_notes [ label = "{text notes : \l}"]
+notes [ label = "{notes : \l}"]
+text_notes -> notes  [arrowhead = "empty"]
+Generalization
+
+
+R151:The system shall provide the ability to enter or further specify in a discrete field that the patient takes no medications.
+patient [ label = "{patient : \l}"]
+medication [ label = "{medication : \l}"]
+patient -> medication  [arrowhead = "none", label = "enter or further specify in a discrete field that the patient takes"]
+Association
+
+
+R152:The system shall provide the ability to enter uncoded or free text medications when medications are not on the vendor-provided medication database or information is insufficient to completely identify the medication.
+text_medications [ label = "{text medications : \l}"]
+medications [ label = "{medications : \l}"]
+text_medications -> medications  [arrowhead = "empty"]
+Generalization
+
+vendor-provided_medication_database_or_information [ label = "{vendor-provided medication database or information : \l}"]
+medication [ label = "{medication : \l}"]
+vendor-provided_medication_database_or_information -> medication  [arrowhead = "none", label = "insufficient to completely identify"]
+Association
+
+
+R153:The system shall provide the ability to establish criteria for disease management, wellness, and preventive services based on clinical data (problem list, current medications).
+
+problem [ label = "{problem : \l}"]
+list [ label = "{list : \l}"]
+problem -> list  [arrowhead = "empty"]
+Generalization
+
+
+R154:The system shall provide the ability to establish criteria for disease management, wellness, and preventive services based on patient demographic data (minimally age and gender).
+minimally [ label = "{minimally : \l}"]
+age [ label = "{age : \l}"]
+minimally -> age  [arrowhead = "empty"]
+Generalization
+preventive_services [ label = "{preventive services : \l}"]
+services [ label = "{services : \l}"]
+preventive_services -> services  [arrowhead = "empty"]
+Generalization
+
+
+
+R155:The system shall provide the ability to export (extract) pre-defined set(s) of data out of the system.
+datum [ label = "{datum : \l}"]
+system [ label = "{system : \l}"]
+datum -> system  [arrowhead = "odiamond"]
+Aggregation
+(_extract_)_pre-defined_set [ label = "{( extract ) pre-defined set : \l}"]
+datum [ label = "{datum : \l}"]
+(_extract_)_pre-defined_set -> datum  [arrowhead = "odiamond"]
+Aggregation
+
+
+R156:The system shall provide the ability to export structured data which removes those identifiers listed in the HIPAA definition of a limited dataset.
+structured_datum [ label = "{structured datum : \l}"]
+identifier [ label = "{identifier : \l}"]
+structured_datum -> identifier  [arrowhead = "none", label = "removes"]
+Association
+HIPAA_definition [ label = "{HIPAA definition : \l}"]
+limited_dataset [ label = "{limited dataset : \l}"]
+HIPAA_definition -> limited_dataset  [arrowhead = "odiamond"]
+Aggregation
+HIPAA_definition [ label = "{HIPAA definition : \l}"]
+definition [ label = "{definition : \l}"]
+HIPAA_definition -> definition  [arrowhead = "empty"]
+Generalization
+
+
+R157:This export on hardcopy and electronic output shall leave the actual PHI data unmodified in the original record.
+export [ label = "{export : \l}"]
+actual_PHI_datum [ label = "{actual PHI datum : \l}"]
+export -> actual_PHI_datum  [arrowhead = "none", label = "leave in original record"]
+Association
+PHI_data [ label = "{PHI data : \l}"]
+data [ label = "{data : \l}"]
+PHI_data -> data  [arrowhead = "empty"]
+Generalization
+export [ label = "{export : \l}"]
+actual_PHI_datum [ label = "{actual PHI datum : \l}"]
+export -> actual_PHI_datum  [arrowhead = "none", label = "on hardcopy and electronic output leave"]
+Association
+export [ label = "{export : \l}"]
+actual_PHI_datum [ label = "{actual PHI datum : \l}"]
+export -> actual_PHI_datum  [arrowhead = "none", label = "leave"]
+Association
+export [ label = "{export : \l}"]
+actual_PHI_datum [ label = "{actual PHI datum : \l}"]
+export -> actual_PHI_datum  [arrowhead = "none", label = "on hardcopy and electronic output leave in original record"]
+Association
+
+
+R158:The system shall provide the ability to filter or sort results by type of test and test date.
+test_and_test_date [ label = "{test and test date : \l}"]
+and_test_date [ label = "{and test date : \l}"]
+test_and_test_date -> and_test_date  [arrowhead = "empty"]
+Generalization
+type [ label = "{type : \l}"]
+test_and_test_date [ label = "{test and test date : \l}"]
+type -> test_and_test_date  [arrowhead = "odiamond"]
+Aggregation
+
+
+R159:The system shall provide the ability to filter, search or order notes by associated diagnosis within a patient record.
+R160:The system shall provide the ability to filter, search or order notes by the provider who finalized the note.
+who [ label = "{who : \l}"]
+note [ label = "{note : \l}"]
+who -> note  [arrowhead = "none", label = "finalized"]
+Association
+
+
+R161:The system shall provide the ability to finalize a note, i.e., change the status of the note from in progress to complete so that any subsequent changes are recorded as such.
+status [ label = "{status : \l}"]
+note [ label = "{note : \l}"]
+status -> note  [arrowhead = "odiamond"]
+Aggregation
+
+
+R162:The system shall provide the ability to forward a result to other users.
+R163:The system shall provide the ability to generate a CDA document that is consistent with the HL7 2.5.1 message for Lab documents.
+Lab_documents [ label = "{Lab documents : \l}"]
+documents [ label = "{documents : \l}"]
+Lab_documents -> documents  [arrowhead = "empty"]
+Generalization
+HL7_2.5.1_message [ label = "{HL7 2.5.1 message : \l}"]
+2.5.1_message [ label = "{2.5.1 message : \l}"]
+HL7_2.5.1_message -> 2.5.1_message  [arrowhead = "empty"]
+Generalization
+
+
+R164:The system shall provide the ability to generate a report of items overridden.
+report [ label = "{report : \l}"]
+item [ label = "{item : \l}"]
+report -> item  [arrowhead = "odiamond"]
+Aggregation
+
+
+R165:The report shall include date, provider, patient, interaction (drug-drug and drug-allergy) and reason for override.
+
+
+
+R166:The system shall provide the ability to generate and format CCD documents with narrative sections and structured entries (discrete fields) as specified by the HITSP IS03/C32 specification of the Allergy and Conditions module subset.
+Conditions_module_subset [ label = "{Conditions module subset : \l}"]
+module_subset [ label = "{module subset : \l}"]
+Conditions_module_subset -> module_subset  [arrowhead = "empty"]
+Generalization
+narrative_sections [ label = "{narrative sections : \l}"]
+sections [ label = "{sections : \l}"]
+narrative_sections -> sections  [arrowhead = "empty"]
+Generalization
+IS03/C32_specification [ label = "{IS03/C32 specification : \l}"]
+specification [ label = "{specification : \l}"]
+IS03/C32_specification -> specification  [arrowhead = "empty"]
+Generalization
+HITSP_IS03/C32_specification [ label = "{HITSP IS03/C32 specification : \l}"]
+Allergy_and_Conditions_module_subset [ label = "{Allergy and Conditions module subset : \l}"]
+HITSP_IS03/C32_specification -> Allergy_and_Conditions_module_subset  [arrowhead = "odiamond"]
+Aggregation
+HITSP_IS03/C32_specification [ label = "{HITSP IS03/C32 specification : \l}"]
+IS03/C32_specification [ label = "{IS03/C32 specification : \l}"]
+HITSP_IS03/C32_specification -> IS03/C32_specification  [arrowhead = "empty"]
+Generalization
+
+
+R167:For 2008, the values within the structured entries do not have to use industry standard vocabularies/terminologies (such as RxNorm or SNOMED-CT).
+value [ label = "{value : \l}"]
+industry_standard_vocabularies/terminologies [ label = "{industry standard vocabularies/terminologies : \l}"]
+value -> industry_standard_vocabularies/terminologies  [arrowhead = "none", label = "within structured entry have to use"]
+Association
+value [ label = "{value : \l}"]
+industry_standard_vocabularies/terminologies [ label = "{industry standard vocabularies/terminologies : \l}"]
+value -> industry_standard_vocabularies/terminologies  [arrowhead = "none", label = "have to use"]
+Association
+industry_standard_vocabularies/terminologies [ label = "{industry standard vocabularies/terminologies : \l}"]
+standard_vocabularies/terminologies [ label = "{standard vocabularies/terminologies : \l}"]
+industry_standard_vocabularies/terminologies -> standard_vocabularies/terminologies  [arrowhead = "empty"]
+Generalization
+
+
+R168:The system shall provide the ability to generate and format CCD documents with narrative sections and structured entries (discrete fields) as specified by the HITSP IS03/C32 specification of the Allergy and Conditions module subset.
+
+
+
+
+
+
+
+R169:Structured entries value sets must adopt industry-standard vocabularies/terminologies (such as RxNORM or SNOMED-CT).
+value_sets [ label = "{value sets : \l}"]
+sets [ label = "{sets : \l}"]
+value_sets -> sets  [arrowhead = "empty"]
+Generalization
+Structured_entries_value_set [ label = "{Structured entries value set : \l}"]
+rxnorm_or_snomed-ct_) [ label = "{rxnorm or snomed-ct ) : \l}"]
+Structured_entries_value_set -> rxnorm_or_snomed-ct_)  [arrowhead = "none", label = "adopt industry-standard vocabularies/terminologies such"]
+Association
+Structured_entries_value_set [ label = "{Structured entries value set : \l}"]
+industry-standard_vocabularies/terminologies [ label = "{industry-standard vocabularies/terminologies : \l}"]
+Structured_entries_value_set -> industry-standard_vocabularies/terminologies  [arrowhead = "none", label = "adopt"]
+Association
+entries_value_sets [ label = "{entries value sets : \l}"]
+value_sets [ label = "{value sets : \l}"]
+entries_value_sets -> value_sets  [arrowhead = "empty"]
+Generalization
+
+
+R170:The system shall provide the ability to generate and format CCD documents with narrative sections and structured entries (discrete fields) as specified by the HITSP IS03/C32 specification of the Medication and Immunization History module subset.
+History_module_subset [ label = "{History module subset : \l}"]
+module_subset [ label = "{module subset : \l}"]
+History_module_subset -> module_subset  [arrowhead = "empty"]
+Generalization
+HITSP_IS03/C32_specification [ label = "{HITSP IS03/C32 specification : \l}"]
+Medication_and_Immunization_History_module_subset [ label = "{Medication and Immunization History module subset : \l}"]
+HITSP_IS03/C32_specification -> Medication_and_Immunization_History_module_subset  [arrowhead = "odiamond"]
+Aggregation
+
+
+Immunization_History_module_subset [ label = "{Immunization History module subset : \l}"]
+History_module_subset [ label = "{History module subset : \l}"]
+Immunization_History_module_subset -> History_module_subset  [arrowhead = "empty"]
+Generalization
+
+
+
+
+R171:For 2008, the values within the structured entries do not have to use industry standard vocabularies/terminologies (such as RxNorm or SNOMED-CT).
+
+
+
+
+
+R172:The system shall provide the ability to generate and format CCD documents with narrative sections and structured entries (discrete fields) as specified by the HITSP IS03/C32 specification of the Medication and Immunization History module subset.
+
+
+
+
+
+
+
+
+
+R173:Structured entries value sets must adopt industry-standard vocabularies/terminologies (such as RxNORM or SNOMED-CT).
+
+
+
+
+
+
+R174:The system shall provide the ability to generate and format CCD documents with narrative sections and structured entries (discrete fields) as specified by the HITSP IS03/C32 specification of the Registration Information module subset.
+HITSP_IS03/C32_specification [ label = "{HITSP IS03/C32 specification : \l}"]
+Registration_Information_module_subset [ label = "{Registration Information module subset : \l}"]
+HITSP_IS03/C32_specification -> Registration_Information_module_subset  [arrowhead = "odiamond"]
+Aggregation
+
+
+Registration_Information_module_subset [ label = "{Registration Information module subset : \l}"]
+Information_module_subset [ label = "{Information module subset : \l}"]
+Registration_Information_module_subset -> Information_module_subset  [arrowhead = "empty"]
+Generalization
+Information_module_subset [ label = "{Information module subset : \l}"]
+module_subset [ label = "{module subset : \l}"]
+Information_module_subset -> module_subset  [arrowhead = "empty"]
+Generalization
+
+
+
+R175:For 2008, the values within the structured entries do not have to use industry standard vocabularies/terminologies (such as RxNorm or SNOMED-CT).
+
+
+
+
+
+R176:The system shall provide the ability to generate and format CCD documents with narrative sections and structured entries (discrete fields) as specified by the HITSP IS03/C32 specification of the Registration Information module subset.
+
+
+
+
+
+
+
+
+R177:Structured entries value sets must adopt industry-standard vocabularies/terminologies (such as RxNORM or SNOMED-CT).
+
+
+
+
+
+
+R178:The system shall provide the ability to generate hardcopy and electronic output by date and/or date range.
+date_and/or_date_range [ label = "{date and/or date range : \l}"]
+and/or_date_range [ label = "{and/or date range : \l}"]
+date_and/or_date_range -> and/or_date_range  [arrowhead = "empty"]
+Generalization
+date_range [ label = "{date range : \l}"]
+range [ label = "{range : \l}"]
+date_range -> range  [arrowhead = "empty"]
+Generalization
+and/or_date_range [ label = "{and/or date range : \l}"]
+date_range [ label = "{date range : \l}"]
+and/or_date_range -> date_range  [arrowhead = "empty"]
+Generalization
+
+
+R179:The system shall provide the ability to generate hardcopy or electronic output of part or all of the individual patient's medical record.
+part_or_all [ label = "{part or all : \l}"]
+medical_record [ label = "{medical record : \l}"]
+part_or_all -> medical_record  [arrowhead = "odiamond"]
+Aggregation
+
+hardcopy_or_electronic_output [ label = "{hardcopy or electronic output : \l}"]
+part_or_all [ label = "{part or all : \l}"]
+hardcopy_or_electronic_output -> part_or_all  [arrowhead = "odiamond"]
+Aggregation
+
+
+R180:The system shall provide the ability to generate reports consisting of all or part of an individual patients medical record (e.g. patient summary).
+R181:The system shall provide the ability to generate reports of clinical and administrative data using either internal or external reporting tools.
+report [ label = "{report : \l}"]
+clinical_and_administrative_datum [ label = "{clinical and administrative datum : \l}"]
+report -> clinical_and_administrative_datum  [arrowhead = "odiamond"]
+Aggregation
+reporting_tools [ label = "{reporting tools : \l}"]
+tools [ label = "{tools : \l}"]
+reporting_tools -> tools  [arrowhead = "empty"]
+Generalization
+
+
+R182:The system shall provide the ability to generate reports regarding multiple patients (e.g. diabetes roster).
+diabetes_roster [ label = "{diabetes roster : \l}"]
+roster [ label = "{roster : \l}"]
+diabetes_roster -> roster  [arrowhead = "empty"]
+Generalization
+
+
+R183:The system shall provide the ability to graph height and weight over time.
+R184:The system shall provide the ability to handle OIDs (object identifiers) for Lab results.
+object [ label = "{object : \l}"]
+identifiers [ label = "{identifiers : \l}"]
+object -> identifiers  [arrowhead = "empty"]
+Generalization
+Lab_results [ label = "{Lab results : \l}"]
+results [ label = "{results : \l}"]
+Lab_results -> results  [arrowhead = "empty"]
+Generalization
+
+
+R185:The system shall provide the ability to identify all users who have accessed an individual's chart over a given time period, including date and time of access.
+individual [ label = "{individual |+ chart : \l}"]
+Attribuate
+date_and_time [ label = "{date and time : \l}"]
+access [ label = "{access : \l}"]
+date_and_time -> access  [arrowhead = "odiamond"]
+Aggregation
+time_period [ label = "{time period : \l}"]
+period [ label = "{period : \l}"]
+time_period -> period  [arrowhead = "empty"]
+Generalization
+
+
+R186:The system shall provide the ability to identify and maintain patient or patient proxy completed clinical information.
+R187:The system shall provide the ability to identify certain information as confidential and only make that accessible by appropriately authorized users.
+R188:The system shall provide the ability to identify criteria for disease management, preventive and wellness services based on patient demographic data (age, gender).
+R189:The system shall provide the ability to identify criteria for disease management, preventive, and wellness services based on clinical data (problem list, current medications, lab values).
+lab_values [ label = "{lab values : \l}"]
+values [ label = "{values : \l}"]
+lab_values -> values  [arrowhead = "empty"]
+Generalization
+
+
+
+
+
+R190:The system shall provide the ability to identify medication samples dispensed, including lot number and expiration date.
+lot_number [ label = "{lot number : \l}"]
+number [ label = "{number : \l}"]
+lot_number -> number  [arrowhead = "empty"]
+Generalization
+medication_samples [ label = "{medication samples : \l}"]
+samples [ label = "{samples : \l}"]
+medication_samples -> samples  [arrowhead = "empty"]
+Generalization
+expiration_date [ label = "{expiration date : \l}"]
+date [ label = "{date : \l}"]
+expiration_date -> date  [arrowhead = "empty"]
+Generalization
+
+
+R191:The system shall provide the ability to identify pharmacies that can receive prescriptions electronically.
+pharmacy [ label = "{pharmacy : \l}"]
+prescription [ label = "{prescription : \l}"]
+pharmacy -> prescription  [arrowhead = "none", label = "receive"]
+Association
+
+
+R192:The system shall provide the ability to identify preventive services, tests or counseling that are due on an individual patient.
+
+
+
+R193:The system shall provide the ability to identify the full content of a modified note, both the original content and the content resulting after any changes, corrections, clarifications, addenda, etc. to a finalized note including date/time/author identity.
+date/time/author_identity [ label = "{date/time/author identity : \l}"]
+identity [ label = "{identity : \l}"]
+date/time/author_identity -> identity  [arrowhead = "empty"]
+Generalization
+full_content [ label = "{full content : \l}"]
+modified_note_and_original_content [ label = "{modified note and original content : \l}"]
+full_content -> modified_note_and_original_content  [arrowhead = "odiamond"]
+Aggregation
+
+
+R194:The system shall provide the ability to identify the identity of the cosigning  author of a note and record the date and time of original author and identity of signature.
+identity [ label = "{identity : \l}"]
+author [ label = "{author : \l}"]
+identity -> author  [arrowhead = "odiamond"]
+Aggregation
+author [ label = "{author : \l}"]
+note [ label = "{note : \l}"]
+author -> note  [arrowhead = "odiamond"]
+Aggregation
+date_and_time [ label = "{date and time : \l}"]
+original_author_and_identity [ label = "{original author and identity : \l}"]
+date_and_time -> original_author_and_identity  [arrowhead = "odiamond"]
+Aggregation
+original_author_and_identity [ label = "{original author and identity : \l}"]
+signature [ label = "{signature : \l}"]
+original_author_and_identity -> signature  [arrowhead = "odiamond"]
+Aggregation
+
+
+R195:The system shall provide the ability to import data into the system.
+R196:The system shall provide the ability to import home physiologic monitoring data from patients.
+home_physiologic_monitoring_data [ label = "{home physiologic monitoring data : \l}"]
+physiologic_monitoring_data [ label = "{physiologic monitoring data : \l}"]
+home_physiologic_monitoring_data -> physiologic_monitoring_data  [arrowhead = "empty"]
+Generalization
+monitoring_data [ label = "{monitoring data : \l}"]
+data [ label = "{data : \l}"]
+monitoring_data -> data  [arrowhead = "empty"]
+Generalization
+
+
+R197:The system shall provide the ability to include demographic information in reports.
+ability [ label = "{ability : \l}"]
+report [ label = "{report : \l}"]
+ability -> report  [arrowhead = "odiamond"]
+Aggregation
+
+
+R198:The system shall provide the ability to incorporate paper documents from external providers into the patient record.
+paper_documents [ label = "{paper documents : \l}"]
+documents [ label = "{documents : \l}"]
+paper_documents -> documents  [arrowhead = "empty"]
+Generalization
+
+
+R199:The system shall provide the ability to index and retrieve scanned documents based on the document type, the date of the original document.
+document_type [ label = "{document type : \l}"]
+type [ label = "{type : \l}"]
+document_type -> type  [arrowhead = "empty"]
+Generalization
+date [ label = "{date : \l}"]
+original_document [ label = "{original document : \l}"]
+date -> original_document  [arrowhead = "odiamond"]
+Aggregation
+
+
+R200:The system shall provide the ability to indicate normal and abnormal results based on data provided from the original data source.
+data_source [ label = "{data source : \l}"]
+source [ label = "{source : \l}"]
+data_source -> source  [arrowhead = "empty"]
+Generalization
+
+
+R201:The system shall provide the ability to indicate that a patient has completed advance directive(s).
+patient [ label = "{patient : \l}"]
+advance_directive [ label = "{advance directive : \l}"]
+patient -> advance_directive  [arrowhead = "none", label = "indicate that a patient has completed"]
+Association
+advance_directive [ label = "{advance directive : \l}"]
+directive [ label = "{directive : \l}"]
+advance_directive -> directive  [arrowhead = "empty"]
+Generalization
+
+
+R202:The system shall provide the ability to indicate the type of advance directives, such as living will, durable power of attorney, or a Do Not Resuscitate order.
+durable_power [ label = "{durable power : \l}"]
+attorney [ label = "{attorney : \l}"]
+durable_power -> attorney  [arrowhead = "odiamond"]
+Aggregation
+Not_Resuscitate_order [ label = "{Not Resuscitate order : \l}"]
+Resuscitate_order [ label = "{Resuscitate order : \l}"]
+Not_Resuscitate_order -> Resuscitate_order  [arrowhead = "empty"]
+Generalization
+advance_directives [ label = "{advance directives : \l}"]
+directives [ label = "{directives : \l}"]
+advance_directives -> directives  [arrowhead = "empty"]
+Generalization
+Do_Not_Resuscitate_order [ label = "{Do Not Resuscitate order : \l}"]
+Not_Resuscitate_order [ label = "{Not Resuscitate order : \l}"]
+Do_Not_Resuscitate_order -> Not_Resuscitate_order  [arrowhead = "empty"]
+Generalization
+living_will [ label = "{living will : \l}"]
+will [ label = "{will : \l}"]
+living_will -> will  [arrowhead = "empty"]
+Generalization
+Resuscitate_order [ label = "{Resuscitate order : \l}"]
+order [ label = "{order : \l}"]
+Resuscitate_order -> order  [arrowhead = "empty"]
+Generalization
+type [ label = "{type : \l}"]
+advance_directive [ label = "{advance directive : \l}"]
+type -> advance_directive  [arrowhead = "odiamond"]
+Aggregation
+
+
+R203:The system shall provide the ability to indicate when advance directives were last reviewed.
+
+
+
+R204:The system shall provide the ability to individualize alerts to address a patient's specific clinical situation.
+patient [ label = "{patient |+ situation : \l}"]
+Attribuate
+
+
+R205:The system shall provide the ability to launch DICOM image viewer, may be web-based.
+DICOM_image_viewer [ label = "{DICOM image viewer : \l}"]
+image_viewer [ label = "{image viewer : \l}"]
+DICOM_image_viewer -> image_viewer  [arrowhead = "empty"]
+Generalization
+image_viewer [ label = "{image viewer : \l}"]
+viewer [ label = "{viewer : \l}"]
+image_viewer -> viewer  [arrowhead = "empty"]
+Generalization
+
+
+R206:The system shall provide the ability to link the results to the original order.
+R207:The system shall provide the ability to log outgoing information exchange in an auditable form.
+auditable_form [ label = "{auditable form : \l}"]
+form [ label = "{form : \l}"]
+auditable_form -> form  [arrowhead = "empty"]
+Generalization
+information_exchange [ label = "{information exchange : \l}"]
+exchange [ label = "{exchange : \l}"]
+information_exchange -> exchange  [arrowhead = "empty"]
+Generalization
+
+
+R208:The system shall provide the ability to maintain a coded list of problems.
+coded_list [ label = "{coded list : \l}"]
+problem [ label = "{problem : \l}"]
+coded_list -> problem  [arrowhead = "odiamond"]
+Aggregation
+
+
+R209:The system shall provide the ability to maintain a directory of all clinical personnel who currently use or access the system.
+
+who [ label = "{who : \l}"]
+system [ label = "{system : \l}"]
+who -> system  [arrowhead = "none", label = "use"]
+Association
+
+
+R210:The system shall provide the ability to maintain a directory which contains identifiers required for licensed clinicians to support the practice of medicine including at a minimum state medical license, DEA, NPI, and UPIN number.
+state_medical_license [ label = "{state medical license : \l}"]
+medical_license [ label = "{medical license : \l}"]
+state_medical_license -> medical_license  [arrowhead = "empty"]
+Generalization
+UPIN_number [ label = "{UPIN number : \l}"]
+number [ label = "{number : \l}"]
+UPIN_number -> number  [arrowhead = "empty"]
+Generalization
+practice [ label = "{practice : \l}"]
+medicine_include [ label = "{medicine include : \l}"]
+practice -> medicine_include  [arrowhead = "odiamond"]
+Aggregation
+directory [ label = "{directory : \l}"]
+identifier [ label = "{identifier : \l}"]
+directory -> identifier  [arrowhead = "none", label = "contains"]
+Association
+
+
+R211:The system shall provide the ability to maintain a history of all problems associated with a patient.
+history [ label = "{history : \l}"]
+problem [ label = "{problem : \l}"]
+history -> problem  [arrowhead = "odiamond"]
+Aggregation
+
+
+R212:The system shall provide the ability to maintain and make available historic information for demographic data including prior names, addresses, phone numbers and email addresses.
+phone_numbers [ label = "{phone numbers : \l}"]
+numbers [ label = "{numbers : \l}"]
+phone_numbers -> numbers  [arrowhead = "empty"]
+Generalization
+email_addresses [ label = "{email addresses : \l}"]
+addresses [ label = "{addresses : \l}"]
+email_addresses -> addresses  [arrowhead = "empty"]
+Generalization
+
+
+R213:The system shall provide the ability to maintain at least two names or aliases for the same patient.
+R214:The system shall provide the ability to maintain medication ordering dates.
+R215:The system shall provide the ability to maintain other dates associated with medications including start, modify, renewal and end dates as applicable.
+R216:The system shall provide the ability to maintain the onset date of the problem.
+onset_date [ label = "{onset date : \l}"]
+problem [ label = "{problem : \l}"]
+onset_date -> problem  [arrowhead = "odiamond"]
+Aggregation
+
+
+R217:The system shall provide the ability to maintain the resolution date of the problem.
+resolution_date [ label = "{resolution date : \l}"]
+problem [ label = "{problem : \l}"]
+resolution_date -> problem  [arrowhead = "odiamond"]
+Aggregation
+resolution_date [ label = "{resolution date : \l}"]
+date [ label = "{date : \l}"]
+resolution_date -> date  [arrowhead = "empty"]
+Generalization
+
+
+R218:The system shall provide the ability to merge patient information from two patient records into a single patient record.
+}

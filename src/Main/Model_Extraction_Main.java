@@ -3,13 +3,21 @@ package Main;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.List;
+
+import javax.swing.SwingUtilities;
 
 import data.Write_To_Excel;
 import gate.*;
+import gate.creole.ANNIEConstants;
+import gate.creole.ConditionalSerialAnalyserController;
+import gate.gui.MainFrame;
 import gate.util.InvalidOffsetException;
-
+import gate.util.persistence.PersistenceManager;
 import data.DOT_Graphviz_conversion;
 import data.GlobalVariables;
+import data.JSONConversion;
 import processing.Concept_Pattern;
 import processing.ExtractRelations_includingChains;
 import rules.Classes_Rules;
@@ -17,9 +25,10 @@ import rules.Relation_Rules;
 import utils.DeriveAnnotations;
 
 public class Model_Extraction_Main {
+
+	private static ConditionalSerialAnalyserController controller;
 	
-	public static void main(String [] args) throws Exception
-	{
+	public static void main(String [] args) throws Exception {
 		//Set GATE home to right location
 		File file = new File("/Applications/GATE_Developer_8.6/");
 
@@ -29,46 +38,95 @@ public class Model_Extraction_Main {
 		//prepare the GATE library
 		Gate.init();
 
-		for ( int i = 1; i <= 2; ++i) {
-			Corpus corpus = init(i);
+		controller = (ConditionalSerialAnalyserController) PersistenceManager.loadObjectFromFile(new File("resources/model8.6.gapp"));
+
+		//Corpus testCorpus = init("/Users/dujianuo/Desktop/Extracting-Domain-Model/resources/requirements.txt");
+
+		String path = "/Users/dujianuo/Desktop/Extracting-Domain-Model/resources/";
+		File resources = new File("resources");
+		File[] inputs = resources.listFiles();
+		for (File xml : inputs) {
+			if (xml.getName().endsWith(".xml") && !xml.getName().startsWith("2") || xml.getName().equals("2CCHIT.txt")) {
+
+				System.out.println("========================================");
+				System.out.println(xml.getName());
+
+				Corpus corpus = init(path + xml.getName());
+
+				GlobalVariables.setAnnotatedDoc(corpus.get(0));
+				GlobalVariables.conceptCnt = new HashMap<>();
+
+				DeriveAnnotations.DeriveAnnotations();
+
+				extractInfoFromAnnotatedDoc();
+			}
+		}
+		//Corpus testCorpus = init("/Users/dujianuo/Desktop/Extracting-Domain-Model/resources/iTrust.xml");
+
+		//GlobalVariables.setAnnotatedDoc(testCorpus.get(0));
+
+		//DeriveAnnotations.DeriveAnnotations();
+
+		//extractInfoFromAnnotatedDoc();
+
+		for (String arg : args) {
+			Corpus corpus = init(arg);
 			for (Document annoted_Doc : corpus) {
 
 				GlobalVariables.setAnnotatedDoc(annoted_Doc);
 
 				DeriveAnnotations.DeriveAnnotations();
 
-				extractInfoFromAnnotatedDoc(i);
+				extractInfoFromAnnotatedDoc();
 
 			}
 		}
 	}
-
-	private static Corpus init(int i) throws Exception
+	
+	/*
+	 * This method initializes all the gate resources and is used to execute the pipeline (defined within this method)
+	 * on the document (defined within this method)
+	 * It returns the annotated document
+	 */
+	private static Corpus init(String arg) throws Exception
 	{
 		Corpus corpus = (Corpus) Factory.createResource("gate.corpora.CorpusImpl");
-		corpus.setName("Test_Corpus");
+		corpus.setName("Corpus for " + arg);
 
-		URL docURL = new URL("file:///C:\\Users\\26309\\workspace\\Extracting-Domain-Model\\resources\\All_Annotations_OpenCossReqs.xml");
-
-		if(i == 2) {
-			docURL = new URL("file:///C:\\Users\\26309\\workspace\\Extracting-Domain-Model\\resources/iTrust.xml");
-		}
+		URL docURL = new URL("file://" + arg);
 
 		Document doc = Factory.newDocument(docURL, "UTF-8");
-		doc.setName("OpenCossReqs");
+		doc.setName(arg);
 
 	    corpus.add(doc);
 
-		return corpus;
+	    //ConditionalSerialAnalyserController controller = (ConditionalSerialAnalyserController) PersistenceManager.loadObjectFromFile(new File("resources/model8.6.gapp"));
+
+	    controller.setCorpus(corpus);
+
+	    if (arg.endsWith(".txt")) controller.execute();
+
+	    return controller.getCorpus();
+
+		//return corpus;
 	}
 	
-	private static void extractInfoFromAnnotatedDoc(int i) throws InvalidOffsetException, SecurityException, IOException
+	private static void extractInfoFromAnnotatedDoc() throws InvalidOffsetException, SecurityException, IOException
 	{				
 		Relation_Rules.extractRelations();
+		
 		Classes_Rules.classesInfo();
+		
 		ExtractRelations_includingChains.traverseRelations();
-        Concept_Pattern.Concept_Pattern();
 
+        Concept_Pattern.Concept_Pattern();
+		
+		//Classes_Rules.printAdjNPs(doc);
+		
+		String results = JSONConversion.converttoJSON();
+		
+		//DOT_Graphviz_conversion.writeDOTFile("/Users/dujianuo/Desktop/domain model/Extracting Domain Model/result/example_1.dot");
+		/*
 		if(i == 1) {
 			DOT_Graphviz_conversion.writeDOTFile("result/Partial_Annotations_OpenCossReqs.dot");
 		}
@@ -79,6 +137,14 @@ public class Model_Extraction_Main {
 		else if (i == 3) {
 			DOT_Graphviz_conversion.writeDOTFile("result/ATM_Example.dot");
 		}
+		 */
+		//String filename = "result/".concat(GlobalVariables.annotated_doc.getName());
+		String filename = GlobalVariables.annotated_doc.getName();
+		DOT_Graphviz_conversion.writeDOTFile(filename.concat(".dot"));
+		Write_To_Excel.Write_to_Excel(filename.concat(".xls"));
+
+		//System.out.println("*******************  RESULTS *************");
+		//System.out.println(results);
 	}
 
 	/*private static void extractAtomicNPs() {

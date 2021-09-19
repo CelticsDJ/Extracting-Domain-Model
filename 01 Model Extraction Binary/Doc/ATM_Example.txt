@@ -1,0 +1,25 @@
+The system must support a computerized banking network that includes both human cashiers, and ATMs. 
+
+The computerized banking network will be shared by a consortium of banks. 
+
+Each bank provides a computer that maintains the bank's accounts, and processes transactions against the accounts. 
+
+Cashier stations are owned by individual banks, and communicate directly with the bank's computers.
+
+Human cashiers enter both the account data and the transaction data. 
+
+An ATM communicates with a central computer. 
+
+The central computer clears transactions with the banks. 
+
+An ATM accepts a cash card, and interacts with the user. 
+
+An ATM communicates with the central computer to carry out transactions. 
+
+An ATM dispenses cash, and prints receipts. 
+
+The system requires appropriate record-keeping, and security provisions. 
+
+The system must handle concurrent access to the same account correctly. 
+
+The banks will provide the bank's own software for the bank's own computers.

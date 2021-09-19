@@ -1,0 +1,217 @@
+The OPENCOSS platform shall provide the users with the ability to indicate the evidence items that will have to be provided for an assurance project.
+
+The OPENCOSS platform shall provide the users with the ability to indicate the evidence types of the evidence items to be provided for an assurance project.
+
+The OPENCOSS platform shall provide users with the ability to select an existing evidence characterization model for an assurance project.
+
+The OPENCOSS platform shall store the characteristics of the evidence items of an assurance project according to the CCL.
+
+The OPENCOSS platform shall provide users with the ability to indicate the evidence type of the current evidence items of an assurance project.
+
+The OPENCOSS platform shall provide users with the ability to use in an assurance project evidence types that have been defined in another project.
+
+The OPENCOSS platform shall provide users with the ability to indicate the artefact to which evidence items of an assurance project is associated.
+
+The OPENCOSS platform shall store the CCL-information of the artefact to which an evidence item of an assurance project is associated.
+
+The OPENCOSS platform shall provide users with the ability to modify the information about the artefact to which an evidence item of an assurance project is associated.
+
+The OPENCOSS platform shall provide users with the ability to associate evidence items of an assurance project with an artefact that has been used in another project.
+
+The OPENCOSS platform shall provide users with the ability to drop evidence items of an assurance project.
+
+When a user wants to drop an evidence item from an assurance project, the OPENCOSS platform shall request confirmation from the user for this action and subsequent related actions.
+
+When an evidence item is dropped from an assurance project, the OPENCOSS platform shall drop all the evidence information (types and characteristics) related to the evidence item from the project.
+
+When an evidence item is dropped from an assurance project and its associated artefact is not associated with other evidence items, the OPENCOSS platform shall drop the artefact from the project.
+
+The OPENCOSS platform shall provide users with the ability to modify the information of the evidence items of an assurance project.
+
+The OPENCOSS platform shall provide users with the ability to copy evidence items to an assurance project that previously have been stored in another assurance project.
+
+The OPENCOSS platform shall store the time and date of the actions performed to the evidence items of an assurance project.
+
+The OPENCOSS platform shall create the evidence repository of an assurance project from its evidence characterization model.
+
+The OPENCOSS platform shall provide users with the ability to indicate whether the specification of characteristics for an evidence item of an assurance project is regarded as complete.
+
+When the specification of characteristics for an evidence item of an assurance project is regarded as complete, the OPENCOSS platform shall colour the evidence item in green.
+
+When the specification of characteristics for an evidence item of an assurance project is not regarded as complete, the OPENCOSS platform shall colour the evidence item in yellow.
+
+The OPENCOSS platform shall show the set of evidence items of an assurance projects by means of a tree-view.
+
+The OPENCOSS platform shall provide users with the ability to define intermediate nodes in the tree-view for display of the evidence items of an assurance project.
+
+The OPENCOSS platform shall provide users with the ability to modify the intermediate nodes in the tree-view for display of the evidence items of an assurance project.
+
+The OPENCOSS platform shall provide users with the ability to drop intermediate nodes in the tree-view for display of the evidence items of an assurance project.
+
+The OPENCOSS platform shall provide users with the ability to associate evidence types to the intermediate nodes of the tree-view for display of the evidence items of an assurance project.
+
+When an evidence characterization model has been selected for an assurance project, the OPENCOSS platform shall propose intermediate nodes for the tree-view for display of the evidence items of the project according to the evidence characterization model.
+
+The OPENCOSS platform shall provide users with the ability to include the evidence items of an assurance project in the structure of the tree-view for display of the evidence items of the project.
+
+When an evidence characterization model has been selected for an assurance project, the evidence items of the project are associated to evidence types, and the evidence types have been used for definition of intermediate nodes of the tree-view for display of the evidence items of the project, the OPENCOSS platform shall automatically include the evidence items of the project in the tree-view nodes of their associated evidence types.
+
+The OPENCOSS platform shall be able to generate reports about the body of evidence of an assurance project in the form of HTML files.
+
+The OPENCOSS platform shall be able to generate reports about the body of evidence of an assurance project by means of documents in PDF, RTF, and MS Word formats.
+
+The OPENCOSS platform shall provide users with the ability to indicate the information to be included in the reports about the body of evidence of an assurance project.
+
+The OPENCOSS platform shall provide users with the ability to specify evidence traceability links between evidence items of an assurance project.
+
+The OPENCOSS platform shall store the information of the evidence traceability links of an assurance project according to the CCL.
+
+The OPENCOSS platform shall provide users with the ability to define evidence traceability link types for an assurance project.
+
+The OPENCOSS platform shall provide users with the ability to reuse in an assurance project evidence traceability link types defined in another project.
+
+The OPENCOSS platform shall show the evidence items of an assurance project that are the source of evidence traceability links for which a given evidence item is the target.
+
+The OPENCOSS platform shall show the evidence items of an assurance project that are the target of evidence traceability links for which a given evidence item is the source.
+
+When an evidence characterization model has been selected for an assurance project and specifying an evidence traceability link for an evidence item of the project, the OPENCOSS platform shall indicate if the evidence traceability link is correct according to the model.
+
+When an evidence traceability link of an assurance project is not correct according to the evidence characterization model selected for the project, the OPENCOSS platform shall colour such a link in red.
+
+When an evidence characterization model has been selected for an assurance project and specifying evidence traceability links for an evidence item of the project, the OPENCOSS platform shall show possible evidence items with which evidence traceability links might be specified according to the model.
+
+The OPENCOSS platform shall provide users with the ability to drop evidence traceability links of an assurance project.
+
+When a user aims to drop an evidence traceability link of an assurance project, the OPENCOSS platform shall require confirmation of the action from the user.
+
+When an evidence item of an assurance project is the source or the target of an evidence traceability link, and the item is dropped from the project, the OPENCOSS platform shall drop the evidence traceability link from the project too.
+
+When an evidence characterization model has been selected for an assurance project, the OPENCOSS platform shall indicate the required missing links according to the model.
+
+When using matrices to show evidence traceability links between the evidence items of an assurance project, the OPENCOSS platform shall provide users with the ability to select source and target evidence types of the evidence traceability links used for another matrix.
+
+The OPENCOSS platform shall provide users with the ability to specify evidence traceability links in traceability matrices.
+
+The OPENCOSS platform shall be able to show the chains of evidence to which an evidence item of an assurance project belongs by means of models.
+
+The OPENCOSS platform shall provide users with the ability to define tables to show traceability between the evidence items of an assurance project.
+
+When showing evidence traceability by means of tables, the OPENCOSS platform shall require that the users indicate the evidence types to include in the table.
+
+The OPENCOSS platform will include a column in a table for traceability visualization for each evidence type to include in the table indicated by users.
+
+The OPENCOSS platform shall provide users with the ability to specify evidence traceability links in traceability tables.
+
+When using tables to show evidence traceability in an assurance project, the OPENCOSS platform shall provide users with the ability to select the evidence types used for another table.
+
+The OPENCOSS platform shall provide users with the ability to evaluate the evidence items of an assurance project according to evaluation criteria defined in the CCL.
+
+The OPENCOSS platform shall provide users with the ability to specify the rationale behind the evaluation of an evidence item of an assurance project.
+
+When an evidence item of an assurance project is related to other evidence items of the project by means of evidence traceability links, the OPENCOSS platform shall inform the user that the evaluation of the evidence item might depend on the evaluation of the others.
+
+The OPENCOSS platform shall provide users with the ability to define criteria for evaluation of evidence items of an assurance project.
+
+The OPENCOSS platform shall provide users with the ability to modify criteria for evaluation of evidence items of an assurance project.
+
+The OPENCOSS platform shall provide users with the ability to evaluate evidence items of an assurance project according to evaluation criteria defined in other projects.
+
+The OPENCOSS platform shall provide users with the ability to define evaluation categories for evaluation criteria of evidence items of an assurance project.
+
+The OPENCOSS platform shall provide users with the ability to modify the evaluation categories defined for evaluation criteria of evidence items of an assurance project.
+
+The OPENCOSS platform shall provide users with the ability to evaluate evidence items of an assurance project with evaluation categories for evaluation criteria defined in other projects.
+
+The OPENCOSS platform shall provide users with the ability to modify the evaluation of the evidence items of an assurance project, tracking the history of the changes.
+
+The OPENCOSS platform shall provide users with the ability to specify actions required in the body of evidence of an assurance project as a result of evidence evaluation.
+
+The OPENCOSS platform shall provide users with the ability to send emails containing information about actions to perform in an assurance project as a result of evidence evaluation.
+
+The OPENCOSS platform shall provide users with the ability to indicate the evidence items associated to actions required in the body of evidence of an assurance project as a result of an evidence evaluation.
+
+When an evidence item of an assurance project has been associated to actions to perform as a result of evidence evaluation, the OPENCOSS platform shall colour such an evidence item in red.
+
+The OPENCOSS platform shall record if the status of an action required in an assurance project as a result of evidence evaluation is "pending" or "addressed".
+
+The OPENCOSS platform shall show the actions required in an assurance project as a result of evidence evaluation.
+
+The OPENCOSS platform shall provide users with the ability to indicate if an action required in an assurance project as a result of evidence evaluation has been addressed.
+
+When the status of an action required in an assurance project as a result of evidence evaluation is "pending", the OPENCOSS platform shall colour such an action in red.
+
+When all the evidence items to provide in an assurance project has been provided according to the evidence characterization model of the project, the OPENCOSS platform shall indicate that the body of evidence of an assurance project can be regarded as complete.
+
+When the body of evidence of an assurance project is regarded as complete, all the evidence traceability links of the project are correct, there are no pending actions in the project, and the information imported from external tools in the project is synchronized, the OPENCOSS platform shall indicate that the body of evidence of an assurance project can be regarded as adequate.
+
+When an evidence item is changed in an assurance project, the OPENCOSS platform shall indicate the evidence items of the assurance project affected by the change.
+
+When an evidence item is modified in an assurance project, the OPENCOSS platform shall indicate the evidence traceability links of the assurance project affected by the modification.
+
+When an evidence item is changed in an assurance project and other evidence items are affected, the OPENCOSS platform shall require confirmation of the changes from the user.
+
+When a user has indicated a possible change in an evidence item of an assurance project, the OPENCOSS platform shall indicate the evidence items of the assurance project that would be affected by the change.
+
+The OPENCOSS platform shall provide users with the ability to specify actions required in the body of evidence of an assurance project as a result of an evidence item change.
+
+The OPENCOSS platform shall provide users with the ability to indicate the evidence items associated to actions required in the body of evidence of an assurance project as a result of an evidence item change.
+
+The OPENCOSS platform shall provide users with the ability to indicate the evidence traceability links associated to actions required in the body of evidence of an assurance project as a result of an evidence item change.
+
+The OPENCOSS platform shall suggests actions to perform after modification of an evidence item of an assurance project is approved.
+
+The OPENCOSS platform shall provide users with the ability to send emails containing information about actions to perform in an assurance project as a result of evidence item changes.
+
+The OPENCOSS platform shall record if the status of an action required in an assurance project as a result of the change of an evidence item is "pending" or "addressed".
+
+The OPENCOSS platform shall show the actions required in an assurance project as a result of evidence item changes.
+
+The OPENCOSS platform shall provide users with the ability to indicate if an action required in an assurance project as a result of the change of an evidence item has been addressed.
+
+When the status of an action required in an assurance project as a result of evidence item changes is "pending", the OPENCOSS platform shall colour such an action in red.
+
+When an evidence item of an assurance project has been affected by evidence item changes, the OPENCOSS platform shall colour such an evidence item in red.
+
+When an evidence traceability link of an assurance project has been affected by evidence item changes, the OPENCOSS platform shall colour such a link in red.
+
+The OPENCOSS platform shall provide users with the ability to import evidence items for an assurance project from artefacts in an external tool.
+
+The OPENCOSS platform shall be able to automatically associate an artefact in an external tool to an evidence item of an assurance project imported from the external tool.
+
+The OPENCOSS platform shall be able to automatically indicate the tool that stores the artefact associated to an evidence item of an assurance project imported from external tool.
+
+The OPENCOSS platform shall provide users with the ability to import evidence traceability links for an assurance project from an external tool.
+
+The OPENCOSS platform shall be able to automatically associate an artefact to an evidence traceability link of an assurance project imported from an external tool.
+
+The OPENCOSS platform shall be able to automatically indicate the tool that stores the artefact associated to an evidence traceability link of an assurance project imported from an external tool.
+
+The OPENCOSS platform shall be able to export evidence traceability links of an assurance project to external tools.
+
+The OPENCOSS shall be able to import evidence for an assurance project from SAEM models.
+
+The OPENCOSS platform shall be able to export the evidence of an assurance project in the form of a SAEM models.
+
+When an evidence item of an assurance project contains information imported from an external tool artefact, and the information in the external tool is modified, the OPENCOSS platform shall detect such a modification and update the evidence item accordingly.
+
+When an evidence item of an assurance project contains information imported from an external tool, and the information in the OPENCOSS platform is modified, the OPENCOSS platform shall detect such a modification and update the information in the external tool accordingly.
+
+When an evidence item of an assurance project contains information imported from an external tool, and the information in the OPENCOSS platform is modified, the OPENCOSS platform shall indicate such a modification.
+
+When an evidence item of an assurance project contains information imported from an external tool, and the information in the external tool is modified, the OPENCOSS platform shall indicate such a modification.
+
+When an evidence item of an assurance project contains information imported from an external tool, and the information in the OPENCOSS platform is modified, the OPENCOSS platform shall indicate such a modification by colouring the evidence item in red.
+
+When an evidence item of an assurance project contains information imported from an external tool, and the information in the external tool is modified, the OPENCOSS platform shall indicate such a modification by colouring the evidence item in red.
+
+When an evidence traceability link of an assurance project contains information imported from an external tool, and the information in the external tool is modified, the OPENCOSS platform shall detect such a modification and update the evidence traceability link accordingly.
+
+When an evidence traceability link of an assurance project contains information imported from an external tool, and the information in the OPENCOSS platform is modified, the OPENCOSS platform shall detect such a modification and update the information in the external tool accordingly.
+
+When an evidence traceability link of an assurance project contains information imported from an external tool, and the information in the OPENCOSS platform is modified, the OPENCOSS platform shall indicate such a modification.
+
+When an evidence traceability link of an assurance project contains information imported from an external tool, and the information in the external tool is modified, the OPENCOSS platform shall indicate such a modification.
+
+When an evidence traceability link of an assurance project contains information imported from an external tool, and the information in the OPENCOSS platform is modified, the OPENCOSS platform shall indicate such a modification by colouring the evidence traceability link in red.
+
+When an evidence traceability link of an assurance project contains information imported from an external tool, and the information in the external tool is modified, the OPENCOSS platform shall indicate such a modification by colouring the evidence traceability link in red.

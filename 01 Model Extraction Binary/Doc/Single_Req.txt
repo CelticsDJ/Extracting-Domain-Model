@@ -1,0 +1,1 @@
+If the scenario execution is finished then the simulator shall send execution log messages to MOC via syslog.

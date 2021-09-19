@@ -21,6 +21,8 @@ import utils.StringQuadruple;
 import utils.StringTuple;
 import utils.Utilities;
 
+import static data.GlobalVariables.conceptCnt;
+
 public class ExtractRelations_includingChains {
 	
 	private static int num_Objects = 0;
@@ -142,7 +144,7 @@ public class ExtractRelations_includingChains {
 
 		boolean provide_pattern = false;
 
-		if(rel.getRelationChains().get(0).getB().contains("provide")) {
+		if(rel.getRelationChains().size() > 2 && rel.getRelationChains().get(0).getB().contains("provide") && rel.getRelationChains().get(1).getB().contains("user") && rel.getRelationChains().get(2).getB().contains("ability")) {
 			provide_pattern = true;
 		}
 
@@ -172,10 +174,14 @@ public class ExtractRelations_includingChains {
 					}*/
 
 					if (rel_chain.getDepth() == 0 || rel_chain.getDepth() == rel_depth_bound || rel_chain.getD().equals("JJ")) {
-						Association_Relation association = Utilities.formRelations(subj_chain.getC(), objStr, subj_chain.getD(), obj_chain.getD(), (subj_chain.getB() + " " + rel_chain.getB() + " " + obj_chain.getB() + " " + rel_chain.getA() + " " + rel_chain.getC()).replace("  ", " ").replace("  ", " ").replace("  ", " ").trim(), isXcomp, "Association");
+						String relstr = (subj_chain.getB() + " " + rel_chain.getB() + " " + obj_chain.getB() + " " + rel_chain.getA() + " " + rel_chain.getC()).replace("  ", " ").replace("  ", " ").replace("  ", " ").trim();
+						if (relstr.startsWith("of") || relstr.startsWith("from")) return;
+						Association_Relation association = Utilities.formRelations(subj_chain.getC(), objStr, subj_chain.getD(), obj_chain.getD(), relstr, isXcomp, "Association");
 						addRelation(association);
 					} else {
-						Association_Relation association = Utilities.formRelations(subj_chain.getC(), rel_chain.getC(), subj_chain.getD(), obj_chain.getD(), (subj_chain.getB() + " " + rel_chain.getB() + " " + obj_chain.getB() + " " + rel_chain.getA()).replace(verbStr, verbStr + " " +  objStr).replace("  ", " ").replace("  ", " ").replace("  ", " ").trim(), isXcomp, "Association");
+						String relstr = (subj_chain.getB() + " " + rel_chain.getB() + " " + obj_chain.getB() + " " + rel_chain.getA()).replace(verbStr, verbStr + " " +  objStr).replace("  ", " ").replace("  ", " ").replace("  ", " ").trim();
+						if (relstr.startsWith("of") || relstr.startsWith("from")) return;
+						Association_Relation association = Utilities.formRelations(subj_chain.getC(), rel_chain.getC(), subj_chain.getD(), obj_chain.getD(), relstr, isXcomp, "Association");
 						addRelation(association);
 					}
 				}
@@ -192,7 +198,9 @@ public class ExtractRelations_includingChains {
 							continue;
 						}*/
 
-						Association_Relation association = Utilities.formRelations(subj_chain.getC(), obj_chain.getC(), subj_chain.getD(), obj_chain.getD(), (subj_chain.getB() + " " + rel_chain.getB() + " " + obj_chain.getB() + " " + rel_chain.getA() + " " + rel_chain.getC()).replace("  ", " ").replace("  ", " ").replace("  ", " ").trim(), isXcomp, "Association");
+						String relstr = (subj_chain.getB() + " " + rel_chain.getB() + " " + obj_chain.getB() + " " + rel_chain.getA() + " " + rel_chain.getC()).replace("  ", " ").replace("  ", " ").replace("  ", " ").trim();
+						if (relstr.startsWith("of") || relstr.startsWith("from")) return;
+						Association_Relation association = Utilities.formRelations(subj_chain.getC(), obj_chain.getC(), subj_chain.getD(), obj_chain.getD(), relstr, isXcomp, "Association");
 						addRelation(association);
 					}
 				}
@@ -557,6 +565,14 @@ public class ExtractRelations_includingChains {
 		}
 
 		Concept_Relation rel = (Concept_Relation) relObj;
+
+		if (rel.getClass().toString().contains("Association_Relation")) {
+			Association_Relation association = (Association_Relation) rel;
+			String source = rel.getSource().getName(), target = rel.getTarget().getName();
+			conceptCnt.put(source, conceptCnt.getOrDefault(source, 0) + 1);
+			conceptCnt.put(target, conceptCnt.getOrDefault(target, 0) + 1);
+		}
+
 		HashSet<Concept_Relation> relations = hashmap_reqId_Relations.get("R"+reqId);
 		if(relations == null)
 		{		

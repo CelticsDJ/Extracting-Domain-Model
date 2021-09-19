@@ -18,18 +18,18 @@ public class Classes_Rules {
 	
 	public static HashSet<String> set_Concepts = new HashSet<String>();
 	private static Document annotatedDoc;
-	private static AnnotationSet inputAS;
+	private static AnnotationSet annotationSet;
 	
 	public static void classesInfo() throws InvalidOffsetException
 	{
 		//Declarations
 		Classes_Rules.annotatedDoc = GlobalVariables.annotated_doc;
-		inputAS = annotatedDoc.getAnnotations();
+		annotationSet = annotatedDoc.getAnnotations();
 
-		AnnotationSet NPset = inputAS.get("Parse_NP");
+		AnnotationSet NPset = annotationSet.get("Parse_NP");
 		List<Annotation> NPs = Utils.inDocumentOrder(NPset);
 		AnnotationSet tmp = annotatedDoc.getAnnotations();
-		String [] acceptable_dependencies = {"rcmod", "prep", "nmod", "acl", "dep"};
+		String [] acceptable_dependencies = {"rcmod", "prep", "nmod", "acl", "advcl", "dep", "appos"};
 		
 		/*
 		 * Traverse through all the Parse_NPs 
@@ -40,48 +40,78 @@ public class Classes_Rules {
 			FeatureMap updatedFeatures = Factory.newFeatureMap();
 			
 			//Maintain a set of all concepts
-			set_Concepts.add((String) NP_features.get("pruned_string").toString());
+			set_Concepts.add(NP_features.get("pruned_string").toString());
 			
 			//@SuppressWarnings("unchecked")
 			List<DependencyRelation> list_dependencies = (NP_features.get("dependencies") == null)?new ArrayList<>():(List<DependencyRelation>) NP_features.get("dependencies");
 						
-			if(list_dependencies.size() > 0)
-				{
-					List<DependencyRelation> nmods = new ArrayList<>();
-					for(DependencyRelation dep : list_dependencies) {
-						if(dep.getType().equals("nmod")) {
-							nmods.add(dep);
-						}
-					}
-					if(nmods.size() > 1) {
-						Annotation nextNP = annotatedDoc.getAnnotations().get(Utilities.getMapped_NP(annotatedDoc, nmods.get(0).getTargetId()));
-						List<DependencyRelation> updateDeps = (List<DependencyRelation>) nextNP.getFeatures().get("dependencies");
-						for(int i = 1; i < nmods.size(); ++i) {
-							if(getMapped_NP(annotatedDoc, nmods.get(i).getTargetId()) > nextNP.getId()) {
-								updateDeps.add(nmods.get(i));
-							}
-						}
-						nextNP.getFeatures().replace("dependencies", updateDeps);
-					}
-
-					for(DependencyRelation rel: list_dependencies)
-					{
-						if(Arrays.stream(acceptable_dependencies).parallel().anyMatch(rel.getType()::contains)) //Java 8 stream API
-						{
-							if(rel.getType().equals("dep") && NP_features.get("pruned_string").equals("ability")) {
-								rel.setType("acl");
-							}
-
-							//暂时不处理nmod:poss
-							if(rel.getType().equals("nmod:poss") || rel.getType().equals("acl:relcl")) {
-								continue;
-							}
-
-							updatedFeatures.put("FD_" + rel.getType(), Utilities.getMapped_NP(annotatedDoc, rel.getTargetId())); //Mark forward dependencies
-							buildChains(rel, NP);
-						}						
+			if(list_dependencies.size() > 0) {
+				List<DependencyRelation> nmods = new ArrayList<>();
+				for(DependencyRelation dep : list_dependencies) {
+					if(dep.getType().equals("nmod")) {
+						nmods.add(dep);
 					}
 				}
+				if(nmods.size() > 1) {
+					Annotation nextNP = annotatedDoc.getAnnotations().get(Utilities.getMapped_NP(annotatedDoc, nmods.get(0).getTargetId()));
+					List<DependencyRelation> updateDeps = (List<DependencyRelation>) nextNP.getFeatures().get("dependencies");
+					updateDeps = updateDeps == null ? new ArrayList<>() : updateDeps;
+					for(int i = 1; i < nmods.size(); ++i) {
+						if(getMapped_NP(annotatedDoc, nmods.get(i).getTargetId()) > nextNP.getId()) {
+							updateDeps.add(nmods.get(i));
+						}
+					}
+					nextNP.getFeatures().replace("dependencies", updateDeps);
+				}
+
+				for(DependencyRelation rel: list_dependencies) {
+
+					if(Arrays.stream(acceptable_dependencies).parallel().anyMatch(rel.getType()::contains)) { //Java 8 stream API
+						if(rel.getType().equals("dep") && NP_features.get("pruned_string").equals("ability")) {
+							rel.setType("acl");
+						}
+
+						//暂时不处理nmod:poss
+						else if(rel.getType().equals("nmod:poss") || rel.getType().equals("acl:relcl")) {
+							continue;
+						}
+
+						else if (rel.getType().equals("conj") || rel.getType().equals("appos")) {
+							int NP_id = Utilities.getMapped_NP(annotatedDoc, rel.getTargetId());
+							if (NP_id != NP.getId()) {
+								FeatureMap tmpMap = NP.getFeatures();
+								try {
+									Annotation annotation = null;
+									try {
+										//System.out.println("try to find '('");
+										annotation = annotationSet.get(rel.getTargetId() - 2);
+										//System.out.println(annotation);
+									} catch (Exception e) {
+										//System.out.println("',', not '('");
+									}
+									//System.out.println("after finding '(");
+									if (annotation == null || annotation.getType().equals("SpaceToken")) {
+										//System.out.println("'(' not found");
+										String newStr = tmpMap.get("pruned_string") + " and " + annotationSet.get(NP_id).getFeatures().get("pruned_string");
+										tmpMap.put("pruned_string", newStr);
+									}
+									else if (annotation.getFeatures().get("string").toString().equals("(")) {
+										//System.out.println("'(' is found");
+										String newStr = tmpMap.get("pruned_string") + " " + annotationSet.get(NP_id).getFeatures().get("pruned_string");
+										tmpMap.put("pruned_string", newStr);
+									}
+								} catch (Exception e) {
+									System.out.println("dep conj parse fault");
+								}
+							}
+						}
+
+
+						updatedFeatures.put("FD_" + rel.getType(), Utilities.getMapped_NP(annotatedDoc, rel.getTargetId())); //Mark forward dependencies
+						buildChains(rel, NP);
+					}
+				}
+			}
 			/*
 			 * Add a new Annotation - Classes
 			 */
@@ -119,7 +149,7 @@ public class Classes_Rules {
 		Integer target_id = rel.getTargetId();
 		String relation = "";
 
-		if(rel.getType().equals("acl")) {
+		if(rel.getType().equals("acl") || rel.getType().equals("advcl")) {
 
 			Annotation VB = annotatedDoc.getAnnotations().get(target_id);
 
@@ -127,37 +157,42 @@ public class Classes_Rules {
 
 			List<DependencyRelation> dependencies = (List<DependencyRelation>)VB.getFeatures().get("dependencies");
 
-			for(DependencyRelation dep : dependencies) {
+			try {
 
-				if(dep.getType().equals("dobj")) {
-					target_id = dep.getTargetId();
-				}
+				for (DependencyRelation dep : dependencies) {
 
-				if(dep.getType().equals("case") || dep.getType().equals("mark")) {
-					relation = annotatedDoc.getAnnotations().get(dep.getTargetId()).getFeatures().get("string").toString().concat(" ").concat(relation);
-				}
-
-				if(dep.getType().equals("nmod")) {
-
-					boolean flag = false;
-					for(DependencyRelation dep2 : dependencies) {
-						if(dep2.getType().equals("dobj")) {
-							target_id = dep2.getTargetId();
-							flag = true;
-							break;
-						}
+					if (dep.getType().equals("dobj")) {
+						target_id = dep.getTargetId();
 					}
 
-					if(flag && getMapped_NP(annotatedDoc, dep.getTargetId()) != getMapped_NP(annotatedDoc, target_id)) {
-						try {
-							List<DependencyRelation> updateDeps = (List<DependencyRelation>) annotatedDoc.getAnnotations().get(getMapped_NP(annotatedDoc, target_id)).getFeatures().get("dependencies");
-							updateDeps.add(dep);
-							annotatedDoc.getAnnotations().get(target_id).getFeatures().replace("dependencies", updateDeps);
-						}catch (Exception e) {
-							System.out.println(e);
+					if (dep.getType().equals("case") || dep.getType().equals("mark")) {
+						relation = annotatedDoc.getAnnotations().get(dep.getTargetId()).getFeatures().get("string").toString().concat(" ").concat(relation);
+					}
+
+					if (dep.getType().equals("nmod")) {
+
+						boolean flag = false;
+						for (DependencyRelation dep2 : dependencies) {
+							if (dep2.getType().equals("dobj")) {
+								target_id = dep2.getTargetId();
+								flag = true;
+								break;
+							}
+						}
+
+						if (flag && getMapped_NP(annotatedDoc, dep.getTargetId()) != getMapped_NP(annotatedDoc, target_id)) {
+							try {
+								List<DependencyRelation> updateDeps = (List<DependencyRelation>) annotatedDoc.getAnnotations().get(getMapped_NP(annotatedDoc, target_id)).getFeatures().get("dependencies");
+								updateDeps.add(dep);
+								annotatedDoc.getAnnotations().get(target_id).getFeatures().replace("dependencies", updateDeps);
+							} catch (Exception e) {
+								System.out.println(e);
+							}
 						}
 					}
 				}
+			} catch (Exception e) {
+				System.out.println("no deps");
 			}
 		}
 
@@ -197,12 +232,15 @@ public class Classes_Rules {
 			System.out.println(target + " " + rel.getType() + " " + target);
 		}
 
-		Utilities.addAnnotation(annotatedDoc, NP, inputAS.get(target_cl.getID()), features, "Chain_1");
+		Utilities.addAnnotation(annotatedDoc, NP, annotationSet.get(target_cl.getID()), features, "Chain_1");
 
 		if(relation.equals("of") || relation.equals("from") || relation.contains("include")) {
 			if(relation.contains("include")) {
 				Annotation VB = annotatedDoc.getAnnotations().get(target_id);
 				List<DependencyRelation> dependencies = (List<DependencyRelation>) VB.getFeatures().get("dependencies");
+
+				if (dependencies == null) return;
+
 				for(DependencyRelation dep : dependencies) {
 					if(dep.getType().equals("nmod")) {
 						target_id = dep.getTargetId();

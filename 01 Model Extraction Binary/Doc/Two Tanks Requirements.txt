@@ -1,0 +1,132 @@
+Tank 1 shall not overflow.
+
+Tank 2 shall not overflow.
+
+The initial liquid height Tank 1 shall be known to the control system.
+
+The initial liquid height Tank 2 shall be known to the control system.
+
+The height of the tank 1 liquid shall not be over the tank 1 high safety level for more than the specified time. This specified time is dependent on the flowrate per timestep.
+
+The height of the tank 1 liquid shall not be lower than the tank 1 low safety level (once it has already crossed it) for more than the specified time. This specified time is dependent on the flowrate per timestep.
+
+The height of the tank 2 liquid shall not be over the tank 2 high safety level for more than the specified time. This specified time is dependent on the flowrate per timestep.
+
+The height of the tank 2 liquid shall not be lower than the tank 2 low safety level (once it has already crossed it) for more than the specified time. This specified time is dependent on the flowrate per timestep.
+
+The tank 1 HIGH sensor is physically placed at a greater height (above) the tank 1 LOW sensor.
+
+The tank 2 HIGH sensor is physically placed at a greater height (above) the tank 2 MID sensor.
+
+The tank 2 MID sensor is physically placed at a greater height (above) the tank 2 LOW sensor.
+
+The sensor outputs shall initially be false.
+
+If the tank 1 liquid height is greater than or equal to the sensor height of the tank 1 HIGH liquid sensor then the sensor should return an active (TRUE) state to the system.
+
+If the tank 1 liquid height is below (less than) the placement height of the tank 1 HIGH liquid sensor then the sensor should return a (FALSE) state to the system.
+
+If the tank 1 liquid height is greater than or equal to the placement height of the tank 1 LOW liquid sensor then the sensor should return an active (TRUE) state to the system.
+
+If the tank 1 liquid height is below (less than) the placement height of the tank 1 LOW liquid sensor then the sensor should return a (FALSE) state to the system.
+
+If the tank 2 liquid height is greater than or equal to the placement height of the tank 2 HIGH liquid sensor then the sensor should return an active (TRUE) state to the system.
+
+If the tank 2 liquid height is below (less than) the placement height of the tank 2 HIGH liquid sensor then the sensor should return a (FALSE) state to the system.
+
+If the tank 2 liquid height is greater than or equal to the placement height of the tank 2 MID liquid sensor then the sensor should return an active (TRUE) state to the system.
+
+If the tank 2 liquid height is below (less than) the placement height of the tank 2 MID liquid sensor then the sensor should return a (FALSE) state to the system.
+
+If the tank 2 liquid height is greater than or equal to the placement height of the tank 2 LOW liquid sensor then the sensor should return an active (TRUE) state to the system.
+
+If the tank 2 liquid height is below (less than) the placement height of the tank 2 LOW liquid sensor then the sensor should return a (FALSE) state to the system.
+
+The tank 1 is initially empty or below the low tank 1 liquid height sensor. If the tank is not empty the liquid height must be known to the system.
+
+The tank 1 change in liquid volume for each timestep is limited by the maximum inflow and outflow for each timestep.
+
+The tank 1 resulting liquid height for each timestep is dependent on the liquid height in the previous timestep plus the additional liquid height defined by the net flow rate from the state of the pump and the valve and the cross-sectional area of tank 1.
+
+When the tank 1 pump is ON and the valve is CLOSED the liquid height in the tank shall increase from the previous timestep.
+
+When the tank 1 pump is OFF and the valve is OPEN the liquid height in the tank shall decrease from the previous timestep.
+
+When the tank 1 pump is OFF that the valve is CLOSED the liquid height in the tank shall remain equivalent to the liquid height from the previous timestep.
+
+When the pump is ON there should be inflow into the tank 1.
+
+When the pump is OFF there should be NO inflow into tank 1.
+
+When the tank 1 valve is OPEN the flow rate shall be equal to the physical maximum flow rate of the valve.
+
+When the tank 1 valve is CLOSED the flow rate of the valve shall be zero.
+
+Tank 2 is initially empty or below the tank 2 low liquid height sensor. If the tank is not empty the liquid height must be known to the system.
+
+The tank 2 change in liquid volume for each timestep is limited by the maximum inflow and outflow for each timestep.
+
+The resulting tank 2 liquid height for each timestep is a function of the liquid height in the previous timestep, the additional liquid height as defined by the net flow rate from the state of the inflow valve from tank 1 and tank 2 outflow valves (production and emergency), and the cross-sectional area.
+
+When the tank 1 valve is OPEN and the tank 2 outflow valves (emergency and production) are CLOSED the liquid height in tank 2 shall increase from the previous timestep.
+
+When the tank 1 valve is OPEN, the tank 2 production valve is OPEN, and the tank 2 emergency valve is CLOSED the liquid height in tank 2 shall increase from the previous timestep.
+
+When the tank 1 valve is OPEN, the tank 2 production valve is CLOSED, and the tank 2 emergency valve is OPEN the liquid height in tank 2 shall decrease from the previous timestep.
+
+When the tank 1 valve is CLOSED that the tank 2 valves (production and emergency) are CLOSED the liquid height in tank 2 shall remain the same from the previous timestep.
+
+When the tank 2 production valve is OPEN there should be an outflow equal to that of the max production flow.
+
+When the tank 2 production valve is CLOSED there should be no flow from that valve.
+
+When the tank 2 emergency valve is OPEN there should be an outflow equal to that of the max emergency output flow.
+
+When the tank 2 emergency valve is CLOSED there should be no flow from that valve.
+
+When the tank 1 LOW liquid sensor is FALSE, the tank 1 pump shall be ON and the tank 1 outflow valve shall be CLOSED.
+
+When the tank 1 HIGH liquid sensor is TRUE, the tank 1 pump shall be OFF and the tank 1 outflow valve shall be OPEN.
+
+When the tank 1 HIGH liquid sensor is FALSE and the tank 1 LOW liquid sensor is TRUE then the tank 1 pump and the tank 1 outflow valve shall maintain the states they were set to in the previous timestep.
+
+When the system is initially started the tank 2 production valve shall be CLOSED. The system should do was required.
+
+When the system is initially started the tank 2 production valve shall be CLOSED.
+
+When the system is initially started the tank 2 emergency valve shall be CLOSED.
+
+When the tank 2 LOW sensor is FALSE, the emergency valve and the production valve (outflow valves) shall be commanded to be CLOSED.
+
+When the tank 2 LOW sensor is TRUE and the tank 2 MID sensor is FALSE, then emergency valve shall be commanded to be CLOSED and the production valve shall be commanded to be OPEN.
+
+When the tank 2 HIGH sensor is TRUE, the emergency valve and the production valve (outflow valves) shall be commanded to be OPEN.
+
+When the tank 2 MID sensor is TRUE, the tank 2 HIGH sensor is FALSE, and the emergency valve was previously open, then the emergency valve and the production valve (outflow valves) shall be commanded to be OPEN.
+
+When the tank 2 MID sensor is TRUE, the tank 2 HIGH sensor is FALSE, and the emergency valve was not previously open, then the emergency valve shall remain commanded CLOSED and the production valve shall be commanded to be OPEN.
+
+The Tank 1 Previous Height shall initially be the specified initial value.
+
+The Tank 2 Previous Height shall initially be the specified initial value.
+
+The Previous Pump State shall initially be the specified initial value.
+
+The Previous Valve State shall initially be the specified initial value.
+
+The Previous Production Valve State shall initially be the specified initial value.
+
+The Previous Emergency Valve State shall initially be the specified initial value.
+
+After the initial time step, the Tank 1 Previous Height shall be equal to the Tank 1 Height in the previous step.
+
+After the initial time step, the Tank 2 Previous Height shall be equal to the Tank 2 Height in the previous step.
+
+After the initial time step, the Previous Pump State shall be equal to the Pump State in the previous step.
+
+After the initial time step, the Previous Valve State shall be equal to the Valve State in the previous step
+
+After the initial time step, the Previous Production Valve State shall be equal to the Production Valve State in the previous step.
+
+After the initial time step, the Previous Emergency Valve State shall be equal to the Emergency Valve State in the previous step.
+

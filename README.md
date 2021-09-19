@@ -1,10 +1,6 @@
 # Extracting-Domain-Model
-Extracting Domain Model from NL Requirements
+Environment
 
----
+GATE 8.6 (https://gate.ac.uk), set GATE home to right location in main
 
-## NLP Tools
-
-Gate API 8.4 or later 
-
-
+Java 8 at least
